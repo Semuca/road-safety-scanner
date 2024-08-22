@@ -1,1 +1,1 @@
-from . import uploadFile, queryGPT
+__all__ = ['uploadFile', 'queryGPT']

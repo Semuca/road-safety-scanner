@@ -9,5 +9,8 @@ Finally, the environment can be exported with `micromamba env export > environme
 
 Instructions for installing micromamba are here: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
 
+### Linting
+This project uses ruff to lint. Make sure `ruff check` returns no errors before making a pull request
+
 ### Using APIs
 API keys should be read from your environment variables, and can be added to the program via the constants.py file

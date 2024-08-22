@@ -1,1 +1,1 @@
-from . import downloadJournals, getJournals
+__all__ = ['downloadJournals', 'getJournals']
