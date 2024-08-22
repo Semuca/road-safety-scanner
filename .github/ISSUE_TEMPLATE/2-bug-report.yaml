@@ -1,0 +1,18 @@
+name: Bug report
+description: Report a bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Reproduction steps
+        1. First you do this...
+        2. Then you do that...
+        3. [BUG] Then this part does not do x/y/z.
+
+        ## Expected functionality
+        3. I expected this to happen...
+
+        Criticality:
+        - [ ] High
+        - [ ] Medium
+        - [ ] Low
