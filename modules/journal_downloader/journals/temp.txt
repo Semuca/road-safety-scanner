@@ -1,1 +1,0 @@
-TODO: Add temporary developer journals to folder. Then, add the journal folder to the gitignore
