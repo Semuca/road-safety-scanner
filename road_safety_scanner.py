@@ -1,4 +1,4 @@
-from modules import *
+from modules import exporter, journal_downloader, llm
 
 # Boilerplate gui display- to be adjusted
 
