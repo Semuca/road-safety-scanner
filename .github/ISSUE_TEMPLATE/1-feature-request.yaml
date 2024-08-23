@@ -1,0 +1,9 @@
+name: Feature Request
+description: Add a feature request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Description
+
+        ## Prerequisites

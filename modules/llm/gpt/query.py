@@ -1,5 +1,9 @@
 # Make queries to the GPT-4.0 mini API
 
+import os
+
+GPT_API_KEY = os.environ.get('GPT_API_KEY')
+
 def uploadFile(file: str) -> None:
     """
     Uploads a file to the GPT-4.0 API.

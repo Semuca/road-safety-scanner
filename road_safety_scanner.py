@@ -1,4 +1,4 @@
-from modules import journal_downloader, llm, exporter
+from modules import exporter, journal_downloader, llm
 
 # Boilerplate gui display- to be adjusted
 
@@ -17,7 +17,7 @@ frm.Show()
 # Start the event loop.
 app.MainLoop()
 
-journals = journal_downloader.downloadJournals("trucks")
+journals = journal_downloader.downloadJournals("KEY(trucks)")
 journalsWithResponses = []
 for journal in journals:
     llm.uploadFile(journal)
