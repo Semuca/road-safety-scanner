@@ -1,6 +1,6 @@
 from PySide6 import QtWidgets
 
-from modules import core, exporter, journal_downloader, llm
+from modules import core#, exporter, journal_downloader, llm
 
 def pageGenerator():
     return [
