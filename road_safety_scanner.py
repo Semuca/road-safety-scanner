@@ -1,27 +1,23 @@
-from modules import exporter, journal_downloader, llm
+from PySide6 import QtWidgets
 
-# Boilerplate gui display- to be adjusted
+from modules import core, exporter, journal_downloader, llm
 
-# First things, first. Import the wxPython package.
-import wx
+def pageGenerator():
+    return [
+        core.Page("Home", QtWidgets.QLabel("Home Content")),
+        core.Page("Profile", QtWidgets.QLabel("Profile Content")),
+        core.Page("Settings", QtWidgets.QLabel("Settings Content")),
+        core.Page("About", QtWidgets.QLabel("About Content"))
+    ]
 
-# Next, create an application object.
-app = wx.App()
+core.setupApp(pageGenerator)
 
-# Then a frame.
-frm = wx.Frame(None, title="Hello World")
+# General concept:
+# journals = journal_downloader.downloadJournals("KEY(trucks)")
+# journalsWithResponses = []
+# for journal in journals:
+#     llm.uploadFile(journal)
+#     response = llm.queryGPT("Is this journal relevant?")
+#     journalsWithResponses.append((journal, response))
 
-# Show it.
-frm.Show()
-
-# Start the event loop.
-app.MainLoop()
-
-journals = journal_downloader.downloadJournals("KEY(trucks)")
-journalsWithResponses = []
-for journal in journals:
-    llm.uploadFile(journal)
-    response = llm.queryGPT("Is this journal relevant?")
-    journalsWithResponses.append((journal, response))
-
-exporter.exportToExcel(exporter.journalResponsesToDataFrame(journalsWithResponses))
+# exporter.exportToExcel(exporter.journalResponsesToDataFrame(journalsWithResponses))

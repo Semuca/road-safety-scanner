@@ -1,7 +1,7 @@
 ### Environment setup
 Using micromamba you should be able to read the environment.yaml file as `micromamba env create -f environment.yaml`.
 
-You should then be able to activate the environment with `micromamba activate`.
+You should then be able to activate the environment with `micromamba activate rsas_env`.
 
 Then, packages can be added with `micromamba install -c conda-forge x`
 
