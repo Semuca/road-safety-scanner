@@ -116,7 +116,7 @@ class MainWindow(QMainWindow):
         print(authorName)
         self.ui.setFiltersPage.setVisible(False)
 
-        return authorName, publishDate, keyWordsList, setting
+        return userQuery, authorName, publishDate, keyWordsList, setting
 
     def selectAI(self):
         """Set the API key for the GPT model."""
