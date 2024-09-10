@@ -107,11 +107,13 @@ class MainWindow(QMainWindow):
         self.ui.processJournalsButton.clicked.connect(self.getFilters)
     
     def getFilters(self):
+        userQuery = self.ui.searchResultsBar.text()
         authorName = self.ui.authorName.text()
         publishDate = self.ui.publishDate.date().toString("dd-MM-yyyy")
         keyWordsList = self.ui.keyWords.text().split(",")
         setting = self.ui.setting.text()
-
+        print(userQuery)
+        print(authorName)
         self.ui.setFiltersPage.setVisible(False)
 
         return authorName, publishDate, keyWordsList, setting
@@ -138,7 +140,7 @@ class MainWindow(QMainWindow):
     
     
     def sendQuery(self):
-        """Send the query to the GPT model and display the response."""
+        """Send the query to the AI model and display the response."""
         user_query = self.ui.searchResultsBar.toPlainText()  # Get the query from QTextEdit
         print(f"User query: {user_query}")  # Debug output to confirm the query
         # response = queryGPT(user_query)  # Call the modified queryGPT function
