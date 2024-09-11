@@ -3,6 +3,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidg
 from gui import Ui_Dialog
 #from query import queryGPT, uploadFile
 import json
+from journal_downloader.downloader import downloadJournals
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -100,6 +101,17 @@ class MainWindow(QMainWindow):
     #Returns the Elsevier Query inputed by the user from the search page
     def getElsevierQuery(self):
         query = self.ui.elsevierQuery.text()
+
+        result = downloadJournals(query)
+
+        # Check the result and display it in the UI
+        if result.results:
+            journal_titles = "\n".join([journal.get('dc:title', 'No Title') for journal in result.results])
+            self.ui.textEdit.setText(f"Downloaded Journals:\n{journal_titles}")
+        else:
+            # Display error messages, if any
+            self.ui.textEdit.setText(f"Errors occurred:\n{result.errors}")
+
         return query
     
     def showFilterPage(self):
