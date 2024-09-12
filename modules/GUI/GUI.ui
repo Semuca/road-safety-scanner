@@ -241,7 +241,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="searchPage">
     <widget class="QWidget" name="uploadJournal_2" native="true">
@@ -420,8 +420,8 @@ QPushButton:Checked{
      <widget class="QTableWidget" name="searchListTableWidget">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
+        <x>30</x>
+        <y>50</y>
         <width>621</width>
         <height>301</height>
        </rect>
@@ -992,8 +992,47 @@ font: 700 12pt</string>
        <string>Results</string>
       </property>
      </widget>
+     <widget class="QTableWidget" name="resultsListTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>621</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QHeaderView::section {
+	color: rgb(113, 113, 113);
+}
+font: 700 12pt</string>
+      </property>
+      <column>
+       <property name="text">
+        <string>AUTHOR</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>TITLE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>TYPE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>DATE</string>
+       </property>
+      </column>
+     </widget>
     </widget>
     <widget class="QWidget" name="setFiltersPage" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>50</x>

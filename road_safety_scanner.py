@@ -1,10 +1,10 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView, QLabel
-# from query import queryGPT, uploadFile
 import json
 
 from modules.GUI import Ui_Dialog
-from modules.journal_downloader.downloader import downloadJournals, queryElsevier
+from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals, queryElsevier
+from modules.llm.gpt.query import queryGPT, uploadFile
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -43,7 +43,8 @@ class MainWindow(QMainWindow):
         # Connect search buttons
         self.ui.searchElsevierJournals.clicked.connect(self.getElsevierQuery)
         self.ui.downloadElsevierJournals.clicked.connect(self.onDownloadJournals)
-        self.ui.setFiltersButton.clicked.connect(self.showFilterPage)
+        # self.ui.setFiltersButton.clicked.connect(self.showFilterPage)
+        self.ui.setFiltersButton.clicked.connect(self.processJournals)
 
         # Connect global next and back buttons
         self.ui.nextButton.clicked.connect(self.nextPage)
@@ -54,16 +55,17 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Llama70b.clicked.connect(self.selectAI)
         self.ui.pushButton_Llama405b.clicked.connect(self.selectAI)
         self.ui.pushButton_ClaudeSonnet.clicked.connect(self.selectAI)
+        self.ui.pushButton_ChatGpt.click()
 
         
         # Set the header to stretch and fill the table widget
         header = self.ui.journalListTableWidget.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.Stretch)
 
+        self.uploadedJournals = []
+
         # Connect the open file button to the openFile function
         self.ui.uploadJournalButton.clicked.connect(self.openFile)
-
-
 
     def switchToPage(self, pageIndex):
         """For the fist page, we can disable the back button"""
@@ -131,8 +133,6 @@ class MainWindow(QMainWindow):
         publishDate = self.ui.publishDate.date().toString("dd-MM-yyyy")
         keyWordsList = self.ui.keyWords.text().split(",")
         setting = self.ui.setting.text()
-        print(userQuery)
-        print(authorName)
         self.ui.setFiltersPage.setVisible(False)
 
         return userQuery, authorName, publishDate, keyWordsList, setting
@@ -156,18 +156,10 @@ class MainWindow(QMainWindow):
         elif clicked_button == self.ui.pushButton_ClaudeSonnet:
             return
             # set_llm_api_key("CLAUDESONNET_API_KEY_")
-    
-    
-    def sendQuery(self):
-        """Send the query to the AI model and display the response."""
-        user_query = self.ui.searchResultsBar.toPlainText()  # Get the query from QTextEdit
-        print(f"User query: {user_query}")  # Debug output to confirm the query
-        # response = queryGPT(user_query)  # Call the modified queryGPT function
-
 
     def openFile(self):
         """Open a file dialog and display the selected file path."""
-        file_names, _ = QFileDialog.getOpenFileNames(self, "Open File", "", "JSON Files (*.json);;All Files (*)")
+        file_names, _ = QFileDialog.getOpenFileNames(self, "Open File", JOURNALS_PATH, "JSON Files (*.json);;All Files (*)")
 
         if not file_names:
             return  # If no file is selected, do nothing
@@ -185,7 +177,7 @@ class MainWindow(QMainWindow):
                 with open(file_name, 'r', encoding='utf-8') as file:
                     data = json.load(file)
                     self.populateTable(data)
-                # uploadFile(file_name)  # Use the function from query.py to handle file upload and processing
+                self.uploadedJournals.append(file_name)
             except Exception as e:
                 print(f"Error reading JSON file: {e}")
 
@@ -205,9 +197,25 @@ class MainWindow(QMainWindow):
             row_position = self.ui.journalListTableWidget.rowCount()
             self.ui.journalListTableWidget.insertRow(row_position)
             self.ui.journalListTableWidget.setItem(row_position, 0, QTableWidgetItem(", ".join([author["$"] for author in authors])))
+            self.ui.journalListTableWidget.setItem(row_position, 1, QTableWidgetItem(title))
             self.ui.journalListTableWidget.setItem(row_position, 2, QTableWidgetItem(type_))
             self.ui.journalListTableWidget.setItem(row_position, 3, QTableWidgetItem(date))
-            self.ui.journalListTableWidget.setItem(row_position, 1, QTableWidgetItem(title))
+
+    def processJournals(self):
+        """Process the uploaded journals using the selected AI model."""
+
+        queryText = self.ui.searchResultsBar.text()
+
+        self.ui.resultsListTableWidget.clear()
+
+        for journal in self.uploadedJournals:
+            uploadFile(journal)
+            result = queryGPT(queryText)
+
+            row_position = self.ui.resultsListTableWidget.rowCount()
+            self.ui.resultsListTableWidget.insertRow(row_position)
+            self.ui.resultsListTableWidget.setItem(row_position, 0, QTableWidgetItem(result))
+            pass
 
         
 if __name__ == "__main__":

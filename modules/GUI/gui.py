@@ -235,7 +235,7 @@ class Ui_Dialog(object):
         __qtablewidgetitem3 = QTableWidgetItem()
         self.searchListTableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.searchListTableWidget.setObjectName(u"searchListTableWidget")
-        self.searchListTableWidget.setGeometry(QRect(20, 30, 621, 301))
+        self.searchListTableWidget.setGeometry(QRect(30, 50, 621, 301))
         self.searchListTableWidget.setStyleSheet(u"QHeaderView::section {\n"
 "	color: rgb(113, 113, 113);\n"
 "}\n"
@@ -495,8 +495,26 @@ class Ui_Dialog(object):
 "	font: 700 12pt\n"
 "	\n"
 "}")
+        self.resultsListTableWidget = QTableWidget(self.resultsList)
+        if (self.resultsListTableWidget.columnCount() < 4):
+            self.resultsListTableWidget.setColumnCount(4)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.resultsListTableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.resultsListTableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.resultsListTableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem10)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        self.resultsListTableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem11)
+        self.resultsListTableWidget.setObjectName(u"resultsListTableWidget")
+        self.resultsListTableWidget.setGeometry(QRect(30, 50, 621, 301))
+        self.resultsListTableWidget.setStyleSheet(u"QHeaderView::section {\n"
+"	color: rgb(113, 113, 113);\n"
+"}\n"
+"font: 700 12pt")
         self.setFiltersPage = QWidget(self.resultsPage)
         self.setFiltersPage.setObjectName(u"setFiltersPage")
+        self.setFiltersPage.setEnabled(True)
         self.setFiltersPage.setGeometry(QRect(50, 110, 611, 421))
         self.setFiltersPage.setStyleSheet(u"QWidget{\n"
 "	border-radius: 20px;   \n"
@@ -633,7 +651,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(0)
+        self.myQStackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -683,6 +701,14 @@ class Ui_Dialog(object):
         self.searchResultsBar.setPlaceholderText(QCoreApplication.translate("Dialog", u"Find me journals relevant to...", None))
         self.setFiltersButton.setText(QCoreApplication.translate("Dialog", u"Set Filters", None))
         self.resultsListTag.setText(QCoreApplication.translate("Dialog", u"Results", None))
+        ___qtablewidgetitem8 = self.resultsListTableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"AUTHOR", None));
+        ___qtablewidgetitem9 = self.resultsListTableWidget.horizontalHeaderItem(1)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("Dialog", u"TITLE", None));
+        ___qtablewidgetitem10 = self.resultsListTableWidget.horizontalHeaderItem(2)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
+        ___qtablewidgetitem11 = self.resultsListTableWidget.horizontalHeaderItem(3)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.authorLabel.setText(QCoreApplication.translate("Dialog", u"Author:", None))
         self.publishDateLabel.setText(QCoreApplication.translate("Dialog", u"Publish Date", None))
         self.settingLabel.setText(QCoreApplication.translate("Dialog", u"Setting", None))
