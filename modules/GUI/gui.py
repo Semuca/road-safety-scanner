@@ -161,7 +161,7 @@ class Ui_Dialog(object):
 "}")
         self.elsevierQuery = QLineEdit(self.uploadJournal_2)
         self.elsevierQuery.setObjectName(u"elsevierQuery")
-        self.elsevierQuery.setGeometry(QRect(20, 40, 511, 41))
+        self.elsevierQuery.setGeometry(QRect(20, 40, 411, 41))
         self.elsevierQuery.setStyleSheet(u"QLineEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	font: 12pt;\n"
@@ -183,10 +183,29 @@ class Ui_Dialog(object):
 "	font: 8pt;\n"
 "	background-color: rgb(211, 211, 211);\n"
 "}")
-        self.downloadElsevierJournals.setCheckable(True)
+        self.downloadElsevierJournals.setCheckable(False)
         self.downloadElsevierJournals.setChecked(False)
         self.downloadElsevierJournals.setAutoRepeat(False)
         self.downloadElsevierJournals.setAutoExclusive(False)
+        self.searchElsevierJournals = QPushButton(self.uploadJournal_2)
+        self.searchElsevierJournals.setObjectName(u"searchElsevierJournals")
+        self.searchElsevierJournals.setGeometry(QRect(440, 40, 101, 41))
+        self.searchElsevierJournals.setStyleSheet(u"QPushButton{\n"
+"	color:white;\n"
+"	\n"
+"	font: 700 10pt;\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton:Checked{\n"
+"	\n"
+"	font: 8pt;\n"
+"	background-color: rgb(211, 211, 211);\n"
+"}")
+        self.searchElsevierJournals.setCheckable(False)
+        self.searchElsevierJournals.setChecked(False)
+        self.searchElsevierJournals.setAutoRepeat(False)
+        self.searchElsevierJournals.setAutoExclusive(False)
         self.results = QWidget(self.searchPage)
         self.results.setObjectName(u"results")
         self.results.setGeometry(QRect(20, 140, 671, 371))
@@ -630,6 +649,7 @@ class Ui_Dialog(object):
         self.searchJournalsLabel.setText(QCoreApplication.translate("Dialog", u"Search Journals", None))
         self.elsevierQuery.setPlaceholderText(QCoreApplication.translate("Dialog", u"Search for a journal...", None))
         self.downloadElsevierJournals.setText(QCoreApplication.translate("Dialog", u"Download", None))
+        self.searchElsevierJournals.setText(QCoreApplication.translate("Dialog", u"Search", None))
         self.resultsLabel.setText(QCoreApplication.translate("Dialog", u"Results", None))
         ___qtablewidgetitem = self.searchListTableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Dialog", u"AUTHOR", None));

@@ -8,18 +8,7 @@ import urllib.request
 elsevierAPI = "https://api.elsevier.com/content"
 ELSEVIER_API_KEY = os.environ.get('ELSEVIER_API_KEY')
 
-def downloadJournal(doi: str) -> Any:
-    """
-    Downloads a journal from the Elsevier API.
-    """
-    
-    request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
-    journal = urllib.request.urlopen(request).read().decode('utf-8')
-
-    with open(f"journals/{doi.replace('/', '-')}.json", "w") as f:
-        f.write(journal)
-
-    return json.loads(journal)
+JOURNALS_PATH = f"{os.path.dirname(os.path.abspath(__file__))}/journals"
 
 class QueryElsevierResult:
     def __init__(self, doi: str, title: str, author: str, date: str) -> None:
@@ -48,6 +37,19 @@ def queryElsevier(query: str, limit=25, wait=1) -> list[QueryElsevierResult]:
         time.sleep(wait)
 
     return results
+
+def downloadJournal(doi: str) -> Any:
+    """
+    Downloads a journal from the Elsevier API.
+    """
+    
+    request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
+    journal = urllib.request.urlopen(request).read().decode('utf-8')
+
+    with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json", "w") as f:
+        f.write(journal)
+
+    return json.loads(journal)
 
 class DownloadJournalsResult:
     def __init__(self, results: list[dict[str, Any]], errors: list[dict[str, str]]) -> None:
@@ -78,7 +80,7 @@ def getJournals() -> list[Any]:
 
     journals = []
     for journal in os.listdir("journals"):
-        with open(f"journals/{journal}", "r") as f:
+        with open(f"{JOURNALS_PATH}/journals/{journal}", "r") as f:
             journals.append(json.load(f))
 
     return journals

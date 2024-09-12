@@ -285,7 +285,7 @@ QPushButton:Checked{
        <rect>
         <x>20</x>
         <y>40</y>
-        <width>511</width>
+        <width>411</width>
         <height>41</height>
        </rect>
       </property>
@@ -328,7 +328,46 @@ QPushButton:Checked{
        <string>Download</string>
       </property>
       <property name="checkable">
-       <bool>true</bool>
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="searchElsevierJournals">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>40</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color:white;
+	
+	font: 700 10pt;
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton:Checked{
+	
+	font: 8pt;
+	background-color: rgb(211, 211, 211);
+}</string>
+      </property>
+      <property name="text">
+       <string>Search</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
       </property>
       <property name="checked">
        <bool>false</bool>
