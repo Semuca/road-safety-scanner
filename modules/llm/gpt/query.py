@@ -1,25 +1,25 @@
 import os
-import pdfplumber
+# import pdfplumber
 from openai import OpenAI
 
-GPT_API_KEY = os.environ.get('GPT_API_KEY')
+# GPT_API_KEY = os.environ.get('GPT_API_KEY')
 
-client = OpenAI(api_key=GPT_API_KEY)
+# client = OpenAI(api_key=GPT_API_KEY)
 
 conversation_history = []
 
 # Function to extract text from a PDF file
 def extract_text_from_pdf(file_path: str) -> str:
     """Extract text from a PDF file using pdfplumber."""
-    try:
-        text = ""
-        with pdfplumber.open(file_path) as pdf:
-            for page in pdf.pages:
-                text += page.extract_text()
-        return text
-    except Exception as e:
-        print(f"There was an issue extracting text from the PDF file: {e}")
-        return ""
+    # try:
+    #     text = ""
+    #     with pdfplumber.open(file_path) as pdf:
+    #         for page in pdf.pages:
+    #             text += page.extract_text()
+    #     return text
+    # except Exception as e:
+    #     print(f"There was an issue extracting text from the PDF file: {e}")
+    #     return ""
 
 '''
 #V1, filepath predefined.
@@ -195,6 +195,6 @@ def queryGPT() -> str:
     except Exception as e:
         print(f"There was an issue querying the GPT model: {e}")
 
-uploadFile()
+# uploadFile()
 
-queryGPT()
+# queryGPT()

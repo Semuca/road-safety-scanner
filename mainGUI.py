@@ -1,8 +1,10 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView
-from gui import Ui_Dialog
-#from query import queryGPT, uploadFile
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView, QLabel
+from modules.GUI import Ui_Dialog
+# from query import queryGPT, uploadFile
 import json
+
+from modules.journal_downloader.downloader import queryElsevier
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -38,12 +40,16 @@ class MainWindow(QMainWindow):
         self.ui.uploadButton.clicked.connect(lambda: self.switchToPage(2))
         self.ui.resultsButton.clicked.connect(lambda: self.switchToPage(3))
 
-        self.ui.pushButton_5.clicked.connect(self.getElsevierQuery) #elsevierJournalQuery
+        # Connect search buttons
+        self.ui.downloadElsevierJournals.clicked.connect(self.getElsevierQuery)
         self.ui.setFiltersButton.clicked.connect(self.showFilterPage)
 
         # Connect global next and back buttons
         self.ui.nextButton.clicked.connect(self.nextPage)
         self.ui.backButton.clicked.connect(self.previousPage)
+
+
+        # Connect the download button to the sendQuery function
 
         # Connect the selected AI button to the selectAI function
         self.ui.pushButton_ChatGpt.clicked.connect(self.selectAI)
@@ -97,10 +103,21 @@ class MainWindow(QMainWindow):
         self.ui.nextButton.setEnabled(activePageIndex < len(self.page_button_mapping) - 1)
 
 
-    #Returns the Elsevier Query inputed by the user from the search page
+    # Returns the Elsevier Query from the search page input
     def getElsevierQuery(self):
         query = self.ui.elsevierQuery.text()
-        return query
+        self.queryResults = queryElsevier(f"KEY(${query})")
+
+        self.ui.searchListTableWidget.clear()
+
+        # Add a new row for each record
+        for result in self.queryResults:
+            row_position = self.ui.searchListTableWidget.rowCount()
+            self.ui.searchListTableWidget.insertRow(row_position)
+            self.ui.searchListTableWidget.setItem(row_position, 0, QTableWidgetItem(result.author))
+            self.ui.searchListTableWidget.setItem(row_position, 1, QTableWidgetItem(result.title))
+            self.ui.searchListTableWidget.setItem(row_position, 2, QTableWidgetItem(result.doi))
+            self.ui.searchListTableWidget.setItem(row_position, 3, QTableWidgetItem(result.date))
     
     def showFilterPage(self):
         self.ui.setFiltersPage.setVisible(True)

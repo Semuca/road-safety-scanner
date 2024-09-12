@@ -241,7 +241,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="searchPage">
     <widget class="QWidget" name="uploadJournal_2" native="true">
@@ -301,7 +301,7 @@ QPushButton:Checked{
        <string>Search for a journal...</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="downlaodElsevierJournals">
+     <widget class="QPushButton" name="downloadElsevierJournals">
       <property name="geometry">
        <rect>
         <x>550</x>
@@ -377,6 +377,42 @@ QPushButton:Checked{
       <property name="text">
        <string>Results</string>
       </property>
+     </widget>
+     <widget class="QTableWidget" name="searchListTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>621</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QHeaderView::section {
+	color: rgb(113, 113, 113);
+}
+font: 700 12pt</string>
+      </property>
+      <column>
+       <property name="text">
+        <string>AUTHOR</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>TITLE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>TYPE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>DATE</string>
+       </property>
+      </column>
      </widget>
     </widget>
    </widget>
@@ -668,7 +704,7 @@ QPushButton:Checked{
 	border-radius: 20px;
 }</string>
      </property>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="uploadJournalLabel">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -727,7 +763,7 @@ QPushButton:Checked{
 	border-radius: 20px;
 }</string>
      </property>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="uploadedListLabel">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -748,17 +784,6 @@ QPushButton:Checked{
       <property name="text">
        <string>Uploaded List:</string>
       </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>50</y>
-        <width>621</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout"/>
      </widget>
      <widget class="QTableWidget" name="journalListTableWidget">
       <property name="geometry">

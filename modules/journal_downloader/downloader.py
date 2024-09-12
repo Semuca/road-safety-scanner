@@ -21,30 +21,43 @@ def downloadJournal(doi: str) -> Any:
 
     return json.loads(journal)
 
+class QueryElsevierResult:
+    def __init__(self, doi: str, title: str, author: str, date: str) -> None:
+        self.doi = doi
+        self.title = title
+        self.author = author
+        self.date = date
+
+def queryElsevier(query: str, limit=25, wait=1) -> list[QueryElsevierResult]:
+    """
+    Queries the Elsevier API.
+    """
+
+    request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
+
+    # Read all journals from the query until limit is hit
+    results = []
+    totalResults = 1
+    while (len(results) < limit and len(results) < totalResults):
+        request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
+        
+        searchedJournals = json.loads(urllib.request.urlopen(request).read().decode('utf-8'))
+        totalResults = int(searchedJournals["search-results"]["opensearch:totalResults"])
+
+        results.extend([QueryElsevierResult(query["prism:doi"], query["dc:title"], query["dc:creator"], query["prism:coverDisplayDate"])  for query in searchedJournals["search-results"]["entry"]])
+        time.sleep(wait)
+
+    return results
 
 class DownloadJournalsResult:
     def __init__(self, results: list[dict[str, Any]], errors: list[dict[str, str]]) -> None:
         self.results = results
         self.errors = errors
 
-def downloadJournals(query: str, limit = 25, wait=1) -> DownloadJournalsResult:
+def downloadJournals(dois: list[str], wait=1) -> DownloadJournalsResult:
     """
     Downloads journals from the internet. Should store previous queries run to avoid repetition.
     """
-
-    request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
-
-    # Read all journals from the query until limit is hit
-    dois = []
-    totalResults = 1
-    while (len(dois) < limit and len(dois) < totalResults):
-        request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}&start={len(dois)}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
-        
-        searchedJournals = json.loads(urllib.request.urlopen(request).read().decode('utf-8'))
-        totalResults = int(searchedJournals["search-results"]["opensearch:totalResults"])
-
-        dois.extend([query["prism:doi"] for query in searchedJournals["search-results"]["entry"]])
-        time.sleep(wait)
 
     results = []
     errors = []
