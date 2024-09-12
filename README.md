@@ -9,6 +9,10 @@ Finally, the environment can be exported with `micromamba env export > environme
 
 Instructions for installing micromamba are here: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
 
+### Using QT Designer
+
+First, open GUI.ui in QT Designer. After making your changes, run `pyside6-uic -o ./modules/GUI/gui.py ./modules/GUI/GUI.ui` to turn it into a python ui file.
+
 ### Linting
 This project uses ruff to lint. Make sure `ruff check` returns no errors before making a pull request
 

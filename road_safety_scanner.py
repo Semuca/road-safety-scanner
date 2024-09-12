@@ -43,8 +43,8 @@ class MainWindow(QMainWindow):
         # Connect search buttons
         self.ui.searchElsevierJournals.clicked.connect(self.getElsevierQuery)
         self.ui.downloadElsevierJournals.clicked.connect(self.onDownloadJournals)
-        # self.ui.setFiltersButton.clicked.connect(self.showFilterPage)
-        self.ui.setFiltersButton.clicked.connect(self.processJournals)
+        self.ui.setFiltersButton.clicked.connect(self.showFilterPage)
+        self.ui.processJournalsButton.clicked.connect(self.processJournals)
 
         # Connect global next and back buttons
         self.ui.nextButton.clicked.connect(self.nextPage)
@@ -125,7 +125,7 @@ class MainWindow(QMainWindow):
     
     def showFilterPage(self):
         self.ui.setFiltersPage.setVisible(True)
-        self.ui.processJournalsButton.clicked.connect(self.getFilters)
+        # self.ui.processJournalsButton.clicked.connect(self.getFilters)
     
     def getFilters(self):
         userQuery = self.ui.searchResultsBar.text()
