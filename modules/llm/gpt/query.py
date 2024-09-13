@@ -3,8 +3,12 @@ import os
 import pdfplumber
 from openai import OpenAI
 
-GPT_API_KEY = os.environ.get('GPT_API_KEY')
-client = OpenAI(api_key=GPT_API_KEY)
+client = None
+
+def setupClient(apiKey: str) -> None:
+    """Set up the OpenAI client with the provided API key."""
+    global client
+    client = OpenAI(api_key=apiKey)
 
 conversation_history = []
 

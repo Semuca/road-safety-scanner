@@ -4,7 +4,8 @@ import json
 
 from modules.GUI import Ui_Dialog
 from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals, queryElsevier
-from modules.llm.gpt.query import queryGPT, uploadFile
+from modules.llm.gpt.query import setupClient, queryGPT, uploadFile
+from modules.keys.keys import setKey, loadKeys
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -17,28 +18,35 @@ class MainWindow(QMainWindow):
 
         # Dictionary to map page indices to their corresponding buttons
         self.page_button_mapping = {
-            0: self.ui.searchButton,
-            1: self.ui.setAIButton,
-            2: self.ui.uploadButton,
-            3: self.ui.resultsButton
+            0: self.ui.keysButton,
+            1: self.ui.searchButton,
+            2: self.ui.setAIButton,
+            3: self.ui.uploadButton,
+            4: self.ui.resultsButton
         }
 
         # Set the Search Page as the default start up page
-        self.ui.myQStackedWidget.setCurrentIndex(0)
-        #Hide Filter Page
-        self.ui.setFiltersPage.setVisible(False)
+        self.switchToPage(1)
 
+        # Hide Filter Page
+        self.ui.setFiltersPage.setVisible(False)
         self.ui.setFiltersCloseButton.clicked.connect(lambda: self.ui.setFiltersPage.setVisible(False))
-        
-        # Set the initial checked state
-        self.updateButtonState(0)
-        self.ui.backButton.hide()
 
         # Connect menu buttons to their respective functions
-        self.ui.searchButton.clicked.connect(lambda: self.switchToPage(0))
-        self.ui.setAIButton.clicked.connect(lambda: self.switchToPage(1))
-        self.ui.uploadButton.clicked.connect(lambda: self.switchToPage(2))
-        self.ui.resultsButton.clicked.connect(lambda: self.switchToPage(3))
+        self.ui.keysButton.clicked.connect(lambda: self.switchToPage(0))
+        self.ui.searchButton.clicked.connect(lambda: self.switchToPage(1))
+        self.ui.setAIButton.clicked.connect(lambda: self.switchToPage(2))
+        self.ui.uploadButton.clicked.connect(lambda: self.switchToPage(3))
+        self.ui.resultsButton.clicked.connect(lambda: self.switchToPage(4))
+
+        # Connect key text entries to updating the keys
+        keys = loadKeys()
+        self.ui.elsevierKeyEntry.setText(keys.get("ELSEVIER_API_KEY", ""))
+        self.ui.gptKeyEntry.setText(keys.get("GPT_API_KEY", ""))
+        setupClient(keys.get("GPT_API_KEY", ""))
+
+        self.ui.elsevierKeyEntry.textChanged.connect(lambda: setKey("ELSEVIER_API_KEY", self.ui.elsevierKeyEntry.text()))
+        self.ui.gptKeyEntry.textChanged.connect(lambda: (setKey("GPT_API_KEY", self.ui.gptKeyEntry.text(), setupClient(self.ui.gptKeyEntry.text()))))
 
         # Connect search buttons
         self.ui.searchElsevierJournals.clicked.connect(self.getElsevierQuery)
