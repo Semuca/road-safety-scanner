@@ -46,7 +46,7 @@ def downloadJournal(doi: str) -> Any:
     request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
     journal = urllib.request.urlopen(request).read().decode('utf-8')
 
-    with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json", "w") as f:
+    with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json", "w", encoding="utf-8") as f:
         f.write(journal)
 
     return json.loads(journal)
@@ -60,6 +60,9 @@ def downloadJournals(dois: list[str], wait=1) -> DownloadJournalsResult:
     """
     Downloads journals from the internet. Should store previous queries run to avoid repetition.
     """
+
+    if not os.path.exists(JOURNALS_PATH):
+        os.makedirs(JOURNALS_PATH)
 
     results = []
     errors = []
@@ -80,7 +83,7 @@ def getJournals() -> list[Any]:
 
     journals = []
     for journal in os.listdir("journals"):
-        with open(f"{JOURNALS_PATH}/journals/{journal}", "r") as f:
+        with open(f"{JOURNALS_PATH}/journals/{journal}", "r", encoding="utf-8") as f:
             journals.append(json.load(f))
 
     return journals

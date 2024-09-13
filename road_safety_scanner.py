@@ -121,7 +121,7 @@ class MainWindow(QMainWindow):
     
     # Downloads the journals from the search page
     def onDownloadJournals(self):
-        downloadJournals(queriedItem.doi for queriedItem in self.queryResults)
+        downloadJournals(queriedItem.doi for queriedItem in [])
     
     def showFilterPage(self):
         self.ui.setFiltersPage.setVisible(True)
