@@ -40,10 +40,10 @@ class MainWindow(QMainWindow):
         self.ui.resultsButton.clicked.connect(lambda: self.switchToPage(4))
 
         # Connect key text entries to updating the keys
-        keys = loadKeys()
-        self.ui.elsevierKeyEntry.setText(keys.get("ELSEVIER_API_KEY", ""))
-        self.ui.gptKeyEntry.setText(keys.get("GPT_API_KEY", ""))
-        setupClient(keys.get("GPT_API_KEY", ""))
+        self.keys = loadKeys()
+        self.ui.elsevierKeyEntry.setText(self.keys.get("ELSEVIER_API_KEY", ""))
+        self.ui.gptKeyEntry.setText(self.keys.get("GPT_API_KEY", ""))
+        setupClient(self.keys.get("GPT_API_KEY", ""))
 
         self.ui.elsevierKeyEntry.textChanged.connect(lambda: setKey("ELSEVIER_API_KEY", self.ui.elsevierKeyEntry.text()))
         self.ui.gptKeyEntry.textChanged.connect(lambda: (setKey("GPT_API_KEY", self.ui.gptKeyEntry.text(), setupClient(self.ui.gptKeyEntry.text()))))
@@ -113,10 +113,39 @@ class MainWindow(QMainWindow):
 
     # Returns the Elsevier Query from the search page input
     def getElsevierQuery(self):
-        query = self.ui.elsevierQuery.text()
-        self.queryResults = queryElsevier(f"KEY(${query})")
+        queryParts = []
+
+        title = self.ui.elsevierQuery.text()
+        if (title != ""):
+            queryParts.append(f"TITLE({title})")
+
+        author = self.ui.authorName.text()
+        if (author != ""):
+            queryParts.append(f"AUTHOR-NAME({author})")
+
+        publishDateFrom = int(self.ui.publishYearFrom.date().toString("yyyy"))
+        publishDateTo = int(self.ui.publishYearTo.date().toString("yyyy"))
+
+        refPubYearList = [f"REFPUBYEAR IS {year}" for year in range(publishDateFrom, publishDateTo + 1)]
+        pubYearQueryPart = " OR ".join(refPubYearList)
+        queryParts.append(f"({pubYearQueryPart})")
+        
+        keyWords = self.ui.keyWords.text()
+        if (keyWords != ""):
+            queryParts.append(f"KEY({keyWords})")
+            
+        setting = self.ui.setting.text()
+        if (setting != ""):
+            queryParts.append(f"AFFILCOUNTRY({setting})")
+
+        if (len(queryParts) == 0):
+            return
+        
+        query = " AND ".join(queryParts)
+        self.queryResults = queryElsevier(self.keys["ELSEVIER_API_KEY"], query)
 
         self.ui.searchListTableWidget.clear()
+        self.ui.searchListTableWidget.setRowCount(0)
 
         # Add a new row for each record
         for result in self.queryResults:
@@ -129,7 +158,7 @@ class MainWindow(QMainWindow):
     
     # Downloads the journals from the search page
     def onDownloadJournals(self):
-        downloadJournals(queriedItem.doi for queriedItem in [])
+        downloadJournals(self.keys["ELSEVIER_API_KEY"], [queriedItem.doi for queriedItem in self.queryResults])
     
     def showFilterPage(self):
         self.ui.setFiltersPage.setVisible(True)

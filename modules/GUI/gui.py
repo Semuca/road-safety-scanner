@@ -236,10 +236,10 @@ class Ui_Dialog(object):
         self.authorLabel.setObjectName(u"authorLabel")
         self.authorLabel.setGeometry(QRect(60, 40, 61, 16))
         self.authorLabel.setStyleSheet(u"font: 700 12pt;")
-        self.publishDateLabel = QLabel(self.setFiltersPage)
-        self.publishDateLabel.setObjectName(u"publishDateLabel")
-        self.publishDateLabel.setGeometry(QRect(410, 40, 101, 16))
-        self.publishDateLabel.setStyleSheet(u"font: 700 12pt;")
+        self.publishYearLabel = QLabel(self.setFiltersPage)
+        self.publishYearLabel.setObjectName(u"publishYearLabel")
+        self.publishYearLabel.setGeometry(QRect(410, 40, 101, 16))
+        self.publishYearLabel.setStyleSheet(u"font: 700 12pt;")
         self.settingLabel = QLabel(self.setFiltersPage)
         self.settingLabel.setObjectName(u"settingLabel")
         self.settingLabel.setGeometry(QRect(60, 190, 61, 21))
@@ -258,13 +258,14 @@ class Ui_Dialog(object):
 "	border-radius: 20px;  \n"
 "}\n"
 "")
-        self.publishDate = QDateEdit(self.setFiltersPage)
-        self.publishDate.setObjectName(u"publishDate")
-        self.publishDate.setGeometry(QRect(410, 70, 110, 22))
-        self.publishDate.setStyleSheet(u"QDateEdit{\n"
+        self.publishYearFrom = QDateEdit(self.setFiltersPage)
+        self.publishYearFrom.setObjectName(u"publishYearFrom")
+        self.publishYearFrom.setGeometry(QRect(460, 70, 110, 22))
+        self.publishYearFrom.setStyleSheet(u"QDateEdit{\n"
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
+        self.publishYearFrom.setDateTime(QDateTime(QDate(2014, 1, 1), QTime(0, 0, 0)))
         self.keyWords = QLineEdit(self.setFiltersPage)
         self.keyWords.setObjectName(u"keyWords")
         self.keyWords.setGeometry(QRect(50, 140, 301, 41))
@@ -308,6 +309,22 @@ class Ui_Dialog(object):
         self.setFiltersCloseButton.setChecked(False)
         self.setFiltersCloseButton.setAutoRepeat(False)
         self.setFiltersCloseButton.setAutoExclusive(True)
+        self.publishYearFromLabel = QLabel(self.setFiltersPage)
+        self.publishYearFromLabel.setObjectName(u"publishYearFromLabel")
+        self.publishYearFromLabel.setGeometry(QRect(410, 71, 41, 20))
+        self.publishYearFromLabel.setStyleSheet(u"font: 700 12pt;")
+        self.publishYearTo = QDateEdit(self.setFiltersPage)
+        self.publishYearTo.setObjectName(u"publishYearTo")
+        self.publishYearTo.setGeometry(QRect(460, 109, 110, 22))
+        self.publishYearTo.setStyleSheet(u"QDateEdit{\n"
+"	\n"
+"	background-color: rgb(255, 255, 255);\n"
+"}")
+        self.publishYearTo.setDateTime(QDateTime(QDate(2024, 1, 1), QTime(0, 0, 0)))
+        self.publishYearToLabel = QLabel(self.setFiltersPage)
+        self.publishYearToLabel.setObjectName(u"publishYearToLabel")
+        self.publishYearToLabel.setGeometry(QRect(410, 110, 41, 20))
+        self.publishYearToLabel.setStyleSheet(u"font: 700 12pt;")
         self.uploadJournal_2 = QWidget(self.searchPage)
         self.uploadJournal_2.setObjectName(u"uploadJournal_2")
         self.uploadJournal_2.setGeometry(QRect(20, 20, 671, 101))
@@ -732,7 +749,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(0)
+        self.myQStackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -752,15 +769,19 @@ class Ui_Dialog(object):
         self.gptKeyLabel.setText(QCoreApplication.translate("Dialog", u"GPT_API_KEY", None))
         self.gptKeyEntry.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key here...", None))
         self.authorLabel.setText(QCoreApplication.translate("Dialog", u"Author:", None))
-        self.publishDateLabel.setText(QCoreApplication.translate("Dialog", u"Publish Date", None))
+        self.publishYearLabel.setText(QCoreApplication.translate("Dialog", u"Publish Year:", None))
         self.settingLabel.setText(QCoreApplication.translate("Dialog", u"Setting", None))
         self.keyWordsLabel.setText(QCoreApplication.translate("Dialog", u"Key Words", None))
         self.authorName.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter Author's Name...", None))
+        self.publishYearFrom.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy", None))
         self.keyWords.setText("")
         self.keyWords.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key words separated by \",\"", None))
         self.setting.setText("")
         self.setting.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter a country", None))
         self.setFiltersCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
+        self.publishYearFromLabel.setText(QCoreApplication.translate("Dialog", u"From", None))
+        self.publishYearTo.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy", None))
+        self.publishYearToLabel.setText(QCoreApplication.translate("Dialog", u"To", None))
         self.searchJournalsLabel.setText(QCoreApplication.translate("Dialog", u"Search Journals", None))
         self.elsevierQuery.setPlaceholderText(QCoreApplication.translate("Dialog", u"Search for a journal...", None))
         self.downloadElsevierJournals.setText(QCoreApplication.translate("Dialog", u"Download", None))

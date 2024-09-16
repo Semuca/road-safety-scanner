@@ -3,9 +3,8 @@ import os
 import time
 from typing import Any
 import urllib.error
+import urllib.parse
 import urllib.request
-
-from modules import keys
 
 elsevierAPI = "https://api.elsevier.com/content"
 
@@ -18,33 +17,35 @@ class QueryElsevierResult:
         self.author = author
         self.date = date
 
-def queryElsevier(query: str, limit=25, wait=1) -> list[QueryElsevierResult]:
+def queryElsevier(api_key: str, query: str, limit=25, wait=0.05) -> list[QueryElsevierResult]:
     """
     Queries the Elsevier API.
     """
 
-    request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}", headers={'Accept': 'application/json', 'X-ELS-APIKey': keys.ELSEVIER_API_KEY})
+    query = urllib.parse.quote(query)
+
+    request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}", headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
 
     # Read all journals from the query until limit is hit
     results = []
     totalResults = 1
     while (len(results) < limit and len(results) < totalResults):
-        request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}", headers={'Accept': 'application/json', 'X-ELS-APIKey': keys.ELSEVIER_API_KEY})
+        request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}", headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
         
         searchedJournals = json.loads(urllib.request.urlopen(request).read().decode('utf-8'))
         totalResults = int(searchedJournals["search-results"]["opensearch:totalResults"])
 
-        results.extend([QueryElsevierResult(query["prism:doi"], query["dc:title"], query["dc:creator"], query["prism:coverDisplayDate"])  for query in searchedJournals["search-results"]["entry"]])
+        results.extend([QueryElsevierResult(journal["prism:doi"], journal["dc:title"], journal["dc:creator"], journal["prism:coverDisplayDate"]) for journal in searchedJournals["search-results"]["entry"]])
         time.sleep(wait)
 
     return results
 
-def downloadJournal(doi: str) -> Any:
+def downloadJournal(api_key: str, doi: str) -> Any:
     """
     Downloads a journal from the Elsevier API.
     """
     
-    request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}", headers={'Accept': 'application/json', 'X-ELS-APIKey': keys.ELSEVIER_API_KEY})
+    request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}", headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
     journal = urllib.request.urlopen(request).read().decode('utf-8')
 
     with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json", "w", encoding="utf-8") as f:
@@ -57,7 +58,7 @@ class DownloadJournalsResult:
         self.results = results
         self.errors = errors
 
-def downloadJournals(dois: list[str], wait=1) -> DownloadJournalsResult:
+def downloadJournals(api_key: str, dois: list[str], wait=0.05) -> DownloadJournalsResult:
     """
     Downloads journals from the internet. Should store previous queries run to avoid repetition.
     """
@@ -69,7 +70,7 @@ def downloadJournals(dois: list[str], wait=1) -> DownloadJournalsResult:
     errors = []
     for doi in dois:
         try:
-            results.append(downloadJournal(doi))
+            results.append(downloadJournal(api_key, doi))
         except urllib.error.HTTPError as e:
             errors.append({"doi": doi, "error": e.read().decode()})
         time.sleep(wait)
