@@ -7,7 +7,6 @@ def journalResponsesToDataFrame(journals: Any) -> DataFrame:
     """
     data = []
     row_count = journals.ui.resultsListTableWidget.rowCount()
-    print(row_count)
     col_count = journals.ui.resultsListTableWidget.columnCount()
     
     for row in range(row_count):
