@@ -9,6 +9,9 @@ Finally, the environment can be exported with `micromamba env export > environme
 
 Instructions for installing micromamba are here: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
 
+## Environment setup for Windows
+Conda-forge does not support ImageMagick binaries for Windows, which pdfPlumber requires. To get around this, install pdfplumber through pip by running `pip install pdfplumber`
+
 ### Using QT Designer
 
 First, open GUI.ui in QT Designer. After making your changes, run `pyside6-uic -o ./modules/GUI/gui.py ./modules/GUI/GUI.ui` to turn it into a python ui file. This requires PySide6 to be installed first, which can be done either through the environment set up above or through pip.

@@ -5,8 +5,9 @@ from typing import Any
 import urllib.error
 import urllib.request
 
+from modules import keys
+
 elsevierAPI = "https://api.elsevier.com/content"
-ELSEVIER_API_KEY = os.environ.get('ELSEVIER_API_KEY')
 
 JOURNALS_PATH = f"{os.path.dirname(os.path.abspath(__file__))}/journals"
 
@@ -22,13 +23,13 @@ def queryElsevier(query: str, limit=25, wait=1) -> list[QueryElsevierResult]:
     Queries the Elsevier API.
     """
 
-    request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
+    request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}", headers={'Accept': 'application/json', 'X-ELS-APIKey': keys.ELSEVIER_API_KEY})
 
     # Read all journals from the query until limit is hit
     results = []
     totalResults = 1
     while (len(results) < limit and len(results) < totalResults):
-        request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
+        request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}", headers={'Accept': 'application/json', 'X-ELS-APIKey': keys.ELSEVIER_API_KEY})
         
         searchedJournals = json.loads(urllib.request.urlopen(request).read().decode('utf-8'))
         totalResults = int(searchedJournals["search-results"]["opensearch:totalResults"])
@@ -43,7 +44,7 @@ def downloadJournal(doi: str) -> Any:
     Downloads a journal from the Elsevier API.
     """
     
-    request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}", headers={'Accept': 'application/json', 'X-ELS-APIKey': ELSEVIER_API_KEY})
+    request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}", headers={'Accept': 'application/json', 'X-ELS-APIKey': keys.ELSEVIER_API_KEY})
     journal = urllib.request.urlopen(request).read().decode('utf-8')
 
     with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json", "w", encoding="utf-8") as f:

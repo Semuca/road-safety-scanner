@@ -154,7 +154,7 @@ QPushButton:Checked{
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>10</x>
       <y>10</y>
       <width>101</width>
       <height>51</height>
@@ -221,12 +221,52 @@ QPushButton:Checked{
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="keysButton">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>0</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget{
+	
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 14pt;
+	border: none;
+}
+
+QPushButton:Checked{
+	background-color: rgb(56, 177, 224);
+	font: 700 16pt;
+}</string>
+    </property>
+    <property name="text">
+     <string>Keys</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>searchButton</zorder>
    <zorder>setAIButton</zorder>
    <zorder>uploadButton</zorder>
    <zorder>title</zorder>
    <zorder>resultsButton</zorder>
    <zorder>selectTabIndicator</zorder>
+   <zorder>keysButton</zorder>
   </widget>
   <widget class="QStackedWidget" name="myQStackedWidget">
    <property name="geometry">
@@ -241,8 +281,134 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
+   <widget class="QWidget" name="keysPage">
+    <widget class="QWidget" name="keysList" native="true">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>671</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+	background-color: rgb(238, 238, 238);
+	border-radius: 20px;
+}</string>
+     </property>
+     <widget class="QLabel" name="keysListTag">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	color: rgb(113, 113, 113);
+	
+	font: 700 12pt
+	
+}</string>
+      </property>
+      <property name="text">
+       <string>Keys</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="elsevierKeyEntry">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>40</y>
+        <width>481</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter key here...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="elsevierKeyLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>54</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	color: rgb(113, 113, 113);
+	
+	font: 700 12pt
+	
+}</string>
+      </property>
+      <property name="text">
+       <string>ELSEVIER_API_KEY</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gptKeyLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>104</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	color: rgb(113, 113, 113);
+	
+	font: 700 12pt
+	
+}</string>
+      </property>
+      <property name="text">
+       <string>GPT_API_KEY</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="gptKeyEntry">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>90</y>
+        <width>481</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter key here...</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
    <widget class="QWidget" name="searchPage">
     <widget class="QWidget" name="setFiltersPage" native="true">
      <property name="enabled">
