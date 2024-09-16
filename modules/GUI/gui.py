@@ -100,7 +100,7 @@ class Ui_Dialog(object):
         self.uploadButton.setAutoExclusive(True)
         self.title = QLabel(self.menuBar)
         self.title.setObjectName(u"title")
-        self.title.setGeometry(QRect(220, 10, 101, 51))
+        self.title.setGeometry(QRect(10, 10, 101, 51))
         self.title.setStyleSheet(u"font: 9pt;\n"
 "font: 20pt;")
         self.selectTabIndicator = QWidget(self.menuBar)
@@ -131,16 +131,96 @@ class Ui_Dialog(object):
 "}")
         self.resultsButton.setCheckable(True)
         self.resultsButton.setAutoExclusive(True)
+        self.keysButton = QPushButton(self.menuBar)
+        self.keysButton.setObjectName(u"keysButton")
+        self.keysButton.setGeometry(QRect(290, 0, 111, 71))
+        self.keysButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 14pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton:Checked{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"	font: 700 16pt;\n"
+"}")
+        self.keysButton.setCheckable(True)
+        self.keysButton.setChecked(False)
+        self.keysButton.setAutoExclusive(True)
         self.searchButton.raise_()
         self.setAIButton.raise_()
         self.uploadButton.raise_()
         self.title.raise_()
         self.resultsButton.raise_()
         self.selectTabIndicator.raise_()
+        self.keysButton.raise_()
         self.myQStackedWidget = QStackedWidget(Dialog)
         self.myQStackedWidget.setObjectName(u"myQStackedWidget")
         self.myQStackedWidget.setGeometry(QRect(60, 110, 711, 591))
         self.myQStackedWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.keysPage = QWidget()
+        self.keysPage.setObjectName(u"keysPage")
+        self.keysList = QWidget(self.keysPage)
+        self.keysList.setObjectName(u"keysList")
+        self.keysList.setGeometry(QRect(20, 30, 671, 491))
+        self.keysList.setStyleSheet(u"QWidget{\n"
+"	background-color: rgb(238, 238, 238);\n"
+"	border-radius: 20px;\n"
+"}")
+        self.keysListTag = QLabel(self.keysList)
+        self.keysListTag.setObjectName(u"keysListTag")
+        self.keysListTag.setGeometry(QRect(30, 10, 111, 16))
+        self.keysListTag.setStyleSheet(u"QLabel{\n"
+"	\n"
+"	color: rgb(113, 113, 113);\n"
+"	\n"
+"	font: 700 12pt\n"
+"	\n"
+"}")
+        self.elsevierKeyEntry = QLineEdit(self.keysList)
+        self.elsevierKeyEntry.setObjectName(u"elsevierKeyEntry")
+        self.elsevierKeyEntry.setGeometry(QRect(170, 40, 481, 41))
+        self.elsevierKeyEntry.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"")
+        self.elsevierKeyLabel = QLabel(self.keysList)
+        self.elsevierKeyLabel.setObjectName(u"elsevierKeyLabel")
+        self.elsevierKeyLabel.setGeometry(QRect(40, 54, 121, 16))
+        self.elsevierKeyLabel.setStyleSheet(u"QLabel{\n"
+"	\n"
+"	color: rgb(113, 113, 113);\n"
+"	\n"
+"	font: 700 12pt\n"
+"	\n"
+"}")
+        self.gptKeyLabel = QLabel(self.keysList)
+        self.gptKeyLabel.setObjectName(u"gptKeyLabel")
+        self.gptKeyLabel.setGeometry(QRect(40, 104, 121, 16))
+        self.gptKeyLabel.setStyleSheet(u"QLabel{\n"
+"	\n"
+"	color: rgb(113, 113, 113);\n"
+"	\n"
+"	font: 700 12pt\n"
+"	\n"
+"}")
+        self.gptKeyEntry = QLineEdit(self.keysList)
+        self.gptKeyEntry.setObjectName(u"gptKeyEntry")
+        self.gptKeyEntry.setGeometry(QRect(170, 90, 481, 41))
+        self.gptKeyEntry.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"")
+        self.myQStackedWidget.addWidget(self.keysPage)
         self.searchPage = QWidget()
         self.searchPage.setObjectName(u"searchPage")
         self.setFiltersPage = QWidget(self.searchPage)
@@ -652,7 +732,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(3)
+        self.myQStackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -665,6 +745,12 @@ class Ui_Dialog(object):
         self.uploadButton.setText(QCoreApplication.translate("Dialog", u"Upload", None))
         self.title.setText(QCoreApplication.translate("Dialog", u"Drive AI", None))
         self.resultsButton.setText(QCoreApplication.translate("Dialog", u"Results", None))
+        self.keysButton.setText(QCoreApplication.translate("Dialog", u"Keys", None))
+        self.keysListTag.setText(QCoreApplication.translate("Dialog", u"Keys", None))
+        self.elsevierKeyEntry.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key here...", None))
+        self.elsevierKeyLabel.setText(QCoreApplication.translate("Dialog", u"ELSEVIER_API_KEY", None))
+        self.gptKeyLabel.setText(QCoreApplication.translate("Dialog", u"GPT_API_KEY", None))
+        self.gptKeyEntry.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key here...", None))
         self.authorLabel.setText(QCoreApplication.translate("Dialog", u"Author:", None))
         self.publishDateLabel.setText(QCoreApplication.translate("Dialog", u"Publish Date", None))
         self.settingLabel.setText(QCoreApplication.translate("Dialog", u"Setting", None))
