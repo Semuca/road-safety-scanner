@@ -5,6 +5,7 @@ import json
 from modules.GUI import Ui_Dialog
 from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals, queryElsevier
 from modules.llm.gpt.query import queryGPT, uploadFile
+from modules.exporter import exportToExcel, journalResponsesToDataFrame
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -66,6 +67,9 @@ class MainWindow(QMainWindow):
 
         # Connect the open file button to the openFile function
         self.ui.uploadJournalButton.clicked.connect(self.openFile)
+        
+        # Connect the download button to the handleDownload function
+        self.ui.downloadResultsButton.clicked.connect(self.handleDownload)
 
     def switchToPage(self, pageIndex):
         """For the fist page, we can disable the back button"""
@@ -216,6 +220,19 @@ class MainWindow(QMainWindow):
             self.ui.resultsListTableWidget.insertRow(row_position)
             self.ui.resultsListTableWidget.setItem(row_position, 0, QTableWidgetItem(result))
             pass
+
+    def handleDownload(self):
+        """Download the processed journals to an Excel file."""
+        options = QFileDialog.Options()
+        filepath, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Excel Files (*.xlsx)", options=options)
+        
+        if filepath:
+            
+            df = journalResponsesToDataFrame(self)
+            
+            exportToExcel(filepath, df)
+            pass
+        pass
 
         
 if __name__ == "__main__":
