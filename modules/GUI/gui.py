@@ -639,7 +639,8 @@ class Ui_Dialog(object):
 "}")
         self.searchResultsBar = QLineEdit(self.setFiltersOption)
         self.searchResultsBar.setObjectName(u"searchResultsBar")
-        self.searchResultsBar.setGeometry(QRect(20, 40, 521, 41))
+        # reduce size of search bar
+        self.searchResultsBar.setGeometry(QRect(20, 40, 400, 41))
         self.searchResultsBar.setStyleSheet(u"QLineEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	font: 12pt;\n"
@@ -648,7 +649,8 @@ class Ui_Dialog(object):
 "")
         self.processJournalsButton = QPushButton(self.setFiltersOption)
         self.processJournalsButton.setObjectName(u"processJournalsButton")
-        self.processJournalsButton.setGeometry(QRect(550, 40, 101, 41))
+        # move process journals button to the left
+        self.processJournalsButton.setGeometry(QRect(420, 40, 101, 41))
         self.processJournalsButton.setStyleSheet(u"QPushButton{\n"
 "	color:white;\n"
 "	\n"
@@ -715,6 +717,27 @@ class Ui_Dialog(object):
 "	border: 3px solid rgb(56, 178, 224);\n"
 "}\n"
 "*/")
+        # download results button
+        self.downloadResultsButton = QPushButton(self.setFiltersOption)
+        self.downloadResultsButton.setObjectName(u"downloadResultsButton")
+        self.downloadResultsButton.setGeometry(QRect(525, 40, 140, 41))
+        self.downloadResultsButton.setStyleSheet(u"QPushButton{\n"
+"	color:white;\n"
+"	\n"
+"	font: 700 10pt;\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton:Checked{\n"
+"	\n"
+"	font: 8pt;\n"
+"	background-color: rgb(211, 211, 211);\n"
+"}")
+        self.downloadResultsButton.setCheckable(False)
+        self.downloadResultsButton.setChecked(False)
+        self.downloadResultsButton.setAutoRepeat(False)
+        self.downloadResultsButton.setAutoExclusive(False)
+        
         self.nextButton = QPushButton(Dialog)
         self.nextButton.setObjectName(u"nextButton")
         self.nextButton.setGeometry(QRect(660, 650, 100, 40))
@@ -798,6 +821,7 @@ class Ui_Dialog(object):
         self.searchResultsTag.setText(QCoreApplication.translate("Dialog", u"Enter your Natural Language Query", None))
         self.searchResultsBar.setPlaceholderText(QCoreApplication.translate("Dialog", u"Find me journals relevant to...", None))
         self.processJournalsButton.setText(QCoreApplication.translate("Dialog", u"Process", None))
+        self.downloadResultsButton.setText(QCoreApplication.translate("Dialog", u"Download Results", None))
         self.resultsListTag.setText(QCoreApplication.translate("Dialog", u"Results", None))
         ___qtablewidgetitem8 = self.resultsListTableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"AUTHOR", None));
