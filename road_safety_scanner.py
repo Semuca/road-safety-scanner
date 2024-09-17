@@ -5,7 +5,7 @@ import json
 from modules.GUI import Ui_Dialog
 from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals, queryElsevier
 
-from modules.llm.gpt.query import setupClient, queryGPT, uploadFile
+from modules.llm.gpt.query import clearConversationHistory, setupClient, queryGPT, uploadFile
 from modules.keys.keys import setKey, loadKeys
 from modules.exporter import exportToExcel, journalResponsesToDataFrame
 
@@ -78,8 +78,8 @@ class MainWindow(QMainWindow):
         # Connect the open file button to the openFile function
         self.ui.uploadJournalButton.clicked.connect(self.openFile)
         
-        # Connect the download button to the handleDownload function
-        self.ui.downloadResultsButton.clicked.connect(self.handleDownload)
+        # Connect the export button to the handleExport function
+        self.ui.exportResultsButton.clicked.connect(self.handleExport)
 
     def switchToPage(self, pageIndex):
         """For the fist page, we can disable the back button"""
@@ -150,7 +150,6 @@ class MainWindow(QMainWindow):
         query = " AND ".join(queryParts)
         self.queryResults = queryElsevier(self.keys["ELSEVIER_API_KEY"], query)
 
-        self.ui.searchListTableWidget.clear()
         self.ui.searchListTableWidget.setRowCount(0)
 
         # Add a new row for each record
@@ -168,7 +167,6 @@ class MainWindow(QMainWindow):
     
     def showFilterPage(self):
         self.ui.setFiltersPage.setVisible(True)
-        # self.ui.processJournalsButton.clicked.connect(self.getFilters)
     
     def getFilters(self):
         userQuery = self.ui.searchResultsBar.text()
@@ -247,28 +245,34 @@ class MainWindow(QMainWindow):
     def processJournals(self):
         """Process the uploaded journals using the selected AI model."""
 
-        queryText = self.ui.searchResultsBar.text()
-
-        self.ui.resultsListTableWidget.clear()
+        # queryText = self.ui.searchResultsBar.text()
 
         for journal in self.uploadedJournals:
+            doi = journal.split("/")[-1].replace(".json", "")
             uploadFile(journal)
-            result = queryGPT(queryText)
+
+            settingResult = queryGPT("Can you say a single country to describe the setting the journal is analyzing? Say nothing else except the country.")
+            dataTypeResult = queryGPT("Can you say a maximum of 6 words to describe the type of data the journal is analyzing? Say nothing except the data type.")
+            targetPopulationResult = queryGPT("Can you say a maximum of 6 words to describe the target population the journal is analyzing? Say nothing except the target population.")
+            synopsisResult = queryGPT("Can you summarize the journal in a paragraph? Say nothing except the paragraph.")
+            clearConversationHistory()
 
             row_position = self.ui.resultsListTableWidget.rowCount()
             self.ui.resultsListTableWidget.insertRow(row_position)
-            self.ui.resultsListTableWidget.setItem(row_position, 0, QTableWidgetItem(result))
+            self.ui.resultsListTableWidget.setItem(row_position, 0, QTableWidgetItem(doi))
+            self.ui.resultsListTableWidget.setItem(row_position, 1, QTableWidgetItem(settingResult))
+            self.ui.resultsListTableWidget.setItem(row_position, 2, QTableWidgetItem(dataTypeResult))
+            self.ui.resultsListTableWidget.setItem(row_position, 3, QTableWidgetItem(targetPopulationResult))
+            self.ui.resultsListTableWidget.setItem(row_position, 4, QTableWidgetItem(synopsisResult))
             pass
 
-    def handleDownload(self):
-        """Download the processed journals to an Excel file."""
+    def handleExport(self):
+        """Exports the processed journals to an Excel file."""
         options = QFileDialog.Options()
         filepath, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Excel Files (*.xlsx)", options=options)
         
         if filepath:
-            
-            df = journalResponsesToDataFrame(self)
-            
+            df = journalResponsesToDataFrame(self.ui.resultsListTableWidget)
             exportToExcel(filepath, df)
             pass
         pass
