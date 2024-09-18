@@ -8,7 +8,7 @@ from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournal
 from modules.llm.gpt.query import setupClient, queryGPT, uploadFile
 from modules.keys.keys import setKey, loadKeys
 from modules.exporter import exportToExcel, journalResponsesToDataFrame
-
+from PySide6.QtWidgets import QLabel
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -80,6 +80,20 @@ class MainWindow(QMainWindow):
         
         # Connect the download button to the handleDownload function
         self.ui.downloadResultsButton.clicked.connect(self.handleDownload)
+
+        # Create a QLabel to display the selected AI
+        self.selectedAILabel = QLabel("Current AI: None", self)
+        self.selectedAILabel.setGeometry(10, 40, 200, 30)  
+        self.selectedAILabel.setStyleSheet("font-size: 16px; color: black;") 
+        
+        # Initializes the selected AI
+        self.currentAI = "ChatGPT"
+        self.selectedAILabel.setText(f"Current AI: {self.currentAI}")
+
+    def onAISelected(self, ai_name):
+        """Update the AI name displayed"""
+        self.currentAI = ai_name
+        self.selectedAILabel.setText(f"Current AI: {self.currentAI}")    
 
     def switchToPage(self, pageIndex):
         """For the fist page, we can disable the back button"""
@@ -186,19 +200,23 @@ class MainWindow(QMainWindow):
         clicked_button = self.sender()
         print(f"AI set to: {clicked_button.text()}")  # Debug output to confirm the selection
 
-        # Set the API key based on the button clicked
+        selected_ai = ""
         if clicked_button == self.ui.pushButton_ChatGpt:
-            return
+            selected_ai = "ChatGPT"
             # set_llm_api_key("GPT_API_KEY")
         elif clicked_button == self.ui.pushButton_Llama70b:
-            return
+            selected_ai = "Llama70b"
             # set_llm_api_key("LLAMA70B_API_KEY")
         elif clicked_button == self.ui.pushButton_Llama405b:
-            return
-            # set_llm_api_key("LLAMA405B_API_KEY_")
+            selected_ai = "Llama405b"
+            # set_llm_api_key("LLAMA405B_API_KEY")
         elif clicked_button == self.ui.pushButton_ClaudeSonnet:
-            return
-            # set_llm_api_key("CLAUDESONNET_API_KEY_")
+            selected_ai = "ClaudeSonnet"
+            # set_llm_api_key("CLAUDESONNET_API_KEY")
+
+        # Update the currently selected AI displayed on the Tab header
+        self.currentAI = selected_ai
+        self.selectedAILabel.setText(f"Current AI: {self.currentAI}")
 
     def openFile(self):
         """Open a file dialog and display the selected file path."""
