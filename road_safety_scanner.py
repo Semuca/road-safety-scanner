@@ -86,14 +86,6 @@ class MainWindow(QMainWindow):
         self.selectedAILabel.setGeometry(10, 40, 200, 30)  
         self.selectedAILabel.setStyleSheet("font-size: 16px; color: black;") 
         
-        # Initializes the selected AI
-        self.currentAI = "ChatGPT"
-        self.selectedAILabel.setText(f"Current AI: {self.currentAI}")
-
-    def onAISelected(self, ai_name):
-        """Update the AI name displayed"""
-        self.currentAI = ai_name
-        self.selectedAILabel.setText(f"Current AI: {self.currentAI}")    
 
     def switchToPage(self, pageIndex):
         """For the fist page, we can disable the back button"""
