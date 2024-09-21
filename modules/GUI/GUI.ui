@@ -1273,6 +1273,31 @@ QPushButton:Checked{
 	background-color: rgb(8, 144, 196);
 }
 </string>
+
+</property>
+      <property name="text">
+       <string>Upload your journals here</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="downloadResultsButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color:white;
+	
+	font: 700 10pt;
+	background-color: rgb(8, 144, 196);
+}
+</string>
+
+
       </property>
       <property name="text">
        <string>Upload</string>
@@ -1452,6 +1477,44 @@ QPushButton:Checked{
       </property>
      </widget>
     </widget>
+    <widget class ="QPushButton" name = "downloadResultsButton">
+     <property name = "geometry">
+      <rect>
+            <x>550</x>
+            <y>40</y>
+            <width>101</width>
+            <height>41</height>
+      </rect>
+      </property>
+      <property name = "styleSheet">
+       <string notr="true">QPushButton{
+            color:white;
+            font: 700 10pt;
+            background-color: rgb(8, 144, 196);
+       }
+
+       QPushButton:Checked{
+            font: 8pt;
+            background-color: rgb(211, 211, 211);
+       }</string>
+      </property>
+      <property name = "text">
+       <string>Download</string>
+      </property>
+      <property name = "checkable">
+       <bool>false</bool>
+      </property>
+      <property name = "checked">
+       <bool>false</bool>
+      </property>
+      <property name = "autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name = "autoExclusive">
+       <bool>false</bool>
+      </property>
+      </widget>
+      </widget>
     <widget class="QWidget" name="resultsList" native="true">
      <property name="geometry">
       <rect>
