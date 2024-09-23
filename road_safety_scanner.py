@@ -305,6 +305,9 @@ class MainWindow(QMainWindow):
 
     def openEditColumn(self, columnIndex):
         """Open the Edit Column modal."""
+        if columnIndex < len(self.publicationColumns):
+            return
+
         self.ui.editColumnPage.setVisible(True)
         self.editingColumn = columnIndex - len(self.publicationColumns)
 

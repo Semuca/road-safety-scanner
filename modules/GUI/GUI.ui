@@ -281,7 +281,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="keysPage">
     <widget class="QWidget" name="keysList" native="true">
@@ -537,11 +537,18 @@ QPushButton:Checked{
         <second>0</second>
         <year>2013</year>
         <month>12</month>
-        <day>30</day>
+        <day>31</day>
        </datetime>
       </property>
       <property name="displayFormat">
        <string>yyyy</string>
+      </property>
+      <property name="date">
+       <date>
+        <year>2013</year>
+        <month>12</month>
+        <day>31</day>
+       </date>
       </property>
      </widget>
      <widget class="QLineEdit" name="keyWords">
@@ -675,11 +682,18 @@ QPushButton:Hover{
         <second>0</second>
         <year>2023</year>
         <month>12</month>
-        <day>30</day>
+        <day>31</day>
        </datetime>
       </property>
       <property name="displayFormat">
        <string>yyyy</string>
+      </property>
+      <property name="date">
+       <date>
+        <year>2023</year>
+        <month>12</month>
+        <day>31</day>
+       </date>
       </property>
      </widget>
      <widget class="QLabel" name="publishYearToLabel">
