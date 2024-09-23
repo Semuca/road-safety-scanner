@@ -90,6 +90,13 @@ def getJournals() -> list[Any]:
 
     return journals
 
+def getJournal(path: str) -> Any:
+    """
+    Returns a journal from the journals directory.
+    """
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 def clearJournals() -> None:
     """
