@@ -260,6 +260,19 @@ QPushButton:Checked{
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="currentlyAI">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>181</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
    <zorder>searchButton</zorder>
    <zorder>setAIButton</zorder>
    <zorder>uploadButton</zorder>
@@ -267,6 +280,7 @@ QPushButton:Checked{
    <zorder>resultsButton</zorder>
    <zorder>selectTabIndicator</zorder>
    <zorder>keysButton</zorder>
+   <zorder>currentlyAI</zorder>
   </widget>
   <widget class="QStackedWidget" name="myQStackedWidget">
    <property name="geometry">
@@ -535,9 +549,15 @@ QPushButton:Checked{
         <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
+<<<<<<< Updated upstream
         <year>2014</year>
         <month>1</month>
         <day>1</day>
+=======
+        <year>2013</year>
+        <month>12</month>
+        <day>29</day>
+>>>>>>> Stashed changes
        </datetime>
       </property>
       <property name="displayFormat">
@@ -673,9 +693,15 @@ QPushButton:Hover{
         <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
+<<<<<<< Updated upstream
         <year>2024</year>
         <month>1</month>
         <day>1</day>
+=======
+        <year>2023</year>
+        <month>12</month>
+        <day>29</day>
+>>>>>>> Stashed changes
        </datetime>
       </property>
       <property name="displayFormat">

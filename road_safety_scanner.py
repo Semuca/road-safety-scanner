@@ -10,6 +10,7 @@ from modules.keys.keys import setKey, loadKeys
 from modules.exporter import exportToExcel, journalResponsesToDataFrame
 from PySide6.QtWidgets import QLabel
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -18,6 +19,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setWindowTitle("Drive AI")
 
+        # Set the default AI name to GPT-4o
+        self.ui.currentlyAI.setText("Current AI: GPT-4o")
 
         # Dictionary to map page indices to their corresponding buttons
         self.page_button_mapping = {
@@ -187,11 +190,13 @@ class MainWindow(QMainWindow):
         return userQuery, authorName, publishDate, keyWordsList, setting
 
     def selectAI(self):
-        """Set the API key for the GPT model."""
+        """Set the API key for the GPT model and update the current AI label."""
 
         clicked_button = self.sender()
-        print(f"AI set to: {clicked_button.text()}")  # Debug output to confirm the selection
+        selected_ai = clicked_button.text()  # Get the text of the clicked button (AI name)
+        print(f"AI set to: {selected_ai}")  # Debug output to confirm the selection
 
+<<<<<<< Updated upstream
         selected_ai = ""
         if clicked_button == self.ui.pushButton_ChatGpt:
             selected_ai = "ChatGPT"
@@ -209,6 +214,25 @@ class MainWindow(QMainWindow):
         # Update the currently selected AI displayed on the Tab header
         self.currentAI = selected_ai
         self.selectedAILabel.setText(f"Current AI: {self.currentAI}")
+=======
+        # Update the currentlyAI label to display the selected AI
+        self.ui.currentlyAI.setText(f"Current AI: {selected_ai}")
+
+        # Set the API key based on the clicked button (implement accordingly)
+        if clicked_button == self.ui.pushButton_ChatGpt:
+            # Set API key for ChatGPT
+            return
+        elif clicked_button == self.ui.pushButton_Llama70b:
+            # Set API key for Llama70B
+            return
+        elif clicked_button == self.ui.pushButton_Llama405b:
+            # Set API key for Llama405B
+            return
+        elif clicked_button == self.ui.pushButton_ClaudeSonnet:
+            # Set API key for ClaudeSonnet
+            return
+
+>>>>>>> Stashed changes
 
     def openFile(self):
         """Open a file dialog and display the selected file path."""
