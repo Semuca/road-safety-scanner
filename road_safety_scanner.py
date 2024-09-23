@@ -27,11 +27,6 @@ class ResultsTableHeader(QHeaderView):
         super().mouseReleaseEvent(event)
         self.onClicked(self.logicalIndexAt(event.position().toPoint()))
 
-class QueryColumn:
-    def __init__(self, header, query) -> None:
-        self.header = header
-        self.query = query
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -53,7 +48,7 @@ class MainWindow(QMainWindow):
         self.ui.resultsListTableWidget.setHorizontalHeader(ResultsTableHeader(Qt.Horizontal, self.ui.resultsListTableWidget, self.openEditColumn))
 
         # Set the Search Page as the default start up page
-        self.switchToPage(4)
+        self.switchToPage(1)
 
         # Hide Filter Page
         self.ui.setFiltersPage.setVisible(False)
@@ -67,11 +62,15 @@ class MainWindow(QMainWindow):
 
         # Setup Edit Column Page Modal
         self.ui.editColumnPage.setVisible(False)
-        self.ui.editColumnCancelButton.clicked.connect(self.closeAddColumn)
+        self.ui.editColumnCancelButton.clicked.connect(self.closeEditColumn)
         self.ui.editColumnApplyButton.clicked.connect(self.editColumn)
         self.ui.deleteColumnButton.clicked.connect(lambda: self.deleteColumn(self.editingColumn))
 
-        self.resultsColumns = []
+        # Setup the columns for the results table
+        self.publicationColumns = ["Publication"]
+        rawColumns = json.loads(open("modules/exporter/columns.json").read())["columns"]
+        self.queryColumns = [(column["header"], column["query"]) for column in rawColumns]
+        self.buildResultsTable()
 
         # Connect menu buttons to their respective functions
         self.ui.keysButton.clicked.connect(lambda: self.switchToPage(0))
@@ -106,7 +105,6 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_ClaudeSonnet.clicked.connect(self.selectAI)
         self.ui.pushButton_ChatGpt.click()
 
-        
         # Set the header to stretch and fill the table widget
         header = self.ui.journalListTableWidget.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.Stretch)
@@ -286,14 +284,15 @@ class MainWindow(QMainWindow):
 
     def buildResultsTable(self):
         """Build the results table based on the results columns."""
-        self.ui.resultsListTableWidget.setColumnCount(len(self.resultsColumns))
-        self.ui.resultsListTableWidget.setHorizontalHeaderLabels([column.header for column in self.resultsColumns])
+        queryHeaders = [header for header, query in self.queryColumns]
+        headers = self.publicationColumns + queryHeaders
+
+        self.ui.resultsListTableWidget.setColumnCount(len(headers))
+        self.ui.resultsListTableWidget.setHorizontalHeaderLabels(headers)
 
     def addColumn(self):
         """Add a column to the results table."""
-        column = QueryColumn(self.ui.addColumnHeaderEntry.text(), self.ui.addColumnQueryText.toPlainText())
-
-        self.resultsColumns.append(column)
+        self.queryColumns.append((self.ui.addColumnHeaderEntry.text(), self.ui.addColumnQueryText.toPlainText()))
         self.buildResultsTable()
 
         self.closeAddColumn()
@@ -307,28 +306,30 @@ class MainWindow(QMainWindow):
     def openEditColumn(self, columnIndex):
         """Open the Edit Column modal."""
         self.ui.editColumnPage.setVisible(True)
-        self.editingColumn = columnIndex
+        self.editingColumn = columnIndex - len(self.publicationColumns)
 
-        column = self.resultsColumns[columnIndex]
-        self.ui.editColumnHeaderEntry.setText(column.header)
-        self.ui.editColumnQueryText.setPlainText(column.query)
+        header, query = self.queryColumns[self.editingColumn]
+        self.ui.editColumnHeaderEntry.setText(header)
+        self.ui.editColumnQueryText.setPlainText(query)
 
     def editColumn(self):
         """Edit a column in the results table."""
 
-        self.resultsColumns[self.editingColumn] = QueryColumn(self.ui.editColumnHeaderEntry.text(), self.ui.editColumnQueryText.toPlainText())
+        self.queryColumns[self.editingColumn] = (self.ui.editColumnHeaderEntry.text(), self.ui.editColumnQueryText.toPlainText())
         self.buildResultsTable()
 
         self.closeEditColumn()
 
     def deleteColumn(self, columnIndex):
         """Delete a column from the results table."""
-        self.resultsColumns.pop(columnIndex)
+        self.queryColumns.pop(columnIndex)
         self.buildResultsTable()
 
         self.closeEditColumn()
 
     def closeEditColumn(self):
+        self.editingColumn = None
+
         self.ui.editColumnHeaderEntry.clear()
         self.ui.editColumnQueryText.clear()
         self.ui.editColumnPage.setVisible(False)
@@ -336,25 +337,21 @@ class MainWindow(QMainWindow):
     def processJournals(self):
         """Process the uploaded journals using the selected AI model."""
 
-        # queryText = self.ui.searchResultsBar.text()
-
         for journal in self.uploadedJournals:
             doi = journal.split("/")[-1].replace(".json", "")
             uploadFile(journal)
 
-            settingResult = queryGPT("Can you say a single country to describe the setting the journal is analyzing? Say nothing else except the country.")
-            dataTypeResult = queryGPT("Can you say a maximum of 6 words to describe the type of data the journal is analyzing? Say nothing except the data type.")
-            targetPopulationResult = queryGPT("Can you say a maximum of 6 words to describe the target population the journal is analyzing? Say nothing except the target population.")
-            synopsisResult = queryGPT("Can you summarize the journal in a paragraph? Say nothing except the paragraph.")
+            for header, query in self.queryColumns:
+                queryGPT(query)
+
+            columnResults = [queryGPT(query) for header, query in self.queryColumns]
             clearConversationHistory()
 
             row_position = self.ui.resultsListTableWidget.rowCount()
             self.ui.resultsListTableWidget.insertRow(row_position)
             self.ui.resultsListTableWidget.setItem(row_position, 0, QTableWidgetItem(doi))
-            self.ui.resultsListTableWidget.setItem(row_position, 1, QTableWidgetItem(settingResult))
-            self.ui.resultsListTableWidget.setItem(row_position, 2, QTableWidgetItem(dataTypeResult))
-            self.ui.resultsListTableWidget.setItem(row_position, 3, QTableWidgetItem(targetPopulationResult))
-            self.ui.resultsListTableWidget.setItem(row_position, 4, QTableWidgetItem(synopsisResult))
+            for i, columnResult in enumerate(columnResults):
+                self.ui.resultsListTableWidget.setItem(row_position, i + 1, QTableWidgetItem(columnResult))
             pass
 
     def handleExport(self):
