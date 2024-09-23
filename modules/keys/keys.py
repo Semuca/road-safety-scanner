@@ -1,3 +1,5 @@
+"""Utility functions for the keys module."""
+
 import json
 import os
 
@@ -12,14 +14,13 @@ def loadKeys() -> dict[str, str]:
     if not os.path.exists(KEYS_PATH):
         return
     
-    with open(KEYS_PATH, 'r', encoding='utf-8') as f:
+    with open(KEYS_PATH) as f:
         keys = json.load(f)
 
     return keys
 
 def setKey(key: str, value: str) -> None:
-    """Sets a key in the keys file."""
-
+    """Set a key in the keys file."""
     keys[key] = value
 
     with open(KEYS_PATH, 'w', encoding='utf-8') as f:

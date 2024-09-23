@@ -1,5 +1,8 @@
+"""Utility functions to interact with the GPT model using OpenAI's API."""
+
 import json
 import os
+
 import pdfplumber
 from openai import OpenAI
 
@@ -26,6 +29,7 @@ def extractTextFromPdf(file_path: str) -> str:
         return ""
 
 def uploadFile(file_path: str) -> None:
+    """Upload file to the GPT model and store the content."""
     try:        
         # Check the file extension
         file_extension = os.path.splitext(file_path)[1].lower()
@@ -35,8 +39,9 @@ def uploadFile(file_path: str) -> None:
         
         if file_extension == ".json":
             # Open and read the json file content
-            with open(file_path, 'r', encoding='utf-8') as f:
-                file_content = json.load(f).get("full-text-retrieval-response", {}).get("originalText")
+            with open(file_path) as f:
+                file_content = json.load(f).get("full-text-retrieval-response",
+                                                {}).get("originalText")
         elif file_extension == ".pdf":
             # Extract text from the PDF file
             file_content = extractTextFromPdf(file_path)
@@ -45,8 +50,10 @@ def uploadFile(file_path: str) -> None:
             return
 
         # Add the system and user messages to the conversation history
-        conversation_history.append({"role": "system", "content": "You are uploading an academic journal."})
-        conversation_history.append({"role": "user", "content": f"Please remember the following content: {file_content}"})
+        conversation_history.append({"role": "system",
+                        "content": "You are uploading an academic journal."})
+        conversation_history.append({"role": "user",
+        "content": f"Please remember the following content: {file_content}"})
         
         # Store the file content using OpenAI's API
         response = client.chat.completions.create(
@@ -58,7 +65,8 @@ def uploadFile(file_path: str) -> None:
         response_content = response.choices[0].message.content.strip()
         
         # Add the assistant's response to the conversation history
-        conversation_history.append({"role": "assistant", "content": response_content})
+        conversation_history.append({"role": "assistant",
+                                     "content": response_content})
         
         # Check for successful completion
         if response_content:
