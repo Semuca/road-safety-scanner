@@ -266,7 +266,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 31), QTime(0, 0, 0)))
+        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 30), QTime(0, 0, 0)))
         self.keyWords = QLineEdit(self.setFiltersPage)
         self.keyWords.setObjectName(u"keyWords")
         self.keyWords.setGeometry(QRect(50, 140, 301, 41))
@@ -321,7 +321,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 31), QTime(0, 0, 0)))
+        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 30), QTime(0, 0, 0)))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
         self.publishYearToLabel.setObjectName(u"publishYearToLabel")
         self.publishYearToLabel.setGeometry(QRect(410, 110, 41, 20))
@@ -854,28 +854,9 @@ class Ui_Dialog(object):
 "	font: 700 12pt\n"
 "	\n"
 "}")
-        self.exportResultsButton = QPushButton(self.setFiltersOption)
-        self.exportResultsButton.setObjectName(u"exportResultsButton")
-        self.exportResultsButton.setGeometry(QRect(290, 40, 101, 41))
-        self.exportResultsButton.setStyleSheet(u"QPushButton{\n"
-"	color:white;\n"
-"	\n"
-"	font: 700 10pt;\n"
-"	background-color: rgb(8, 144, 196);\n"
-"}\n"
-"\n"
-"QPushButton:Checked{\n"
-"	\n"
-"	font: 8pt;\n"
-"	background-color: rgb(211, 211, 211);\n"
-"}")
-        self.exportResultsButton.setCheckable(False)
-        self.exportResultsButton.setChecked(False)
-        self.exportResultsButton.setAutoRepeat(False)
-        self.exportResultsButton.setAutoExclusive(False)
         self.processJournalsButton = QPushButton(self.setFiltersOption)
         self.processJournalsButton.setObjectName(u"processJournalsButton")
-        self.processJournalsButton.setGeometry(QRect(440, 40, 101, 41))
+        self.processJournalsButton.setGeometry(QRect(290, 40, 101, 41))
         self.processJournalsButton.setStyleSheet(u"QPushButton{\n"
 "	color:white;\n"
 "	\n"
@@ -911,10 +892,10 @@ class Ui_Dialog(object):
         self.addColumnButton.setChecked(False)
         self.addColumnButton.setAutoRepeat(False)
         self.addColumnButton.setAutoExclusive(False)
-        self.downloadResultsButton = QPushButton(self.setFiltersOption)
-        self.downloadResultsButton.setObjectName(u"downloadResultsButton")
-        self.downloadResultsButton.setGeometry(QRect(400, 40, 101, 41))
-        self.downloadResultsButton.setStyleSheet(u"QPushButton{\n"
+        self.exportResultsButton = QPushButton(self.setFiltersOption)
+        self.exportResultsButton.setObjectName(u"exportResultsButton")
+        self.exportResultsButton.setGeometry(QRect(400, 40, 101, 41))
+        self.exportResultsButton.setStyleSheet(u"QPushButton{\n"
 "            color:white;\n"
 "            font: 700 10pt;\n"
 "            background-color: rgb(8, 144, 196);\n"
@@ -924,10 +905,10 @@ class Ui_Dialog(object):
 "            font: 8pt;\n"
 "            background-color: rgb(211, 211, 211);\n"
 "       }")
-        self.downloadResultsButton.setCheckable(False)
-        self.downloadResultsButton.setChecked(False)
-        self.downloadResultsButton.setAutoRepeat(False)
-        self.downloadResultsButton.setAutoExclusive(False)
+        self.exportResultsButton.setCheckable(False)
+        self.exportResultsButton.setChecked(False)
+        self.exportResultsButton.setAutoRepeat(False)
+        self.exportResultsButton.setAutoExclusive(False)
         self.resultsList = QWidget(self.resultsPage)
         self.resultsList.setObjectName(u"resultsList")
         self.resultsList.setGeometry(QRect(20, 140, 671, 371))
@@ -1076,10 +1057,9 @@ class Ui_Dialog(object):
         self.editColumnHeaderLabel.setText(QCoreApplication.translate("Dialog", u"Header", None))
         self.editColumnQueryLabel.setText(QCoreApplication.translate("Dialog", u"Query", None))
         self.searchResultsTag.setText(QCoreApplication.translate("Dialog", u"Process articles", None))
-        self.exportResultsButton.setText(QCoreApplication.translate("Dialog", u"Export", None))
         self.processJournalsButton.setText(QCoreApplication.translate("Dialog", u"Process", None))
         self.addColumnButton.setText(QCoreApplication.translate("Dialog", u"Add column", None))
-        self.downloadResultsButton.setText(QCoreApplication.translate("Dialog", u"Download", None))
+        self.exportResultsButton.setText(QCoreApplication.translate("Dialog", u"Download", None))
         self.resultsListTag.setText(QCoreApplication.translate("Dialog", u"Results", None))
         ___qtablewidgetitem8 = self.resultsListTableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"PUBLICATION", None));

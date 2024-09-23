@@ -537,7 +537,7 @@ QPushButton:Checked{
         <second>0</second>
         <year>2013</year>
         <month>12</month>
-        <day>31</day>
+        <day>30</day>
        </datetime>
       </property>
       <property name="displayFormat">
@@ -675,7 +675,7 @@ QPushButton:Hover{
         <second>0</second>
         <year>2023</year>
         <month>12</month>
-        <day>31</day>
+        <day>30</day>
        </datetime>
       </property>
       <property name="displayFormat">
@@ -1840,49 +1840,10 @@ QPushButton:Hover{
        <string>Process articles</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="exportResultsButton">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>40</y>
-        <width>101</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color:white;
-	
-	font: 700 10pt;
-	background-color: rgb(8, 144, 196);
-}
-
-QPushButton:Checked{
-	
-	font: 8pt;
-	background-color: rgb(211, 211, 211);
-}</string>
-      </property>
-      <property name="text">
-       <string>Export</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-      <property name="autoExclusive">
-       <bool>false</bool>
-      </property>
-     </widget>
      <widget class="QPushButton" name="processJournalsButton">
       <property name="geometry">
        <rect>
-        <x>440</x>
+        <x>290</x>
         <y>40</y>
         <width>101</width>
         <height>41</height>
@@ -1957,7 +1918,7 @@ QPushButton:Checked{
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="downloadResultsButton">
+     <widget class="QPushButton" name="exportResultsButton">
       <property name="geometry">
        <rect>
         <x>400</x>
