@@ -20,5 +20,4 @@ def journalResponsesToDataFrame(table: QTableWidget) -> DataFrame:
                 row_data.append(item.text())
         data.append(row_data)
     headers = [table.horizontalHeaderItem(i).text() for i in range(col_count)]
-    df = DataFrame(data, columns=headers)
-    return df
+    return DataFrame(data, columns=headers)

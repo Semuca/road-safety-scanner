@@ -230,13 +230,13 @@ class MainWindow(QMainWindow):
         if clicked_button == self.ui.pushButton_ChatGpt:
             return
             # set_llm_api_key("GPT_API_KEY")
-        elif clicked_button == self.ui.pushButton_Llama70b:
+        if clicked_button == self.ui.pushButton_Llama70b:
             return
             # set_llm_api_key("LLAMA70B_API_KEY")
-        elif clicked_button == self.ui.pushButton_Llama405b:
+        if clicked_button == self.ui.pushButton_Llama405b:
             return
             # set_llm_api_key("LLAMA405B_API_KEY_")
-        elif clicked_button == self.ui.pushButton_ClaudeSonnet:
+        if clicked_button == self.ui.pushButton_ClaudeSonnet:
             return
             # set_llm_api_key("CLAUDE_SONNET_API_KEY_")
 
