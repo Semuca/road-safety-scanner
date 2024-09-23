@@ -3,7 +3,7 @@
 import json
 import os
 
-KEYS_PATH = f'{os.path.dirname(os.path.abspath(__file__))}/keys.json'
+KEYS_PATH = f"{os.path.dirname(os.path.abspath(__file__))}/keys.json"
 
 keys = {}
 
@@ -23,5 +23,5 @@ def setKey(key: str, value: str) -> None:
     """Set a key in the keys file."""
     keys[key] = value
 
-    with open(KEYS_PATH, 'w', encoding='utf-8') as f:
+    with open(KEYS_PATH, "w", encoding="utf-8") as f:
         json.dump(keys, f, indent=4)

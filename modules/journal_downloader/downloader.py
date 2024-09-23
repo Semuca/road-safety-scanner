@@ -31,7 +31,7 @@ def queryElsevier(api_key: str, query: str,
 
     request = urllib.request.Request(
         f"{elsevierAPI}/search/scopus?query={query}",
-        headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
+        headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
 
     # Read all journals from the query until limit is hit
     results = []
@@ -39,10 +39,10 @@ def queryElsevier(api_key: str, query: str,
     while (len(results) < limit and len(results) < totalResults):
         request = urllib.request.Request(
             f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}",
-            headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
+            headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
         
         searchedJournals = json.loads(
-            urllib.request.urlopen(request).read().decode('utf-8'))
+            urllib.request.urlopen(request).read().decode("utf-8"))
         totalResults = int(
             searchedJournals["search-results"]["opensearch:totalResults"])
 
@@ -60,8 +60,8 @@ def queryElsevier(api_key: str, query: str,
 def downloadJournal(api_key: str, doi: str) -> dict[str, Any]:
     """Download a journal from the Elsevier API."""
     request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}",
-                headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
-    journal = urllib.request.urlopen(request).read().decode('utf-8')
+                headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
+    journal = urllib.request.urlopen(request).read().decode("utf-8")
 
     with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json",
               "w", encoding="utf-8") as f:

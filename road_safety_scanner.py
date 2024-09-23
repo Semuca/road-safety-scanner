@@ -253,7 +253,7 @@ class MainWindow(QMainWindow):
         for file_name in file_names:
 
             # Check if the file extension is .json
-            if not file_name.endswith('.json'):
+            if not file_name.endswith(".json"):
                 continue
 
             # Open and read the JSON file

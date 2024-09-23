@@ -8,5 +8,5 @@ from .downloader import (
 )
 from .signal import QueryElsevierThread
 
-__all__ = ['downloadJournal', 'downloadJournals', 'getJournals', 'getJournal',
-           'clearJournals', 'QueryElsevierThread']
+__all__ = ["downloadJournal", "downloadJournals", "getJournals", "getJournal",
+           "clearJournals", "QueryElsevierThread"]

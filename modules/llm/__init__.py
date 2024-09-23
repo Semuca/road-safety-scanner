@@ -2,4 +2,4 @@
 
 from .gpt.query import clearConversationHistory, queryGPT, uploadFile
 
-__all__ = ['uploadFile', 'queryGPT', 'clearConversationHistory']
+__all__ = ["uploadFile", "queryGPT", "clearConversationHistory"]
