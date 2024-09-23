@@ -23,9 +23,14 @@ class ResultsTableHeader(QHeaderView):
     def paintSection(self, painter, rect, logicalIndex):
         super().paintSection(painter, rect, logicalIndex)
 
-    def mouseReleaseEvent(self, e):
-        super().mouseReleaseEvent(e)
-        self.onClicked()
+    def mouseReleaseEvent(self, event):
+        super().mouseReleaseEvent(event)
+        self.onClicked(self.logicalIndexAt(event.position().toPoint()))
+
+class QueryColumn:
+    def __init__(self, header, query) -> None:
+        self.header = header
+        self.query = query
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -45,7 +50,7 @@ class MainWindow(QMainWindow):
             4: self.ui.resultsButton
         }
 
-        self.ui.resultsListTableWidget.setHorizontalHeader(ResultsTableHeader(Qt.Horizontal, self.ui.resultsListTableWidget, lambda: self.ui.editColumnPage.setVisible(True)))
+        self.ui.resultsListTableWidget.setHorizontalHeader(ResultsTableHeader(Qt.Horizontal, self.ui.resultsListTableWidget, self.openEditColumn))
 
         # Set the Search Page as the default start up page
         self.switchToPage(4)
@@ -56,12 +61,17 @@ class MainWindow(QMainWindow):
 
         # Setup Add Column Page Modal
         self.ui.addColumnPage.setVisible(False)
-        self.ui.addColumnButton.clicked.connect(lambda: self.ui.addColumnPage.setVisible(not self.ui.addColumnPage.isVisible()))
-        self.ui.addColumnCancelButton.clicked.connect(lambda: self.ui.addColumnPage.setVisible(False))
+        self.ui.addColumnButton.clicked.connect(lambda: self.closeAddColumn() if self.ui.addColumnPage.isVisible() else self.ui.addColumnPage.setVisible(True))
+        self.ui.addColumnCancelButton.clicked.connect(self.closeAddColumn)
+        self.ui.addColumnApplyButton.clicked.connect(self.addColumn)
 
         # Setup Edit Column Page Modal
         self.ui.editColumnPage.setVisible(False)
-        self.ui.editColumnCancelButton.clicked.connect(lambda: self.ui.editColumnPage.setVisible(False))
+        self.ui.editColumnCancelButton.clicked.connect(self.closeAddColumn)
+        self.ui.editColumnApplyButton.clicked.connect(self.editColumn)
+        self.ui.deleteColumnButton.clicked.connect(lambda: self.deleteColumn(self.editingColumn))
+
+        self.resultsColumns = []
 
         # Connect menu buttons to their respective functions
         self.ui.keysButton.clicked.connect(lambda: self.switchToPage(0))
@@ -273,6 +283,55 @@ class MainWindow(QMainWindow):
             self.ui.journalListTableWidget.setItem(row_position, 1, QTableWidgetItem(title))
             self.ui.journalListTableWidget.setItem(row_position, 2, QTableWidgetItem(type_))
             self.ui.journalListTableWidget.setItem(row_position, 3, QTableWidgetItem(date))
+
+    def buildResultsTable(self):
+        """Build the results table based on the results columns."""
+        self.ui.resultsListTableWidget.setColumnCount(len(self.resultsColumns))
+        self.ui.resultsListTableWidget.setHorizontalHeaderLabels([column.header for column in self.resultsColumns])
+
+    def addColumn(self):
+        """Add a column to the results table."""
+        column = QueryColumn(self.ui.addColumnHeaderEntry.text(), self.ui.addColumnQueryText.toPlainText())
+
+        self.resultsColumns.append(column)
+        self.buildResultsTable()
+
+        self.closeAddColumn()
+
+    def closeAddColumn(self):
+        """Close the Add Column modal."""
+        self.ui.addColumnHeaderEntry.clear()
+        self.ui.addColumnQueryText.clear()
+        self.ui.addColumnPage.setVisible(False)
+
+    def openEditColumn(self, columnIndex):
+        """Open the Edit Column modal."""
+        self.ui.editColumnPage.setVisible(True)
+        self.editingColumn = columnIndex
+
+        column = self.resultsColumns[columnIndex]
+        self.ui.editColumnHeaderEntry.setText(column.header)
+        self.ui.editColumnQueryText.setPlainText(column.query)
+
+    def editColumn(self):
+        """Edit a column in the results table."""
+
+        self.resultsColumns[self.editingColumn] = QueryColumn(self.ui.editColumnHeaderEntry.text(), self.ui.editColumnQueryText.toPlainText())
+        self.buildResultsTable()
+
+        self.closeEditColumn()
+
+    def deleteColumn(self, columnIndex):
+        """Delete a column from the results table."""
+        self.resultsColumns.pop(columnIndex)
+        self.buildResultsTable()
+
+        self.closeEditColumn()
+
+    def closeEditColumn(self):
+        self.ui.editColumnHeaderEntry.clear()
+        self.ui.editColumnQueryText.clear()
+        self.ui.editColumnPage.setVisible(False)
 
     def processJournals(self):
         """Process the uploaded journals using the selected AI model."""

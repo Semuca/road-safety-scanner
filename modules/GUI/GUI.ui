@@ -1374,22 +1374,6 @@ font: 700 12pt</string>
 	background-color: rgb(218, 218, 218);
 }</string>
      </property>
-     <widget class="QLabel" name="addColumnLabel">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>121</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 700 12pt;</string>
-      </property>
-      <property name="text">
-       <string>Add query column</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="addColumnCancelButton">
       <property name="geometry">
        <rect>
@@ -1433,34 +1417,6 @@ QPushButton:Hover{
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="addColumnText">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>60</y>
-        <width>511</width>
-        <height>281</height>
-       </rect>
-      </property>
-      <property name="cursor" stdset="0">
-       <cursorShape>IBeamCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>true</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPlainTextEdit{
-	background-color: rgb(255, 255, 255);
-	font: 12pt;
-	padding-left: 10px;
-	border-radius: 20px;  
-}
-</string>
-      </property>
-      <property name="placeholderText">
-       <string>Enter prompt here...</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="addColumnApplyButton">
       <property name="geometry">
        <rect>
@@ -1502,6 +1458,103 @@ QPushButton:Hover{
       </property>
       <property name="autoExclusive">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="addColumnLabel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Add query column</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="addColumnQueryText">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>160</y>
+        <width>511</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPlainTextEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 20px;  
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter prompt here...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="addColumnHeaderLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Header</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="addColumnHeaderEntry">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>80</y>
+        <width>511</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter key here...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="addColumnQueryLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>130</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Query</string>
       </property>
      </widget>
     </widget>
@@ -1583,13 +1636,13 @@ QPushButton:Hover{
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="editColumnText">
+     <widget class="QPlainTextEdit" name="editColumnQueryText">
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>60</y>
+        <y>160</y>
         <width>511</width>
-        <height>281</height>
+        <height>181</height>
        </rect>
       </property>
       <property name="cursor" stdset="0">
@@ -1695,6 +1748,59 @@ QPushButton:Hover{
       </property>
       <property name="autoExclusive">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editColumnHeaderEntry">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>80</y>
+        <width>511</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter key here...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="editColumnHeaderLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Header</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="editColumnQueryLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>130</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Query</string>
       </property>
      </widget>
     </widget>
@@ -1948,6 +2054,10 @@ font: 700 12pt</string>
       </column>
      </widget>
     </widget>
+    <zorder>setFiltersOption</zorder>
+    <zorder>resultsList</zorder>
+    <zorder>addColumnPage</zorder>
+    <zorder>editColumnPage</zorder>
    </widget>
   </widget>
   <widget class="QPushButton" name="backButton">
