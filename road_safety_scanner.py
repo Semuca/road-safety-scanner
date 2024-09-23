@@ -1,7 +1,9 @@
+
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView, QProgressDialog
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView
 from PySide6.QtCore import Qt
 import json
+import sys
 
 from modules.GUI import Ui_Dialog
 from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals
@@ -11,6 +13,19 @@ from modules.llm.gpt.query import clearConversationHistory, setupClient, queryGP
 from modules.keys.keys import setKey, loadKeys
 from modules.exporter import exportToExcel, journalResponsesToDataFrame
 
+class ResultsTableHeader(QHeaderView):
+    def __init__(self, orientation, parent, onClicked = lambda: None):
+        super().__init__(orientation, parent)
+        self.setSectionsClickable(True)
+
+        self.onClicked = onClicked
+
+    def paintSection(self, painter, rect, logicalIndex):
+        super().paintSection(painter, rect, logicalIndex)
+
+    def mouseReleaseEvent(self, e):
+        super().mouseReleaseEvent(e)
+        self.onClicked()
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -30,12 +45,23 @@ class MainWindow(QMainWindow):
             4: self.ui.resultsButton
         }
 
+        self.ui.resultsListTableWidget.setHorizontalHeader(ResultsTableHeader(Qt.Horizontal, self.ui.resultsListTableWidget, lambda: self.ui.editColumnPage.setVisible(True)))
+
         # Set the Search Page as the default start up page
-        self.switchToPage(1)
+        self.switchToPage(4)
 
         # Hide Filter Page
         self.ui.setFiltersPage.setVisible(False)
-        self.ui.setFiltersCloseButton.clicked.connect(lambda: self.ui.setFiltersPage.setVisible(False))
+        self.ui.setFiltersCloseButton.clicked.connect(lambda: self.ui.setFiltersPage.setVisible(not self.ui.addColumnPage.isVisible()))
+
+        # Setup Add Column Page Modal
+        self.ui.addColumnPage.setVisible(False)
+        self.ui.addColumnButton.clicked.connect(lambda: self.ui.addColumnPage.setVisible(not self.ui.addColumnPage.isVisible()))
+        self.ui.addColumnCancelButton.clicked.connect(lambda: self.ui.addColumnPage.setVisible(False))
+
+        # Setup Edit Column Page Modal
+        self.ui.editColumnPage.setVisible(False)
+        self.ui.editColumnCancelButton.clicked.connect(lambda: self.ui.editColumnPage.setVisible(False))
 
         # Connect menu buttons to their respective functions
         self.ui.keysButton.clicked.connect(lambda: self.switchToPage(0))
@@ -56,7 +82,7 @@ class MainWindow(QMainWindow):
         # Connect search buttons
         self.ui.searchElsevierJournals.clicked.connect(self.getElsevierQuery)
         self.ui.downloadElsevierJournals.clicked.connect(self.onDownloadJournals)
-        self.ui.setFiltersButton.clicked.connect(self.showFilterPage)
+        self.ui.setFiltersButton.clicked.connect(lambda: self.ui.setFiltersPage.setVisible(True))
         self.ui.processJournalsButton.clicked.connect(self.processJournals)
 
         # Connect global next and back buttons
@@ -183,19 +209,6 @@ class MainWindow(QMainWindow):
     # Downloads the journals from the search page
     def onDownloadJournals(self):
         downloadJournals(self.keys["ELSEVIER_API_KEY"], [queriedItem.doi for queriedItem in self.queryResults])
-    
-    def showFilterPage(self):
-        self.ui.setFiltersPage.setVisible(True)
-    
-    def getFilters(self):
-        userQuery = self.ui.searchResultsBar.text()
-        authorName = self.ui.authorName.text()
-        publishDate = self.ui.publishDate.date().toString("dd-MM-yyyy")
-        keyWordsList = self.ui.keyWords.text().split(",")
-        setting = self.ui.setting.text()
-        self.ui.setFiltersPage.setVisible(False)
-
-        return userQuery, authorName, publishDate, keyWordsList, setting
 
     def selectAI(self):
         """Set the API key for the GPT model."""

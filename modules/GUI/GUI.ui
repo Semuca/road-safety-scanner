@@ -1355,6 +1355,349 @@ font: 700 12pt</string>
     </widget>
    </widget>
    <widget class="QWidget" name="resultsPage">
+    <widget class="QWidget" name="addColumnPage" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>110</y>
+       <width>611</width>
+       <height>421</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+	border-radius: 20px;   
+	
+	background-color: rgb(218, 218, 218);
+}</string>
+     </property>
+     <widget class="QLabel" name="addColumnLabel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Add query column</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addColumnCancelButton">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>360</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 10pt;
+	border: none;
+}
+
+/*
+QPushButton:Hover{
+	background-color: rgb(56, 177, 224);
+}
+*/</string>
+      </property>
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="addColumnText">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>60</y>
+        <width>511</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPlainTextEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 20px;  
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter prompt here...</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addColumnApplyButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>360</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 10pt;
+	border: none;
+}
+
+/*
+QPushButton:Hover{
+	background-color: rgb(56, 177, 224);
+}
+*/</string>
+      </property>
+      <property name="text">
+       <string>Apply</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="editColumnPage" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>110</y>
+       <width>611</width>
+       <height>421</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+	border-radius: 20px;   
+	
+	background-color: rgb(218, 218, 218);
+}</string>
+     </property>
+     <widget class="QLabel" name="editColumnLabel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Edit query column</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="editColumnCancelButton">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>360</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 10pt;
+	border: none;
+}
+
+/*
+QPushButton:Hover{
+	background-color: rgb(56, 177, 224);
+}
+*/</string>
+      </property>
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="editColumnText">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>60</y>
+        <width>511</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPlainTextEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 20px;  
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter prompt here...</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="editColumnApplyButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>360</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 10pt;
+	border: none;
+}
+
+/*
+QPushButton:Hover{
+	background-color: rgb(56, 177, 224);
+}
+*/</string>
+      </property>
+      <property name="text">
+       <string>Apply</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="deleteColumnButton">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>360</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 10pt;
+	border: none;
+}
+
+/*
+QPushButton:Hover{
+	background-color: rgb(56, 177, 224);
+}
+*/</string>
+      </property>
+      <property name="text">
+       <string>Delete column</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="setFiltersOption" native="true">
      <property name="geometry">
       <rect>
@@ -1388,34 +1731,13 @@ font: 700 12pt</string>
 }</string>
       </property>
       <property name="text">
-       <string>Enter your Natural Language Query</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="searchResultsBar">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>411</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit{
-	background-color: rgb(255, 255, 255);
-	font: 12pt;
-	padding-left: 10px;
-}
-</string>
-      </property>
-      <property name="placeholderText">
-       <string>Find me journals relevant to...</string>
+       <string>Process articles</string>
       </property>
      </widget>
      <widget class="QPushButton" name="exportResultsButton">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>290</x>
         <y>40</y>
         <width>101</width>
         <height>41</height>
@@ -1490,6 +1812,82 @@ QPushButton:Checked{
        <bool>false</bool>
       </property>
      </widget>
+     <widget class="QPushButton" name="addColumnButton">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>40</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color:white;
+	
+	font: 700 10pt;
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton:Checked{
+	
+	font: 8pt;
+	background-color: rgb(211, 211, 211);
+}</string>
+      </property>
+      <property name="text">
+       <string>Add column</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="downloadResultsButton">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>40</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+            color:white;
+            font: 700 10pt;
+            background-color: rgb(8, 144, 196);
+       }
+
+       QPushButton:Checked{
+            font: 8pt;
+            background-color: rgb(211, 211, 211);
+       }</string>
+      </property>
+      <property name="text">
+       <string>Download</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="resultsList" native="true">
      <property name="geometry">
@@ -1546,26 +1944,6 @@ font: 700 12pt</string>
       <column>
        <property name="text">
         <string>PUBLICATION</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>SETTING</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>DATA</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>TARGET</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>SYNOPSIS</string>
        </property>
       </column>
      </widget>

@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDateEdit, QDialog, QHeaderView,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QWidget)
+    QLabel, QLineEdit, QPlainTextEdit, QPushButton,
+    QSizePolicy, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -638,6 +639,171 @@ class Ui_Dialog(object):
         self.myQStackedWidget.addWidget(self.uploadJournalPage)
         self.resultsPage = QWidget()
         self.resultsPage.setObjectName(u"resultsPage")
+        self.addColumnPage = QWidget(self.resultsPage)
+        self.addColumnPage.setObjectName(u"addColumnPage")
+        self.addColumnPage.setEnabled(True)
+        self.addColumnPage.setGeometry(QRect(50, 110, 611, 421))
+        self.addColumnPage.setStyleSheet(u"QWidget{\n"
+"	border-radius: 20px;   \n"
+"	\n"
+"	background-color: rgb(218, 218, 218);\n"
+"}")
+        self.addColumnLabel = QLabel(self.addColumnPage)
+        self.addColumnLabel.setObjectName(u"addColumnLabel")
+        self.addColumnLabel.setGeometry(QRect(30, 20, 121, 16))
+        self.addColumnLabel.setStyleSheet(u"font: 700 12pt;")
+        self.addColumnCancelButton = QPushButton(self.addColumnPage)
+        self.addColumnCancelButton.setObjectName(u"addColumnCancelButton")
+        self.addColumnCancelButton.setGeometry(QRect(120, 360, 91, 41))
+        self.addColumnCancelButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.addColumnCancelButton.setCheckable(True)
+        self.addColumnCancelButton.setChecked(False)
+        self.addColumnCancelButton.setAutoRepeat(False)
+        self.addColumnCancelButton.setAutoExclusive(True)
+        self.addColumnText = QPlainTextEdit(self.addColumnPage)
+        self.addColumnText.setObjectName(u"addColumnText")
+        self.addColumnText.setGeometry(QRect(50, 60, 511, 281))
+        self.addColumnText.viewport().setProperty("cursor", QCursor(Qt.CursorShape.IBeamCursor))
+        self.addColumnText.setMouseTracking(True)
+        self.addColumnText.setStyleSheet(u"QPlainTextEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 20px;  \n"
+"}\n"
+"")
+        self.addColumnApplyButton = QPushButton(self.addColumnPage)
+        self.addColumnApplyButton.setObjectName(u"addColumnApplyButton")
+        self.addColumnApplyButton.setGeometry(QRect(20, 360, 91, 41))
+        self.addColumnApplyButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.addColumnApplyButton.setCheckable(True)
+        self.addColumnApplyButton.setChecked(False)
+        self.addColumnApplyButton.setAutoRepeat(False)
+        self.addColumnApplyButton.setAutoExclusive(True)
+        self.editColumnPage = QWidget(self.resultsPage)
+        self.editColumnPage.setObjectName(u"editColumnPage")
+        self.editColumnPage.setEnabled(True)
+        self.editColumnPage.setGeometry(QRect(50, 110, 611, 421))
+        self.editColumnPage.setStyleSheet(u"QWidget{\n"
+"	border-radius: 20px;   \n"
+"	\n"
+"	background-color: rgb(218, 218, 218);\n"
+"}")
+        self.editColumnLabel = QLabel(self.editColumnPage)
+        self.editColumnLabel.setObjectName(u"editColumnLabel")
+        self.editColumnLabel.setGeometry(QRect(30, 20, 111, 16))
+        self.editColumnLabel.setStyleSheet(u"font: 700 12pt;")
+        self.editColumnCancelButton = QPushButton(self.editColumnPage)
+        self.editColumnCancelButton.setObjectName(u"editColumnCancelButton")
+        self.editColumnCancelButton.setGeometry(QRect(120, 360, 91, 41))
+        self.editColumnCancelButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.editColumnCancelButton.setCheckable(True)
+        self.editColumnCancelButton.setChecked(False)
+        self.editColumnCancelButton.setAutoRepeat(False)
+        self.editColumnCancelButton.setAutoExclusive(True)
+        self.editColumnText = QPlainTextEdit(self.editColumnPage)
+        self.editColumnText.setObjectName(u"editColumnText")
+        self.editColumnText.setGeometry(QRect(50, 60, 511, 281))
+        self.editColumnText.viewport().setProperty("cursor", QCursor(Qt.CursorShape.IBeamCursor))
+        self.editColumnText.setMouseTracking(True)
+        self.editColumnText.setStyleSheet(u"QPlainTextEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 20px;  \n"
+"}\n"
+"")
+        self.editColumnApplyButton = QPushButton(self.editColumnPage)
+        self.editColumnApplyButton.setObjectName(u"editColumnApplyButton")
+        self.editColumnApplyButton.setGeometry(QRect(20, 360, 91, 41))
+        self.editColumnApplyButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.editColumnApplyButton.setCheckable(True)
+        self.editColumnApplyButton.setChecked(False)
+        self.editColumnApplyButton.setAutoRepeat(False)
+        self.editColumnApplyButton.setAutoExclusive(True)
+        self.deleteColumnButton = QPushButton(self.editColumnPage)
+        self.deleteColumnButton.setObjectName(u"deleteColumnButton")
+        self.deleteColumnButton.setGeometry(QRect(500, 360, 91, 41))
+        self.deleteColumnButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.deleteColumnButton.setCheckable(True)
+        self.deleteColumnButton.setChecked(False)
+        self.deleteColumnButton.setAutoRepeat(False)
+        self.deleteColumnButton.setAutoExclusive(True)
         self.setFiltersOption = QWidget(self.resultsPage)
         self.setFiltersOption.setObjectName(u"setFiltersOption")
         self.setFiltersOption.setGeometry(QRect(20, 20, 671, 101))
@@ -654,18 +820,9 @@ class Ui_Dialog(object):
 "	font: 700 12pt\n"
 "	\n"
 "}")
-        self.searchResultsBar = QLineEdit(self.setFiltersOption)
-        self.searchResultsBar.setObjectName(u"searchResultsBar")
-        self.searchResultsBar.setGeometry(QRect(20, 40, 411, 41))
-        self.searchResultsBar.setStyleSheet(u"QLineEdit{\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	font: 12pt;\n"
-"	padding-left: 10px;\n"
-"}\n"
-"")
         self.exportResultsButton = QPushButton(self.setFiltersOption)
         self.exportResultsButton.setObjectName(u"exportResultsButton")
-        self.exportResultsButton.setGeometry(QRect(550, 40, 101, 41))
+        self.exportResultsButton.setGeometry(QRect(290, 40, 101, 41))
         self.exportResultsButton.setStyleSheet(u"QPushButton{\n"
 "	color:white;\n"
 "	\n"
@@ -701,6 +858,42 @@ class Ui_Dialog(object):
         self.processJournalsButton.setChecked(False)
         self.processJournalsButton.setAutoRepeat(False)
         self.processJournalsButton.setAutoExclusive(False)
+        self.addColumnButton = QPushButton(self.setFiltersOption)
+        self.addColumnButton.setObjectName(u"addColumnButton")
+        self.addColumnButton.setGeometry(QRect(180, 40, 101, 41))
+        self.addColumnButton.setStyleSheet(u"QPushButton{\n"
+"	color:white;\n"
+"	\n"
+"	font: 700 10pt;\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton:Checked{\n"
+"	\n"
+"	font: 8pt;\n"
+"	background-color: rgb(211, 211, 211);\n"
+"}")
+        self.addColumnButton.setCheckable(False)
+        self.addColumnButton.setChecked(False)
+        self.addColumnButton.setAutoRepeat(False)
+        self.addColumnButton.setAutoExclusive(False)
+        self.downloadResultsButton = QPushButton(self.setFiltersOption)
+        self.downloadResultsButton.setObjectName(u"downloadResultsButton")
+        self.downloadResultsButton.setGeometry(QRect(400, 40, 101, 41))
+        self.downloadResultsButton.setStyleSheet(u"QPushButton{\n"
+"            color:white;\n"
+"            font: 700 10pt;\n"
+"            background-color: rgb(8, 144, 196);\n"
+"       }\n"
+"\n"
+"       QPushButton:Checked{\n"
+"            font: 8pt;\n"
+"            background-color: rgb(211, 211, 211);\n"
+"       }")
+        self.downloadResultsButton.setCheckable(False)
+        self.downloadResultsButton.setChecked(False)
+        self.downloadResultsButton.setAutoRepeat(False)
+        self.downloadResultsButton.setAutoExclusive(False)
         self.resultsList = QWidget(self.resultsPage)
         self.resultsList.setObjectName(u"resultsList")
         self.resultsList.setGeometry(QRect(20, 140, 671, 371))
@@ -719,18 +912,10 @@ class Ui_Dialog(object):
 "	\n"
 "}")
         self.resultsListTableWidget = QTableWidget(self.resultsList)
-        if (self.resultsListTableWidget.columnCount() < 5):
-            self.resultsListTableWidget.setColumnCount(5)
+        if (self.resultsListTableWidget.columnCount() < 1):
+            self.resultsListTableWidget.setColumnCount(1)
         __qtablewidgetitem8 = QTableWidgetItem()
         self.resultsListTableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem8)
-        __qtablewidgetitem9 = QTableWidgetItem()
-        self.resultsListTableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem9)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        self.resultsListTableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem10)
-        __qtablewidgetitem11 = QTableWidgetItem()
-        self.resultsListTableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem11)
-        __qtablewidgetitem12 = QTableWidgetItem()
-        self.resultsListTableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem12)
         self.resultsListTableWidget.setObjectName(u"resultsListTableWidget")
         self.resultsListTableWidget.setGeometry(QRect(30, 50, 621, 301))
         self.resultsListTableWidget.setStyleSheet(u"QHeaderView::section {\n"
@@ -837,21 +1022,23 @@ class Ui_Dialog(object):
         ___qtablewidgetitem6.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
         ___qtablewidgetitem7 = self.journalListTableWidget.horizontalHeaderItem(3)
         ___qtablewidgetitem7.setText(QCoreApplication.translate("Dialog", u"DATE", None));
-        self.searchResultsTag.setText(QCoreApplication.translate("Dialog", u"Enter your Natural Language Query", None))
-        self.searchResultsBar.setPlaceholderText(QCoreApplication.translate("Dialog", u"Find me journals relevant to...", None))
+        self.addColumnLabel.setText(QCoreApplication.translate("Dialog", u"Add query column", None))
+        self.addColumnCancelButton.setText(QCoreApplication.translate("Dialog", u"Cancel", None))
+        self.addColumnText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter prompt here...", None))
+        self.addColumnApplyButton.setText(QCoreApplication.translate("Dialog", u"Apply", None))
+        self.editColumnLabel.setText(QCoreApplication.translate("Dialog", u"Edit query column", None))
+        self.editColumnCancelButton.setText(QCoreApplication.translate("Dialog", u"Cancel", None))
+        self.editColumnText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter prompt here...", None))
+        self.editColumnApplyButton.setText(QCoreApplication.translate("Dialog", u"Apply", None))
+        self.deleteColumnButton.setText(QCoreApplication.translate("Dialog", u"Delete column", None))
+        self.searchResultsTag.setText(QCoreApplication.translate("Dialog", u"Process articles", None))
         self.exportResultsButton.setText(QCoreApplication.translate("Dialog", u"Export", None))
         self.processJournalsButton.setText(QCoreApplication.translate("Dialog", u"Process", None))
+        self.addColumnButton.setText(QCoreApplication.translate("Dialog", u"Add column", None))
+        self.downloadResultsButton.setText(QCoreApplication.translate("Dialog", u"Download", None))
         self.resultsListTag.setText(QCoreApplication.translate("Dialog", u"Results", None))
         ___qtablewidgetitem8 = self.resultsListTableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"PUBLICATION", None));
-        ___qtablewidgetitem9 = self.resultsListTableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("Dialog", u"SETTING", None));
-        ___qtablewidgetitem10 = self.resultsListTableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("Dialog", u"DATA", None));
-        ___qtablewidgetitem11 = self.resultsListTableWidget.horizontalHeaderItem(3)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("Dialog", u"TARGET", None));
-        ___qtablewidgetitem12 = self.resultsListTableWidget.horizontalHeaderItem(4)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("Dialog", u"SYNOPSIS", None));
         self.backButton.setText(QCoreApplication.translate("Dialog", u"Back", None))
         self.nextButton.setText(QCoreApplication.translate("Dialog", u"Next", None))
     # retranslateUi
