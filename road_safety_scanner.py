@@ -1,10 +1,12 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView, QProgressDialog
+from PySide6.QtCore import Qt
 import json
 
 from modules.GUI import Ui_Dialog
-from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals, queryElsevier
+from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals
 
+from modules.journal_downloader.signal import QueryElsevierThread
 from modules.llm.gpt.query import clearConversationHistory, setupClient, queryGPT, uploadFile
 from modules.keys.keys import setKey, loadKeys
 from modules.exporter import exportToExcel, journalResponsesToDataFrame
@@ -121,9 +123,9 @@ class MainWindow(QMainWindow):
     def getElsevierQuery(self):
         queryParts = []
 
-        title = self.ui.elsevierQuery.text()
-        if (title != ""):
-            queryParts.append(f"TITLE({title})")
+        keywordSearch = self.ui.elsevierQuery.text()
+        if (keywordSearch != ""):
+            queryParts.append(f"TITLE-ABS-KEY({keywordSearch})")
 
         author = self.ui.authorName.text()
         if (author != ""):
@@ -148,7 +150,22 @@ class MainWindow(QMainWindow):
             return
         
         query = " AND ".join(queryParts)
-        self.queryResults = queryElsevier(self.keys["ELSEVIER_API_KEY"], query)
+
+        self.queryProgressDialog = QProgressDialog("Processing...", "Cancel", 0, 100, self)
+        self.queryProgressDialog.setWindowModality(Qt.WindowModal)
+        self.queryProgressDialog.setAutoClose(True)
+        self.queryProgressDialog.setValue(0)
+
+        self.querySignal = QueryElsevierThread(apiKey=self.keys["ELSEVIER_API_KEY"], query=query)
+        self.querySignal.progressSignal.connect(self.onQueryUpdateProgress)
+        self.querySignal.finishedSignal.connect(self.onQueryFinished)
+        self.querySignal.start()
+
+    def onQueryUpdateProgress(self, progress):
+        self.queryProgressDialog.setValue(progress)
+    
+    def onQueryFinished(self, queryResults):
+        self.queryResults = queryResults
 
         self.ui.searchListTableWidget.setRowCount(0)
 
@@ -160,6 +177,8 @@ class MainWindow(QMainWindow):
             self.ui.searchListTableWidget.setItem(row_position, 1, QTableWidgetItem(result.title))
             self.ui.searchListTableWidget.setItem(row_position, 2, QTableWidgetItem(result.doi))
             self.ui.searchListTableWidget.setItem(row_position, 3, QTableWidgetItem(result.date))
+        
+        self.queryProgressDialog.close()
     
     # Downloads the journals from the search page
     def onDownloadJournals(self):
