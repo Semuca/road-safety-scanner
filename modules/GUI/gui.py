@@ -15,15 +15,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDateEdit, QDialog, QHeaderView,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDialog,
+    QHeaderView, QLabel, QLineEdit, QListWidget,
+    QListWidgetItem, QPushButton, QSizePolicy, QStackedWidget,
+    QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(861, 730)
+        Dialog.resize(837, 749)
         Dialog.setStyleSheet(u"\n"
 "     * {\n"
 "       font-family: \"Arial\";  /* Use Arial as the global font */\n"
@@ -265,7 +266,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearFrom.setDateTime(QDateTime(QDate(2014, 1, 1), QTime(0, 0, 0)))
+        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 27), QTime(0, 0, 0)))
         self.keyWords = QLineEdit(self.setFiltersPage)
         self.keyWords.setObjectName(u"keyWords")
         self.keyWords.setGeometry(QRect(50, 140, 301, 41))
@@ -320,11 +321,19 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearTo.setDateTime(QDateTime(QDate(2024, 1, 1), QTime(0, 0, 0)))
+        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 27), QTime(0, 0, 0)))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
         self.publishYearToLabel.setObjectName(u"publishYearToLabel")
         self.publishYearToLabel.setGeometry(QRect(410, 110, 41, 20))
         self.publishYearToLabel.setStyleSheet(u"font: 700 12pt;")
+        self.comboBox = QComboBox(self.setFiltersPage)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setGeometry(QRect(410, 180, 151, 22))
+        self.comboBox.setStyleSheet(u"background-color: rgb(184, 184, 184);")
+        self.comboBox.setEditable(False)
         self.uploadJournal_2 = QWidget(self.searchPage)
         self.uploadJournal_2.setObjectName(u"uploadJournal_2")
         self.uploadJournal_2.setGeometry(QRect(20, 20, 671, 101))
@@ -656,18 +665,35 @@ class Ui_Dialog(object):
 "}")
         self.searchResultsBar = QLineEdit(self.setFiltersOption)
         self.searchResultsBar.setObjectName(u"searchResultsBar")
-        # reduce size of search bar
-        self.searchResultsBar.setGeometry(QRect(20, 40, 400, 41))
+        self.searchResultsBar.setGeometry(QRect(20, 40, 411, 41))
         self.searchResultsBar.setStyleSheet(u"QLineEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	font: 12pt;\n"
 "	padding-left: 10px;\n"
 "}\n"
 "")
+        self.exportResultsButton = QPushButton(self.setFiltersOption)
+        self.exportResultsButton.setObjectName(u"exportResultsButton")
+        self.exportResultsButton.setGeometry(QRect(550, 40, 101, 41))
+        self.exportResultsButton.setStyleSheet(u"QPushButton{\n"
+"	color:white;\n"
+"	\n"
+"	font: 700 10pt;\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton:Checked{\n"
+"	\n"
+"	font: 8pt;\n"
+"	background-color: rgb(211, 211, 211);\n"
+"}")
+        self.exportResultsButton.setCheckable(False)
+        self.exportResultsButton.setChecked(False)
+        self.exportResultsButton.setAutoRepeat(False)
+        self.exportResultsButton.setAutoExclusive(False)
         self.processJournalsButton = QPushButton(self.setFiltersOption)
         self.processJournalsButton.setObjectName(u"processJournalsButton")
-        # move process journals button to the left
-        self.processJournalsButton.setGeometry(QRect(420, 40, 101, 41))
+        self.processJournalsButton.setGeometry(QRect(440, 40, 101, 41))
         self.processJournalsButton.setStyleSheet(u"QPushButton{\n"
 "	color:white;\n"
 "	\n"
@@ -702,8 +728,8 @@ class Ui_Dialog(object):
 "	\n"
 "}")
         self.resultsListTableWidget = QTableWidget(self.resultsList)
-        if (self.resultsListTableWidget.columnCount() < 4):
-            self.resultsListTableWidget.setColumnCount(4)
+        if (self.resultsListTableWidget.columnCount() < 5):
+            self.resultsListTableWidget.setColumnCount(5)
         __qtablewidgetitem8 = QTableWidgetItem()
         self.resultsListTableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
@@ -712,6 +738,8 @@ class Ui_Dialog(object):
         self.resultsListTableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
         self.resultsListTableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.resultsListTableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem12)
         self.resultsListTableWidget.setObjectName(u"resultsListTableWidget")
         self.resultsListTableWidget.setGeometry(QRect(30, 50, 621, 301))
         self.resultsListTableWidget.setStyleSheet(u"QHeaderView::section {\n"
@@ -734,27 +762,6 @@ class Ui_Dialog(object):
 "	border: 3px solid rgb(56, 178, 224);\n"
 "}\n"
 "*/")
-        # download results button
-        self.downloadResultsButton = QPushButton(self.setFiltersOption)
-        self.downloadResultsButton.setObjectName(u"downloadResultsButton")
-        self.downloadResultsButton.setGeometry(QRect(525, 40, 140, 41))
-        self.downloadResultsButton.setStyleSheet(u"QPushButton{\n"
-"	color:white;\n"
-"	\n"
-"	font: 700 10pt;\n"
-"	background-color: rgb(8, 144, 196);\n"
-"}\n"
-"\n"
-"QPushButton:Checked{\n"
-"	\n"
-"	font: 8pt;\n"
-"	background-color: rgb(211, 211, 211);\n"
-"}")
-        self.downloadResultsButton.setCheckable(False)
-        self.downloadResultsButton.setChecked(False)
-        self.downloadResultsButton.setAutoRepeat(False)
-        self.downloadResultsButton.setAutoExclusive(False)
-        
         self.nextButton = QPushButton(Dialog)
         self.nextButton.setObjectName(u"nextButton")
         self.nextButton.setGeometry(QRect(660, 650, 100, 40))
@@ -769,6 +776,279 @@ class Ui_Dialog(object):
 "	border: 3px solid rgb(56, 178, 224);\n"
 "}\n"
 "*/")
+        self.editSetPage = QWidget(Dialog)
+        self.editSetPage.setObjectName(u"editSetPage")
+        self.editSetPage.setEnabled(True)
+        self.editSetPage.setGeometry(QRect(120, 240, 591, 381))
+        self.editSetPage.setStyleSheet(u"QWidget{\n"
+"	border-radius: 20px;   \n"
+"	\n"
+"	\n"
+"	background-color: rgb(161, 161, 161);\n"
+"}")
+        self.editYourSetTitle = QLabel(self.editSetPage)
+        self.editYourSetTitle.setObjectName(u"editYourSetTitle")
+        self.editYourSetTitle.setGeometry(QRect(180, 10, 181, 41))
+        self.editYourSetTitle.setStyleSheet(u"font: 700 16pt;")
+        self.editSubsetText = QLineEdit(self.editSetPage)
+        self.editSubsetText.setObjectName(u"editSubsetText")
+        self.editSubsetText.setGeometry(QRect(50, 100, 301, 31))
+        self.editSubsetText.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 12px;  \n"
+"}\n"
+"")
+        self.editSubsetText.setReadOnly(False)
+        self.editSetCloseButton = QPushButton(self.editSetPage)
+        self.editSetCloseButton.setObjectName(u"editSetCloseButton")
+        self.editSetCloseButton.setGeometry(QRect(20, 320, 41, 41))
+        self.editSetCloseButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.editSetCloseButton.setCheckable(True)
+        self.editSetCloseButton.setChecked(False)
+        self.editSetCloseButton.setAutoRepeat(False)
+        self.editSetCloseButton.setAutoExclusive(True)
+        self.editSubsetSaveButton = QPushButton(self.editSetPage)
+        self.editSubsetSaveButton.setObjectName(u"editSubsetSaveButton")
+        self.editSubsetSaveButton.setGeometry(QRect(530, 320, 41, 41))
+        self.editSubsetSaveButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.editSubsetSaveButton.setCheckable(True)
+        self.editSubsetSaveButton.setChecked(False)
+        self.editSubsetSaveButton.setAutoRepeat(False)
+        self.editSubsetSaveButton.setAutoExclusive(True)
+        self.editSubsetList = QListWidget(self.editSetPage)
+        self.editSubsetList.setObjectName(u"editSubsetList")
+        self.editSubsetList.setGeometry(QRect(50, 140, 401, 141))
+        self.editSubsetList.setStyleSheet(u"QListWidget {\n"
+"	\n"
+"	\n"
+"	font: 9pt \"Arial\";\n"
+"    background-color: rgb(225, 225, 225);\n"
+"    border-radius: 12px; \n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.editTitle = QLineEdit(self.editSetPage)
+        self.editTitle.setObjectName(u"editTitle")
+        self.editTitle.setGeometry(QRect(50, 60, 121, 31))
+        self.editTitle.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 12px;  \n"
+"}\n"
+"")
+        self.addNewSetWidget = QWidget(Dialog)
+        self.addNewSetWidget.setObjectName(u"addNewSetWidget")
+        self.addNewSetWidget.setEnabled(True)
+        self.addNewSetWidget.setGeometry(QRect(120, 240, 591, 381))
+        self.addNewSetWidget.setStyleSheet(u"QWidget{\n"
+"	border-radius: 20px;   \n"
+"	\n"
+"	\n"
+"	background-color: rgb(161, 161, 161);\n"
+"}")
+        self.addNewSetTitle = QLabel(self.addNewSetWidget)
+        self.addNewSetTitle.setObjectName(u"addNewSetTitle")
+        self.addNewSetTitle.setGeometry(QRect(190, 10, 181, 41))
+        self.addNewSetTitle.setStyleSheet(u"font: 700 16pt;")
+        self.newSubsetText = QLineEdit(self.addNewSetWidget)
+        self.newSubsetText.setObjectName(u"newSubsetText")
+        self.newSubsetText.setGeometry(QRect(50, 100, 301, 31))
+        self.newSubsetText.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 12px;  \n"
+"}\n"
+"")
+        self.addSetCloseButton = QPushButton(self.addNewSetWidget)
+        self.addSetCloseButton.setObjectName(u"addSetCloseButton")
+        self.addSetCloseButton.setGeometry(QRect(20, 320, 41, 41))
+        self.addSetCloseButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.addSetCloseButton.setCheckable(True)
+        self.addSetCloseButton.setChecked(False)
+        self.addSetCloseButton.setAutoRepeat(False)
+        self.addSetCloseButton.setAutoExclusive(True)
+        self.addSetOKButton = QPushButton(self.addNewSetWidget)
+        self.addSetOKButton.setObjectName(u"addSetOKButton")
+        self.addSetOKButton.setGeometry(QRect(530, 320, 41, 41))
+        self.addSetOKButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.addSetOKButton.setCheckable(True)
+        self.addSetOKButton.setChecked(False)
+        self.addSetOKButton.setAutoRepeat(False)
+        self.addSetOKButton.setAutoExclusive(True)
+        self.subsetList = QListWidget(self.addNewSetWidget)
+        self.subsetList.setObjectName(u"subsetList")
+        self.subsetList.setGeometry(QRect(50, 140, 401, 141))
+        self.subsetList.setStyleSheet(u"QListWidget {\n"
+"	\n"
+"	\n"
+"	font: 9pt \"Arial\";\n"
+"    background-color: rgb(225, 225, 225);\n"
+"    border-radius: 12px; \n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.newSetTitle = QLineEdit(self.addNewSetWidget)
+        self.newSetTitle.setObjectName(u"newSetTitle")
+        self.newSetTitle.setGeometry(QRect(50, 60, 121, 31))
+        self.newSetTitle.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 12px;  \n"
+"}\n"
+"")
+        self.setsPage = QWidget(Dialog)
+        self.setsPage.setObjectName(u"setsPage")
+        self.setsPage.setEnabled(True)
+        self.setsPage.setGeometry(QRect(110, 210, 611, 431))
+        self.setsPage.setStyleSheet(u"QWidget{\n"
+"	border-radius: 20px;   \n"
+"	\n"
+"	background-color: rgb(218, 218, 218);\n"
+"}")
+        self.editYourSetCloseButton = QPushButton(self.setsPage)
+        self.editYourSetCloseButton.setObjectName(u"editYourSetCloseButton")
+        self.editYourSetCloseButton.setGeometry(QRect(20, 370, 41, 41))
+        self.editYourSetCloseButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.editYourSetCloseButton.setCheckable(True)
+        self.editYourSetCloseButton.setChecked(False)
+        self.editYourSetCloseButton.setAutoRepeat(False)
+        self.editYourSetCloseButton.setAutoExclusive(True)
+        self.editYourSetsTitle = QLabel(self.setsPage)
+        self.editYourSetsTitle.setObjectName(u"editYourSetsTitle")
+        self.editYourSetsTitle.setGeometry(QRect(240, 20, 151, 41))
+        self.editYourSetsTitle.setStyleSheet(u"font: 700 16pt;")
+        self.saveSets = QPushButton(self.setsPage)
+        self.saveSets.setObjectName(u"saveSets")
+        self.saveSets.setGeometry(QRect(550, 360, 41, 41))
+        self.saveSets.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.saveSets.setCheckable(True)
+        self.saveSets.setChecked(False)
+        self.saveSets.setAutoRepeat(False)
+        self.saveSets.setAutoExclusive(True)
+        self.allJournalSets = QListWidget(self.setsPage)
+        self.allJournalSets.setObjectName(u"allJournalSets")
+        self.allJournalSets.setGeometry(QRect(60, 100, 501, 221))
+        self.allJournalSets.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.addJournalButton = QPushButton(self.setsPage)
+        self.addJournalButton.setObjectName(u"addJournalButton")
+        self.addJournalButton.setGeometry(QRect(70, 330, 111, 24))
+        self.addJournalButton.setStyleSheet(u"QPushButton{\n"
+"	color:black;\n"
+"	\n"
+"	font: 700 10pt;\n"
+"	background-color: rgb(161, 161, 161);\n"
+"}\n"
+"\n"
+"QPushButton:Checked{\n"
+"	\n"
+"	font: 8pt;\n"
+"	background-color: rgb(211, 211, 211);\n"
+"}")
+        self.addJournalButton.setCheckable(True)
+        self.menuBar.raise_()
+        self.myQStackedWidget.raise_()
+        self.backButton.raise_()
+        self.nextButton.raise_()
+        self.setsPage.raise_()
+        self.addNewSetWidget.raise_()
+        self.editSetPage.raise_()
 
         self.retranslateUi(Dialog)
 
@@ -805,6 +1085,10 @@ class Ui_Dialog(object):
         self.publishYearFromLabel.setText(QCoreApplication.translate("Dialog", u"From", None))
         self.publishYearTo.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy", None))
         self.publishYearToLabel.setText(QCoreApplication.translate("Dialog", u"To", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("Dialog", u"Select Your Set", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("Dialog", u"Set 1", None))
+        self.comboBox.setItemText(2, QCoreApplication.translate("Dialog", u"Add a new Set", None))
+
         self.searchJournalsLabel.setText(QCoreApplication.translate("Dialog", u"Search Journals", None))
         self.elsevierQuery.setPlaceholderText(QCoreApplication.translate("Dialog", u"Search for a journal...", None))
         self.downloadElsevierJournals.setText(QCoreApplication.translate("Dialog", u"Download", None))
@@ -841,18 +1125,38 @@ class Ui_Dialog(object):
         ___qtablewidgetitem7.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.searchResultsTag.setText(QCoreApplication.translate("Dialog", u"Enter your Natural Language Query", None))
         self.searchResultsBar.setPlaceholderText(QCoreApplication.translate("Dialog", u"Find me journals relevant to...", None))
+        self.exportResultsButton.setText(QCoreApplication.translate("Dialog", u"Export", None))
         self.processJournalsButton.setText(QCoreApplication.translate("Dialog", u"Process", None))
-        self.downloadResultsButton.setText(QCoreApplication.translate("Dialog", u"Download Results", None))
         self.resultsListTag.setText(QCoreApplication.translate("Dialog", u"Results", None))
         ___qtablewidgetitem8 = self.resultsListTableWidget.horizontalHeaderItem(0)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"AUTHOR", None));
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"PUBLICATION", None));
         ___qtablewidgetitem9 = self.resultsListTableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("Dialog", u"TITLE", None));
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("Dialog", u"SETTING", None));
         ___qtablewidgetitem10 = self.resultsListTableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("Dialog", u"DATA", None));
         ___qtablewidgetitem11 = self.resultsListTableWidget.horizontalHeaderItem(3)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("Dialog", u"DATE", None));
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("Dialog", u"TARGET", None));
+        ___qtablewidgetitem12 = self.resultsListTableWidget.horizontalHeaderItem(4)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("Dialog", u"SYNOPSIS", None));
         self.backButton.setText(QCoreApplication.translate("Dialog", u"Back", None))
         self.nextButton.setText(QCoreApplication.translate("Dialog", u"Next", None))
+        self.editYourSetTitle.setText(QCoreApplication.translate("Dialog", u"Edit your Set", None))
+        self.editSubsetText.setText("")
+        self.editSubsetText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Add a new subset", None))
+        self.editSetCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
+        self.editSubsetSaveButton.setText(QCoreApplication.translate("Dialog", u"Save", None))
+        self.editTitle.setText("")
+        self.editTitle.setPlaceholderText(QCoreApplication.translate("Dialog", u"Set Name", None))
+        self.addNewSetTitle.setText(QCoreApplication.translate("Dialog", u"Add a New Set", None))
+        self.newSubsetText.setText("")
+        self.newSubsetText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Add a new subset", None))
+        self.addSetCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
+        self.addSetOKButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
+        self.newSetTitle.setText("")
+        self.newSetTitle.setPlaceholderText(QCoreApplication.translate("Dialog", u"Set Name", None))
+        self.editYourSetCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
+        self.editYourSetsTitle.setText(QCoreApplication.translate("Dialog", u"Edit your Sets", None))
+        self.saveSets.setText(QCoreApplication.translate("Dialog", u"OK", None))
+        self.addJournalButton.setText(QCoreApplication.translate("Dialog", u"Add a New Set", None))
     # retranslateUi
 
