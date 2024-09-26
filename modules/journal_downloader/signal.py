@@ -11,21 +11,21 @@ from PySide6.QtCore import QThread, Signal
 
 from modules.journal_downloader.downloader import (
     QueryElsevierResult,
-    elsevierAPI,
+    elsevier_api,
 )
 
 
 class QueryElsevierThread(QThread):
     """A thread for querying the Elsevier API with progress updates."""
     
-    progressSignal = Signal(int)
-    finishedSignal = Signal(object)
+    progress_signal = Signal(int)
+    finished_signal = Signal(object)
 
-    def __init__(self: Self, apiKey: str, query: str,
+    def __init__(self: Self, api_key: str, query: str,
                  limit:int=100, wait:float=0.05) -> None:
         """Initialize the QueryElsevierThread."""
         super().__init__(None)
-        self.apiKey = apiKey
+        self.apiKey = api_key
         self.query = query
         self.limit = limit
         self.wait = wait
@@ -34,21 +34,21 @@ class QueryElsevierThread(QThread):
         """Query the Elsevier API with progress updates."""
         query = urllib.parse.quote(self.query)
         request = urllib.request.Request(
-            f"{elsevierAPI}/search/scopus?query={query}",
+            f"{elsevier_api}/search/scopus?query={query}",
             headers={"Accept": "application/json", "X-ELS-APIKey": self.apiKey})
 
         # Read all journals from the query until limit is hit
         results = []
-        totalResults = int(json.loads(
+        total_results = int(json.loads(
             urllib.request.urlopen(request).read().decode("utf-8"))["search-results"]["opensearch:totalResults"])
         
-        while (len(results) < self.limit and len(results) < totalResults):
+        while (len(results) < self.limit and len(results) < total_results):
             request = urllib.request.Request(
-                f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}",
+                f"{elsevier_api}/search/scopus?query={query}&start={len(results)}",
                   headers={"Accept": "application/json",
                            "X-ELS-APIKey": self.apiKey})
             
-            searchedJournals = json.loads(
+            searched_journals = json.loads(
                 urllib.request.urlopen(request).read().decode("utf-8"))
             results.extend([
                 QueryElsevierResult(journal["prism:doi"],
@@ -56,9 +56,9 @@ class QueryElsevierThread(QThread):
                                     journal["dc:creator"],
                                     journal["prism:coverDisplayDate"])
                                     for journal in 
-                                    searchedJournals["search-results"]["entry"]])
+                                    searched_journals["search-results"]["entry"]])
             
-            self.progressSignal.emit(int(len(results) / self.limit * 100))
+            self.progress_signal.emit(int(len(results) / self.limit * 100))
             time.sleep(self.wait)
 
-        self.finishedSignal.emit(results)
+        self.finished_signal.emit(results)

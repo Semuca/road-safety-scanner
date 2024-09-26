@@ -1,5 +1,5 @@
 """Defines the module's public interface."""
 
-from .keys import loadKeys, setKey
+from .keys import load_keys, set_key
 
-__all__ = ["loadKeys", "setKey"]
+__all__ = ["load_keys", "set_key"]

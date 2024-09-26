@@ -4,7 +4,7 @@ from pandas import DataFrame
 from PySide6.QtWidgets import QTableWidget
 
 
-def journalResponsesToDataFrame(table: QTableWidget) -> DataFrame:
+def journal_responses_to_data_frame(table: QTableWidget) -> DataFrame:
     """Convert a list of journals with responses to a pandas DataFrame."""
     data = []
     row_count = table.rowCount()

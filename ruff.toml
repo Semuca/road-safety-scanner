@@ -7,4 +7,4 @@ exclude = [
 ]
 
 [lint]
-extend-select = ["E501", "I001", "N801", "N807", "N811", "N812", "N813", "N814", "N999", "D", "UP", "YTT", "ANN", "Q", "RET", "SIM"]
+extend-select = ["E501", "I001", "N", "D", "UP", "YTT", "ANN", "Q", "RET", "SIM"]

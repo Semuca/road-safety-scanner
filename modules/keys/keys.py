@@ -7,7 +7,7 @@ KEYS_PATH = f"{os.path.dirname(os.path.abspath(__file__))}/keys.json"
 
 keys = {}
 
-def loadKeys() -> dict[str, str]:
+def load_keys() -> dict[str, str]:
     """Load the keys file."""
     global keys
 
@@ -19,7 +19,7 @@ def loadKeys() -> dict[str, str]:
 
     return keys
 
-def setKey(key: str, value: str) -> None:
+def set_key(key: str, value: str) -> None:
     """Set a key in the keys file."""
     keys[key] = value
 

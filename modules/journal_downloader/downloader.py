@@ -8,7 +8,7 @@ import urllib.parse
 import urllib.request
 from typing import Any, Self
 
-elsevierAPI = "https://api.elsevier.com/content"
+elsevier_api = "https://api.elsevier.com/content"
 
 JOURNALS_PATH = f"{os.path.dirname(os.path.abspath(__file__))}/journals"
 
@@ -23,43 +23,44 @@ class QueryElsevierResult:
         self.author = author
         self.date = date
 
-def queryElsevier(api_key: str, query: str,
+def query_elsevier(api_key: str, query: str,
                   limit: float = 25,
                   wait: float = 0.05) -> list[QueryElsevierResult]:
     """Query the Elsevier API."""
     query = urllib.parse.quote(query)
 
     request = urllib.request.Request(
-        f"{elsevierAPI}/search/scopus?query={query}",
+        f"{elsevier_api}/search/scopus?query={query}",
         headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
 
     # Read all journals from the query until limit is hit
     results = []
-    totalResults = 1
-    while (len(results) < limit and len(results) < totalResults):
+    total_results = 1
+    while (len(results) < limit and len(results) < total_results):
         request = urllib.request.Request(
-            f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}",
+            f"{elsevier_api}/search/scopus?query={query}&start={len(results)}",
             headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
         
-        searchedJournals = json.loads(
+        searched_journals = json.loads(
             urllib.request.urlopen(request).read().decode("utf-8"))
-        totalResults = int(
-            searchedJournals["search-results"]["opensearch:totalResults"])
+        total_results = int(
+            searched_journals["search-results"]["opensearch:totalResults"])
 
         results.extend([
-            QueryElsevierResult(journal["prism:doi"],
-                                journal["dc:title"],
-                                journal["dc:creator"], 
-                                journal["prism:coverDisplayDate"])
-                    for journal in searchedJournals["search-results"]["entry"]])
+            QueryElsevierResult(
+                journal["prism:doi"],
+                journal["dc:title"],
+                journal["dc:creator"], 
+                journal["prism:coverDisplayDate"])
+                for journal in searched_journals["search-results"]["entry"]])
         
         time.sleep(wait)
 
     return results
 
-def downloadJournal(api_key: str, doi: str) -> dict[str, Any]:
+def download_journal(api_key: str, doi: str) -> dict[str, Any]:
     """Download a journal from the Elsevier API."""
-    request = urllib.request.Request(f"{elsevierAPI}/article/doi/${doi}",
+    request = urllib.request.Request(f"{elsevier_api}/article/doi/${doi}",
                 headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
     journal = urllib.request.urlopen(request).read().decode("utf-8")
 
@@ -78,7 +79,7 @@ class DownloadJournalsResult:
         self.results = results
         self.errors = errors
 
-def downloadJournals(api_key: str, dois: list[str],
+def download_journals(api_key: str, dois: list[str],
                      wait: float = 0.05) -> DownloadJournalsResult:
     """Download journals from the internet.
 
@@ -91,7 +92,7 @@ def downloadJournals(api_key: str, dois: list[str],
     errors = []
     for doi in dois:
         try:
-            results.append(downloadJournal(api_key, doi))
+            results.append(download_journal(api_key, doi))
         except urllib.error.HTTPError as e:
             errors.append({"doi": doi, "error": e.read().decode()})
         time.sleep(wait)
@@ -99,7 +100,7 @@ def downloadJournals(api_key: str, dois: list[str],
     return DownloadJournalsResult(results, errors)
 
 
-def getJournals() -> list[Any]:
+def get_journals() -> list[Any]:
     """Return the journals in the journals directory."""
     journals = []
     for journal in os.listdir("journals"):
@@ -108,12 +109,12 @@ def getJournals() -> list[Any]:
 
     return journals
 
-def getJournal(path: str) -> dict[str, Any]:
+def get_journal(path: str) -> dict[str, Any]:
     """Return a journal from the journals directory."""
     with open(path) as f:
         return json.load(f)
 
-def clearJournals() -> None:
+def clear_journals() -> None:
     """Clear the journals in the journals directory."""
     for journal in os.listdir("journals"):
         os.remove(f"journals/{journal}")

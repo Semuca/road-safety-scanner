@@ -8,15 +8,15 @@ from openai import OpenAI
 
 client = None
 
-def setupClient(apiKey: str) -> None:
+def setup_client(api_key: str) -> None:
     """Set up the OpenAI client with the provided API key."""
     global client
-    client = OpenAI(api_key=apiKey)
+    client = OpenAI(api_key=api_key)
 
 conversation_history = []
 
 # Function to extract text from a PDF file
-def extractTextFromPdf(file_path: str) -> str:
+def extract_text_from_pdf(file_path: str) -> str:
     """Extract text from a PDF file using pdfplumber."""
     try:
         text = ""
@@ -28,7 +28,7 @@ def extractTextFromPdf(file_path: str) -> str:
         print(f"There was an issue extracting text from the PDF file: {e}")
         return ""
 
-def uploadFile(file_path: str) -> None:
+def upload_file(file_path: str) -> None:
     """Upload file to the GPT model and store the content."""
     try:        
         # Check the file extension
@@ -44,7 +44,7 @@ def uploadFile(file_path: str) -> None:
                                                 {}).get("originalText")
         elif file_extension == ".pdf":
             # Extract text from the PDF file
-            file_content = extractTextFromPdf(file_path)
+            file_content = extract_text_from_pdf(file_path)
         else:
             print("Unsupported file type. Please upload a .json or .pdf file.")
             return
@@ -77,7 +77,7 @@ def uploadFile(file_path: str) -> None:
         print(f"There was an issue uploading the file content: {e}")
 
 
-def queryGPT(user_query: str) -> str:
+def query_gpt(user_query: str) -> str:
     """Query the GPT model with the user input and return the response."""
     try:
         # Add the user query to the conversation history
@@ -100,7 +100,7 @@ def queryGPT(user_query: str) -> str:
     except Exception as e:
         print(f"There was an issue querying the GPT model: {e}")
 
-def clearConversationHistory() -> None:
+def clear_conversation_history() -> None:
     """Clear the conversation history."""
     global conversation_history
     conversation_history = []
