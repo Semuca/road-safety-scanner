@@ -35,21 +35,21 @@ class QueryElsevierThread(QThread):
         query = urllib.parse.quote(self.query)
         request = urllib.request.Request(
             f"{elsevierAPI}/search/scopus?query={query}",
-            headers={'Accept': 'application/json', 'X-ELS-APIKey': self.apiKey})
+            headers={"Accept": "application/json", "X-ELS-APIKey": self.apiKey})
 
         # Read all journals from the query until limit is hit
         results = []
         totalResults = int(json.loads(
-            urllib.request.urlopen(request).read().decode('utf-8'))["search-results"]["opensearch:totalResults"])
+            urllib.request.urlopen(request).read().decode("utf-8"))["search-results"]["opensearch:totalResults"])
         
         while (len(results) < self.limit and len(results) < totalResults):
             request = urllib.request.Request(
                 f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}",
-                  headers={'Accept': 'application/json',
-                           'X-ELS-APIKey': self.apiKey})
+                  headers={"Accept": "application/json",
+                           "X-ELS-APIKey": self.apiKey})
             
             searchedJournals = json.loads(
-                urllib.request.urlopen(request).read().decode('utf-8'))
+                urllib.request.urlopen(request).read().decode("utf-8"))
             results.extend([
                 QueryElsevierResult(journal["prism:doi"],
                                     journal["dc:title"],
