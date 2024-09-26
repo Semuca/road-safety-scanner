@@ -196,25 +196,7 @@ class MainWindow(QMainWindow):
         selected_ai = clicked_button.text()  # Get the text of the clicked button (AI name)
         print(f"AI set to: {selected_ai}")  # Debug output to confirm the selection
 
-<<<<<<< Updated upstream
-        selected_ai = ""
-        if clicked_button == self.ui.pushButton_ChatGpt:
-            selected_ai = "ChatGPT"
-            # set_llm_api_key("GPT_API_KEY")
-        elif clicked_button == self.ui.pushButton_Llama70b:
-            selected_ai = "Llama70b"
-            # set_llm_api_key("LLAMA70B_API_KEY")
-        elif clicked_button == self.ui.pushButton_Llama405b:
-            selected_ai = "Llama405b"
-            # set_llm_api_key("LLAMA405B_API_KEY")
-        elif clicked_button == self.ui.pushButton_ClaudeSonnet:
-            selected_ai = "ClaudeSonnet"
-            # set_llm_api_key("CLAUDESONNET_API_KEY")
 
-        # Update the currently selected AI displayed on the Tab header
-        self.currentAI = selected_ai
-        self.selectedAILabel.setText(f"Current AI: {self.currentAI}")
-=======
         # Update the currentlyAI label to display the selected AI
         self.ui.currentlyAI.setText(f"Current AI: {selected_ai}")
 
@@ -232,7 +214,6 @@ class MainWindow(QMainWindow):
             # Set API key for ClaudeSonnet
             return
 
->>>>>>> Stashed changes
 
     def openFile(self):
         """Open a file dialog and display the selected file path."""
