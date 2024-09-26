@@ -8,9 +8,10 @@ from modules.GUI import Ui_Dialog
 from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals
 
 from modules.journal_downloader.signal import QueryElsevierThread
-from modules.llm.gpt.query import clearConversationHistory, setupClient, queryGPT, uploadFile
+from modules.llm.gpt.query import setupClient
 from modules.keys.keys import setKey, loadKeys
 from modules.exporter import exportToExcel, journalResponsesToDataFrame
+from modules.llm.signal import QueryLLMThread
 
 class ResultsTableHeader(QHeaderView):
     def __init__(self, orientation, parent, onClicked = lambda: None):
@@ -198,6 +199,8 @@ class MainWindow(QMainWindow):
         self.queryProgressDialog.setValue(progress)
     
     def onQueryFinished(self, queryResults):
+        self.queryProgressDialog.close()
+
         self.queryResults = queryResults
 
         self.ui.searchListTableWidget.setRowCount(0)
@@ -210,8 +213,6 @@ class MainWindow(QMainWindow):
             self.ui.searchListTableWidget.setItem(row_position, 1, QTableWidgetItem(result.title))
             self.ui.searchListTableWidget.setItem(row_position, 2, QTableWidgetItem(result.doi))
             self.ui.searchListTableWidget.setItem(row_position, 3, QTableWidgetItem(result.date))
-        
-        self.queryProgressDialog.close()
     
     # Downloads the journals from the search page
     def onDownloadJournals(self):
@@ -339,20 +340,31 @@ class MainWindow(QMainWindow):
     def processJournals(self):
         """Process the uploaded journals using the selected AI model."""
 
+        self.processProgressDialog = QProgressDialog("Processing...", "Cancel", 0, 100, self)
+        self.processProgressDialog.setWindowModality(Qt.WindowModal)
+        self.processProgressDialog.setAutoClose(True)
+        self.processProgressDialog.setValue(0)
+
+        self.processSignal = QueryLLMThread(journals=self.uploadedJournals, queries=[query for header, query in self.queryColumns])
+        self.processSignal.progressSignal.connect(self.onProcessUpdateProgress)
+        self.processSignal.finishedSignal.connect(self.onProcessFinished)
+        self.processSignal.start()
+
         self.ui.resultsListTableWidget.setRowCount(0)
 
-        for journal in self.uploadedJournals:
-            doi = journal.split("/")[-1].replace(".json", "")
-            uploadFile(journal)
+    def onProcessUpdateProgress(self, progress):
+        self.processProgressDialog.setValue(progress)
+    
+    def onProcessFinished(self, processResults):
+        self.processProgressDialog.close()
 
-            columnResults = [queryGPT(query) for header, query in self.queryColumns]
-            clearConversationHistory()
+        self.ui.resultsListTableWidget.setRowCount(0)
 
+        for row in processResults:
             row_position = self.ui.resultsListTableWidget.rowCount()
             self.ui.resultsListTableWidget.insertRow(row_position)
-            self.ui.resultsListTableWidget.setItem(row_position, 0, QTableWidgetItem(doi))
-            for i, columnResult in enumerate(columnResults):
-                self.ui.resultsListTableWidget.setItem(row_position, i + 1, QTableWidgetItem(columnResult))
+            for i, cell in enumerate(row):
+                self.ui.resultsListTableWidget.setItem(row_position, i, QTableWidgetItem(cell))
             pass
 
     def handleExport(self):
