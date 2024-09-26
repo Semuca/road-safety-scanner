@@ -1,9 +1,8 @@
 
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView, QProgressDialog
 from PySide6.QtCore import Qt
 import json
-import sys
 
 from modules.GUI import Ui_Dialog
 from modules.journal_downloader.downloader import JOURNALS_PATH, downloadJournals
