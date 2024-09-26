@@ -345,9 +345,6 @@ class MainWindow(QMainWindow):
             doi = journal.split("/")[-1].replace(".json", "")
             uploadFile(journal)
 
-            for header, query in self.queryColumns:
-                queryGPT(query)
-
             columnResults = [queryGPT(query) for header, query in self.queryColumns]
             clearConversationHistory()
 
