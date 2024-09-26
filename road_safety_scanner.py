@@ -340,6 +340,8 @@ class MainWindow(QMainWindow):
     def processJournals(self):
         """Process the uploaded journals using the selected AI model."""
 
+        self.ui.resultsListTableWidget.setRowCount(0)
+
         for journal in self.uploadedJournals:
             doi = journal.split("/")[-1].replace(".json", "")
             uploadFile(journal)
