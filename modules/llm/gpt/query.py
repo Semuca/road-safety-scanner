@@ -86,10 +86,13 @@ def queryGPT(user_query: str) -> str:
         
         # Add the assistant's response to the conversation history
         conversation_history.append({"role": "assistant", "content": output})
-
-        conversation_history.clear()  # Clear the conversation history for the next query
         
         return output
         
     except Exception as e:
         print(f"There was an issue querying the GPT model: {e}")
+
+def clearConversationHistory() -> None:
+    """Clear the conversation history."""
+    global conversation_history
+    conversation_history = []

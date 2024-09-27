@@ -17,29 +17,6 @@ class QueryElsevierResult:
         self.author = author
         self.date = date
 
-def queryElsevier(api_key: str, query: str, limit=25, wait=0.05) -> list[QueryElsevierResult]:
-    """
-    Queries the Elsevier API.
-    """
-
-    query = urllib.parse.quote(query)
-
-    request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}", headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
-
-    # Read all journals from the query until limit is hit
-    results = []
-    totalResults = 1
-    while (len(results) < limit and len(results) < totalResults):
-        request = urllib.request.Request(f"{elsevierAPI}/search/scopus?query={query}&start={len(results)}", headers={'Accept': 'application/json', 'X-ELS-APIKey': api_key})
-        
-        searchedJournals = json.loads(urllib.request.urlopen(request).read().decode('utf-8'))
-        totalResults = int(searchedJournals["search-results"]["opensearch:totalResults"])
-
-        results.extend([QueryElsevierResult(journal["prism:doi"], journal["dc:title"], journal["dc:creator"], journal["prism:coverDisplayDate"]) for journal in searchedJournals["search-results"]["entry"]])
-        time.sleep(wait)
-
-    return results
-
 def downloadJournal(api_key: str, doi: str) -> Any:
     """
     Downloads a journal from the Elsevier API.
@@ -90,6 +67,13 @@ def getJournals() -> list[Any]:
 
     return journals
 
+def getJournal(path: str) -> Any:
+    """
+    Returns a journal from the journals directory.
+    """
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 def clearJournals() -> None:
     """
