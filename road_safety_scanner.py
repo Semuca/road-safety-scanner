@@ -24,11 +24,9 @@ from modules.journal_downloader.downloader import (
 from modules.journal_downloader.signal import QueryElsevierThread
 from modules.keys.keys import load_keys, set_key
 from modules.llm.gpt.query import (
-    clear_conversation_history,
-    query_gpt,
     setup_client,
-    upload_file,
 )
+from modules.llm.signal import QueryLLMThread
 
 
 class ResultsTableHeader(QHeaderView):
@@ -85,7 +83,7 @@ class MainWindow(QMainWindow):
         # Hide Filter Page
         self.ui.setFiltersPage.setVisible(False)
         self.ui.setFiltersCloseButton.clicked.connect(
-            lambda:self.ui.setFiltersPage.setVisible(
+            lambda: self.ui.setFiltersPage.setVisible(
                 not self.ui.addColumnPage.isVisible()))
 
         # Setup Add Column Page Modal
@@ -94,6 +92,7 @@ class MainWindow(QMainWindow):
             lambda: self.close_add_column()
             if self.ui.addColumnPage.isVisible()
             else self.ui.addColumnPage.setVisible(True))
+        
         self.ui.addColumnCancelButton.clicked.connect(self.close_add_column)
         self.ui.addColumnApplyButton.clicked.connect(self.add_column)
 
@@ -253,6 +252,8 @@ class MainWindow(QMainWindow):
     
     def on_query_finished(self: Self, query_results: object) -> None:
         """Update the search list table with the query results."""
+        self.queryProgressDialog.close()
+
         self.queryResults = query_results
 
         self.ui.searchListTableWidget.setRowCount(0)
@@ -261,6 +262,7 @@ class MainWindow(QMainWindow):
         for result in self.queryResults:
             row_position = self.ui.searchListTableWidget.rowCount()
             self.ui.searchListTableWidget.insertRow(row_position)
+
             self.ui.searchListTableWidget.setItem(row_position, 0,
                                                   QTableWidgetItem(result.author))
             self.ui.searchListTableWidget.setItem(row_position, 1,
@@ -405,24 +407,39 @@ class MainWindow(QMainWindow):
 
     def process_journals(self: Self) -> None:
         """Process the uploaded journals using the selected AI model."""
+        self.processProgressDialog = QProgressDialog(
+            "Processing...","Cancel", 0, 100, self)
+        
+        self.processProgressDialog.setWindowModality(Qt.WindowModal)
+        self.processProgressDialog.setAutoClose(True)
+        self.processProgressDialog.setValue(0)
+
+        self.processSignal = QueryLLMThread(
+            journals=self.uploadedJournals,
+            queries=[query for header, query in self.queryColumns])
+        
+        self.processSignal.progress_signal.connect(self.on_process_update_progress)
+        self.processSignal.finished_signal.connect(self.on_process_finished)
+        self.processSignal.start()
+
         self.ui.resultsListTableWidget.setRowCount(0)
 
-        for journal in self.uploadedJournals:
-            doi = journal.split("/")[-1].replace(".json", "")
-            upload_file(journal)
+    def on_process_update_progress(self: Self, progress: int) -> None:
+        """Update the progress of the process."""
+        self.processProgressDialog.setValue(progress)
+    
+    def on_process_finished(self: Self, process_results: list[str]) -> None:
+        """Update the results list table with the processed results."""
+        self.processProgressDialog.close()
 
-            column_results = [query_gpt(query) for header, query in
-                               self.queryColumns]
-            clear_conversation_history()
+        self.ui.resultsListTableWidget.setRowCount(0)
 
+        for row in process_results:
             row_position = self.ui.resultsListTableWidget.rowCount()
             self.ui.resultsListTableWidget.insertRow(row_position)
-            self.ui.resultsListTableWidget.setItem(
-                row_position,0, QTableWidgetItem(doi))
-            
-            for i, column_result in enumerate(column_results):
+            for i, cell in enumerate(row):
                 self.ui.resultsListTableWidget.setItem(
-                    row_position, i + 1,QTableWidgetItem(column_result))
+                     row_position, i, QTableWidgetItem(cell))
 
     def handle_export(self: Self) -> None:
         """Export the processed journals to an Excel file."""
