@@ -1,3 +1,5 @@
-from .keys import loadKeys, setKey
+"""Defines the module's public interface."""
 
-__all__ = ['loadKeys', 'setKey']
+from .keys import load_keys, set_key
+
+__all__ = ["load_keys", "set_key"]
