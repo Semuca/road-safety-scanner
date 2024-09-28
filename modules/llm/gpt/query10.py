@@ -1,24 +1,33 @@
-#this version: accept .json and .pdf files, rename the file to DOI if not yet named with DOI, and query the GPT model with the file content.
-import os
+"""Accept .json and .pdf files.
+
+Rename the file to DOI if not yet named with DOI,
+and query the GPT model with the file content.
+"""
 import json
+import os
+
 import pdfplumber
 from openai import OpenAI
 
-GPT_API_KEY = os.environ.get('GPT_API_KEY')
+GPT_API_KEY = os.environ.get("GPT_API_KEY")
 
-client = OpenAI(api_key='GPT_API_KEY')
+client = OpenAI(api_key="GPT_API_KEY")
 
 conversation_history = []
 
 def extract_doi_from_json(file_path: str) -> str:
+    """Extract the DOI from a JSON file."""
     try:
-        with open(file_path, 'r', encoding='utf-8') as json_file:
+        with open(file_path, encoding="utf-8") as json_file:
             data = json.load(json_file)
 
             #DOI tend to be stored in this path in the file. So far works well 
-            if "full-text-retrieval-response" in data and "coredata" in data["full-text-retrieval-response"] and "prism:doi" in data["full-text-retrieval-response"]["coredata"]:
-                doi = data.get("full-text-retrieval-response", {}).get("coredata", {}).get("prism:doi")
-                return doi
+            if ("full-text-retrieval-response" in data and
+                "coredata" in data["full-text-retrieval-response"] and
+                "prism:doi" in 
+                data["full-text-retrieval-response"]["coredata"]):
+                return data.get("full-text-retrieval-response", {}
+                                ).get("coredata", {}).get("prism:doi")
 
             print("DOI not found in the JSON file.")
             return None
@@ -28,9 +37,10 @@ def extract_doi_from_json(file_path: str) -> str:
         return None
 
 def extract_text_from_pdf(file_path: str) -> str:
+    """Extract text from a PDF file."""
     try:
         with pdfplumber.open(file_path) as pdf:
-            text = ''
+            text = ""
             for page in pdf.pages:
                 text += page.extract_text()
             return text
@@ -39,10 +49,11 @@ def extract_text_from_pdf(file_path: str) -> str:
         return None
 
 def extract_doi_from_pdf(file_path: str) -> str:
+    """Extract the DOI from a PDF file."""
     try:
         text = extract_text_from_pdf(file_path)
         if text:
-            start_index = text.find('DOI:' or 'doi:') 
+            start_index = text.find("DOI:") 
             if start_index != -1:
                 doi = text[start_index+4:].split()[0]
                 return doi.strip()
@@ -53,7 +64,7 @@ def extract_doi_from_pdf(file_path: str) -> str:
         return None
 
 def rename_file_if_needed(file_path: str, doi: str) -> str:
-
+    """Rename the file to the DOI if not already named."""
     if not doi.startswith("10."):
         print("Invalid DOI format. DOI must start with '10.'")
         return file_path
@@ -66,7 +77,8 @@ def rename_file_if_needed(file_path: str, doi: str) -> str:
 
         if original_filename != expected_filename:
             os.rename(file_path, expected_file_path)
-            print(f"Renaming file from '{original_filename}' to '{expected_filename}'")
+            print(f"""Renaming file from '
+                  {original_filename}' to '{expected_filename}'""")
             return expected_file_path
         return file_path
     
@@ -74,7 +86,8 @@ def rename_file_if_needed(file_path: str, doi: str) -> str:
         print(f"There was an issue renaming the file: {e}")
         return file_path
 
-def uploadFile() -> str:
+def upload_file() -> str:
+    """Upload a file and extract the DOI."""
     try:
         file_path = input("Enter the file path: ")
         file_extension = os.path.splitext(file_path)[1].lower()
@@ -85,25 +98,25 @@ def uploadFile() -> str:
                 file_path = rename_file_if_needed(file_path, doi)
                 print("File renaming successful.")
             return file_path
-        elif file_extension == ".pdf":
+        if file_extension == ".pdf":
             doi = extract_doi_from_pdf(file_path)
             if doi:
                 file_path = rename_file_if_needed(file_path, doi)
                 print("File renaming successful.")
             return file_path
-        else:
-            print("Unsupported file type. Please upload a .json or .pdf file.")
-            return None
+        print("Unsupported file type. Please upload a .json or .pdf file.")
+        return None
     except Exception as e:
         print(f"There was an issue uploading the file: {e}")
         return None
 
-def queryGPT(file_path: str) -> None:
+def query_gpt(file_path: str) -> None:
+    """Query the GPT model with the file content."""
     try:
         file_extension = os.path.splitext(file_path)[1].lower()
 
         if file_extension == ".json":
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding="utf-8") as f:
                 file_content = f.read()
         elif file_extension == ".pdf":
             file_content = extract_text_from_pdf(file_path)
@@ -112,8 +125,11 @@ def queryGPT(file_path: str) -> None:
             return
 
         conversation_history = [
-            {"role": "system", "content": "You are uploading an academic journal."},
-            {"role": "user", "content": f"Please remember the following content: {file_content}"}
+            {"role": "system",
+             "content": "You are uploading an academic journal."},
+            {"role": "user",
+             "content":
+             f"Please remember the following content: {file_content}"}
         ]
 
         response = client.chat.completions.create(
@@ -123,7 +139,8 @@ def queryGPT(file_path: str) -> None:
         )
 
         response_content = response.choices[0].message.content.strip()
-        conversation_history.append({"role": "assistant", "content": response_content})
+        conversation_history.append(
+            {"role": "assistant", "content": response_content})
 
         if response_content:
             print("File content uploaded and stored successfully.")
@@ -133,7 +150,8 @@ def queryGPT(file_path: str) -> None:
         while True:
             user_query = input("Enter your query ('exit' to quit): ")
 
-            if user_query.lower() in ["exit", "Exit", "'exit'", "quit"]: #trying to be kind
+            #trying to be kind
+            if user_query.lower() in ["exit", "Exit", "'exit'", "quit"]:
                 print("Exiting... bye amigos")
                 break
 
@@ -146,15 +164,16 @@ def queryGPT(file_path: str) -> None:
             )
 
             output = response.choices[0].message.content.strip()
-            conversation_history.append({"role": "assistant", "content": output})
+            conversation_history.append(
+                {"role": "assistant", "content": output})
 
             print(output)
 
     except Exception as e:
         print(f"There was an issue querying the GPT model: {e}")
 
-file_path = uploadFile()
+file_path = upload_file()
 
 if file_path:
     print("Uploading the file...")
-    queryGPT(file_path)
+    query_gpt(file_path)
