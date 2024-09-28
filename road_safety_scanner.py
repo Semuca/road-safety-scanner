@@ -3,8 +3,8 @@ import json
 import sys
 from typing import Any, Callable, Self
 
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QMouseEvent, QPainter, QRect
+from PySide6.QtCore import QRect, Qt
+from PySide6.QtGui import QMouseEvent, QPainter
 from PySide6.QtWidgets import (
     QApplication,
     QFileDialog,
@@ -15,7 +15,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from modules.exporter import exportToExcel, journal_responses_to_data_frame
+from modules.exporter import export_to_excel, journal_responses_to_data_frame
 from modules.GUI import Ui_Dialog
 from modules.journal_downloader.downloader import (
     JOURNALS_PATH,
@@ -406,7 +406,6 @@ class MainWindow(QMainWindow):
     def process_journals(self: Self) -> None:
         """Process the uploaded journals using the selected AI model."""
         self.ui.resultsListTableWidget.setRowCount(0)
-        # queryText = self.ui.searchResultsBar.text()
 
         for journal in self.uploadedJournals:
             doi = journal.split("/")[-1].replace(".json", "")
@@ -434,7 +433,7 @@ class MainWindow(QMainWindow):
         
         if filepath:
             df = journal_responses_to_data_frame(self.ui.resultsListTableWidget)
-            exportToExcel(filepath, df)
+            export_to_excel(filepath, df)
             pass
         pass
 
