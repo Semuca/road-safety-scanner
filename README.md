@@ -1,3 +1,5 @@
+# Road safety scanner
+
 ### Environment setup
 Using micromamba you should be able to read the environment.yaml file as `micromamba env create -f environment.yaml`.
 
