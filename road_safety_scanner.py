@@ -1,9 +1,10 @@
 """Main application file for the Road Safety Scanner application."""
 import json
 import sys
-from typing import Any, Self
+from typing import Any, Callable, Self
 
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QMouseEvent, QPainter, QRect
 from PySide6.QtWidgets import (
     QApplication,
     QFileDialog,
@@ -11,6 +12,7 @@ from PySide6.QtWidgets import (
     QMainWindow,
     QProgressDialog,
     QTableWidgetItem,
+    QWidget,
 )
 
 from modules.exporter import exportToExcel, journal_responses_to_data_frame
@@ -30,18 +32,25 @@ from modules.llm.gpt.query import (
 
 
 class ResultsTableHeader(QHeaderView):
-    def __init__(self, orientation, parent, onClicked = lambda: None):
+    """Custom header class for the results table."""
+
+    def __init__(self: Self, orientation: Qt.Orientation, parent: QWidget,
+                 on_clicked:Callable[[int], None] = lambda: None) -> None:
+        """Initialize the custom header."""
         super().__init__(orientation, parent)
         self.setSectionsClickable(True)
 
-        self.onClicked = onClicked
+        self.on_clicked = on_clicked
 
-    def paintSection(self, painter, rect, logicalIndex):
-        super().paintSection(painter, rect, logicalIndex)
+    def paintSection(self: Self, painter: QPainter, rect: QRect, # noqa: N802
+                     logical_index: int) -> None: 
+        """Paint the section of the header."""
+        super().paintSection(painter, rect, logical_index)
 
-    def mouseReleaseEvent(self, event):
+    def mouseReleaseEvent(self: Self, event: QMouseEvent) -> None: # noqa: N802
+        """Handle the mouse release event."""
         super().mouseReleaseEvent(event)
-        self.onClicked(self.logicalIndexAt(event.position().toPoint()))
+        self.on_clicked(self.logicalIndexAt(event.position().toPoint()))
 
 class MainWindow(QMainWindow):
     """Main window class for the Road Safety Scanner application."""
@@ -64,32 +73,44 @@ class MainWindow(QMainWindow):
             4: self.ui.resultsButton
         }
 
-        self.ui.resultsListTableWidget.setHorizontalHeader(ResultsTableHeader(Qt.Horizontal, self.ui.resultsListTableWidget, self.openEditColumn))
+        self.ui.resultsListTableWidget.setHorizontalHeader(
+            ResultsTableHeader(
+                Qt.Horizontal,
+                self.ui.resultsListTableWidget,
+                self.open_edit_column))
 
         # Set the Search Page as the default start up page
         self.switch_to_page(1)
 
         # Hide Filter Page
         self.ui.setFiltersPage.setVisible(False)
-        self.ui.setFiltersCloseButton.clicked.connect(lambda: self.ui.setFiltersPage.setVisible(not self.ui.addColumnPage.isVisible()))
+        self.ui.setFiltersCloseButton.clicked.connect(
+            lambda:self.ui.setFiltersPage.setVisible(
+                not self.ui.addColumnPage.isVisible()))
 
         # Setup Add Column Page Modal
         self.ui.addColumnPage.setVisible(False)
-        self.ui.addColumnButton.clicked.connect(lambda: self.closeAddColumn() if self.ui.addColumnPage.isVisible() else self.ui.addColumnPage.setVisible(True))
-        self.ui.addColumnCancelButton.clicked.connect(self.closeAddColumn)
-        self.ui.addColumnApplyButton.clicked.connect(self.addColumn)
+        self.ui.addColumnButton.clicked.connect(
+            lambda: self.close_add_column()
+            if self.ui.addColumnPage.isVisible()
+            else self.ui.addColumnPage.setVisible(True))
+        self.ui.addColumnCancelButton.clicked.connect(self.close_add_column)
+        self.ui.addColumnApplyButton.clicked.connect(self.add_column)
 
         # Setup Edit Column Page Modal
         self.ui.editColumnPage.setVisible(False)
-        self.ui.editColumnCancelButton.clicked.connect(self.closeEditColumn)
-        self.ui.editColumnApplyButton.clicked.connect(self.editColumn)
-        self.ui.deleteColumnButton.clicked.connect(lambda: self.deleteColumn(self.editingColumn))
+        self.ui.editColumnCancelButton.clicked.connect(self.close_edit_column)
+        self.ui.editColumnApplyButton.clicked.connect(self.edit_column)
+        self.ui.deleteColumnButton.clicked.connect(
+            lambda: self.delete_column(self.editingColumn))
 
         # Setup the columns for the results table
         self.publicationColumns = ["Publication"]
-        rawColumns = json.loads(open("modules/exporter/columns.json").read())["columns"]
-        self.queryColumns = [(column["header"], column["query"]) for column in rawColumns]
-        self.buildResultsTable()
+        with open("modules/exporter/columns.json") as columns_file:
+            raw_columns = json.loads(columns_file.read())["columns"]
+            self.queryColumns = [(column["header"], column["query"])
+                                 for column in raw_columns]
+        self.build_results_table()
 
         # Connect menu buttons to their respective functions
         self.ui.keysButton.clicked.connect(lambda: self.switch_to_page(0))
@@ -314,82 +335,95 @@ class MainWindow(QMainWindow):
             row_position = self.ui.journalListTableWidget.rowCount()
             self.ui.journalListTableWidget.insertRow(row_position)
 
-    def buildResultsTable(self):
+            joined_authors = ", ".join([author["$"] for author in authors])
+            self.ui.journalListTableWidget.setItem(row_position, 0,
+                                                   QTableWidgetItem(joined_authors))
+            self.ui.journalListTableWidget.setItem(row_position, 1,
+                                                   QTableWidgetItem(title))
+            self.ui.journalListTableWidget.setItem(row_position, 2,
+                                                   QTableWidgetItem(type_))
+            self.ui.journalListTableWidget.setItem(row_position, 3,
+                                                   QTableWidgetItem(date))
+
+    def build_results_table(self: Self) -> None:
         """Build the results table based on the results columns."""
-        queryHeaders = [header for header, query in self.queryColumns]
-        headers = self.publicationColumns + queryHeaders
+        query_headers = [header for header, query in self.queryColumns]
+        headers = self.publicationColumns + query_headers
 
         self.ui.resultsListTableWidget.setColumnCount(len(headers))
         self.ui.resultsListTableWidget.setHorizontalHeaderLabels(headers)
 
-    def addColumn(self):
+    def add_column(self: Self) -> None:
         """Add a column to the results table."""
-        self.queryColumns.append((self.ui.addColumnHeaderEntry.text(), self.ui.addColumnQueryText.toPlainText()))
-        self.buildResultsTable()
+        self.queryColumns.append((self.ui.addColumnHeaderEntry.text(),
+                                  self.ui.addColumnQueryText.toPlainText()))
+        self.build_results_table()
 
-        self.closeAddColumn()
+        self.close_add_column()
 
-    def closeAddColumn(self):
+    def close_add_column(self: Self) -> None:
         """Close the Add Column modal."""
         self.ui.addColumnHeaderEntry.clear()
         self.ui.addColumnQueryText.clear()
         self.ui.addColumnPage.setVisible(False)
 
-    def openEditColumn(self, columnIndex):
+    def open_edit_column(self: Self, column_index: int) -> None:
         """Open the Edit Column modal."""
-        if columnIndex < len(self.publicationColumns):
+        if column_index < len(self.publicationColumns):
             return
 
         self.ui.editColumnPage.setVisible(True)
-        self.editingColumn = columnIndex - len(self.publicationColumns)
+        self.editingColumn = column_index - len(self.publicationColumns)
 
         header, query = self.queryColumns[self.editingColumn]
         self.ui.editColumnHeaderEntry.setText(header)
         self.ui.editColumnQueryText.setPlainText(query)
 
-    def editColumn(self):
+    def edit_column(self: Self) -> None:
         """Edit a column in the results table."""
+        self.queryColumns[self.editingColumn] = (
+            self.ui.editColumnHeaderEntry.text(),
+            self.ui.editColumnQueryText.toPlainText())
+        self.build_results_table()
 
-        self.queryColumns[self.editingColumn] = (self.ui.editColumnHeaderEntry.text(), self.ui.editColumnQueryText.toPlainText())
-        self.buildResultsTable()
+        self.close_edit_column()
 
-        self.closeEditColumn()
-
-    def deleteColumn(self, columnIndex):
+    def delete_column(self: Self, column_index: int) -> None:
         """Delete a column from the results table."""
-        self.queryColumns.pop(columnIndex)
-        self.buildResultsTable()
+        self.queryColumns.pop(column_index)
+        self.build_results_table()
 
-        self.closeEditColumn()
+        self.close_edit_column()
 
-    def closeEditColumn(self):
+    def close_edit_column(self: Self) -> None:
+        """Close the Edit Column modal."""
         self.editingColumn = None
 
         self.ui.editColumnHeaderEntry.clear()
         self.ui.editColumnQueryText.clear()
         self.ui.editColumnPage.setVisible(False)
 
-    def processJournals(self):
-        """Process the uploaded journals using the selected AI model."""
-
-        self.ui.resultsListTableWidget.setRowCount(0)
-
     def process_journals(self: Self) -> None:
         """Process the uploaded journals using the selected AI model."""
+        self.ui.resultsListTableWidget.setRowCount(0)
         # queryText = self.ui.searchResultsBar.text()
 
         for journal in self.uploadedJournals:
             doi = journal.split("/")[-1].replace(".json", "")
             upload_file(journal)
 
-            columnResults = [query_gpt(query) for header, query in self.queryColumns]
+            column_results = [query_gpt(query) for header, query in
+                               self.queryColumns]
             clear_conversation_history()
 
             row_position = self.ui.resultsListTableWidget.rowCount()
             self.ui.resultsListTableWidget.insertRow(row_position)
-            self.ui.resultsListTableWidget.setItem(row_position, 0, QTableWidgetItem(doi))
-            for i, columnResult in enumerate(columnResults):
-                self.ui.resultsListTableWidget.setItem(row_position, i + 1, QTableWidgetItem(columnResult))
+            self.ui.resultsListTableWidget.setItem(
+                row_position,0, QTableWidgetItem(doi))
+            
+            for i, column_result in enumerate(column_results):
+                self.ui.resultsListTableWidget.setItem(
+                    row_position, i + 1,QTableWidgetItem(column_result))
 
     def handle_export(self: Self) -> None:
         """Export the processed journals to an Excel file."""
