@@ -4,7 +4,7 @@
 line-length = 80
 
 exclude = [
-    "modules/GUI/gui.py",
+    "src/modules/GUI/gui.py",
 ]
 
 [tool.ruff.lint]
