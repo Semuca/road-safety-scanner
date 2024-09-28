@@ -15,18 +15,18 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from modules.exporter import export_to_excel, journal_responses_to_data_frame
-from modules.GUI import Ui_Dialog
-from modules.journal_downloader.downloader import (
+from .modules.exporter import export_to_excel, journal_responses_to_data_frame
+from .modules.GUI import Ui_Dialog
+from .modules.journal_downloader.downloader import (
     JOURNALS_PATH,
     download_journals,
 )
-from modules.journal_downloader.signal import QueryElsevierThread
-from modules.keys.keys import load_keys, set_key
-from modules.llm.gpt.query import (
+from .modules.journal_downloader.signal import QueryElsevierThread
+from .modules.keys.keys import load_keys, set_key
+from .modules.llm.gpt.query import (
     setup_client,
 )
-from modules.llm.signal import QueryLLMThread
+from .modules.llm.signal import QueryLLMThread
 
 
 class ResultsTableHeader(QHeaderView):
