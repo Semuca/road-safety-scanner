@@ -1,10 +1,11 @@
-from typing import Any
-from pandas import DataFrame
+"""Utility functions for parsing journal responses."""
 
-def journalResponsesToDataFrame(table: Any) -> DataFrame:
-    """
-    Convert a list of journals with responses to a pandas DataFrame
-    """
+from pandas import DataFrame
+from PySide6.QtWidgets import QTableWidget
+
+
+def journal_responses_to_data_frame(table: QTableWidget) -> DataFrame:
+    """Convert a list of journals with responses to a pandas DataFrame."""
     data = []
     row_count = table.rowCount()
     col_count = table.columnCount()
@@ -19,5 +20,4 @@ def journalResponsesToDataFrame(table: Any) -> DataFrame:
                 row_data.append(item.text())
         data.append(row_data)
     headers = [table.horizontalHeaderItem(i).text() for i in range(col_count)]
-    df = DataFrame(data, columns=headers)
-    return df
+    return DataFrame(data, columns=headers)

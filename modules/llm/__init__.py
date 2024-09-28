@@ -1,3 +1,5 @@
-from .gpt.query import uploadFile, queryGPT, clearConversationHistory
+"""Defines the module's public interface."""
 
-__all__ = ['uploadFile', 'queryGPT', 'clearConversationHistory']
+from .gpt.query import clear_conversation_history, query_gpt, upload_file
+
+__all__ = ["upload_file", "query_gpt", "clear_conversation_history"]
