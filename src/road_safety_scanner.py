@@ -1,12 +1,10 @@
 """Main application file for the Road Safety Scanner application."""
 import json
-import sys
 from typing import Any, Callable, Self
 
 from PySide6.QtCore import QRect, Qt
 from PySide6.QtGui import QMouseEvent, QPainter
 from PySide6.QtWidgets import (
-    QApplication,
     QFileDialog,
     QHeaderView,
     QMainWindow,
@@ -15,7 +13,10 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from .modules.exporter import export_to_excel, journal_responses_to_data_frame
+from .modules.exporter import (
+    export_to_excel,
+    journal_responses_to_data_frame,
+)
 from .modules.GUI import Ui_Dialog
 from .modules.journal_downloader.downloader import (
     JOURNALS_PATH,
@@ -105,7 +106,7 @@ class MainWindow(QMainWindow):
 
         # Setup the columns for the results table
         self.publicationColumns = ["Publication"]
-        with open("modules/exporter/columns.json") as columns_file:
+        with open("src/modules/exporter/columns.json") as columns_file:
             raw_columns = json.loads(columns_file.read())["columns"]
             self.queryColumns = [(column["header"], column["query"])
                                  for column in raw_columns]
@@ -452,10 +453,3 @@ class MainWindow(QMainWindow):
             export_to_excel(filepath, df)
             pass
         pass
-
-        
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    window.show()
-    sys.exit(app.exec())

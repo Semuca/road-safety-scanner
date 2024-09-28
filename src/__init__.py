@@ -1,5 +1,6 @@
 """Defines the public interface for the entire package."""
 
-from . import modules, road_safety_scanner
+from . import modules
+from .road_safety_scanner import MainWindow
 
-__all__ = ["modules", "road_safety_scanner"]
+__all__ = ["modules", "MainWindow"]
