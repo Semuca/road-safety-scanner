@@ -255,7 +255,6 @@ class MainWindow(QMainWindow):
         self.queryProgressDialog.close()
 
         self.queryResults = query_results
-
         self.ui.searchListTableWidget.setRowCount(0)
 
         # Add a new row for each record

@@ -266,8 +266,8 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 31), QTime(0, 0, 0)))
-        self.publishYearFrom.setDate(QDate(2013, 12, 31))
+        self.publishYearFrom.setDateTime(QDateTime(QDate(2014, 1, 1), QTime(0, 0, 0)))
+        self.publishYearFrom.setDate(QDate(2014, 1, 1))
         self.keyWords = QLineEdit(self.setFiltersPage)
         self.keyWords.setObjectName(u"keyWords")
         self.keyWords.setGeometry(QRect(50, 140, 301, 41))
@@ -322,8 +322,8 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 31), QTime(0, 0, 0)))
-        self.publishYearTo.setDate(QDate(2023, 12, 31))
+        self.publishYearTo.setDateTime(QDateTime(QDate(2024, 1, 1), QTime(0, 0, 0)))
+        self.publishYearTo.setDate(QDate(2024, 1, 1))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
         self.publishYearToLabel.setObjectName(u"publishYearToLabel")
         self.publishYearToLabel.setGeometry(QRect(410, 110, 41, 20))
