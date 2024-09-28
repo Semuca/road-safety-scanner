@@ -1,19 +1,32 @@
+"""Signals for updating the llm progress bar in the GUI."""
+
+from typing import Self
+
 from PySide6.QtCore import QThread, Signal
 
-from modules.llm.gpt.query import clearConversationHistory, queryGPT, uploadFile
+from modules.llm.gpt.query import (
+    clear_conversation_history,
+    query_gpt,
+    upload_file,
+)
+
 
 class QueryLLMThread(QThread):
-    progressSignal = Signal(int)
-    finishedSignal = Signal(object)
+    """A thread for querying the LLM with progress updates."""
 
-    def __init__(self, journals: list[str], queries: list[str], parent=None):
-        super().__init__(parent)
+    progress_signal = Signal(int)
+    finished_signal = Signal(object)
+
+    def __init__(self: Self, journals: list[str], queries: list[str]) -> None:
+        """Initialize the QueryLLMThread."""
+        super().__init__(None)
         self.journals = journals
         self.queries = queries
 
-    def run(self):
-        queryCounter = 0
-        totalQueries = len(self.journals) * len(self.queries)
+    def run(self: Self) -> None:
+        """Query the LLM with progress updates."""
+        query_counter = 0
+        total_queries = len(self.journals) * len(self.queries)
 
         rows = []
 
@@ -23,19 +36,20 @@ class QueryLLMThread(QThread):
             doi = journal.split("/")[-1].replace(".json", "")
             row.append(doi)
 
-            uploadFile(journal)
+            upload_file(journal)
 
-            queryCounter += 1
-            self.progressSignal.emit(int(queryCounter / totalQueries * 100))
+            query_counter += 1
+            self.progress_signal.emit(int(query_counter / total_queries * 100))
 
             for query in self.queries:
-                row.append(queryGPT(query))
+                row.append(query_gpt(query))
 
-                queryCounter += 1
-                self.progressSignal.emit(int(queryCounter / totalQueries * 100))
+                query_counter += 1
+                self.progress_signal.emit(
+                    int(query_counter / total_queries * 100))
 
-            clearConversationHistory()
+            clear_conversation_history()
 
             rows.append(row)
 
-        self.finishedSignal.emit(rows)
+        self.finished_signal.emit(rows)

@@ -24,25 +24,10 @@ from modules.journal_downloader.downloader import (
 from modules.journal_downloader.signal import QueryElsevierThread
 from modules.keys.keys import load_keys, set_key
 from modules.llm.gpt.query import (
-    clear_conversation_history,
-    query_gpt,
     setup_client,
-    upload_file,
 )
+from modules.llm.signal import QueryLLMThread
 
-class ResultsTableHeader(QHeaderView):
-    def __init__(self, orientation, parent, onClicked = lambda: None):
-        super().__init__(orientation, parent)
-        self.setSectionsClickable(True)
-
-        self.onClicked = onClicked
-
-    def paintSection(self, painter, rect, logicalIndex):
-        super().paintSection(painter, rect, logicalIndex)
-
-    def mouseReleaseEvent(self, event):
-        super().mouseReleaseEvent(event)
-        self.onClicked(self.logicalIndexAt(event.position().toPoint()))
 
 class ResultsTableHeader(QHeaderView):
     """Custom header class for the results table."""
@@ -97,25 +82,34 @@ class MainWindow(QMainWindow):
 
         # Hide Filter Page
         self.ui.setFiltersPage.setVisible(False)
-        self.ui.setFiltersCloseButton.clicked.connect(lambda: self.ui.setFiltersPage.setVisible(not self.ui.addColumnPage.isVisible()))
+        self.ui.setFiltersCloseButton.clicked.connect(
+            lambda: self.ui.setFiltersPage.setVisible(
+                not self.ui.addColumnPage.isVisible()))
 
         # Setup Add Column Page Modal
         self.ui.addColumnPage.setVisible(False)
-        self.ui.addColumnButton.clicked.connect(lambda: self.closeAddColumn() if self.ui.addColumnPage.isVisible() else self.ui.addColumnPage.setVisible(True))
-        self.ui.addColumnCancelButton.clicked.connect(self.closeAddColumn)
-        self.ui.addColumnApplyButton.clicked.connect(self.addColumn)
+        self.ui.addColumnButton.clicked.connect(
+            lambda: self.close_add_column()
+            if self.ui.addColumnPage.isVisible()
+            else self.ui.addColumnPage.setVisible(True))
+        
+        self.ui.addColumnCancelButton.clicked.connect(self.close_add_column)
+        self.ui.addColumnApplyButton.clicked.connect(self.add_column)
 
         # Setup Edit Column Page Modal
         self.ui.editColumnPage.setVisible(False)
-        self.ui.editColumnCancelButton.clicked.connect(self.closeEditColumn)
-        self.ui.editColumnApplyButton.clicked.connect(self.editColumn)
-        self.ui.deleteColumnButton.clicked.connect(lambda: self.deleteColumn(self.editingColumn))
+        self.ui.editColumnCancelButton.clicked.connect(self.close_edit_column)
+        self.ui.editColumnApplyButton.clicked.connect(self.edit_column)
+        self.ui.deleteColumnButton.clicked.connect(
+            lambda: self.delete_column(self.editingColumn))
 
         # Setup the columns for the results table
         self.publicationColumns = ["Publication"]
-        rawColumns = json.loads(open("modules/exporter/columns.json").read())["columns"]
-        self.queryColumns = [(column["header"], column["query"]) for column in rawColumns]
-        self.buildResultsTable()
+        with open("modules/exporter/columns.json") as columns_file:
+            raw_columns = json.loads(columns_file.read())["columns"]
+            self.queryColumns = [(column["header"], column["query"])
+                                 for column in raw_columns]
+        self.build_results_table()
 
         # Connect menu buttons to their respective functions
         self.ui.keysButton.clicked.connect(lambda: self.switch_to_page(0))
@@ -411,30 +405,36 @@ class MainWindow(QMainWindow):
         self.ui.editColumnQueryText.clear()
         self.ui.editColumnPage.setVisible(False)
 
-    def processJournals(self):
+    def process_journals(self: Self) -> None:
         """Process the uploaded journals using the selected AI model."""
-
-        self.processProgressDialog = QProgressDialog("Processing...", "Cancel", 0, 100, self)
+        self.processProgressDialog = QProgressDialog(
+            "Processing...","Cancel", 0, 100, self)
+        
         self.processProgressDialog.setWindowModality(Qt.WindowModal)
         self.processProgressDialog.setAutoClose(True)
         self.processProgressDialog.setValue(0)
 
-        self.processSignal = QueryLLMThread(journals=self.uploadedJournals, queries=[query for header, query in self.queryColumns])
-        self.processSignal.progressSignal.connect(self.onProcessUpdateProgress)
-        self.processSignal.finishedSignal.connect(self.onProcessFinished)
+        self.processSignal = QueryLLMThread(
+            journals=self.uploadedJournals,
+            queries=[query for header, query in self.queryColumns])
+        
+        self.processSignal.progress_signal.connect(self.on_process_update_progress)
+        self.processSignal.finished_signal.connect(self.on_process_finished)
         self.processSignal.start()
 
         self.ui.resultsListTableWidget.setRowCount(0)
 
-    def onProcessUpdateProgress(self, progress):
+    def on_process_update_progress(self: Self, progress: int) -> None:
+        """Update the progress of the process."""
         self.processProgressDialog.setValue(progress)
     
-    def onProcessFinished(self, processResults):
+    def on_process_finished(self: Self, process_results: list[str]) -> None:
+        """Update the results list table with the processed results."""
         self.processProgressDialog.close()
 
         self.ui.resultsListTableWidget.setRowCount(0)
 
-        for row in processResults:
+        for row in process_results:
             row_position = self.ui.resultsListTableWidget.rowCount()
             self.ui.resultsListTableWidget.insertRow(row_position)
             for i, cell in enumerate(row):
