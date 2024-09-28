@@ -9,7 +9,7 @@ from typing import Self
 
 from PySide6.QtCore import QThread, Signal
 
-from modules.journal_downloader.downloader import (
+from .downloader import (
     QueryElsevierResult,
     elsevier_api,
 )

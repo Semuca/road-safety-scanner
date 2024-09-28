@@ -4,7 +4,7 @@ from typing import Self
 
 from PySide6.QtCore import QThread, Signal
 
-from modules.llm.gpt.query import (
+from .gpt.query import (
     clear_conversation_history,
     query_gpt,
     upload_file,
