@@ -1,7 +1,7 @@
 """Test signals for updating the query progress bar in the GUI."""
 
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 from pytestqt.qtbot import QtBot
@@ -16,7 +16,10 @@ def mock_query_elsevier_thread() -> QueryElsevierThread:
     return QueryElsevierThread(api_key="api_key", query="query")
 
 @patch("modules.journal_downloader.signal.urllib.request.urlopen")
-def test_query_elsevier_thread(mock_urlopen, mock_query_elsevier_thread: QueryElsevierThread, qtbot: QtBot) -> None:
+def test_query_elsevier_thread(
+    mock_urlopen: Mock,
+    mock_query_elsevier_thread: QueryElsevierThread, 
+    qtbot: QtBot) -> None:
     """Test the QueryElsevierThread class."""
     # Arrange
 
