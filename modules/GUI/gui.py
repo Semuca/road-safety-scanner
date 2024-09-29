@@ -24,7 +24,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(837, 749)
+        Dialog.resize(843, 755)
         Dialog.setStyleSheet(u"\n"
 "     * {\n"
 "       font-family: \"Arial\";  /* Use Arial as the global font */\n"
@@ -266,7 +266,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 27), QTime(0, 0, 0)))
+        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 26), QTime(0, 0, 0)))
         self.keyWords = QLineEdit(self.setFiltersPage)
         self.keyWords.setObjectName(u"keyWords")
         self.keyWords.setGeometry(QRect(50, 140, 301, 41))
@@ -289,7 +289,7 @@ class Ui_Dialog(object):
 "")
         self.setFiltersCloseButton = QPushButton(self.setFiltersPage)
         self.setFiltersCloseButton.setObjectName(u"setFiltersCloseButton")
-        self.setFiltersCloseButton.setGeometry(QRect(20, 360, 41, 41))
+        self.setFiltersCloseButton.setGeometry(QRect(550, 360, 41, 41))
         self.setFiltersCloseButton.setStyleSheet(u"QWidget{\n"
 "	\n"
 "	background-color: rgb(8, 144, 196);\n"
@@ -321,7 +321,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 27), QTime(0, 0, 0)))
+        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 26), QTime(0, 0, 0)))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
         self.publishYearToLabel.setObjectName(u"publishYearToLabel")
         self.publishYearToLabel.setGeometry(QRect(410, 110, 41, 20))
@@ -779,7 +779,7 @@ class Ui_Dialog(object):
         self.editSetPage = QWidget(Dialog)
         self.editSetPage.setObjectName(u"editSetPage")
         self.editSetPage.setEnabled(True)
-        self.editSetPage.setGeometry(QRect(120, 240, 591, 381))
+        self.editSetPage.setGeometry(QRect(120, 230, 591, 401))
         self.editSetPage.setStyleSheet(u"QWidget{\n"
 "	border-radius: 20px;   \n"
 "	\n"
@@ -788,7 +788,7 @@ class Ui_Dialog(object):
 "}")
         self.editYourSetTitle = QLabel(self.editSetPage)
         self.editYourSetTitle.setObjectName(u"editYourSetTitle")
-        self.editYourSetTitle.setGeometry(QRect(180, 10, 181, 41))
+        self.editYourSetTitle.setGeometry(QRect(220, 10, 181, 41))
         self.editYourSetTitle.setStyleSheet(u"font: 700 16pt;")
         self.editSubsetText = QLineEdit(self.editSetPage)
         self.editSubsetText.setObjectName(u"editSubsetText")
@@ -801,32 +801,9 @@ class Ui_Dialog(object):
 "}\n"
 "")
         self.editSubsetText.setReadOnly(False)
-        self.editSetCloseButton = QPushButton(self.editSetPage)
-        self.editSetCloseButton.setObjectName(u"editSetCloseButton")
-        self.editSetCloseButton.setGeometry(QRect(20, 320, 41, 41))
-        self.editSetCloseButton.setStyleSheet(u"QWidget{\n"
-"	\n"
-"	background-color: rgb(8, 144, 196);\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"	color:white;\n"
-"	font: 700 10pt;\n"
-"	border: none;\n"
-"}\n"
-"\n"
-"/*\n"
-"QPushButton:Hover{\n"
-"	background-color: rgb(56, 177, 224);\n"
-"}\n"
-"*/")
-        self.editSetCloseButton.setCheckable(True)
-        self.editSetCloseButton.setChecked(False)
-        self.editSetCloseButton.setAutoRepeat(False)
-        self.editSetCloseButton.setAutoExclusive(True)
         self.editSubsetSaveButton = QPushButton(self.editSetPage)
         self.editSubsetSaveButton.setObjectName(u"editSubsetSaveButton")
-        self.editSubsetSaveButton.setGeometry(QRect(530, 320, 41, 41))
+        self.editSubsetSaveButton.setGeometry(QRect(520, 340, 41, 41))
         self.editSubsetSaveButton.setStyleSheet(u"QWidget{\n"
 "	\n"
 "	background-color: rgb(8, 144, 196);\n"
@@ -849,7 +826,7 @@ class Ui_Dialog(object):
         self.editSubsetSaveButton.setAutoExclusive(True)
         self.editSubsetList = QListWidget(self.editSetPage)
         self.editSubsetList.setObjectName(u"editSubsetList")
-        self.editSubsetList.setGeometry(QRect(50, 140, 401, 141))
+        self.editSubsetList.setGeometry(QRect(50, 140, 431, 181))
         self.editSubsetList.setStyleSheet(u"QListWidget {\n"
 "	\n"
 "	\n"
@@ -870,134 +847,18 @@ class Ui_Dialog(object):
 "	border-radius: 12px;  \n"
 "}\n"
 "")
-        self.addNewSetWidget = QWidget(Dialog)
-        self.addNewSetWidget.setObjectName(u"addNewSetWidget")
-        self.addNewSetWidget.setEnabled(True)
-        self.addNewSetWidget.setGeometry(QRect(120, 240, 591, 381))
-        self.addNewSetWidget.setStyleSheet(u"QWidget{\n"
-"	border-radius: 20px;   \n"
-"	\n"
-"	\n"
-"	background-color: rgb(161, 161, 161);\n"
-"}")
-        self.addNewSetTitle = QLabel(self.addNewSetWidget)
-        self.addNewSetTitle.setObjectName(u"addNewSetTitle")
-        self.addNewSetTitle.setGeometry(QRect(190, 10, 181, 41))
-        self.addNewSetTitle.setStyleSheet(u"font: 700 16pt;")
-        self.newSubsetText = QLineEdit(self.addNewSetWidget)
-        self.newSubsetText.setObjectName(u"newSubsetText")
-        self.newSubsetText.setGeometry(QRect(50, 100, 301, 31))
-        self.newSubsetText.setStyleSheet(u"QLineEdit{\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	font: 12pt;\n"
-"	padding-left: 10px;\n"
-"	border-radius: 12px;  \n"
-"}\n"
-"")
-        self.addSetCloseButton = QPushButton(self.addNewSetWidget)
-        self.addSetCloseButton.setObjectName(u"addSetCloseButton")
-        self.addSetCloseButton.setGeometry(QRect(20, 320, 41, 41))
-        self.addSetCloseButton.setStyleSheet(u"QWidget{\n"
-"	\n"
-"	background-color: rgb(8, 144, 196);\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"	color:white;\n"
-"	font: 700 10pt;\n"
-"	border: none;\n"
-"}\n"
-"\n"
-"/*\n"
-"QPushButton:Hover{\n"
-"	background-color: rgb(56, 177, 224);\n"
-"}\n"
-"*/")
-        self.addSetCloseButton.setCheckable(True)
-        self.addSetCloseButton.setChecked(False)
-        self.addSetCloseButton.setAutoRepeat(False)
-        self.addSetCloseButton.setAutoExclusive(True)
-        self.addSetOKButton = QPushButton(self.addNewSetWidget)
-        self.addSetOKButton.setObjectName(u"addSetOKButton")
-        self.addSetOKButton.setGeometry(QRect(530, 320, 41, 41))
-        self.addSetOKButton.setStyleSheet(u"QWidget{\n"
-"	\n"
-"	background-color: rgb(8, 144, 196);\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"	color:white;\n"
-"	font: 700 10pt;\n"
-"	border: none;\n"
-"}\n"
-"\n"
-"/*\n"
-"QPushButton:Hover{\n"
-"	background-color: rgb(56, 177, 224);\n"
-"}\n"
-"*/")
-        self.addSetOKButton.setCheckable(True)
-        self.addSetOKButton.setChecked(False)
-        self.addSetOKButton.setAutoRepeat(False)
-        self.addSetOKButton.setAutoExclusive(True)
-        self.subsetList = QListWidget(self.addNewSetWidget)
-        self.subsetList.setObjectName(u"subsetList")
-        self.subsetList.setGeometry(QRect(50, 140, 401, 141))
-        self.subsetList.setStyleSheet(u"QListWidget {\n"
-"	\n"
-"	\n"
-"	font: 9pt \"Arial\";\n"
-"    background-color: rgb(225, 225, 225);\n"
-"    border-radius: 12px; \n"
-"}\n"
-"\n"
-"\n"
-"")
-        self.newSetTitle = QLineEdit(self.addNewSetWidget)
-        self.newSetTitle.setObjectName(u"newSetTitle")
-        self.newSetTitle.setGeometry(QRect(50, 60, 121, 31))
-        self.newSetTitle.setStyleSheet(u"QLineEdit{\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	font: 12pt;\n"
-"	padding-left: 10px;\n"
-"	border-radius: 12px;  \n"
-"}\n"
-"")
         self.setsPage = QWidget(Dialog)
         self.setsPage.setObjectName(u"setsPage")
         self.setsPage.setEnabled(True)
-        self.setsPage.setGeometry(QRect(110, 210, 611, 431))
+        self.setsPage.setGeometry(QRect(110, 220, 611, 421))
         self.setsPage.setStyleSheet(u"QWidget{\n"
 "	border-radius: 20px;   \n"
 "	\n"
 "	background-color: rgb(218, 218, 218);\n"
 "}")
-        self.editYourSetCloseButton = QPushButton(self.setsPage)
-        self.editYourSetCloseButton.setObjectName(u"editYourSetCloseButton")
-        self.editYourSetCloseButton.setGeometry(QRect(20, 370, 41, 41))
-        self.editYourSetCloseButton.setStyleSheet(u"QWidget{\n"
-"	\n"
-"	background-color: rgb(8, 144, 196);\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"	color:white;\n"
-"	font: 700 10pt;\n"
-"	border: none;\n"
-"}\n"
-"\n"
-"/*\n"
-"QPushButton:Hover{\n"
-"	background-color: rgb(56, 177, 224);\n"
-"}\n"
-"*/")
-        self.editYourSetCloseButton.setCheckable(True)
-        self.editYourSetCloseButton.setChecked(False)
-        self.editYourSetCloseButton.setAutoRepeat(False)
-        self.editYourSetCloseButton.setAutoExclusive(True)
         self.editYourSetsTitle = QLabel(self.setsPage)
         self.editYourSetsTitle.setObjectName(u"editYourSetsTitle")
-        self.editYourSetsTitle.setGeometry(QRect(240, 20, 151, 41))
+        self.editYourSetsTitle.setGeometry(QRect(200, 20, 191, 41))
         self.editYourSetsTitle.setStyleSheet(u"font: 700 16pt;")
         self.saveSets = QPushButton(self.setsPage)
         self.saveSets.setObjectName(u"saveSets")
@@ -1042,6 +903,76 @@ class Ui_Dialog(object):
 "	background-color: rgb(211, 211, 211);\n"
 "}")
         self.addJournalButton.setCheckable(True)
+        self.addNewSetWidget = QWidget(Dialog)
+        self.addNewSetWidget.setObjectName(u"addNewSetWidget")
+        self.addNewSetWidget.setEnabled(True)
+        self.addNewSetWidget.setGeometry(QRect(120, 230, 591, 401))
+        self.addNewSetWidget.setStyleSheet(u"QWidget{\n"
+"	border-radius: 20px;   \n"
+"	\n"
+"	\n"
+"	background-color: rgb(161, 161, 161);\n"
+"}")
+        self.addNewSetTitle = QLabel(self.addNewSetWidget)
+        self.addNewSetTitle.setObjectName(u"addNewSetTitle")
+        self.addNewSetTitle.setGeometry(QRect(220, 10, 181, 41))
+        self.addNewSetTitle.setStyleSheet(u"font: 700 16pt;")
+        self.newSubsetText = QLineEdit(self.addNewSetWidget)
+        self.newSubsetText.setObjectName(u"newSubsetText")
+        self.newSubsetText.setGeometry(QRect(50, 100, 301, 31))
+        self.newSubsetText.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 12px;  \n"
+"}\n"
+"")
+        self.addSetOKButton = QPushButton(self.addNewSetWidget)
+        self.addSetOKButton.setObjectName(u"addSetOKButton")
+        self.addSetOKButton.setGeometry(QRect(520, 340, 41, 41))
+        self.addSetOKButton.setStyleSheet(u"QWidget{\n"
+"	\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"/*\n"
+"QPushButton:Hover{\n"
+"	background-color: rgb(56, 177, 224);\n"
+"}\n"
+"*/")
+        self.addSetOKButton.setCheckable(True)
+        self.addSetOKButton.setChecked(False)
+        self.addSetOKButton.setAutoRepeat(False)
+        self.addSetOKButton.setAutoExclusive(True)
+        self.subsetList = QListWidget(self.addNewSetWidget)
+        self.subsetList.setObjectName(u"subsetList")
+        self.subsetList.setGeometry(QRect(50, 140, 431, 181))
+        self.subsetList.setStyleSheet(u"QListWidget {\n"
+"	\n"
+"	\n"
+"	font: 9pt \"Arial\";\n"
+"    background-color: rgb(225, 225, 225);\n"
+"    border-radius: 12px; \n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.newSetTitle = QLineEdit(self.addNewSetWidget)
+        self.newSetTitle.setObjectName(u"newSetTitle")
+        self.newSetTitle.setGeometry(QRect(50, 60, 121, 31))
+        self.newSetTitle.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 12px;  \n"
+"}\n"
+"")
         self.menuBar.raise_()
         self.myQStackedWidget.raise_()
         self.backButton.raise_()
@@ -1081,7 +1012,7 @@ class Ui_Dialog(object):
         self.keyWords.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key words separated by \",\"", None))
         self.setting.setText("")
         self.setting.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter a country", None))
-        self.setFiltersCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
+        self.setFiltersCloseButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
         self.publishYearFromLabel.setText(QCoreApplication.translate("Dialog", u"From", None))
         self.publishYearTo.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy", None))
         self.publishYearToLabel.setText(QCoreApplication.translate("Dialog", u"To", None))
@@ -1143,20 +1074,17 @@ class Ui_Dialog(object):
         self.editYourSetTitle.setText(QCoreApplication.translate("Dialog", u"Edit your Set", None))
         self.editSubsetText.setText("")
         self.editSubsetText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Add a new subset", None))
-        self.editSetCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
-        self.editSubsetSaveButton.setText(QCoreApplication.translate("Dialog", u"Save", None))
+        self.editSubsetSaveButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
         self.editTitle.setText("")
         self.editTitle.setPlaceholderText(QCoreApplication.translate("Dialog", u"Set Name", None))
+        self.editYourSetsTitle.setText(QCoreApplication.translate("Dialog", u"Your Current Sets", None))
+        self.saveSets.setText(QCoreApplication.translate("Dialog", u"OK", None))
+        self.addJournalButton.setText(QCoreApplication.translate("Dialog", u"Add a New Set", None))
         self.addNewSetTitle.setText(QCoreApplication.translate("Dialog", u"Add a New Set", None))
         self.newSubsetText.setText("")
         self.newSubsetText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Add a new subset", None))
-        self.addSetCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
         self.addSetOKButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
         self.newSetTitle.setText("")
         self.newSetTitle.setPlaceholderText(QCoreApplication.translate("Dialog", u"Set Name", None))
-        self.editYourSetCloseButton.setText(QCoreApplication.translate("Dialog", u"X", None))
-        self.editYourSetsTitle.setText(QCoreApplication.translate("Dialog", u"Edit your Sets", None))
-        self.saveSets.setText(QCoreApplication.translate("Dialog", u"OK", None))
-        self.addJournalButton.setText(QCoreApplication.translate("Dialog", u"Add a New Set", None))
     # retranslateUi
 

@@ -97,8 +97,10 @@ class MainWindow(QMainWindow):
         """Handle the comboBox item selection."""
         if index == self.ui.comboBox.count() - 1:  # Check if the last item is selected
             self.ui.setsPage.setVisible(True)
-            self.ui.editYourSetCloseButton.clicked.connect(lambda: self.ui.setsPage.setVisible(False))
-            self.ui.saveSets.clicked.disconnect(self.updateSets)
+            try:
+                self.ui.saveSets.clicked.disconnect(self.updateSets)
+            except RuntimeWarning:
+                pass
             self.ui.saveSets.clicked.connect(self.updateSets)
             
     
@@ -134,8 +136,7 @@ class MainWindow(QMainWindow):
         self.ui.newSetTitle.returnPressed.connect(self.add_or_edit_title)
         self.ui.newSubsetText.returnPressed.connect(self.add_subset_text)
 
-        # Close without saving changes
-        self.ui.addSetCloseButton.clicked.connect(self.closeAddNewSet)
+
         # Save changes and close
         self.ui.addSetOKButton.clicked.connect(self.addASet)
 
@@ -174,7 +175,6 @@ class MainWindow(QMainWindow):
         # "Edit" operation
         self.ui.editSubsetText.returnPressed.connect(self.edit_subset_text)
         self.ui.editTitle.returnPressed.connect(self.edit_title)
-        self.ui.editSetCloseButton.clicked.connect(lambda: self.ui.editSetPage.setVisible(False))
         self.ui.editSubsetSaveButton.clicked.connect(self.confirmSetChanges)
 
 
@@ -285,7 +285,7 @@ class MainWindow(QMainWindow):
         # To avoid multiple connections
         self.ui.newSetTitle.returnPressed.disconnect(self.add_or_edit_title)
         self.ui.newSubsetText.returnPressed.disconnect(self.add_subset_text)
-        self.ui.addSetCloseButton.clicked.disconnect(self.closeAddNewSet)
+
         self.ui.addSetOKButton.clicked.disconnect(self.addASet)
 
     def preventSelection(self, index):

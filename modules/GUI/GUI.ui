@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>837</width>
-    <height>749</height>
+    <width>843</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -537,7 +537,7 @@ QPushButton:Checked{
         <second>0</second>
         <year>2013</year>
         <month>12</month>
-        <day>27</day>
+        <day>26</day>
        </datetime>
       </property>
       <property name="displayFormat">
@@ -597,7 +597,7 @@ QPushButton:Checked{
      <widget class="QPushButton" name="setFiltersCloseButton">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>550</x>
         <y>360</y>
         <width>41</width>
         <height>41</height>
@@ -622,7 +622,7 @@ QPushButton:Hover{
 */</string>
       </property>
       <property name="text">
-       <string>X</string>
+       <string>OK</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -675,7 +675,7 @@ QPushButton:Hover{
         <second>0</second>
         <year>2023</year>
         <month>12</month>
-        <day>27</day>
+        <day>26</day>
        </datetime>
       </property>
       <property name="displayFormat">
@@ -1665,9 +1665,9 @@ QPushButton:Hover{
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>240</y>
+     <y>230</y>
      <width>591</width>
-     <height>381</height>
+     <height>401</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -1681,7 +1681,7 @@ QPushButton:Hover{
    <widget class="QLabel" name="editYourSetTitle">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>220</x>
       <y>10</y>
       <width>181</width>
       <height>41</height>
@@ -1722,54 +1722,11 @@ QPushButton:Hover{
      <string>Add a new subset</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="editSetCloseButton">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget{
-	
-	background-color: rgb(8, 144, 196);
-}
-
-QPushButton{
-	color:white;
-	font: 700 10pt;
-	border: none;
-}
-
-/*
-QPushButton:Hover{
-	background-color: rgb(56, 177, 224);
-}
-*/</string>
-    </property>
-    <property name="text">
-     <string>X</string>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="autoRepeat">
-     <bool>false</bool>
-    </property>
-    <property name="autoExclusive">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="editSubsetSaveButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>320</y>
+      <x>520</x>
+      <y>340</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -1793,7 +1750,7 @@ QPushButton:Hover{
 */</string>
     </property>
     <property name="text">
-     <string>Save</string>
+     <string>OK</string>
     </property>
     <property name="checkable">
      <bool>true</bool>
@@ -1813,8 +1770,8 @@ QPushButton:Hover{
      <rect>
       <x>50</x>
       <y>140</y>
-      <width>401</width>
-      <height>141</height>
+      <width>431</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1856,201 +1813,6 @@ QPushButton:Hover{
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="addNewSetWidget" native="true">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>240</y>
-     <width>591</width>
-     <height>381</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QWidget{
-	border-radius: 20px;   
-	
-	
-	background-color: rgb(161, 161, 161);
-}</string>
-   </property>
-   <widget class="QLabel" name="addNewSetTitle">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>10</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 700 16pt;</string>
-    </property>
-    <property name="text">
-     <string>Add a New Set</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="newSubsetText">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>100</y>
-      <width>301</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit{
-	background-color: rgb(255, 255, 255);
-	font: 12pt;
-	padding-left: 10px;
-	border-radius: 12px;  
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="placeholderText">
-     <string>Add a new subset</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addSetCloseButton">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget{
-	
-	background-color: rgb(8, 144, 196);
-}
-
-QPushButton{
-	color:white;
-	font: 700 10pt;
-	border: none;
-}
-
-/*
-QPushButton:Hover{
-	background-color: rgb(56, 177, 224);
-}
-*/</string>
-    </property>
-    <property name="text">
-     <string>X</string>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="autoRepeat">
-     <bool>false</bool>
-    </property>
-    <property name="autoExclusive">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addSetOKButton">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>320</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget{
-	
-	background-color: rgb(8, 144, 196);
-}
-
-QPushButton{
-	color:white;
-	font: 700 10pt;
-	border: none;
-}
-
-/*
-QPushButton:Hover{
-	background-color: rgb(56, 177, 224);
-}
-*/</string>
-    </property>
-    <property name="text">
-     <string>OK</string>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="autoRepeat">
-     <bool>false</bool>
-    </property>
-    <property name="autoExclusive">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QListWidget" name="subsetList">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>140</y>
-      <width>401</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QListWidget {
-	
-	
-	font: 9pt &quot;Arial&quot;;
-    background-color: rgb(225, 225, 225);
-    border-radius: 12px; 
-}
-
-
-</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="newSetTitle">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>60</y>
-      <width>121</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit{
-	background-color: rgb(255, 255, 255);
-	font: 12pt;
-	padding-left: 10px;
-	border-radius: 12px;  
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="placeholderText">
-     <string>Set Name</string>
-    </property>
-   </widget>
-  </widget>
   <widget class="QWidget" name="setsPage" native="true">
    <property name="enabled">
     <bool>true</bool>
@@ -2058,9 +1820,9 @@ QPushButton:Hover{
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>210</y>
+     <y>220</y>
      <width>611</width>
-     <height>431</height>
+     <height>421</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -2070,55 +1832,12 @@ QPushButton:Hover{
 	background-color: rgb(218, 218, 218);
 }</string>
    </property>
-   <widget class="QPushButton" name="editYourSetCloseButton">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>370</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget{
-	
-	background-color: rgb(8, 144, 196);
-}
-
-QPushButton{
-	color:white;
-	font: 700 10pt;
-	border: none;
-}
-
-/*
-QPushButton:Hover{
-	background-color: rgb(56, 177, 224);
-}
-*/</string>
-    </property>
-    <property name="text">
-     <string>X</string>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="autoRepeat">
-     <bool>false</bool>
-    </property>
-    <property name="autoExclusive">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="editYourSetsTitle">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>200</x>
       <y>20</y>
-      <width>151</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -2126,7 +1845,7 @@ QPushButton:Hover{
      <string notr="true">font: 700 16pt;</string>
     </property>
     <property name="text">
-     <string>Edit your Sets</string>
+     <string>Your Current Sets</string>
     </property>
    </widget>
    <widget class="QPushButton" name="saveSets">
@@ -2213,6 +1932,158 @@ QPushButton:Checked{
     </property>
     <property name="checkable">
      <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="addNewSetWidget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>230</y>
+     <width>591</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+	border-radius: 20px;   
+	
+	
+	background-color: rgb(161, 161, 161);
+}</string>
+   </property>
+   <widget class="QLabel" name="addNewSetTitle">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>10</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 16pt;</string>
+    </property>
+    <property name="text">
+     <string>Add a New Set</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="newSubsetText">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>100</y>
+      <width>301</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 12px;  
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Add a new subset</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addSetOKButton">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>340</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget{
+	
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 10pt;
+	border: none;
+}
+
+/*
+QPushButton:Hover{
+	background-color: rgb(56, 177, 224);
+}
+*/</string>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="subsetList">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>140</y>
+      <width>431</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QListWidget {
+	
+	
+	font: 9pt &quot;Arial&quot;;
+    background-color: rgb(225, 225, 225);
+    border-radius: 12px; 
+}
+
+
+</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="newSetTitle">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 12px;  
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Set Name</string>
     </property>
    </widget>
   </widget>
