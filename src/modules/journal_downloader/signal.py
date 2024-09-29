@@ -10,10 +10,20 @@ from typing import Self
 from PySide6.QtCore import QThread, Signal
 
 from .downloader import (
-    QueryElsevierResult,
     elsevier_api,
 )
 
+
+class QueryElsevierResult:
+    """A result from a query to the Elsevier API."""
+
+    def __init__(self: Self, doi: str, title: str,
+                 author: str, date: str) -> None:
+        """Initialize the QueryElsevierResult."""
+        self.doi = doi
+        self.title = title
+        self.author = author
+        self.date = date
 
 class QueryElsevierThread(QThread):
     """A thread for querying the Elsevier API with progress updates."""
@@ -22,13 +32,13 @@ class QueryElsevierThread(QThread):
     finished_signal = Signal(object)
 
     def __init__(self: Self, api_key: str, query: str,
-                 limit:int=100, wait:float=0.05) -> None:
+                 limit:int=100, wait_between_requests:float=0.05) -> None:
         """Initialize the QueryElsevierThread."""
         super().__init__(None)
         self.apiKey = api_key
         self.query = query
         self.limit = limit
-        self.wait = wait
+        self.wait_between_requests = wait_between_requests
 
     def run(self: Self) -> None:
         """Query the Elsevier API with progress updates."""
@@ -42,7 +52,7 @@ class QueryElsevierThread(QThread):
         total_results = int(json.loads(
             urllib.request.urlopen(request).read().decode("utf-8"))["search-results"]["opensearch:totalResults"])
         
-        while (len(results) < self.limit and len(results) < total_results):
+        while (len(results) < min(self.limit, total_results)):
             request = urllib.request.Request(
                 f"{elsevier_api}/search/scopus?query={query}&start={len(results)}",
                   headers={"Accept": "application/json",
@@ -59,6 +69,6 @@ class QueryElsevierThread(QThread):
                                     searched_journals["search-results"]["entry"]])
             
             self.progress_signal.emit(int(len(results) / self.limit * 100))
-            time.sleep(self.wait)
+            time.sleep(self.wait_between_requests)
 
         self.finished_signal.emit(results)
