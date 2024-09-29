@@ -11,7 +11,7 @@ from modules.journal_downloader.signal import QueryElsevierThread
 fixtures_dir = Path(__file__).parent.parent / "fixtures"
 
 @pytest.fixture
-def mock_query_elsevier_thread(qtbot: QtBot) -> QueryElsevierThread:
+def mock_query_elsevier_thread() -> QueryElsevierThread:
     """Return a mock QueryElsevierThread object."""
     return QueryElsevierThread(api_key="api_key", query="query")
 
