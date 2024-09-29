@@ -7,7 +7,7 @@ You should then be able to activate the environment with `micromamba activate rs
 
 Then, packages can be added with `micromamba install -c conda-forge x`
 
-Finally, the environment can be exported with `micromamba env export > environment.yaml`
+Finally, the environment can be exported with `micromamba env export --no-build > environment.yaml`
 
 Instructions for installing micromamba are here: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
 
