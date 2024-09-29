@@ -1,0 +1,66 @@
+{
+    "search-results": {
+        "entry": [
+            {
+                "prism:doi": "doi1",
+                "dc:title": "title1",
+                "dc:creator": "creator1",
+                "prism:coverDisplayDate": "coverDisplayDate1"
+            },
+            {
+                "prism:doi": "doi2",
+                "dc:title": "title2",
+                "dc:creator": "creator2",
+                "prism:coverDisplayDate": "coverDisplayDate2"
+            },
+            {
+                "prism:doi": "doi3",
+                "dc:title": "title3",
+                "dc:creator": "creator3",
+                "prism:coverDisplayDate": "coverDisplayDate3"
+            },
+            {
+                "prism:doi": "doi4",
+                "dc:title": "title4",
+                "dc:creator": "creator4",
+                "prism:coverDisplayDate": "coverDisplayDate4"
+            },
+            {
+                "prism:doi": "doi5",
+                "dc:title": "title5",
+                "dc:creator": "creator5",
+                "prism:coverDisplayDate": "coverDisplayDate5"
+            },
+            {
+                "prism:doi": "doi6",
+                "dc:title": "title6",
+                "dc:creator": "creator6",
+                "prism:coverDisplayDate": "coverDisplayDate6"
+            },
+            {
+                "prism:doi": "doi7",
+                "dc:title": "title7",
+                "dc:creator": "creator7",
+                "prism:coverDisplayDate": "coverDisplayDate7"
+            },
+            {
+                "prism:doi": "doi8",
+                "dc:title": "title8",
+                "dc:creator": "creator8",
+                "prism:coverDisplayDate": "coverDisplayDate8"
+            },
+            {
+                "prism:doi": "doi9",
+                "dc:title": "title9",
+                "dc:creator": "creator9",
+                "prism:coverDisplayDate": "coverDisplayDate9"
+            },
+            {
+                "prism:doi": "doi10",
+                "dc:title": "title10",
+                "dc:creator": "creator10",
+                "prism:coverDisplayDate": "coverDisplayDate10"
+            }
+        ]
+    }
+}
