@@ -25,6 +25,13 @@ class QueryElsevierResult:
         self.author = author
         self.date = date
 
+    def __eq__(self: Self, other: Self) -> bool:
+        """Return True if two QueryElsevierResults are equal."""
+        return (self.doi == other.doi and
+                self.title == other.title and
+                self.author == other.author and
+                self.date == other.date)
+
 class QueryElsevierThread(QThread):
     """A thread for querying the Elsevier API with progress updates."""
     
@@ -51,8 +58,9 @@ class QueryElsevierThread(QThread):
         results = []
         total_results = int(json.loads(
             urllib.request.urlopen(request).read().decode("utf-8"))["search-results"]["opensearch:totalResults"])
-        
-        while (len(results) < min(self.limit, total_results)):
+        results_to_fetch = min(self.limit, total_results)
+
+        while (len(results) < results_to_fetch):
             request = urllib.request.Request(
                 f"{elsevier_api}/search/scopus?query={query}&start={len(results)}",
                   headers={"Accept": "application/json",
@@ -68,7 +76,8 @@ class QueryElsevierThread(QThread):
                                     for journal in 
                                     searched_journals["search-results"]["entry"]])
             
-            self.progress_signal.emit(int(len(results) / self.limit * 100))
+            self.progress_signal.emit(
+                int(len(results) / results_to_fetch * 100))
             time.sleep(self.wait_between_requests)
 
         self.finished_signal.emit(results)

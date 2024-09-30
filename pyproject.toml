@@ -18,4 +18,4 @@ qt_api="pyside6"
 [tool.pytest.ini_options]
 
 # Update python.analysis.extraPaths in .vscode/settings.json when changing this to match
-pythonpath = ["src"]
+pythonpath = ["src", "tests"]

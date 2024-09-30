@@ -23,3 +23,6 @@ This project uses ruff to lint. Make sure `ruff check` returns no errors before 
 
 ### Using APIs
 API keys should be read from your environment variables, and can be added to the program via the constants.py file
+
+### Test coverage
+Generate test coverage by using `pytest --cov=src --cov-report=term-missing`
