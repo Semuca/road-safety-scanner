@@ -1,7 +1,10 @@
+"""A module to interact with the Llama API for academic journal questions."""
+
 import json
 import os
-import pdfplumber
 import sys
+
+import pdfplumber
 from openai import OpenAI
 
 # Global thing for OpenAI client
@@ -9,7 +12,7 @@ client = None
 conversation_history = []
 
 def setup_client() -> None:
-    """Sets up the OpenAI client with an API key."""
+    """Set up the OpenAI client with an API key."""
     global client
     api_key = os.getenv("OPENAI_API_KEY")
     try:
@@ -27,8 +30,9 @@ def extract_text_from_pdf(file_path: str) -> str:
             for page in pdf.pages:
                 text += page.extract_text()
         return text
-    except FileNotFoundError as e:
-        print(f"Whoops, can't find the file: {file_path}. Double-check it and try again.")
+    except FileNotFoundError:
+        print(f"""Whoops, can't find the file: 
+              {file_path}. Double-check it and try again.""")
         sys.exit(1)  # No file? No program.
     except Exception as e:
         print(f"Something went wrong pulling text from the PDF: {e}")
@@ -45,8 +49,9 @@ def upload_file(file_path: str) -> None:
         if file_extension == ".json":
             try:
                 with open(file_path) as f:
-                    file_content = json.load(f).get("full-text-retrieval-response", {}).get("originalText")
-            except FileNotFoundError as e:
+                    file_content = json.load(f).get(
+                        "full-text-retrieval-response", {}).get("originalText")
+            except FileNotFoundError:
                 print(f"File's not here: {file_path}. Check your path.")
                 sys.exit(1)
             except json.JSONDecodeError as e:
@@ -59,8 +64,11 @@ def upload_file(file_path: str) -> None:
             sys.exit(1)
 
         # Pop system and user messages into the conversation history
-        conversation_history.append({"role": "system", "content": "You're uploading an academic journal."})
-        conversation_history.append({"role": "user", "content": f"Remember this: {file_content}"})
+        conversation_history.append(
+            {"role": "system",
+             "content": "You're uploading an academic journal."})
+        conversation_history.append(
+            {"role": "user", "content": f"Remember this: {file_content}"})
         
         # Uploading the file content via Llama API
         response = client.chat.completions.create(
@@ -72,7 +80,8 @@ def upload_file(file_path: str) -> None:
         response_content = response.choices[0].message.content.strip()
         
         # Stash assistant's reply in the history too
-        conversation_history.append({"role": "assistant", "content": response_content})
+        conversation_history.append({"role": "assistant",
+                                     "content": response_content})
         
         # If all went well
         if response_content:
@@ -94,7 +103,8 @@ def query_llama(user_query: str) -> str:
         response = client.chat.completions.create(
             model="meta-llama/Meta-Llama-3.1-8B-Instruct",
             messages=conversation_history,
-            temperature=0.1 #this might be a bit too low but the reponse may be quicker(?)
+            #this might be a bit too low but the reponse may be quicker(?)
+            temperature=0.1
         )
 
         # Pull out the response text
@@ -129,8 +139,8 @@ if __name__ == "__main__":
     while True:
         user_input = input("Query: ")
         
-        # Leave if user says 'exit'
-        if user_input.lower() == 'exit' or user_input.lower() == 'Exit': #being forgiving
+        # Leave if user says 'exit' #being forgiving
+        if user_input.lower() == "exit" or user_input.lower() == "Exit":
             print("Bye amigos...")
             break
         
