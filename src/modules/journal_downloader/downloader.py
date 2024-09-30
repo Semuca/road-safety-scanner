@@ -52,23 +52,3 @@ def download_journals(api_key: str, dois: list[str],
         time.sleep(wait)
 
     return DownloadJournalsResult(results, errors)
-
-
-def get_journals() -> list[Any]:
-    """Return the journals in the journals directory."""
-    journals = []
-    for journal in os.listdir("journals"):
-        with open(f"{JOURNALS_PATH}/journals/{journal}") as f:
-            journals.append(json.load(f))
-
-    return journals
-
-def get_journal(path: str) -> dict[str, Any]:
-    """Return a journal from the journals directory."""
-    with open(path) as f:
-        return json.load(f)
-
-def clear_journals() -> None:
-    """Clear the journals in the journals directory."""
-    for journal in os.listdir("journals"):
-        os.remove(f"journals/{journal}")
