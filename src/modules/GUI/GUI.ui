@@ -281,7 +281,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="keysPage">
     <widget class="QWidget" name="keysList" native="true">
@@ -405,6 +405,49 @@ QPushButton:Checked{
       </property>
       <property name="placeholderText">
        <string>Enter key here...</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="llama8bKeyEntry">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>140</y>
+        <width>481</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+}
+</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter key here...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="llama8bKeyLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>150</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	color: rgb(113, 113, 113);
+	
+	font: 700 12pt
+	
+}</string>
+      </property>
+      <property name="text">
+       <string>LLAMA8B_API_KEY</string>
       </property>
      </widget>
     </widget>
@@ -978,132 +1021,6 @@ font: 700 12pt</string>
       <string>Select your AI:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
-       <y>140</y>
-       <width>181</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    border-radius: 20px;
-	background-color: rgb(255, 255, 255);
-	border: 2px solid rgb(56, 178, 224);
-	font: 700 11pt;
-}
-
-QPushButton:Checked{
-	border: 4px solid rgb(56, 178, 224);
-}</string>
-     </property>
-     <property name="text">
-      <string>Llama 3.1B</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="autoExclusive">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_6">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>140</y>
-       <width>181</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    border-radius: 20px;
-	background-color: rgb(255, 255, 255);
-	border: 2px solid rgb(56, 178, 224);
-	font: 700 11pt;
-}
-
-QPushButton:Checked{
-	border: 4px solid rgb(56, 178, 224);
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>Chat GPT</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="autoExclusive">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_7">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>140</y>
-       <width>181</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    border-radius: 20px;
-	background-color: rgb(255, 255, 255);
-	border: 2px solid rgb(56, 178, 224);
-	font: 700 11pt;
-}
-
-QPushButton:Checked{
-	border: 4px solid rgb(56, 178, 224);
-}</string>
-     </property>
-     <property name="text">
-      <string>Meta AI</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="autoExclusive">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_9">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>340</y>
-       <width>181</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    border-radius: 20px;
-	background-color: rgb(255, 255, 255);
-	border: 2px solid rgb(56, 178, 224);
-	font: 700 11pt;
-}
-
-QPushButton:Checked{
-	border: 4px solid rgb(56, 178, 224);
-}</string>
-     </property>
-     <property name="text">
-      <string>Llama 8B</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="autoExclusive">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_ChatGpt">
      <property name="geometry">
       <rect>
@@ -1136,7 +1053,7 @@ QPushButton:Checked{
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_Llama70b">
+    <widget class="QPushButton" name="pushButton_Llama8b">
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -1159,7 +1076,7 @@ QPushButton:Checked{
 }</string>
      </property>
      <property name="text">
-      <string>Llama 3.1-70B</string>
+      <string>Llama 3.1-8B</string>
      </property>
      <property name="checkable">
       <bool>true</bool>

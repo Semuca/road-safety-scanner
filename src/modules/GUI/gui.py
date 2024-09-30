@@ -221,6 +221,25 @@ class Ui_Dialog(object):
 "	padding-left: 10px;\n"
 "}\n"
 "")
+        self.llama8bKeyEntry = QLineEdit(self.keysList)
+        self.llama8bKeyEntry.setObjectName(u"llama8bKeyEntry")
+        self.llama8bKeyEntry.setGeometry(QRect(170, 140, 481, 41))
+        self.llama8bKeyEntry.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"")
+        self.llama8bKeyLabel = QLabel(self.keysList)
+        self.llama8bKeyLabel.setObjectName(u"llama8bKeyLabel")
+        self.llama8bKeyLabel.setGeometry(QRect(40, 150, 121, 16))
+        self.llama8bKeyLabel.setStyleSheet(u"QLabel{\n"
+"	\n"
+"	color: rgb(113, 113, 113);\n"
+"	\n"
+"	font: 700 12pt\n"
+"	\n"
+"}")
         self.myQStackedWidget.addWidget(self.keysPage)
         self.searchPage = QWidget()
         self.searchPage.setObjectName(u"searchPage")
@@ -267,7 +286,7 @@ class Ui_Dialog(object):
 "	background-color: rgb(255, 255, 255);\n"
 "}")
         self.publishYearFrom.setDateTime(QDateTime(QDate(2014, 1, 1), QTime(0, 0, 0)))
-        self.publishYearFrom.setDate(QDate(2014, 1, 1))
+        self.publishYearFrom.setDate(QDate(2013, 12, 31))
         self.keyWords = QLineEdit(self.setFiltersPage)
         self.keyWords.setObjectName(u"keyWords")
         self.keyWords.setGeometry(QRect(50, 140, 301, 41))
@@ -323,7 +342,7 @@ class Ui_Dialog(object):
 "	background-color: rgb(255, 255, 255);\n"
 "}")
         self.publishYearTo.setDateTime(QDateTime(QDate(2024, 1, 1), QTime(0, 0, 0)))
-        self.publishYearTo.setDate(QDate(2024, 1, 1))
+        self.publishYearTo.setDate(QDate(2023, 12, 31))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
         self.publishYearToLabel.setObjectName(u"publishYearToLabel")
         self.publishYearToLabel.setGeometry(QRect(410, 110, 41, 20))
@@ -449,68 +468,6 @@ class Ui_Dialog(object):
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(30, 40, 121, 41))
         self.label.setStyleSheet(u"font: 700 11pt;")
-        self.pushButton_5 = QPushButton(self.setAIPage)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setGeometry(QRect(490, 140, 181, 161))
-        self.pushButton_5.setStyleSheet(u"QPushButton {\n"
-"    border-radius: 20px;\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	border: 2px solid rgb(56, 178, 224);\n"
-"	font: 700 11pt;\n"
-"}\n"
-"\n"
-"QPushButton:Checked{\n"
-"	border: 4px solid rgb(56, 178, 224);\n"
-"}")
-        self.pushButton_5.setCheckable(True)
-        self.pushButton_5.setAutoExclusive(True)
-        self.pushButton_6 = QPushButton(self.setAIPage)
-        self.pushButton_6.setObjectName(u"pushButton_6")
-        self.pushButton_6.setGeometry(QRect(40, 140, 181, 161))
-        self.pushButton_6.setStyleSheet(u"QPushButton {\n"
-"    border-radius: 20px;\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	border: 2px solid rgb(56, 178, 224);\n"
-"	font: 700 11pt;\n"
-"}\n"
-"\n"
-"QPushButton:Checked{\n"
-"	border: 4px solid rgb(56, 178, 224);\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_6.setCheckable(True)
-        self.pushButton_6.setAutoExclusive(True)
-        self.pushButton_7 = QPushButton(self.setAIPage)
-        self.pushButton_7.setObjectName(u"pushButton_7")
-        self.pushButton_7.setGeometry(QRect(260, 140, 181, 161))
-        self.pushButton_7.setStyleSheet(u"QPushButton {\n"
-"    border-radius: 20px;\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	border: 2px solid rgb(56, 178, 224);\n"
-"	font: 700 11pt;\n"
-"}\n"
-"\n"
-"QPushButton:Checked{\n"
-"	border: 4px solid rgb(56, 178, 224);\n"
-"}")
-        self.pushButton_7.setCheckable(True)
-        self.pushButton_7.setAutoExclusive(True)
-        self.pushButton_9 = QPushButton(self.setAIPage)
-        self.pushButton_9.setObjectName(u"pushButton_9")
-        self.pushButton_9.setGeometry(QRect(40, 340, 181, 161))
-        self.pushButton_9.setStyleSheet(u"QPushButton {\n"
-"    border-radius: 20px;\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	border: 2px solid rgb(56, 178, 224);\n"
-"	font: 700 11pt;\n"
-"}\n"
-"\n"
-"QPushButton:Checked{\n"
-"	border: 4px solid rgb(56, 178, 224);\n"
-"}")
-        self.pushButton_9.setCheckable(True)
-        self.pushButton_9.setAutoExclusive(True)
         self.pushButton_ChatGpt = QPushButton(self.setAIPage)
         self.pushButton_ChatGpt.setObjectName(u"pushButton_ChatGpt")
         self.pushButton_ChatGpt.setGeometry(QRect(40, 140, 181, 161))
@@ -527,10 +484,10 @@ class Ui_Dialog(object):
 "}")
         self.pushButton_ChatGpt.setCheckable(True)
         self.pushButton_ChatGpt.setAutoExclusive(True)
-        self.pushButton_Llama70b = QPushButton(self.setAIPage)
-        self.pushButton_Llama70b.setObjectName(u"pushButton_Llama70b")
-        self.pushButton_Llama70b.setGeometry(QRect(260, 140, 181, 161))
-        self.pushButton_Llama70b.setStyleSheet(u"QPushButton {\n"
+        self.pushButton_Llama8b = QPushButton(self.setAIPage)
+        self.pushButton_Llama8b.setObjectName(u"pushButton_Llama8b")
+        self.pushButton_Llama8b.setGeometry(QRect(260, 140, 181, 161))
+        self.pushButton_Llama8b.setStyleSheet(u"QPushButton {\n"
 "    border-radius: 20px;\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	border: 2px solid rgb(56, 178, 224);\n"
@@ -541,8 +498,8 @@ class Ui_Dialog(object):
 "	background-color: rgb(204, 255, 255);\n"
 "	border: 4px solid rgb(56, 178, 224);\n"
 "}")
-        self.pushButton_Llama70b.setCheckable(True)
-        self.pushButton_Llama70b.setAutoExclusive(True)
+        self.pushButton_Llama8b.setCheckable(True)
+        self.pushButton_Llama8b.setAutoExclusive(True)
         self.pushButton_Llama405b = QPushButton(self.setAIPage)
         self.pushButton_Llama405b.setObjectName(u"pushButton_Llama405b")
         self.pushButton_Llama405b.setGeometry(QRect(490, 140, 181, 161))
@@ -976,7 +933,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(1)
+        self.myQStackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -995,6 +952,8 @@ class Ui_Dialog(object):
         self.elsevierKeyLabel.setText(QCoreApplication.translate("Dialog", u"ELSEVIER_API_KEY", None))
         self.gptKeyLabel.setText(QCoreApplication.translate("Dialog", u"GPT_API_KEY", None))
         self.gptKeyEntry.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key here...", None))
+        self.llama8bKeyEntry.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key here...", None))
+        self.llama8bKeyLabel.setText(QCoreApplication.translate("Dialog", u"LLAMA8B_API_KEY", None))
         self.authorLabel.setText(QCoreApplication.translate("Dialog", u"Author:", None))
         self.publishYearLabel.setText(QCoreApplication.translate("Dialog", u"Publish Year:", None))
         self.settingLabel.setText(QCoreApplication.translate("Dialog", u"Setting", None))
@@ -1024,12 +983,8 @@ class Ui_Dialog(object):
         ___qtablewidgetitem3 = self.searchListTableWidget.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.label.setText(QCoreApplication.translate("Dialog", u"Select your AI:", None))
-        self.pushButton_5.setText(QCoreApplication.translate("Dialog", u"Llama 3.1B", None))
-        self.pushButton_6.setText(QCoreApplication.translate("Dialog", u"Chat GPT", None))
-        self.pushButton_7.setText(QCoreApplication.translate("Dialog", u"Meta AI", None))
-        self.pushButton_9.setText(QCoreApplication.translate("Dialog", u"Llama 8B", None))
         self.pushButton_ChatGpt.setText(QCoreApplication.translate("Dialog", u"GPT-4o mini", None))
-        self.pushButton_Llama70b.setText(QCoreApplication.translate("Dialog", u"Llama 3.1-70B", None))
+        self.pushButton_Llama8b.setText(QCoreApplication.translate("Dialog", u"Llama 3.1-8B", None))
         self.pushButton_Llama405b.setText(QCoreApplication.translate("Dialog", u"Llama 3.1-405B", None))
         self.pushButton_ClaudeSonnet.setText(QCoreApplication.translate("Dialog", u"Claude 3.5 Sonnet", None))
         self.uploadJournalLabel.setText(QCoreApplication.translate("Dialog", u"Upload your journals here", None))
