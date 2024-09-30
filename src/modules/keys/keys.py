@@ -12,7 +12,8 @@ def load_keys() -> dict[str, str]:
     global keys
 
     if not os.path.exists(KEYS_PATH):
-        return None
+        with open(KEYS_PATH, "w", encoding="utf-8") as f:
+            json.dump({}, f, indent=4)
     
     with open(KEYS_PATH) as f:
         keys = json.load(f)

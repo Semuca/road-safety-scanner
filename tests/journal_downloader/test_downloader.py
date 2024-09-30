@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, Mock, mock_open, patch
 from urllib.request import Request
 
 import pytest
-from fixtures.elsevier_result import SEARCH_RESULTS, assert_requests_are_equal
+from fixtures.elsevier_result import assert_requests_are_equal
 from pytestqt.qtbot import QtBot
 
 from modules.journal_downloader.downloader import (
@@ -44,7 +44,7 @@ def test_download_journals_thread(
 
     mock_urlopen.side_effect = [mock_urlopen_1, mock_urlopen_2]
 
-    # Arrange open mocks
+    # Arrange mock files
     mock_file = mock_open()
 
     # Act

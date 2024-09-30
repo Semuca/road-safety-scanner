@@ -19,3 +19,6 @@ qt_api="pyside6"
 
 # Update python.analysis.extraPaths in .vscode/settings.json when changing this to match
 pythonpath = ["src", "tests"]
+
+[tool.coverage.run]
+omit = ["*/gui.py"]
