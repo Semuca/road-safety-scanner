@@ -22,7 +22,7 @@ from .modules.journal_downloader.downloader import (
     JOURNALS_PATH,
     download_journals,
 )
-from .modules.journal_downloader.signal import QueryElsevierThread
+from .modules.journal_downloader.query_elsevier import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
 from .modules.llm.gpt.query import LLMClient
 from .modules.llm.signal import QueryLLMThread
