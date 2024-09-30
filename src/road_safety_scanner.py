@@ -13,19 +13,19 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from .modules.exporter import (
+from modules.exporter import (
     export_to_excel,
     journal_responses_to_data_frame,
 )
-from .modules.GUI import Ui_Dialog
-from .modules.journal_downloader.downloader import (
+from modules.GUI import Ui_Dialog
+from modules.journal_downloader.downloader import (
     JOURNALS_PATH,
     DownloadJournalsThread,
 )
-from .modules.journal_downloader.query_elsevier import QueryElsevierThread
-from .modules.keys.keys import load_keys, set_key
-from .modules.llm.gpt.query import LLMClient
-from .modules.llm.signal import QueryLLMThread
+from modules.journal_downloader.query_elsevier import QueryElsevierThread
+from modules.keys.keys import load_keys, set_key
+from modules.llm.gpt.query import LLMClient
+from modules.llm.signal import QueryLLMThread
 
 
 class ResultsTableHeader(QHeaderView):
