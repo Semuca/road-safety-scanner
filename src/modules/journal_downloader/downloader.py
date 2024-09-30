@@ -12,52 +12,6 @@ elsevier_api = "https://api.elsevier.com/content"
 
 JOURNALS_PATH = f"{os.path.dirname(os.path.abspath(__file__))}/journals"
 
-class QueryElsevierResult:
-    """A result from a query to the Elsevier API."""
-
-    def __init__(self: Self, doi: str, title: str,
-                 author: str, date: str) -> None:
-        """Initialize the QueryElsevierResult."""
-        self.doi = doi
-        self.title = title
-        self.author = author
-        self.date = date
-
-def query_elsevier(api_key: str, query: str,
-                  limit: float = 25,
-                  wait: float = 0.05) -> list[QueryElsevierResult]:
-    """Query the Elsevier API."""
-    query = urllib.parse.quote(query)
-
-    request = urllib.request.Request(
-        f"{elsevier_api}/search/scopus?query={query}",
-        headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
-
-    # Read all journals from the query until limit is hit
-    results = []
-    total_results = 1
-    while (len(results) < limit and len(results) < total_results):
-        request = urllib.request.Request(
-            f"{elsevier_api}/search/scopus?query={query}&start={len(results)}",
-            headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
-        
-        searched_journals = json.loads(
-            urllib.request.urlopen(request).read().decode("utf-8"))
-        total_results = int(
-            searched_journals["search-results"]["opensearch:totalResults"])
-
-        results.extend([
-            QueryElsevierResult(
-                journal["prism:doi"],
-                journal["dc:title"],
-                journal["dc:creator"], 
-                journal["prism:coverDisplayDate"])
-                for journal in searched_journals["search-results"]["entry"]])
-        
-        time.sleep(wait)
-
-    return results
-
 def download_journal(api_key: str, doi: str) -> dict[str, Any]:
     """Download a journal from the Elsevier API."""
     request = urllib.request.Request(f"{elsevier_api}/article/doi/${doi}",

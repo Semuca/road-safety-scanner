@@ -16,13 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: mamba-org/setup-micromamba@v1
       with:
-        python-version: '3.x'
-    - name: Install dependencies
+        environment-file: environment.yaml
+    - name: Install packages
       run: |
-        sudo apt-get install -y libxcb-xinerama0 
-        pip install PySide2 pytest pytest-qt
+        sudo apt-get update
+        sudo apt install -y libegl1-mesa-dev qt6-base-dev xvfb libxcb-randr0 libxcb-cursor0 libxcb-xtest0 libxcb-xinerama0 libxcb-shape0
     - name: Run tests
-      run: pytest
+      run: |
+        Xvfb :99 -screen 0 1920x1080x24 &
+        export DISPLAY=:99
+        pytest
