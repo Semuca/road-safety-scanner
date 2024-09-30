@@ -20,7 +20,7 @@ from .modules.exporter import (
 from .modules.GUI import Ui_Dialog
 from .modules.journal_downloader.downloader import (
     JOURNALS_PATH,
-    download_journals,
+    DownloadJournalsThread,
 )
 from .modules.journal_downloader.query_elsevier import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
@@ -290,8 +290,26 @@ class MainWindow(QMainWindow):
     # Downloads the journals from the search page
     def on_download_journals(self: Self) -> None:
         """Download the journals from the Elsevier module."""
-        download_journals(self.keys["ELSEVIER_API_KEY"],
-                         [queriedItem.doi for queriedItem in self.queryResults])
+        self.downloadProgressDialog = QProgressDialog("Processing...", "Cancel",
+                                                   0, 100, self)
+        self.downloadProgressDialog.setWindowModality(Qt.WindowModal)
+        self.downloadProgressDialog.setAutoClose(True)
+        self.downloadProgressDialog.setValue(0)
+
+        self.downloadSignal = DownloadJournalsThread(
+            api_key=self.keys["ELSEVIER_API_KEY"],
+            dois=[queriedItem.doi for queriedItem in self.queryResults])
+        self.downloadSignal.progress_signal.connect(self.on_download_update_progress)
+        self.downloadSignal.finished_signal.connect(self.on_download_finished)
+        self.downloadSignal.start()
+        
+    def on_download_update_progress(self: Self, progress: int) -> None:
+        """Update the progress of the download."""
+        self.downloadProgressDialog.setValue(progress)
+
+    def on_download_finished(self: Self) -> None:
+        """Close the download progress dialog."""
+        self.downloadProgressDialog.close()
 
     def select_ai(self: Self) -> None:
         """Set the API key for the GPT model."""

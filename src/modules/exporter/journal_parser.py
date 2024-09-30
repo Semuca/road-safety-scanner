@@ -14,10 +14,7 @@ def journal_responses_to_data_frame(table: QTableWidget) -> DataFrame:
         row_data = []
         for col in range(col_count):
             item = table.item(row, col)
-            if item is None:
-                row_data.append("")
-            else:
-                row_data.append(item.text())
+            row_data.append("" if item is None else item.text())
         data.append(row_data)
     headers = [table.horizontalHeaderItem(i).text() for i in range(col_count)]
     return DataFrame(data, columns=headers)
