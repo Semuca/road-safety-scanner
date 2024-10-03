@@ -179,11 +179,11 @@ class MainWindow(QMainWindow):
         ###########################################################################
         self.ui.title_set = False
         # Open the "Add a New Set" page when "Add a New Set" button is clicked
-        self.ui.addJournalButton.clicked.connect(self.addNewSet)
+        self.ui.addJournalButton.clicked.connect(self.add_new_set)
         self.ui.allJournalSets.setFixedWidth(500)
         self.ui.allJournalSets.setSizePolicy(QSizePolicy.Fixed,
                                              QSizePolicy.Fixed)
-        self.ui.comboBox.activated.connect(self.onAddNewSet)
+        self.ui.comboBox.activated.connect(self.on_add_new_set)
 
     def on_add_new_set(self: Self, index: int) -> None:
         """Handle the comboBox item selection."""
@@ -191,8 +191,8 @@ class MainWindow(QMainWindow):
         if index == self.ui.comboBox.count() - 1:
             self.ui.setsPage.setVisible(True)
             with contextlib.suppress(RuntimeWarning):
-                self.ui.saveSets.clicked.disconnect(self.updateSets)
-            self.ui.saveSets.clicked.connect(self.updateSets)
+                self.ui.saveSets.clicked.disconnect(self.update_sets)
+            self.ui.saveSets.clicked.connect(self.update_sets)
             
     
     def update_sets(self: Self) -> None:
@@ -244,7 +244,7 @@ class MainWindow(QMainWindow):
 
         # Add an edit action
         edit_action = context_menu.addAction("Edit")
-        edit_action.triggered.connect(lambda: self.editComboBox(combo_box))
+        edit_action.triggered.connect(lambda: self.edit_combo_box(combo_box))
 
         # Add a delete action
         delete_action = context_menu.addAction("Delete")
@@ -276,7 +276,7 @@ class MainWindow(QMainWindow):
 
         # Delete operation
         self.ui.editSubsetList.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.ui.editSubsetList.customContextMenuRequested.connect(self.showEditListContextMenu)
+        self.ui.editSubsetList.customContextMenuRequested.connect(self.show_edit_list_context_menu)
 
     
 
@@ -302,7 +302,7 @@ class MainWindow(QMainWindow):
 
             # Add "Edit" action to the context menu
             edit_action = context_menu.addAction("Edit")
-            edit_action.triggered.connect(lambda: self.editListItem(item))
+            edit_action.triggered.connect(lambda: self.edit_list_item(item))
 
             # Add delete action to the context menu for editSubsetList
             delete_action = context_menu.addAction("Delete")
@@ -374,7 +374,7 @@ class MainWindow(QMainWindow):
         combo_box.activated.connect(self.prevent_selection)
 
         combo_box.setContextMenuPolicy(Qt.CustomContextMenu)
-        combo_box.customContextMenuRequested.connect(self.showContextMenu)
+        combo_box.customContextMenuRequested.connect(self.show_context_menu)
 
         # Add the combo box to the allJournalSets list
         list_item = QListWidgetItem()
@@ -383,7 +383,7 @@ class MainWindow(QMainWindow):
         self.ui.allJournalSets.setItemWidget(list_item, combo_box)  
 
 
-        self.closeAddNewSet()
+        self.close_add_new_set()
 
         # To avoid multiple connections
         self.ui.newSetTitle.returnPressed.disconnect(self.add_or_edit_title)
@@ -409,7 +409,7 @@ class MainWindow(QMainWindow):
         self.ui.saveSets.clicked.disconnect(self.add_a_set)  
         self.ui.addNewSetWidget.setVisible(False)
         # Clear the text fields
-        self.clearAddNewSetItems()
+        self.clear_add_new_set_items()
 
     def clear_add_new_set_items(self: Self) -> None:
         """Clear all input fields and the list in Add a New Set page."""
