@@ -281,7 +281,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="keysPage">
     <widget class="QWidget" name="keysList" native="true">
@@ -785,7 +785,7 @@ QPushButton:Hover{
        <rect>
         <x>60</x>
         <y>270</y>
-        <width>81</width>
+        <width>121</width>
         <height>21</height>
        </rect>
       </property>
@@ -793,7 +793,7 @@ QPushButton:Hover{
        <string notr="true">font: 700 12pt;</string>
       </property>
       <property name="text">
-       <string>Article limit</string>
+       <string>Article Search Limit</string>
       </property>
      </widget>
     </widget>
@@ -830,7 +830,7 @@ QPushButton:Hover{
 }</string>
       </property>
       <property name="text">
-       <string>Search Journals</string>
+       <string>Search Articles</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="elsevierQuery">
@@ -851,7 +851,7 @@ QPushButton:Hover{
 </string>
       </property>
       <property name="placeholderText">
-       <string>Search for a journal...</string>
+       <string>Search for an article...</string>
       </property>
      </widget>
      <widget class="QPushButton" name="downloadElsevierJournals">
@@ -1268,7 +1268,7 @@ QPushButton:Checked{
 }</string>
       </property>
       <property name="text">
-       <string>Upload your journals here</string>
+       <string>Upload your articles here</string>
       </property>
      </widget>
      <widget class="QPushButton" name="uploadJournalButton">
