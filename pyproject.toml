@@ -1,0 +1,21 @@
+[tool.ruff]
+
+# https://docs.astral.sh/ruff/settings/
+line-length = 80
+
+exclude = [
+    "src/modules/GUI/gui.py",
+]
+
+[tool.ruff.lint]
+extend-select = ["E501", "I001", "N", "D", "UP", "YTT", "ANN", "Q", "RET", "SIM"]
+
+[tool.pytest]
+addopts = "-v"
+testpaths = ["tests"]
+qt_api="pyside6"
+
+[tool.pytest.ini_options]
+
+# Update python.analysis.extraPaths in .vscode/settings.json when changing this to match
+pythonpath = ["src"]

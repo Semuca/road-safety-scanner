@@ -1,5 +1,17 @@
 {
     "cSpell.words": [
-        "Elsevier"
-    ]
+        "AFFILCOUNTRY",
+        "coredata",
+        "dataframe",
+        "dois",
+        "Elsevier",
+        "openai",
+        "opensearch",
+        "pdfplumber",
+        "pytestqt",
+        "qtbot",
+        "REFPUBYEAR",
+        "scopus"
+    ],
+    "python.analysis.extraPaths": ["./src"],
 }
