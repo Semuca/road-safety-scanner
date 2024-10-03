@@ -4,11 +4,7 @@ from typing import Self
 
 from PySide6.QtCore import QThread, Signal
 
-from .gpt.query import (
-    clear_conversation_history,
-    query_gpt,
-    upload_file,
-)
+from .gpt.query import LLMClient
 
 
 class QueryLLMThread(QThread):
@@ -17,9 +13,11 @@ class QueryLLMThread(QThread):
     progress_signal = Signal(int)
     finished_signal = Signal(object)
 
-    def __init__(self: Self, journals: list[str], queries: list[str]) -> None:
+    def __init__(self: Self, client: LLMClient,
+                 journals: list[str], queries: list[str]) -> None:
         """Initialize the QueryLLMThread."""
         super().__init__(None)
+        self.client = client
         self.journals = journals
         self.queries = queries
 
@@ -36,19 +34,19 @@ class QueryLLMThread(QThread):
             doi = journal.split("/")[-1].replace(".json", "")
             row.append(doi)
 
-            upload_file(journal)
+            self.client.upload_file(journal)
 
             query_counter += 1
             self.progress_signal.emit(int(query_counter / total_queries * 100))
 
             for query in self.queries:
-                row.append(query_gpt(query))
+                row.append(self.client.query(query))
 
                 query_counter += 1
                 self.progress_signal.emit(
                     int(query_counter / total_queries * 100))
 
-            clear_conversation_history()
+            self.client.clear_conversation_history()
 
             rows.append(row)
 

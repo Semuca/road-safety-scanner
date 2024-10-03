@@ -24,9 +24,7 @@ from .modules.journal_downloader.downloader import (
 )
 from .modules.journal_downloader.signal import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
-from .modules.llm.gpt.query import (
-    setup_client,
-)
+from .modules.llm.gpt.query import LLMClient
 from .modules.llm.signal import QueryLLMThread
 
 
@@ -123,15 +121,22 @@ class MainWindow(QMainWindow):
         self.keys = load_keys()
         self.ui.elsevierKeyEntry.setText(self.keys.get("ELSEVIER_API_KEY", ""))
         self.ui.gptKeyEntry.setText(self.keys.get("GPT_API_KEY", ""))
-        setup_client(self.keys.get("GPT_API_KEY", ""))
+        self.ui.llama8bKeyEntry.setText(self.keys.get("LLAMA8B_API_KEY", ""))
 
         self.ui.elsevierKeyEntry.textChanged.connect(
             lambda: set_key("ELSEVIER_API_KEY",
                             self.ui.elsevierKeyEntry.text()))
         
         self.ui.gptKeyEntry.textChanged.connect(
-            lambda: (set_key("GPT_API_KEY", self.ui.gptKeyEntry.text(),
-                            setup_client(self.ui.gptKeyEntry.text()))))
+            lambda: (set_key("GPT_API_KEY", self.ui.gptKeyEntry.text()), 
+                     (self.setup_gpt_client(self.ui.gptKeyEntry.text()))))
+        
+        self.ui.llama8bKeyEntry.textChanged.connect(
+            lambda: (set_key("LLAMA8B_API_KEY", self.ui.llama8bKeyEntry.text()),
+                     (self.setup_llama8b_client(self.ui.llama8bKeyEntry.text()))))
+        
+        self.setup_gpt_client(self.keys.get("GPT_API_KEY", ""))
+        self.setup_llama8b_client(self.keys.get("LLAMA8B_API", ""))
 
         # Connect search buttons
         self.ui.searchElsevierJournals.clicked.connect(self.get_elsevier_query)
@@ -146,7 +151,7 @@ class MainWindow(QMainWindow):
 
         # Connect the selected AI button to the selectAI function
         self.ui.pushButton_ChatGpt.clicked.connect(self.select_ai)
-        self.ui.pushButton_Llama70b.clicked.connect(self.select_ai)
+        self.ui.pushButton_Llama8b.clicked.connect(self.select_ai)
         self.ui.pushButton_Llama405b.clicked.connect(self.select_ai)
         self.ui.pushButton_ClaudeSonnet.clicked.connect(self.select_ai)
         self.ui.pushButton_ChatGpt.click()
@@ -162,6 +167,15 @@ class MainWindow(QMainWindow):
         
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
+
+    def setup_gpt_client(self: Self, api_key: str) -> None:
+        """Set up the GPT client with the provided API key."""
+        self.gptClient = LLMClient("gpt-4o-mini", api_key)
+
+    def setup_llama8b_client(self: Self, api_key: str) -> None:
+        """Set up the Llama8b client with the provided API key."""
+        self.llama8bClient = LLMClient(
+            "meta-llama/Meta-Llama-3.1-8B-Instruct", api_key)
 
     def switch_to_page(self: Self, page_index: int) -> None:
         """For the fist page, we can disable the back button."""
@@ -285,17 +299,18 @@ class MainWindow(QMainWindow):
 
         # Set the API key based on the button clicked
         if clicked_button == self.ui.pushButton_ChatGpt:
+            self.selected_ai = self.gptClient
             return
-            # set_llm_api_key("GPT_API_KEY")
-        if clicked_button == self.ui.pushButton_Llama70b:
+        
+        if clicked_button == self.ui.pushButton_Llama8b:
+            self.selected_ai = self.llama8bClient
             return
-            # set_llm_api_key("LLAMA70B_API_KEY")
+        
         if clicked_button == self.ui.pushButton_Llama405b:
             return
-            # set_llm_api_key("LLAMA405B_API_KEY_")
+        
         if clicked_button == self.ui.pushButton_ClaudeSonnet:
             return
-            # set_llm_api_key("CLAUDE_SONNET_API_KEY_")
 
     def open_file(self: Self) -> None:
         """Open a file dialog and display the selected file path."""
@@ -415,6 +430,7 @@ class MainWindow(QMainWindow):
         self.processProgressDialog.setValue(0)
 
         self.processSignal = QueryLLMThread(
+            client=self.selected_ai,
             journals=self.uploadedJournals,
             queries=[query for header, query in self.queryColumns])
         
