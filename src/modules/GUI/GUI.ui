@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>843</width>
+    <width>840</width>
     <height>755</height>
    </rect>
   </property>
@@ -281,7 +281,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="keysPage">
     <widget class="QWidget" name="keysList" native="true">
@@ -580,7 +580,7 @@ QPushButton:Checked{
         <second>0</second>
         <year>2013</year>
         <month>12</month>
-        <day>26</day>
+        <day>31</day>
        </datetime>
       </property>
       <property name="displayFormat">
@@ -725,7 +725,7 @@ QPushButton:Hover{
         <second>0</second>
         <year>2023</year>
         <month>12</month>
-        <day>26</day>
+        <day>31</day>
        </datetime>
       </property>
       <property name="displayFormat">
@@ -773,11 +773,6 @@ QPushButton:Hover{
       <item>
        <property name="text">
         <string>Select Your Set</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Set 1</string>
        </property>
       </item>
       <item>

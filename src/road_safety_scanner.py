@@ -1,6 +1,7 @@
 """Main application file for the Road Safety Scanner application."""
 import contextlib
 import json
+import os
 from typing import Any, Callable, Self
 
 from PySide6.QtCore import QRect, Qt
@@ -112,6 +113,7 @@ class MainWindow(QMainWindow):
 
         # Setup the columns for the results table
         self.publicationColumns = ["Publication"]
+        
         with open("src/modules/exporter/columns.json") as columns_file:
             raw_columns = json.loads(columns_file.read())["columns"]
             self.queryColumns = [(column["header"], column["query"])
@@ -169,14 +171,17 @@ class MainWindow(QMainWindow):
         header.setSectionResizeMode(QHeaderView.Stretch)
 
         self.uploadedJournals = []
-
-        # Connect the open file button to the openFile function
-        self.ui.uploadJournalButton.clicked.connect(self.open_file)
         
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
 
-        ###########################################################################
+        # Check if sets.json file exists for storing journal sets
+        self.load_sets_from_json()
+        file_path = 'src/modules/GUI/sets.json'  # Adjust this path as needed
+        if not os.path.exists(file_path):
+            with open(file_path, 'w') as json_file:
+                json.dump([], json_file)
+
         self.ui.title_set = False
         # Open the "Add a New Set" page when "Add a New Set" button is clicked
         self.ui.addJournalButton.clicked.connect(self.add_new_set)
@@ -185,18 +190,63 @@ class MainWindow(QMainWindow):
                                              QSizePolicy.Fixed)
         self.ui.comboBox.activated.connect(self.on_add_new_set)
 
+    def load_sets_from_json(self) -> None:
+        """Load sets from the JSON file and populate allJournalSets."""
+        # Load JSON data (example code; adapt as needed)
+        with open('src/modules/GUI/sets.json', 'r') as f:
+            data = json.load(f)
+
+        # Clear existing items in allJournalSets if necessary
+        self.ui.allJournalSets.clear()
+
+        # Create combo boxes from loaded data
+        for set_data in data:
+            # Create a new combo box for each set
+            combo_box = QComboBox()
+            combo_box.setFixedWidth(500)
+
+            # Add items to combo_box (assuming items are in set_data)
+            for item in set_data['items']:  # Adjust based on your JSON structure
+                combo_box.addItem(item)
+
+            # Set context menu policy and connect the custom context menu
+            combo_box.setContextMenuPolicy(Qt.CustomContextMenu)
+            combo_box.customContextMenuRequested.connect(self.show_context_menu)
+
+            # Add combo box to the list
+            list_item = QListWidgetItem()
+            list_item.setSizeHint(combo_box.sizeHint())
+            self.ui.allJournalSets.addItem(list_item)
+            self.ui.allJournalSets.setItemWidget(list_item, combo_box)
+
+            self.update_sets()
+
+
+    def save_sets(self: Self) -> None:
+        """Save the current journal sets to sets.json file."""
+        file_path = "src/modules/GUI/sets.json"
+        sets = []
+        for index in range(self.ui.allJournalSets.count()):
+            list_item = self.ui.allJournalSets.item(index)
+            combo_box = self.ui.allJournalSets.itemWidget(list_item)
+            items = [combo_box.itemText(i) for i in range(combo_box.count())]
+            sets.append({'items': items})  # You can modify this to include other attributes as needed
+        with open(file_path, 'w') as json_file:
+            json.dump(sets, json_file)
+
+
+
     def on_add_new_set(self: Self, index: int) -> None:
         """Handle the comboBox item selection."""
         # Check if the last item is selected
         if index == self.ui.comboBox.count() - 1:
             self.ui.setsPage.setVisible(True)
-            with contextlib.suppress(RuntimeWarning):
-                self.ui.saveSets.clicked.disconnect(self.update_sets)
             self.ui.saveSets.clicked.connect(self.update_sets)
             
     
     def update_sets(self: Self) -> None:
         """Update the comboBox with the new Journal Sets."""
+        self.save_sets()
         # Clear existing items in comboBox, but keep the last item
         last_item = self.ui.comboBox.itemText(self.ui.comboBox.count() - 1
                                     ) if self.ui.comboBox.count() > 0 else None
@@ -211,9 +261,7 @@ class MainWindow(QMainWindow):
             
             if combo_box:
                 # Get the first item of the combo box
-                first_item = combo_box.itemText(0)
-                print(first_item)
-                
+                first_item = combo_box.itemText(0)                
                 # Add the first item from each combo box to comboBox
                 self.ui.comboBox.insertItem(self.ui.comboBox.count() - 1,
                                             first_item)
@@ -358,8 +406,6 @@ class MainWindow(QMainWindow):
 
     def add_a_set(self: Self) -> None:
         """Create a single combo box containing all items from subsetList."""
-        # Clear previous combo boxes in the allJournalSets list if needed
-        #self.allJournalSets.clear()
         # Create a new combo box
         combo_box = QComboBox()
         combo_box.setFixedWidth(500)  
@@ -406,7 +452,6 @@ class MainWindow(QMainWindow):
 
     def close_add_new_set(self: Self) -> None:
         """Close the Add a New Set page."""
-        self.ui.saveSets.clicked.disconnect(self.add_a_set)  
         self.ui.addNewSetWidget.setVisible(False)
         # Clear the text fields
         self.clear_add_new_set_items()
@@ -621,31 +666,6 @@ class MainWindow(QMainWindow):
         
         if clicked_button == self.ui.pushButton_ClaudeSonnet:
             return
-
-    def open_file(self: Self) -> None:
-        """Open a file dialog and display the selected file path."""
-        file_names, _ = QFileDialog.getOpenFileNames(self,
-                                        "Open File",
-                                        JOURNALS_PATH,
-                                        "JSON Files (*.json);;All Files (*)")
-
-        if not file_names:
-            return  # If no file is selected, do nothing
-
-        for file_name in file_names:
-
-            # Check if the file extension is .json
-            if not file_name.endswith(".json"):
-                continue
-
-            # Open and read the JSON file
-            try:
-                with open(file_name) as file:
-                    data = json.load(file)
-                    self.populate_table(data)
-                self.uploadedJournals.append(file_name)
-            except Exception as e:
-                print(f"Error reading JSON file: {e}")
 
 
     def populate_table(self: Self, data: dict[str, Any]) -> None:

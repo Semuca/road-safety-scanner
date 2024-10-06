@@ -24,7 +24,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(843, 755)
+        Dialog.resize(840, 755)
         Dialog.setStyleSheet(u"\n"
 "     * {\n"
 "       font-family: \"Arial\";  /* Use Arial as the global font */\n"
@@ -285,7 +285,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 26), QTime(0, 0, 0)))
+        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 31), QTime(0, 0, 0)))
         self.publishYearFrom.setDate(QDate(2013, 12, 31))
         self.keyWords = QLineEdit(self.setFiltersPage)
         self.keyWords.setObjectName(u"keyWords")
@@ -341,14 +341,13 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
-        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 26), QTime(0, 0, 0)))
+        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 31), QTime(0, 0, 0)))
         self.publishYearTo.setDate(QDate(2023, 12, 31))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
         self.publishYearToLabel.setObjectName(u"publishYearToLabel")
         self.publishYearToLabel.setGeometry(QRect(410, 110, 41, 20))
         self.publishYearToLabel.setStyleSheet(u"font: 700 12pt;")
         self.comboBox = QComboBox(self.setFiltersPage)
-        self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.setObjectName(u"comboBox")
@@ -1145,7 +1144,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(2)
+        self.myQStackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -1181,8 +1180,7 @@ class Ui_Dialog(object):
         self.publishYearTo.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy", None))
         self.publishYearToLabel.setText(QCoreApplication.translate("Dialog", u"To", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("Dialog", u"Select Your Set", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("Dialog", u"Set 1", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("Dialog", u"Add a new Set", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("Dialog", u"Add a new Set", None))
 
         self.searchJournalsLabel.setText(QCoreApplication.translate("Dialog", u"Search Journals", None))
         self.elsevierQuery.setPlaceholderText(QCoreApplication.translate("Dialog", u"Search for a journal...", None))
