@@ -462,23 +462,22 @@ QPushButton:Checked{
        <x>50</x>
        <y>110</y>
        <width>611</width>
-       <height>421</height>
+       <height>351</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget{
 	border-radius: 20px;   
-	
-	background-color: rgb(218, 218, 218);
+	background-color: rgb(180, 210, 224);
 }</string>
      </property>
      <widget class="QLabel" name="authorLabel">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>40</y>
+        <x>40</x>
+        <y>35</y>
         <width>61</width>
-        <height>16</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -491,10 +490,10 @@ QPushButton:Checked{
      <widget class="QLabel" name="publishYearLabel">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>40</y>
-        <width>101</width>
-        <height>16</height>
+        <x>330</x>
+        <y>30</y>
+        <width>121</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -507,41 +506,41 @@ QPushButton:Checked{
      <widget class="QLabel" name="settingLabel">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>40</x>
         <y>190</y>
-        <width>61</width>
-        <height>21</height>
+        <width>71</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">font: 700 12pt;</string>
       </property>
       <property name="text">
-       <string>Setting</string>
+       <string>Setting:</string>
       </property>
      </widget>
      <widget class="QLabel" name="keyWordsLabel">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>40</x>
         <y>110</y>
-        <width>81</width>
-        <height>21</height>
+        <width>101</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">font: 700 12pt;</string>
       </property>
       <property name="text">
-       <string>Key Words</string>
+       <string>Key Words:</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="authorName">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>60</y>
-        <width>301</width>
+        <width>261</width>
         <height>41</height>
        </rect>
       </property>
@@ -561,16 +560,17 @@ QPushButton:Checked{
      <widget class="QDateEdit" name="publishYearFrom">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>70</y>
-        <width>110</width>
-        <height>22</height>
+        <x>370</x>
+        <y>60</y>
+        <width>81</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QDateEdit{
-	
+	border-radius: 10px;
 	background-color: rgb(255, 255, 255);
+	padding-left: 7px;
 }</string>
       </property>
       <property name="dateTime">
@@ -597,9 +597,9 @@ QPushButton:Checked{
      <widget class="QLineEdit" name="keyWords">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>140</y>
-        <width>301</width>
+        <width>261</width>
         <height>41</height>
        </rect>
       </property>
@@ -622,9 +622,9 @@ QPushButton:Checked{
      <widget class="QLineEdit" name="setting">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>220</y>
-        <width>301</width>
+        <width>261</width>
         <height>41</height>
        </rect>
       </property>
@@ -647,9 +647,9 @@ QPushButton:Checked{
      <widget class="QPushButton" name="setFiltersCloseButton">
       <property name="geometry">
        <rect>
-        <x>550</x>
-        <y>360</y>
-        <width>41</width>
+        <x>480</x>
+        <y>280</y>
+        <width>91</width>
         <height>41</height>
        </rect>
       </property>
@@ -672,7 +672,7 @@ QPushButton:Hover{
 */</string>
       </property>
       <property name="text">
-       <string>OK</string>
+       <string>Filter</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -690,32 +690,34 @@ QPushButton:Hover{
      <widget class="QLabel" name="publishYearFromLabel">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>71</y>
-        <width>41</width>
-        <height>20</height>
+        <x>320</x>
+        <y>61</y>
+        <width>51</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 12pt;</string>
+       <string notr="true">
+font: 12pt &quot;Arial&quot;;</string>
       </property>
       <property name="text">
-       <string>From</string>
+       <string>From:</string>
       </property>
      </widget>
      <widget class="QDateEdit" name="publishYearTo">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>109</y>
-        <width>110</width>
-        <height>22</height>
+        <x>490</x>
+        <y>61</y>
+        <width>81</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QDateEdit{
-	
+	border-radius: 10px;
 	background-color: rgb(255, 255, 255);
+	padding-left: 7px;
 }</string>
       </property>
       <property name="dateTime">
@@ -742,30 +744,37 @@ QPushButton:Hover{
      <widget class="QLabel" name="publishYearToLabel">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>110</y>
-        <width>41</width>
+        <x>460</x>
+        <y>70</y>
+        <width>31</width>
         <height>20</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 12pt;</string>
+       <string notr="true">font: 12pt &quot;Arial&quot;;</string>
       </property>
       <property name="text">
-       <string>To</string>
+       <string>To:</string>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBox">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>180</y>
-        <width>151</width>
-        <height>22</height>
+        <x>320</x>
+        <y>140</y>
+        <width>251</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(184, 184, 184);</string>
+       <string notr="true">QComboBox {
+    padding: 9px;     
+	background-color: rgb(255, 255, 255);
+	
+	color: rgb(56, 56, 56);
+}
+
+</string>
       </property>
       <property name="editable">
        <bool>false</bool>
@@ -781,6 +790,36 @@ QPushButton:Hover{
        </property>
       </item>
      </widget>
+     <widget class="QLabel" name="publishYearToLabel_2">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>110</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Sets:</string>
+      </property>
+     </widget>
+     <zorder>authorLabel</zorder>
+     <zorder>publishYearLabel</zorder>
+     <zorder>settingLabel</zorder>
+     <zorder>keyWordsLabel</zorder>
+     <zorder>authorName</zorder>
+     <zorder>keyWords</zorder>
+     <zorder>setting</zorder>
+     <zorder>setFiltersCloseButton</zorder>
+     <zorder>publishYearFromLabel</zorder>
+     <zorder>publishYearToLabel</zorder>
+     <zorder>publishYearToLabel_2</zorder>
+     <zorder>publishYearTo</zorder>
+     <zorder>comboBox</zorder>
+     <zorder>publishYearFrom</zorder>
     </widget>
     <widget class="QWidget" name="uploadJournal_2" native="true">
      <property name="geometry">
@@ -857,10 +896,16 @@ QPushButton:Hover{
 }
 
 QPushButton:Checked{
-	
 	font: 8pt;
 	background-color: rgb(211, 211, 211);
-}</string>
+}
+
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
+}
+</string>
       </property>
       <property name="text">
        <string>Download</string>
@@ -899,7 +944,14 @@ QPushButton:Checked{
 	
 	font: 8pt;
 	background-color: rgb(211, 211, 211);
-}</string>
+}
+
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
+}
+</string>
       </property>
       <property name="text">
        <string>Search</string>
@@ -932,6 +984,12 @@ QPushButton:Checked{
 	
 	font: 700 10pt;
 	background-color: rgb(8, 144, 196);
+}
+
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
 }
 </string>
       </property>
@@ -989,7 +1047,7 @@ QPushButton:Checked{
        <string>Results</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="searchListTableWidget">
+     <widget class="QTableWidget" name="setsLabel">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -2022,12 +2080,7 @@ border-radius: 20px;
 	background-color: rgb(255, 255, 255);
 	border: 2px solid rgb(56, 178, 224);
 }
-/*
-QPushButton:Hover{
-	background-color: rgb(204, 255, 255);
-	border: 3px solid rgb(56, 178, 224);
-}
-*/</string>
+</string>
    </property>
    <property name="text">
     <string>Next</string>
@@ -2039,26 +2092,24 @@ QPushButton:Hover{
    </property>
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>230</y>
-     <width>591</width>
-     <height>401</height>
+     <x>110</x>
+     <y>220</y>
+     <width>611</width>
+     <height>351</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
 	border-radius: 20px;   
-	
-	
-	background-color: rgb(161, 161, 161);
+	background-color: rgb(180, 210, 224);
 }</string>
    </property>
    <widget class="QLabel" name="editYourSetTitle">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>30</x>
       <y>10</y>
-      <width>181</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -2066,15 +2117,15 @@ QPushButton:Hover{
      <string notr="true">font: 700 16pt;</string>
     </property>
     <property name="text">
-     <string>Edit your Set</string>
+     <string>Edit Set</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="editSubsetText">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>100</y>
-      <width>301</width>
+      <x>140</x>
+      <y>80</y>
+      <width>321</width>
       <height>31</height>
      </rect>
     </property>
@@ -2083,7 +2134,7 @@ QPushButton:Hover{
 	background-color: rgb(255, 255, 255);
 	font: 12pt;
 	padding-left: 10px;
-	border-radius: 12px;  
+	border-radius: 6px;  
 }
 </string>
     </property>
@@ -2100,9 +2151,9 @@ QPushButton:Hover{
    <widget class="QPushButton" name="editSubsetSaveButton">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>340</y>
-      <width>41</width>
+      <x>490</x>
+      <y>290</y>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
@@ -2118,14 +2169,15 @@ QPushButton{
 	border: none;
 }
 
-/*
-QPushButton:Hover{
-	background-color: rgb(56, 177, 224);
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
 }
-*/</string>
+</string>
     </property>
     <property name="text">
-     <string>OK</string>
+     <string>Save</string>
     </property>
     <property name="checkable">
      <bool>true</bool>
@@ -2143,10 +2195,10 @@ QPushButton:Hover{
    <widget class="QListWidget" name="editSubsetList">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>140</y>
+      <x>30</x>
+      <y>120</y>
       <width>431</width>
-      <height>181</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -2154,8 +2206,9 @@ QPushButton:Hover{
 	
 	
 	font: 9pt &quot;Arial&quot;;
-    background-color: rgb(225, 225, 225);
-    border-radius: 12px; 
+    
+	background-color: rgb(255, 255, 255);
+    border-radius: 1px; 
 }
 
 
@@ -2165,9 +2218,9 @@ QPushButton:Hover{
    <widget class="QLineEdit" name="editTitle">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>60</y>
-      <width>121</width>
+      <x>30</x>
+      <y>80</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -2176,7 +2229,7 @@ QPushButton:Hover{
 	background-color: rgb(255, 255, 255);
 	font: 12pt;
 	padding-left: 10px;
-	border-radius: 12px;  
+	border-radius: 6px;  
 }
 </string>
     </property>
@@ -2185,6 +2238,38 @@ QPushButton:Hover{
     </property>
     <property name="placeholderText">
      <string>Set Name</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="authorLabel_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt;</string>
+    </property>
+    <property name="text">
+     <string>Title</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="authorLabel_5">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>50</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt;</string>
+    </property>
+    <property name="text">
+     <string>Subset String</string>
     </property>
    </widget>
   </widget>
@@ -2197,22 +2282,22 @@ QPushButton:Hover{
      <x>110</x>
      <y>220</y>
      <width>611</width>
-     <height>421</height>
+     <height>351</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
 	border-radius: 20px;   
 	
-	background-color: rgb(218, 218, 218);
+	background-color: rgb(180, 210, 224);
 }</string>
    </property>
    <widget class="QLabel" name="editYourSetsTitle">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>20</y>
-      <width>191</width>
+      <x>30</x>
+      <y>10</y>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -2220,21 +2305,70 @@ QPushButton:Hover{
      <string notr="true">font: 700 16pt;</string>
     </property>
     <property name="text">
-     <string>Your Current Sets</string>
+     <string>Current Sets:</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="allJournalSets">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>70</y>
+      <width>441</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 1px;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addJournalButton">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>70</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(8, 144, 196);
+	padding: 4px 2px; 
+	border-radius: 15px;
+	color: rgb(255, 255, 255); 
+	font: 700 10pt;
+}
+
+
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
+}
+
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>New Set</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="saveSets">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>360</y>
-      <width>41</width>
+      <x>490</x>
+      <y>290</y>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QWidget{
-	
 	background-color: rgb(8, 144, 196);
 }
 
@@ -2244,14 +2378,16 @@ QPushButton{
 	border: none;
 }
 
-/*
-QPushButton:Hover{
-	background-color: rgb(56, 177, 224);
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
 }
-*/</string>
+
+</string>
     </property>
     <property name="text">
-     <string>OK</string>
+     <string>Save</string>
     </property>
     <property name="checkable">
      <bool>true</bool>
@@ -2266,49 +2402,6 @@ QPushButton:Hover{
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QListWidget" name="allJournalSets">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>100</y>
-      <width>501</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addJournalButton">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>330</y>
-      <width>111</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	color:black;
-	
-	font: 700 10pt;
-	background-color: rgb(161, 161, 161);
-}
-
-QPushButton:Checked{
-	
-	font: 8pt;
-	background-color: rgb(211, 211, 211);
-}</string>
-    </property>
-    <property name="text">
-     <string>Add a New Set</string>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
   </widget>
   <widget class="QWidget" name="addNewSetWidget" native="true">
    <property name="enabled">
@@ -2316,26 +2409,25 @@ QPushButton:Checked{
    </property>
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>230</y>
-     <width>591</width>
-     <height>401</height>
+     <x>110</x>
+     <y>220</y>
+     <width>611</width>
+     <height>351</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
 	border-radius: 20px;   
 	
-	
-	background-color: rgb(161, 161, 161);
+	background-color: rgb(180, 210, 224);
 }</string>
    </property>
    <widget class="QLabel" name="addNewSetTitle">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>30</x>
       <y>10</y>
-      <width>181</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -2343,15 +2435,15 @@ QPushButton:Checked{
      <string notr="true">font: 700 16pt;</string>
     </property>
     <property name="text">
-     <string>Add a New Set</string>
+     <string>Create New Set</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="newSubsetText">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>100</y>
-      <width>301</width>
+      <x>140</x>
+      <y>80</y>
+      <width>331</width>
       <height>31</height>
      </rect>
     </property>
@@ -2360,7 +2452,7 @@ QPushButton:Checked{
 	background-color: rgb(255, 255, 255);
 	font: 12pt;
 	padding-left: 10px;
-	border-radius: 12px;  
+	border-radius: 6px;  
 }
 </string>
     </property>
@@ -2374,15 +2466,14 @@ QPushButton:Checked{
    <widget class="QPushButton" name="addSetOKButton">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>340</y>
-      <width>41</width>
+      <x>490</x>
+      <y>290</y>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QWidget{
-	
 	background-color: rgb(8, 144, 196);
 }
 
@@ -2392,14 +2483,17 @@ QPushButton{
 	border: none;
 }
 
-/*
-QPushButton:Hover{
-	background-color: rgb(56, 177, 224);
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
 }
-*/</string>
+
+
+</string>
     </property>
     <property name="text">
-     <string>OK</string>
+     <string>Add</string>
     </property>
     <property name="checkable">
      <bool>true</bool>
@@ -2417,10 +2511,10 @@ QPushButton:Hover{
    <widget class="QListWidget" name="subsetList">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>140</y>
-      <width>431</width>
-      <height>181</height>
+      <x>30</x>
+      <y>120</y>
+      <width>441</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -2429,7 +2523,9 @@ QPushButton:Hover{
 	
 	font: 9pt &quot;Arial&quot;;
     background-color: rgb(225, 225, 225);
-    border-radius: 12px; 
+    border-radius: 1px; 
+	
+	background-color: rgb(255, 255, 255);
 }
 
 
@@ -2439,9 +2535,9 @@ QPushButton:Hover{
    <widget class="QLineEdit" name="newSetTitle">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>60</y>
-      <width>121</width>
+      <x>30</x>
+      <y>80</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -2450,7 +2546,7 @@ QPushButton:Hover{
 	background-color: rgb(255, 255, 255);
 	font: 12pt;
 	padding-left: 10px;
-	border-radius: 12px;  
+	border-radius: 6px;  
 }
 </string>
     </property>
@@ -2459,6 +2555,38 @@ QPushButton:Hover{
     </property>
     <property name="placeholderText">
      <string>Set Name</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="authorLabel_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt;</string>
+    </property>
+    <property name="text">
+     <string>Title</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="authorLabel_3">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>50</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt;</string>
+    </property>
+    <property name="text">
+     <string>Subset String</string>
     </property>
    </widget>
   </widget>
