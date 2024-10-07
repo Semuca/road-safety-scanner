@@ -7,7 +7,6 @@ from PySide6.QtGui import QMouseEvent, QPainter
 from PySide6.QtWidgets import (
     QFileDialog,
     QHeaderView,
-    QLabel,
     QMainWindow,
     QProgressDialog,
     QTableWidgetItem,
@@ -168,11 +167,6 @@ class MainWindow(QMainWindow):
         
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
-
-        # Create a QLabel to display the selected AI
-        self.selectedAILabel = QLabel("Current AI: None", self)
-        self.selectedAILabel.setGeometry(10, 40, 200, 30)  
-        self.selectedAILabel.setStyleSheet("font-size: 16px; color: black;") 
         
 
 
