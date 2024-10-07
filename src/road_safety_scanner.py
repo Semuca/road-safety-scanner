@@ -27,6 +27,7 @@ from .modules.exporter import (
 )
 from .modules.GUI import Ui_Dialog
 from .modules.journal_downloader.downloader import (
+    JOURNALS_PATH,
     download_journals,
 )
 from .modules.journal_downloader.signal import QueryElsevierThread
@@ -172,6 +173,9 @@ class MainWindow(QMainWindow):
         header.setSectionResizeMode(QHeaderView.Stretch)
 
         self.uploadedJournals = []
+
+        # Connect the open file button to the openFile function
+        self.ui.uploadJournalButton.clicked.connect(self.open_file)
         
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
@@ -298,8 +302,6 @@ class MainWindow(QMainWindow):
                 # Add the first item from each combo box to comboBox
                 self.ui.comboBox.insertItem(self.ui.comboBox.count() - 1,
                                             first_item)
-
-
 
         self.ui.setsPage.setVisible(False)
 
@@ -646,7 +648,7 @@ class MainWindow(QMainWindow):
 
         # Pass the limit to the query thread
         self.querySignal = QueryElsevierThread(
-            api_key=self.keys["ELSEVIER_API_KEY"],
+            api_key=self.keys.get("ELSEVIER_API_KEY"),
             query=query, limit=limit_value)
         self.querySignal.progress_signal.connect(self.on_query_update_progress)
         self.querySignal.finished_signal.connect(self.on_query_finished)
@@ -743,6 +745,31 @@ f"""Retrieved {num_articles} articles
         
         if clicked_button == self.ui.pushButton_ClaudeSonnet:
             return
+        
+    def open_file(self: Self) -> None:
+        """Open a file dialog and display the selected file path."""
+        file_names, _ = QFileDialog.getOpenFileNames(self,
+                                        "Open File",
+                                        JOURNALS_PATH,
+                                        "JSON Files (*.json);;All Files (*)")
+
+        if not file_names:
+            return  # If no file is selected, do nothing
+
+        for file_name in file_names:
+
+            # Check if the file extension is .json
+            if not file_name.endswith(".json"):
+                continue
+
+            # Open and read the JSON file
+            try:
+                with open(file_name) as file:
+                    data = json.load(file)
+                    self.populate_table(data)
+                self.uploadedJournals.append(file_name)
+            except Exception as e:
+                print(f"Error reading JSON file: {e}")
 
 
     def populate_table(self: Self, data: dict[str, Any]) -> None:

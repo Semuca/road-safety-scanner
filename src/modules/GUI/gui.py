@@ -156,8 +156,6 @@ class Ui_Dialog(object):
         self.currentlyAI = QLabel(self.menuBar)
         self.currentlyAI.setObjectName(u"currentlyAI")
         self.currentlyAI.setGeometry(QRect(10, 50, 181, 16))
-
-
         self.searchButton.raise_()
         self.setAIButton.raise_()
         self.uploadButton.raise_()
@@ -166,7 +164,6 @@ class Ui_Dialog(object):
         self.selectTabIndicator.raise_()
         self.keysButton.raise_()
         self.currentlyAI.raise_()
-
         self.myQStackedWidget = QStackedWidget(Dialog)
         self.myQStackedWidget.setObjectName(u"myQStackedWidget")
         self.myQStackedWidget.setGeometry(QRect(60, 110, 711, 591))
@@ -388,6 +385,10 @@ class Ui_Dialog(object):
         self.articleLimitLabel.setObjectName(u"articleLimitLabel")
         self.articleLimitLabel.setGeometry(QRect(60, 270, 121, 21))
         self.articleLimitLabel.setStyleSheet(u"font: 700 12pt;")
+        self.titleWordsLabel.raise_()
+        self.titleWords.raise_()
+        self.articleLimit.raise_()
+        self.articleLimitLabel.raise_()
         self.authorLabel.raise_()
         self.publishYearLabel.raise_()
         self.settingLabel.raise_()
@@ -513,20 +514,20 @@ class Ui_Dialog(object):
 "	font: 700 12pt\n"
 "	\n"
 "}")
-        self.setsLabel = QTableWidget(self.results)
-        if (self.setsLabel.columnCount() < 4):
-            self.setsLabel.setColumnCount(4)
+        self.searchListTableWidget = QTableWidget(self.results)
+        if (self.searchListTableWidget.columnCount() < 4):
+            self.searchListTableWidget.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
-        self.setsLabel.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        self.searchListTableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
-        self.setsLabel.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.searchListTableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
-        self.setsLabel.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        self.searchListTableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
-        self.setsLabel.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        self.setsLabel.setObjectName(u"setsLabel")
-        self.setsLabel.setGeometry(QRect(30, 50, 621, 301))
-        self.setsLabel.setStyleSheet(u"QHeaderView::section {\n"
+        self.searchListTableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        self.searchListTableWidget.setObjectName(u"searchListTableWidget")
+        self.searchListTableWidget.setGeometry(QRect(30, 50, 621, 301))
+        self.searchListTableWidget.setStyleSheet(u"QHeaderView::section {\n"
 "	color: rgb(113, 113, 113);\n"
 "}\n"
 "font: 700 12pt")
@@ -942,7 +943,7 @@ class Ui_Dialog(object):
         self.addColumnButton.setAutoExclusive(False)
         self.exportResultsButton = QPushButton(self.setFiltersOption)
         self.exportResultsButton.setObjectName(u"exportResultsButton")
-        self.exportResultsButton.setGeometry(QRect(400, 40, 101, 41))
+        self.exportResultsButton.setGeometry(QRect(310, 40, 101, 41))
         self.exportResultsButton.setStyleSheet(u"QPushButton{\n"
 "            color:white;\n"
 "            font: 700 10pt;\n"
@@ -1248,7 +1249,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(1)
+        self.myQStackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -1297,13 +1298,13 @@ class Ui_Dialog(object):
         self.searchElsevierJournals.setText(QCoreApplication.translate("Dialog", u"Search", None))
         self.setFiltersButton.setText(QCoreApplication.translate("Dialog", u"Set Filters", None))
         self.resultsLabel.setText(QCoreApplication.translate("Dialog", u"Results", None))
-        ___qtablewidgetitem = self.setsLabel.horizontalHeaderItem(0)
+        ___qtablewidgetitem = self.searchListTableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Dialog", u"AUTHOR", None));
-        ___qtablewidgetitem1 = self.setsLabel.horizontalHeaderItem(1)
+        ___qtablewidgetitem1 = self.searchListTableWidget.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Dialog", u"TITLE", None));
-        ___qtablewidgetitem2 = self.setsLabel.horizontalHeaderItem(2)
+        ___qtablewidgetitem2 = self.searchListTableWidget.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
-        ___qtablewidgetitem3 = self.setsLabel.horizontalHeaderItem(3)
+        ___qtablewidgetitem3 = self.searchListTableWidget.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.statusLabel.setText(QCoreApplication.translate("Dialog", u"Text Label", None))
         self.viewLogButton.setText(QCoreApplication.translate("Dialog", u"View Error Log", None))
