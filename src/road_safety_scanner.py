@@ -9,10 +9,14 @@ from typing import Any, Callable, Self
 from PySide6.QtCore import QDate, QRect, Qt
 from PySide6.QtGui import QIntValidator, QMouseEvent, QPainter
 from PySide6.QtWidgets import (
+    QComboBox,
     QFileDialog,
     QHeaderView,
+    QListWidgetItem,
     QMainWindow,
+    QMenu,
     QProgressDialog,
+    QSizePolicy,
     QTableWidgetItem,
     QWidget,
 )
@@ -23,7 +27,6 @@ from .modules.exporter import (
 )
 from .modules.GUI import Ui_Dialog
 from .modules.journal_downloader.downloader import (
-    JOURNALS_PATH,
     download_journals,
 )
 from .modules.journal_downloader.signal import QueryElsevierThread
@@ -85,12 +88,12 @@ class MainWindow(QMainWindow):
 
         # Hide Filter Page
         self.ui.setFiltersPage.setVisible(False)
-
-        # Check its own visibility
+        self.ui.setsPage.setVisible(False)
         self.ui.setFiltersCloseButton.clicked.connect(
             lambda: self.ui.setFiltersPage.setVisible(
-                not self.ui.setFiltersPage.isVisible()))
-
+                not self.ui.addColumnPage.isVisible()))
+        self.ui.addNewSetWidget.setVisible(False)
+        self.ui.editSetPage.setVisible(False)
 
         # Setup Add Column Page Modal
         self.ui.addColumnPage.setVisible(False)
@@ -111,6 +114,7 @@ class MainWindow(QMainWindow):
 
         # Setup the columns for the results table
         self.publicationColumns = ["Publication"]
+        
         with open("src/modules/exporter/columns.json") as columns_file:
             raw_columns = json.loads(columns_file.read())["columns"]
             self.queryColumns = [(column["header"], column["query"])
@@ -168,12 +172,26 @@ class MainWindow(QMainWindow):
         header.setSectionResizeMode(QHeaderView.Stretch)
 
         self.uploadedJournals = []
-
-        # Connect the open file button to the openFile function
-        self.ui.uploadJournalButton.clicked.connect(self.open_file)
         
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
+
+        # If sets.json does not exists then it creates an empty .json file
+        file_path = "src/modules/GUI/sets.json"
+        if not os.path.exists(file_path):
+            with open(file_path, "w") as json_file:
+                json.dump([], json_file)
+        # Load pre-existing sets from sets.json
+        self.load_sets_from_json()
+
+        self.ui.title_set = False
+        # Open the "Create New Set" page when "New Set" button is clicked
+        self.ui.addJournalButton.clicked.connect(self.add_new_set)
+        self.ui.allJournalSets.setFixedWidth(440)
+        self.ui.allJournalSets.setSizePolicy(QSizePolicy.Fixed,
+                                             QSizePolicy.Fixed)
+        self.ui.comboBox.activated.connect(self.on_add_new_set)
+        self.ui.setFiltersCloseButton.clicked.connect(self.get_set)
 
         # Hide the status label for the number of articles retrieved from
         # the search at the start
@@ -193,6 +211,340 @@ class MainWindow(QMainWindow):
         self.ui.publishYearFrom.setDate(QDate(current_year - 1, 1, 1))
         self.ui.publishYearTo.setDate(QDate(current_year, 1, 1))
 
+    def get_set(self: Self) -> None:
+        """Return full Set items when called."""
+        sets_file = "src/modules/GUI/sets.json"
+        with open (sets_file) as file:
+            sets = json.load(file)
+
+        selected_set = self.ui.comboBox.currentText()
+        for a_set in sets:
+            if a_set["items"][0] == selected_set:
+                return a_set["items"]  # Return the entire list
+            
+        # Shouldn't reach here but if match is not found return empty list
+        return []
+
+
+    def load_sets_from_json(self: Self) -> None:
+        """Load sets from the JSON file and pre-populate allJournalSets page."""
+        with open("src/modules/GUI/sets.json") as f:
+            data = json.load(f)
+
+        # Clear existing items in allJournalSets if necessary
+        self.ui.allJournalSets.clear()
+
+        # Create combo boxes from loaded data
+        for set_data in data:
+            combo_box = QComboBox()
+            combo_box.setFixedWidth(440)
+            for item in set_data["items"]: 
+                combo_box.addItem(item)
+            # Set context menu policy and connect the custom context menu
+            combo_box.setContextMenuPolicy(Qt.CustomContextMenu)
+            combo_box.customContextMenuRequested.connect(self.show_context_menu)
+
+            # Add combo box to the list
+            list_item = QListWidgetItem()
+            list_item.setSizeHint(combo_box.sizeHint())
+            self.ui.allJournalSets.addItem(list_item)
+            self.ui.allJournalSets.setItemWidget(list_item, combo_box)
+
+            self.update_sets()
+
+
+    def save_sets(self: Self) -> None:
+        """Save the current journal sets to sets.json file."""
+        file_path = "src/modules/GUI/sets.json"
+        sets = []
+        for index in range(self.ui.allJournalSets.count()):
+            list_item = self.ui.allJournalSets.item(index)
+            combo_box = self.ui.allJournalSets.itemWidget(list_item)
+
+            # Get all the items from the combo box
+            items = [combo_box.itemText(i) for i in range(combo_box.count())]
+            sets.append({"items": items})
+        with open(file_path, "w") as json_file:
+            json.dump(sets, json_file)
+
+
+
+    def on_add_new_set(self: Self, index: int) -> None:
+        """Handle the comboBox item selection."""
+        # Check if the last item is selected
+        if index == self.ui.comboBox.count() - 1:
+            self.ui.setsPage.setVisible(True)
+            self.ui.saveSets.clicked.connect(self.update_sets)
+            
+    
+    def update_sets(self: Self) -> None:
+        """Update the comboBox with the new Journal Sets."""
+        self.save_sets()
+        # Clear existing items in comboBox, but keep the last item
+        last_item = self.ui.comboBox.itemText(self.ui.comboBox.count() - 1
+                                    ) if self.ui.comboBox.count() > 0 else None
+        self.ui.comboBox.clear()
+        self.ui.comboBox.addItem(last_item)
+        
+        # Iterate over all items in allJournalSets
+        for index in range(self.ui.allJournalSets.count()):
+            # Get the QListWidgetItem
+            list_item = self.ui.allJournalSets.item(index)
+            combo_box = self.ui.allJournalSets.itemWidget(list_item)
+            
+            if combo_box:
+                # Get the first item of the combo box
+                first_item = combo_box.itemText(0)                
+                # Add the first item from each combo box to comboBox
+                self.ui.comboBox.insertItem(self.ui.comboBox.count() - 1,
+                                            first_item)
+
+
+
+        self.ui.setsPage.setVisible(False)
+
+    def add_new_set(self: Self) -> None:
+        """Add a new set to the allJournalSets list."""
+        # Show the New Set Page
+        self.ui.addNewSetWidget.setVisible(True)
+
+        # Get text when user presses "Enter"
+        self.ui.newSetTitle.returnPressed.connect(self.add_or_edit_title)
+        self.ui.newSubsetText.returnPressed.connect(self.add_subset_text)
+
+        # Save changes and close
+        self.ui.addSetOKButton.clicked.connect(self.add_a_set)
+
+    def show_context_menu(self: Self, pos: int)-> None:
+        """Show context menu for the combo box.
+
+        This enables right clicking on the combo boxes 
+        to allow 'edit' and 'delete' features of Sets
+        """
+        combo_box = self.sender()
+        
+        # Create the context menu
+        context_menu = QMenu(self.ui.allJournalSets)
+
+        # Add an edit action
+        edit_action = context_menu.addAction("Edit")
+        edit_action.triggered.connect(lambda: self.edit_combo_box(combo_box))
+
+        # Add a delete action
+        delete_action = context_menu.addAction("Delete")
+        delete_action.triggered.connect(
+            lambda: self.delete_combo_box(combo_box))
+
+
+        # Show the context menu
+        context_menu.exec(combo_box.mapToGlobal(pos))
+
+    def edit_combo_box(self: Self, combo_box: QComboBox) -> None:
+        """Handle the edit action for the combo box."""
+        self.current_combo_box = combo_box
+        self.ui.editSubsetList.clear()
+        items = [combo_box.itemText(i) for i in range(combo_box.count())]
+
+        self.ui.editTitle.setText(items[0])
+        self.ui.editSubsetList.addItems(items)
+
+        self.ui.editSetPage.setVisible(True)
+
+        # "Edit" operation
+        self.ui.editSubsetText.returnPressed.connect(self.edit_subset_text)
+        self.ui.editTitle.returnPressed.connect(self.edit_title)
+        self.ui.editSubsetSaveButton.clicked.connect(self.confirm_set_changes)
+
+        # Delete operation
+        self.ui.editSubsetList.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.ui.editSubsetList.customContextMenuRequested.connect(self.show_edit_list_context_menu)
+
+    
+
+    def confirm_set_changes(self: Self) -> None:
+        """Update the allJournalSets page.
+        
+        Usually called when user presses 'Save' on the Edit Set page
+        """
+        if self.current_combo_box is None:
+            return
+        self.current_combo_box.clear()
+        for index in range(self.ui.editSubsetList.count()):
+            item_text = self.ui.editSubsetList.item(index).text()
+            self.current_combo_box.addItem(item_text)
+
+
+        self.ui.editSetPage.setVisible(False)
+            
+
+    def show_edit_list_context_menu(self: Self, pos: int) -> None:
+        """Show the context menu for the editSubsetList."""
+        list_widget = self.ui.editSubsetList
+        item = list_widget.itemAt(pos)
+        if item:
+            context_menu = QMenu(list_widget)
+
+            # Add "Edit" action to the context menu
+            edit_action = context_menu.addAction("Edit")
+            edit_action.triggered.connect(lambda: self.edit_list_item(item))
+
+            # Add delete action to the context menu for editSubsetList
+            delete_action = context_menu.addAction("Delete")
+            delete_action.triggered.connect(lambda:
+                                            self.delete_edit_list_item(item))
+
+            # Show the context menu
+            context_menu.exec(list_widget.mapToGlobal(pos))
+
+    def edit_list_item(self: Self, item: QListWidgetItem) -> None:
+        """Enable in-place editing of the clicked list item."""
+        item.setFlags(item.flags() | Qt.ItemIsEditable)
+        self.ui.editSubsetList.editItem(item)  # Begin editing the item
+
+
+    def add_or_edit_item_in_edit_subset_list(self: Self) -> None:
+        """Add a new item or edit an existing item in the editSubsetList."""
+        new_item_text = self.ui.editSubsetText.text().strip()
+
+        if new_item_text:
+            # If an item is being edited, update the text of that item
+            if hasattr(self, "current_editing_item"
+                       ) and self.current_editing_item:
+                self.current_editing_item.setText(new_item_text)
+                self.current_editing_item = None  # Clear the editing reference
+            else:
+                # Add the new item if nothing is being edited
+                existing_items = [self.ui.editSubsetList.item(i).text()
+                                for i in range(self.ui.editSubsetList.count())]
+                
+                # Optional: Prevent duplicates
+                if new_item_text not in existing_items:
+                    self.ui.editSubsetList.addItem(new_item_text)
+
+        # Clear the input field after adding/editing the item
+        self.ui.editSubsetText.clear()
+
+
+    def delete_edit_list_item(self: Self, item: QListWidgetItem) -> None:
+        """Delete the specified item from editSubsetList."""
+        row = self.ui.editSubsetList.row(item)
+        self.ui.editSubsetList.takeItem(row)
+
+
+    def delete_combo_box(self: Self, combo_box: QComboBox) -> None:
+        """Delete the specified combo box from the allJournalSets list."""
+        for index in range(self.ui.allJournalSets.count()):
+            list_item = self.ui.allJournalSets.item(index)
+            if self.ui.allJournalSets.itemWidget(list_item) == combo_box:
+                self.ui.allJournalSets.takeItem(index)
+                break  # Exit loop after removing the item
+        
+
+    def add_a_set(self: Self) -> None:
+        """Create a single combo box containing all items from subsetList."""
+        # Create a new combo box
+        combo_box = QComboBox()
+        combo_box.setFixedWidth(440)  
+
+        # Add all items from subsetList to the combo box
+        for index in range(self.ui.subsetList.count()):
+            item_text = self.ui.subsetList.item(index).text()
+            combo_box.addItem(item_text)  
+
+        # To prevent user from clicking on subsets
+        combo_box.activated.connect(self.prevent_selection)
+        combo_box.setContextMenuPolicy(Qt.CustomContextMenu)
+        combo_box.customContextMenuRequested.connect(self.show_context_menu)
+
+        # Add the combo box to the allJournalSets list
+        list_item = QListWidgetItem()
+        list_item.setSizeHint(combo_box.sizeHint())  
+        self.ui.allJournalSets.addItem(list_item)
+        self.ui.allJournalSets.setItemWidget(list_item, combo_box)  
+
+        self.close_add_new_set()
+
+        # To avoid multiple connections
+        self.ui.newSetTitle.returnPressed.disconnect(self.add_or_edit_title)
+        self.ui.newSubsetText.returnPressed.disconnect(self.add_subset_text)
+        self.ui.addSetOKButton.clicked.disconnect(self.add_a_set)
+
+    def prevent_selection(self: Self, index: int) -> None:
+        """Ignore the selection to keep the combo box non-selectable.
+        
+        Since we need to select Journal Sets, this method is
+        necessary as there is no direct way of having a dropdown without being
+        able to select the items in it. This method ignores the mouse clicks on
+        the dropdown items and resets it back to the title.
+        """
+        combo_box = self.sender()
+        combo_box.setCurrentIndex(0)
+    
+
+    def close_add_new_set(self: Self) -> None:
+        """Close the Add a New Set page."""
+        self.ui.addNewSetWidget.setVisible(False)
+        # Clear the text fields
+        self.clear_add_new_set_items()
+
+    def clear_add_new_set_items(self: Self) -> None:
+        """Clear all input fields and the list in Add a New Set page."""
+        # Clear the text fields
+        self.ui.newSetTitle.clear()
+        self.ui.newSubsetText.clear()
+        self.ui.subsetList.clear()
+        # Reset the title flag
+        self.ui.title_set = False  # Reset title flag when clearing items
+
+
+    def add_or_edit_title(self: Self) ->None:
+        """Add a new title or edit if one already exists."""
+        title = self.ui.newSetTitle.text().strip()
+        if not title:
+            return  # Don't add an empty title
+        
+        # If the title is already set, modify the first item
+        if self.ui.title_set:
+            self.ui.subsetList.item(0).setText(title)
+        else:
+            # Add the new title as the first item in the list
+            title_item = QListWidgetItem(title)
+            self.ui.subsetList.insertItem(0, title_item)
+            self.ui.title_set = True  # Title has been set
+        
+        # Keep the text field unchanged
+        self.ui.newSetTitle.setText(title)
+
+    def add_subset_text(self: Self) -> None:
+        """Add new text to the subsetList."""
+        subset_text = self.ui.newSubsetText.text().strip()
+        if not subset_text:
+            return  # Don't add empty items
+        # Append new item to the list
+        subset_item = QListWidgetItem(subset_text)
+        self.ui.subsetList.addItem(subset_item)
+
+        # Clear the newSubsetText field after adding
+        self.ui.newSubsetText.clear()
+
+    def edit_subset_text(self: Self) -> None:
+        """Edit the text of an item in the subsetList."""
+        subset_text = self.ui.editSubsetText.text().strip()
+        if not subset_text:
+            return
+
+        subset_item = QListWidgetItem(subset_text)
+        self.ui.editSubsetList.addItem(subset_item)
+        self.ui.editSubsetText.clear()
+         
+    def edit_title(self: Self) -> None:
+        """Edit the title of the set."""
+        title = self.ui.editTitle.text().strip()
+        if not title:
+            return  # Don't add an empty title
+
+        # Assuming that title field is required when creating a New Set
+        self.ui.editSubsetList.item(0).setText(title)
 
     def setup_gpt_client(self: Self, api_key: str) -> None:
         """Set up the GPT client with the provided API key."""
@@ -392,35 +744,9 @@ f"""Retrieved {num_articles} articles
         if clicked_button == self.ui.pushButton_ClaudeSonnet:
             return
 
-    def open_file(self: Self) -> None:
-        """Open a file dialog and display the selected file path."""
-        file_names, _ = QFileDialog.getOpenFileNames(self,
-                                        "Open File",
-                                        JOURNALS_PATH,
-                                        "JSON Files (*.json);;All Files (*)")
-
-        if not file_names:
-            return  # If no file is selected, do nothing
-
-        for file_name in file_names:
-
-            # Check if the file extension is .json
-            if not file_name.endswith(".json"):
-                continue
-
-            # Open and read the JSON file
-            try:
-                with open(file_name) as file:
-                    data = json.load(file)
-                    self.populate_table(data)
-                self.uploadedJournals.append(file_name)
-            except Exception as e:
-                print(f"Error reading JSON file: {e}")
-
 
     def populate_table(self: Self, data: dict[str, Any]) -> None:
         """Populate the QTableWidget with data from the JSON file."""
-        # Check if your JSON file has the expected structure
         if "full-text-retrieval-response" in data:
             records = data["full-text-retrieval-response"]
             authors = records["coredata"]["dc:creator"]
