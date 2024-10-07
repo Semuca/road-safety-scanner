@@ -1,0 +1,17 @@
+{
+    "columns": [
+        {
+            "header": "Setting",
+            "query": "Can you say a single country to describe the setting the journal is analyzing? Say nothing else except the country."},
+        {
+            "header": "Type",
+            "query": "Can you say a maximum of 6 words to describe the type of data the journal is analyzing? Say nothing except the data type."},
+        {
+            "header": "Population",
+            "query": "Can you say a maximum of 6 words to describe the target population the journal is analyzing? Say nothing except the target population."},
+        {
+            "header": "Summary",
+            "query": "Can you summarize the journal in a paragraph? Say nothing except the paragraph."
+        }
+    ]
+}
