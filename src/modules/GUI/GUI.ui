@@ -533,7 +533,7 @@ QPushButton:Checked{
        <string>Setting:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="keyWordsLabel">
+     <widget class="QLabel" name="titleWordsLabel">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -546,7 +546,7 @@ QPushButton:Checked{
        <string notr="true">font: 700 12pt;</string>
       </property>
       <property name="text">
-       <string>Key Words:</string>
+       <string>Title Words</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="authorName">
@@ -608,7 +608,7 @@ QPushButton:Checked{
        </date>
       </property>
      </widget>
-     <widget class="QLineEdit" name="keyWords">
+     <widget class="QLineEdit" name="titleWords">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -630,7 +630,7 @@ QPushButton:Checked{
        <string/>
       </property>
       <property name="placeholderText">
-       <string>Enter key words separated by &quot;,&quot;</string>
+       <string>Enter title words separated by &quot;,&quot;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="setting">
@@ -834,6 +834,47 @@ font: 12pt &quot;Arial&quot;;</string>
      <zorder>publishYearTo</zorder>
      <zorder>comboBox</zorder>
      <zorder>publishYearFrom</zorder>
+     <widget class="QLineEdit" name="articleLimit">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>300</y>
+        <width>301</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 20px;  
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Enter a limit (Default is 100)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="articleLimitLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>270</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Article Search Limit</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="uploadJournal_2" native="true">
      <property name="geometry">
@@ -868,7 +909,7 @@ font: 12pt &quot;Arial&quot;;</string>
 }</string>
       </property>
       <property name="text">
-       <string>Search Journals</string>
+       <string>Search Articles</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="elsevierQuery">
@@ -889,7 +930,7 @@ font: 12pt &quot;Arial&quot;;</string>
 </string>
       </property>
       <property name="placeholderText">
-       <string>Search for a journal...</string>
+       <string>Search for an article...</string>
       </property>
      </widget>
      <widget class="QPushButton" name="downloadElsevierJournals">
@@ -1098,9 +1139,52 @@ font: 700 12pt</string>
       </column>
      </widget>
     </widget>
+    <widget class="QLabel" name="statusLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>545</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Text Label</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewLogButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>550</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color:white;
+	border-radius:10px;
+	font: 700 10pt;
+	background-color: rgb(8, 144, 196);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>View Error Log</string>
+     </property>
+    </widget>
     <zorder>uploadJournal_2</zorder>
     <zorder>results</zorder>
     <zorder>setFiltersPage</zorder>
+    <zorder>statusLabel</zorder>
+    <zorder>viewLogButton</zorder>
    </widget>
    <widget class="QWidget" name="setAIPage">
     <widget class="QLabel" name="label">
@@ -1282,7 +1366,7 @@ QPushButton:Checked{
 }</string>
       </property>
       <property name="text">
-       <string>Upload your journals here</string>
+       <string>Upload your articles here</string>
       </property>
      </widget>
      <widget class="QPushButton" name="uploadJournalButton">

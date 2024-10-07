@@ -153,11 +153,9 @@ class Ui_Dialog(object):
         self.keysButton.setCheckable(True)
         self.keysButton.setChecked(False)
         self.keysButton.setAutoExclusive(True)
-
         self.currentlyAI = QLabel(self.menuBar)
         self.currentlyAI.setObjectName(u"currentlyAI")
         self.currentlyAI.setGeometry(QRect(10, 50, 181, 16))
-
         self.searchButton.raise_()
         self.setAIButton.raise_()
         self.uploadButton.raise_()
@@ -166,7 +164,6 @@ class Ui_Dialog(object):
         self.selectTabIndicator.raise_()
         self.keysButton.raise_()
         self.currentlyAI.raise_()
-
         self.myQStackedWidget = QStackedWidget(Dialog)
         self.myQStackedWidget.setObjectName(u"myQStackedWidget")
         self.myQStackedWidget.setGeometry(QRect(60, 110, 711, 591))
@@ -270,10 +267,10 @@ class Ui_Dialog(object):
         self.settingLabel.setObjectName(u"settingLabel")
         self.settingLabel.setGeometry(QRect(40, 190, 71, 31))
         self.settingLabel.setStyleSheet(u"font: 700 12pt;")
-        self.keyWordsLabel = QLabel(self.setFiltersPage)
-        self.keyWordsLabel.setObjectName(u"keyWordsLabel")
-        self.keyWordsLabel.setGeometry(QRect(40, 110, 101, 31))
-        self.keyWordsLabel.setStyleSheet(u"font: 700 12pt;")
+        self.titleWordsLabel = QLabel(self.setFiltersPage)
+        self.titleWordsLabel.setObjectName(u"titleWordsLabel")
+        self.titleWordsLabel.setGeometry(QRect(40, 110, 101, 31))
+        self.titleWordsLabel.setStyleSheet(u"font: 700 12pt;")
         self.authorName = QLineEdit(self.setFiltersPage)
         self.authorName.setObjectName(u"authorName")
         self.authorName.setGeometry(QRect(30, 60, 261, 41))
@@ -292,13 +289,12 @@ class Ui_Dialog(object):
 "	background-color: rgb(255, 255, 255);\n"
 "	padding-left: 7px;\n"
 "}")
-
-        self.publishYearFrom.setDateTime(QDateTime(QDate(2014, 1, 1), QTime(0, 0, 0)))
+        self.publishYearFrom.setDateTime(QDateTime(QDate(2013, 12, 31), QTime(0, 0, 0)))
         self.publishYearFrom.setDate(QDate(2013, 12, 31))
-        self.keyWords = QLineEdit(self.setFiltersPage)
-        self.keyWords.setObjectName(u"keyWords")
-        self.keyWords.setGeometry(QRect(30, 140, 261, 41))
-        self.keyWords.setStyleSheet(u"QLineEdit{\n"
+        self.titleWords = QLineEdit(self.setFiltersPage)
+        self.titleWords.setObjectName(u"titleWords")
+        self.titleWords.setGeometry(QRect(30, 140, 261, 41))
+        self.titleWords.setStyleSheet(u"QLineEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	font: 12pt;\n"
 "	padding-left: 10px;\n"
@@ -351,8 +347,7 @@ class Ui_Dialog(object):
 "	background-color: rgb(255, 255, 255);\n"
 "	padding-left: 7px;\n"
 "}")
-
-        self.publishYearTo.setDateTime(QDateTime(QDate(2024, 1, 1), QTime(0, 0, 0)))
+        self.publishYearTo.setDateTime(QDateTime(QDate(2023, 12, 31), QTime(0, 0, 0)))
         self.publishYearTo.setDate(QDate(2023, 12, 31))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
         self.publishYearToLabel.setObjectName(u"publishYearToLabel")
@@ -376,12 +371,24 @@ class Ui_Dialog(object):
         self.publishYearToLabel_2.setObjectName(u"publishYearToLabel_2")
         self.publishYearToLabel_2.setGeometry(QRect(330, 110, 81, 31))
         self.publishYearToLabel_2.setStyleSheet(u"font: 700 12pt;")
+        self.articleLimit = QLineEdit(self.setFiltersPage)
+        self.articleLimit.setObjectName(u"articleLimit")
+        self.articleLimit.setGeometry(QRect(50, 300, 301, 41))
+        self.articleLimit.setStyleSheet(u"QLineEdit{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	font: 12pt;\n"
+"	padding-left: 10px;\n"
+"	border-radius: 20px;  \n"
+"}\n"
+"")
+        self.articleLimitLabel = QLabel(self.setFiltersPage)
+        self.articleLimitLabel.setObjectName(u"articleLimitLabel")
+        self.articleLimitLabel.setGeometry(QRect(60, 270, 121, 21))
+        self.articleLimitLabel.setStyleSheet(u"font: 700 12pt;")
         self.authorLabel.raise_()
         self.publishYearLabel.raise_()
         self.settingLabel.raise_()
-        self.keyWordsLabel.raise_()
         self.authorName.raise_()
-        self.keyWords.raise_()
         self.setting.raise_()
         self.setFiltersCloseButton.raise_()
         self.publishYearFromLabel.raise_()
@@ -520,10 +527,27 @@ class Ui_Dialog(object):
 "	color: rgb(113, 113, 113);\n"
 "}\n"
 "font: 700 12pt")
+        self.statusLabel = QLabel(self.searchPage)
+        self.statusLabel.setObjectName(u"statusLabel")
+        self.statusLabel.setEnabled(False)
+        self.statusLabel.setGeometry(QRect(130, 545, 331, 31))
+        self.viewLogButton = QPushButton(self.searchPage)
+        self.viewLogButton.setObjectName(u"viewLogButton")
+        self.viewLogButton.setEnabled(False)
+        self.viewLogButton.setGeometry(QRect(490, 550, 91, 31))
+        self.viewLogButton.setStyleSheet(u"QPushButton{\n"
+"	color:white;\n"
+"	border-radius:10px;\n"
+"	font: 700 10pt;\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"")
         self.myQStackedWidget.addWidget(self.searchPage)
         self.uploadJournal_2.raise_()
         self.results.raise_()
         self.setFiltersPage.raise_()
+        self.statusLabel.raise_()
+        self.viewLogButton.raise_()
         self.setAIPage = QWidget()
         self.setAIPage.setObjectName(u"setAIPage")
         self.label = QLabel(self.setAIPage)
@@ -1236,7 +1260,6 @@ class Ui_Dialog(object):
         self.resultsButton.setText(QCoreApplication.translate("Dialog", u"Results", None))
         self.keysButton.setText(QCoreApplication.translate("Dialog", u"Keys", None))
         self.currentlyAI.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-  
         self.keysListTag.setText(QCoreApplication.translate("Dialog", u"Keys", None))
         self.elsevierKeyEntry.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key here...", None))
         self.elsevierKeyLabel.setText(QCoreApplication.translate("Dialog", u"ELSEVIER_API_KEY", None))
@@ -1247,11 +1270,11 @@ class Ui_Dialog(object):
         self.authorLabel.setText(QCoreApplication.translate("Dialog", u"Author:", None))
         self.publishYearLabel.setText(QCoreApplication.translate("Dialog", u"Publish Year:", None))
         self.settingLabel.setText(QCoreApplication.translate("Dialog", u"Setting:", None))
-        self.keyWordsLabel.setText(QCoreApplication.translate("Dialog", u"Key Words:", None))
+        self.titleWordsLabel.setText(QCoreApplication.translate("Dialog", u"Title Words", None))
         self.authorName.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter Author's Name...", None))
         self.publishYearFrom.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy", None))
-        self.keyWords.setText("")
-        self.keyWords.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key words separated by \",\"", None))
+        self.titleWords.setText("")
+        self.titleWords.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter title words separated by \",\"", None))
         self.setting.setText("")
         self.setting.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter a country", None))
         self.setFiltersCloseButton.setText(QCoreApplication.translate("Dialog", u"Filter", None))
@@ -1262,8 +1285,11 @@ class Ui_Dialog(object):
         self.comboBox.setItemText(1, QCoreApplication.translate("Dialog", u"Add a new Set", None))
 
         self.publishYearToLabel_2.setText(QCoreApplication.translate("Dialog", u"Sets:", None))
-        self.searchJournalsLabel.setText(QCoreApplication.translate("Dialog", u"Search Journals", None))
-        self.elsevierQuery.setPlaceholderText(QCoreApplication.translate("Dialog", u"Search for a journal...", None))
+        self.articleLimit.setText("")
+        self.articleLimit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter a limit (Default is 100)", None))
+        self.articleLimitLabel.setText(QCoreApplication.translate("Dialog", u"Article Search Limit", None))
+        self.searchJournalsLabel.setText(QCoreApplication.translate("Dialog", u"Search Articles", None))
+        self.elsevierQuery.setPlaceholderText(QCoreApplication.translate("Dialog", u"Search for an article...", None))
         self.downloadElsevierJournals.setText(QCoreApplication.translate("Dialog", u"Download", None))
         self.searchElsevierJournals.setText(QCoreApplication.translate("Dialog", u"Search", None))
         self.setFiltersButton.setText(QCoreApplication.translate("Dialog", u"Set Filters", None))
@@ -1276,12 +1302,14 @@ class Ui_Dialog(object):
         ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
         ___qtablewidgetitem3 = self.setsLabel.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"DATE", None));
+        self.statusLabel.setText(QCoreApplication.translate("Dialog", u"Text Label", None))
+        self.viewLogButton.setText(QCoreApplication.translate("Dialog", u"View Error Log", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Select your AI:", None))
         self.pushButton_ChatGpt.setText(QCoreApplication.translate("Dialog", u"GPT-4o mini", None))
         self.pushButton_Llama8b.setText(QCoreApplication.translate("Dialog", u"Llama 3.1-8B", None))
         self.pushButton_Llama405b.setText(QCoreApplication.translate("Dialog", u"Llama 3.1-405B", None))
         self.pushButton_ClaudeSonnet.setText(QCoreApplication.translate("Dialog", u"Claude 3.5 Sonnet", None))
-        self.uploadJournalLabel.setText(QCoreApplication.translate("Dialog", u"Upload your journals here", None))
+        self.uploadJournalLabel.setText(QCoreApplication.translate("Dialog", u"Upload your articles here", None))
         self.uploadJournalButton.setText(QCoreApplication.translate("Dialog", u"Upload", None))
         self.uploadedListLabel.setText(QCoreApplication.translate("Dialog", u"Uploaded List:", None))
         ___qtablewidgetitem4 = self.journalListTableWidget.horizontalHeaderItem(0)

@@ -1,10 +1,13 @@
 """Main application file for the Road Safety Scanner application."""
 import json
 import os
+import subprocess
+import sys
+from datetime import datetime
 from typing import Any, Callable, Self
 
-from PySide6.QtCore import QRect, Qt
-from PySide6.QtGui import QMouseEvent, QPainter
+from PySide6.QtCore import QDate, QRect, Qt
+from PySide6.QtGui import QIntValidator, QMouseEvent, QPainter
 from PySide6.QtWidgets import (
     QComboBox,
     QFileDialog,
@@ -189,6 +192,24 @@ class MainWindow(QMainWindow):
                                              QSizePolicy.Fixed)
         self.ui.comboBox.activated.connect(self.on_add_new_set)
         self.ui.setFiltersCloseButton.clicked.connect(self.get_set)
+
+        # Hide the status label for the number of articles retrieved from
+        # the search at the start
+        self.ui.statusLabel.setVisible(False)
+
+        # Set a validator to ensure only integers can be entered
+        int_validator = QIntValidator(1, 1000000000, self)
+        self.ui.articleLimit.setValidator(int_validator)
+        # set the default value to 100
+        self.ui.articleLimit.setText("100")
+
+        # Hide the error log button at the start
+        self.ui.viewLogButton.setVisible(False)
+
+        # Set default publication year range
+        current_year = datetime.now().year
+        self.ui.publishYearFrom.setDate(QDate(current_year - 1, 1, 1))
+        self.ui.publishYearTo.setDate(QDate(current_year, 1, 1))
 
 
     def get_set(self: Self) -> None:
@@ -578,46 +599,60 @@ class MainWindow(QMainWindow):
         """Get the Elsevier query from the search page input."""
         query_parts = []
 
+        # Get the keyword search
         keyword_search = self.ui.elsevierQuery.text()
-        if (keyword_search != ""):
+        if keyword_search != "":
             query_parts.append(f"TITLE-ABS-KEY({keyword_search})")
 
+        # Get the author name
         author = self.ui.authorName.text()
-        if (author != ""):
+        if author != "":
             query_parts.append(f"AUTHOR-NAME({author})")
 
+        # Get the publication year range
         publish_date_from = int(self.ui.publishYearFrom.date().toString("yyyy"))
         publish_date_to = int(self.ui.publishYearTo.date().toString("yyyy"))
-
-        ref_pub_year_list = [f"REFPUBYEAR IS {year}" for year in
-                          range(publish_date_from, publish_date_to + 1)]
+        ref_pub_year_list = [f"REFPUBYEAR IS {year}"
+                             for year in
+                             range(publish_date_from, publish_date_to + 1)]
         pub_year_query_part = " OR ".join(ref_pub_year_list)
         query_parts.append(f"({pub_year_query_part})")
-        
-        key_words = self.ui.keyWords.text()
-        if (key_words != ""):
-            query_parts.append(f"KEY({key_words})")
-            
+
+        # Get the additional keywords
+        title_words = self.ui.titleWords.text()
+        if title_words != "":
+            query_parts.append(f"TITLE({title_words})")
+
+        # Get the country setting
         setting = self.ui.setting.text()
-        if (setting != ""):
+        if setting != "":
             query_parts.append(f"AFFILCOUNTRY({setting})")
 
-        if (len(query_parts) == 0):
-            return
-        
+        # Build the final query
         query = " AND ".join(query_parts)
 
-        self.queryProgressDialog = QProgressDialog("Processing...", "Cancel",
-                                                   0, 100, self)
+        # Get the limit value from the QLineEdit and ensure it is an integer
+        limit_value_text = self.ui.articleLimit.text()
+        if limit_value_text == "" or not limit_value_text.isdigit():
+            limit_value = 100  # Default to 100
+        else:
+            limit_value = int(limit_value_text)
+
+        # Create and start the query thread
+        self.queryProgressDialog = QProgressDialog(
+            "Processing...", "Cancel", 0, 100, self)
         self.queryProgressDialog.setWindowModality(Qt.WindowModal)
         self.queryProgressDialog.setAutoClose(True)
         self.queryProgressDialog.setValue(0)
 
+        # Pass the limit to the query thread
         self.querySignal = QueryElsevierThread(
-            api_key=self.keys["ELSEVIER_API_KEY"], query=query)
+            api_key=self.keys["ELSEVIER_API_KEY"],
+            query=query, limit=limit_value)
         self.querySignal.progress_signal.connect(self.on_query_update_progress)
         self.querySignal.finished_signal.connect(self.on_query_finished)
         self.querySignal.start()
+
 
     def on_query_update_progress(self: Self, progress: int) -> None:
         """Update the progress of the query."""
@@ -630,20 +665,57 @@ class MainWindow(QMainWindow):
         self.queryResults = query_results
         self.ui.searchListTableWidget.setRowCount(0)
 
+        # Display the number of articles retrieved
+        num_articles = len(self.queryResults)
+        self.ui.statusLabel.setVisible(True)
+        self.ui.statusLabel.setText(
+f"""Retrieved {num_articles} articles
+(limited to {self.ui.articleLimit.text()} results)""")
+
         # Add a new row for each record
         for result in self.queryResults:
             row_position = self.ui.searchListTableWidget.rowCount()
             self.ui.searchListTableWidget.insertRow(row_position)
 
             self.ui.searchListTableWidget.setItem(row_position, 0,
-                                                  QTableWidgetItem(result.author))
+                                                QTableWidgetItem(result.author))
             self.ui.searchListTableWidget.setItem(row_position, 1,
-                                                  QTableWidgetItem(result.title))
+                                                QTableWidgetItem(result.title))
             self.ui.searchListTableWidget.setItem(row_position, 2,
-                                                  QTableWidgetItem(result.doi))
+                                                QTableWidgetItem(result.doi))
             self.ui.searchListTableWidget.setItem(row_position, 3,
-                                                  QTableWidgetItem(result.date))
+                                                QTableWidgetItem(result.date))
         self.queryProgressDialog.close()
+
+    def on_query_errors(self: Self, error_count: int) -> None:
+        """Display how many errors occurred during the query."""
+        if error_count > 0:
+            self.ui.statusLabel.setText(
+            f"{error_count} errors occurred. Check error_log.txt for details.")
+            self.ui.viewLogButton.setVisible(True)
+            self.ui.viewLogButton.clicked.connect(self.open_log_file)
+
+    def open_log_file(self: Self) -> None:
+        """Open the error log file."""
+        log_file_path = "error_log.txt"
+        
+        if os.path.exists(log_file_path):
+            try:
+                if sys.platform == "win32":
+                    # Windows
+                    os.startfile(log_file_path)
+                elif sys.platform == "darwin":
+                    # macOS
+                    subprocess.run(["open", log_file_path])
+                else:
+                    # Linux and other platforms
+                    subprocess.run(["xdg-open", log_file_path])
+            except Exception as e:
+                self.ui.statusLabel.setText(f"Could not open log file: {e}")
+        else:
+            self.ui.statusLabel.setText("No error log found.")
+
+
     
     # Downloads the journals from the search page
     def on_download_journals(self: Self) -> None:
