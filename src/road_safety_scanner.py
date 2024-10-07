@@ -167,8 +167,6 @@ class MainWindow(QMainWindow):
         
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
-        
-
 
     def setup_gpt_client(self: Self, api_key: str) -> None:
         """Set up the GPT client with the provided API key."""
