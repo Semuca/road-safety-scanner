@@ -175,6 +175,7 @@ class MainWindow(QMainWindow):
         self.selectedAILabel.setStyleSheet("font-size: 16px; color: black;") 
         
 
+
     def setup_gpt_client(self: Self, api_key: str) -> None:
         """Set up the GPT client with the provided API key."""
         self.gptClient = LLMClient("gpt-4o-mini", api_key)
