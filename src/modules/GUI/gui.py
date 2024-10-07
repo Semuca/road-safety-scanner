@@ -153,6 +153,11 @@ class Ui_Dialog(object):
         self.keysButton.setCheckable(True)
         self.keysButton.setChecked(False)
         self.keysButton.setAutoExclusive(True)
+
+        self.currentlyAI = QLabel(self.menuBar)
+        self.currentlyAI.setObjectName(u"currentlyAI")
+        self.currentlyAI.setGeometry(QRect(10, 50, 181, 16))
+
         self.searchButton.raise_()
         self.setAIButton.raise_()
         self.uploadButton.raise_()
@@ -160,6 +165,8 @@ class Ui_Dialog(object):
         self.resultsButton.raise_()
         self.selectTabIndicator.raise_()
         self.keysButton.raise_()
+        self.currentlyAI.raise_()
+
         self.myQStackedWidget = QStackedWidget(Dialog)
         self.myQStackedWidget.setObjectName(u"myQStackedWidget")
         self.myQStackedWidget.setGeometry(QRect(60, 110, 711, 591))
@@ -285,6 +292,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
+
         self.publishYearFrom.setDateTime(QDateTime(QDate(2014, 1, 1), QTime(0, 0, 0)))
         self.publishYearFrom.setDate(QDate(2013, 12, 31))
         self.keyWords = QLineEdit(self.setFiltersPage)
@@ -341,6 +349,7 @@ class Ui_Dialog(object):
 "	\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
+
         self.publishYearTo.setDateTime(QDateTime(QDate(2024, 1, 1), QTime(0, 0, 0)))
         self.publishYearTo.setDate(QDate(2023, 12, 31))
         self.publishYearToLabel = QLabel(self.setFiltersPage)
@@ -947,6 +956,8 @@ class Ui_Dialog(object):
         self.title.setText(QCoreApplication.translate("Dialog", u"Drive AI", None))
         self.resultsButton.setText(QCoreApplication.translate("Dialog", u"Results", None))
         self.keysButton.setText(QCoreApplication.translate("Dialog", u"Keys", None))
+        self.currentlyAI.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
+  
         self.keysListTag.setText(QCoreApplication.translate("Dialog", u"Keys", None))
         self.elsevierKeyEntry.setPlaceholderText(QCoreApplication.translate("Dialog", u"Enter key here...", None))
         self.elsevierKeyLabel.setText(QCoreApplication.translate("Dialog", u"ELSEVIER_API_KEY", None))
