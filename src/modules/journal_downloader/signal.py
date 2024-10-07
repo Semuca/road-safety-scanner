@@ -1,6 +1,7 @@
 """Signals for updating the query progress bar in the GUI."""
 
 import json
+import logging
 import time
 import urllib.error
 import urllib.parse
@@ -25,14 +26,6 @@ class QueryElsevierResult:
         self.author = author
         self.date = date
 
-import logging
-
-import logging
-import os
-import urllib.request
-import urllib.error
-import json
-import time
 
 class QueryElsevierThread(QThread):
     """A thread for querying the Elsevier API with progress updates."""
@@ -53,9 +46,9 @@ class QueryElsevierThread(QThread):
 
         # Setup logging for error logging
         logging.basicConfig(
-            filename='error_log.txt',  # The log file where errors are stored
-            filemode='w',              # 'w' to overwrite each time; use 'a' to append
-            format='%(asctime)s - %(levelname)s - %(message)s',
+            filename="error_log.txt",  # The log file where errors are stored
+            filemode="w",     # 'w' to overwrite each time; use 'a' to append
+            format="%(asctime)s - %(levelname)s - %(message)s",
             level=logging.ERROR
         )
 
@@ -71,7 +64,8 @@ class QueryElsevierThread(QThread):
 
         try:
             response = urllib.request.urlopen(request).read().decode("utf-8")
-            total_results = int(json.loads(response)["search-results"]["opensearch:totalResults"])
+            total_results = int(
+                json.loads(response)["search-results"]["opensearch:totalResults"])
         except Exception as e:
             error_message = f"Failed to retrieve total results: {e}"
             logging.error(error_message)  # Log error to file
@@ -80,24 +74,30 @@ class QueryElsevierThread(QThread):
         # Fetch results up to the specified limit
         while len(results) < min(self.limit, total_results):
             try:
-                # Adjust the start position for pagination, considering the current number of results fetched
+                # Adjust the start position for pagination,
+                # considering the current number of results fetched
                 request = urllib.request.Request(
                     f"{elsevier_api}/search/scopus?query={query}&start={len(results)}",
-                    headers={"Accept": "application/json", "X-ELS-APIKey": self.apiKey})
+                    headers={"Accept": "application/json",
+                             "X-ELS-APIKey": self.apiKey})
 
-                searched_journals = json.loads(urllib.request.urlopen(request).read().decode("utf-8"))
+                searched_journals = json.loads(
+                    urllib.request.urlopen(request).read().decode("utf-8"))
                 for journal in searched_journals["search-results"]["entry"]:
-                    if len(results) >= self.limit:  # Stop fetching if the limit is reached
+                    # Stop fetching if the limit is reached
+                    if len(results) >= self.limit:
                         break
 
                     doi = journal.get("prism:doi", "No DOI")
                     title = journal.get("dc:title", "No Title")
                     author = journal.get("dc:creator", "No Author")
                     date = journal.get("prism:coverDisplayDate", "No Date")
-                    results.append(QueryElsevierResult(doi, title, author, date))
+                    results.append(
+                        QueryElsevierResult(doi, title, author, date))
 
                 # Update progress (relative to the limit)
-                self.progress_signal.emit(int((len(results) / self.limit) * 100))
+                self.progress_signal.emit(
+                    int((len(results) / self.limit) * 100))
 
             except urllib.error.HTTPError as e:
                 error_message = f"HTTP error: {e}"

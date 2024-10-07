@@ -1,14 +1,13 @@
 """Main application file for the Road Safety Scanner application."""
 import json
-from typing import Any, Callable, Self
 import os
 import subprocess
 import sys
 from datetime import datetime
+from typing import Any, Callable, Self
 
-
-from PySide6.QtCore import QRect, Qt, QDate
-from PySide6.QtGui import QMouseEvent, QPainter, QIntValidator
+from PySide6.QtCore import QDate, QRect, Qt
+from PySide6.QtGui import QIntValidator, QMouseEvent, QPainter
 from PySide6.QtWidgets import (
     QFileDialog,
     QHeaderView,
@@ -86,9 +85,11 @@ class MainWindow(QMainWindow):
 
         # Hide Filter Page
         self.ui.setFiltersPage.setVisible(False)
+
+        # Check its own visibility
         self.ui.setFiltersCloseButton.clicked.connect(
             lambda: self.ui.setFiltersPage.setVisible(
-                not self.ui.setFiltersPage.isVisible()))  # Check its own visibility
+                not self.ui.setFiltersPage.isVisible()))
 
 
         # Setup Add Column Page Modal
@@ -174,11 +175,12 @@ class MainWindow(QMainWindow):
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
 
-        # Hide the status label for the number of articles retrieved from the search at the start
+        # Hide the status label for the number of articles retrieved from
+        # the search at the start
         self.ui.statusLabel.setVisible(False)
 
         # Set a validator to ensure only integers can be entered
-        int_validator = QIntValidator(1, 1000000000, self)  # Allow integers between 1 and 1000000000
+        int_validator = QIntValidator(1, 1000000000, self)
         self.ui.articleLimit.setValidator(int_validator)
         # set the default value to 100
         self.ui.articleLimit.setText("100")
@@ -188,8 +190,8 @@ class MainWindow(QMainWindow):
 
         # Set default publication year range
         current_year = datetime.now().year
-        self.ui.publishYearFrom.setDate(QDate(current_year - 1, 1, 1))  # From year = current year - 1
-        self.ui.publishYearTo.setDate(QDate(current_year, 1, 1))        # To year = current year
+        self.ui.publishYearFrom.setDate(QDate(current_year - 1, 1, 1))
+        self.ui.publishYearTo.setDate(QDate(current_year, 1, 1))
 
 
     def setup_gpt_client(self: Self, api_key: str) -> None:
@@ -257,7 +259,9 @@ class MainWindow(QMainWindow):
         # Get the publication year range
         publish_date_from = int(self.ui.publishYearFrom.date().toString("yyyy"))
         publish_date_to = int(self.ui.publishYearTo.date().toString("yyyy"))
-        ref_pub_year_list = [f"REFPUBYEAR IS {year}" for year in range(publish_date_from, publish_date_to + 1)]
+        ref_pub_year_list = [f"REFPUBYEAR IS {year}"
+                             for year in
+                             range(publish_date_from, publish_date_to + 1)]
         pub_year_query_part = " OR ".join(ref_pub_year_list)
         query_parts.append(f"({pub_year_query_part})")
 
@@ -275,21 +279,23 @@ class MainWindow(QMainWindow):
         query = " AND ".join(query_parts)
 
         # Get the limit value from the QLineEdit and ensure it is an integer
-        limit_value_text = self.ui.articleLimit.text()  # Get the input value from the limit QLineEdit
+        limit_value_text = self.ui.articleLimit.text()
         if limit_value_text == "" or not limit_value_text.isdigit():
-            limit_value = 100  # Default to 100 if no value or invalid input is provided
+            limit_value = 100  # Default to 100
         else:
             limit_value = int(limit_value_text)
 
         # Create and start the query thread
-        self.queryProgressDialog = QProgressDialog("Processing...", "Cancel", 0, 100, self)
+        self.queryProgressDialog = QProgressDialog(
+            "Processing...", "Cancel", 0, 100, self)
         self.queryProgressDialog.setWindowModality(Qt.WindowModal)
         self.queryProgressDialog.setAutoClose(True)
         self.queryProgressDialog.setValue(0)
 
         # Pass the limit to the query thread
         self.querySignal = QueryElsevierThread(
-            api_key=self.keys["ELSEVIER_API_KEY"], query=query, limit=limit_value)
+            api_key=self.keys["ELSEVIER_API_KEY"],
+            query=query, limit=limit_value)
         self.querySignal.progress_signal.connect(self.on_query_update_progress)
         self.querySignal.finished_signal.connect(self.on_query_finished)
         self.querySignal.start()
@@ -309,7 +315,9 @@ class MainWindow(QMainWindow):
         # Display the number of articles retrieved
         num_articles = len(self.queryResults)
         self.ui.statusLabel.setVisible(True)
-        self.ui.statusLabel.setText(f"Retrieved {num_articles} articles \n(limited to {self.ui.articleLimit.text()} results)")
+        self.ui.statusLabel.setText(
+f"""Retrieved {num_articles} articles
+(limited to {self.ui.articleLimit.text()} results)""")
 
         # Add a new row for each record
         for result in self.queryResults:
@@ -326,32 +334,29 @@ class MainWindow(QMainWindow):
                                                 QTableWidgetItem(result.date))
         self.queryProgressDialog.close()
 
-    def on_query_update_progress(self: Self, progress: int) -> None:
-        """Update the progress of the query."""
-        self.queryProgressDialog.setValue(progress)
-
     def on_query_errors(self: Self, error_count: int) -> None:
         """Display how many errors occurred during the query."""
         if error_count > 0:
-            self.ui.statusLabel.setText(f"{error_count} errors occurred. Check error_log.txt for details.")
+            self.ui.statusLabel.setText(
+            f"{error_count} errors occurred. Check error_log.txt for details.")
             self.ui.viewLogButton.setVisible(True)
             self.ui.viewLogButton.clicked.connect(self.open_log_file)
 
     def open_log_file(self: Self) -> None:
         """Open the error log file."""
-        log_file_path = 'error_log.txt'
+        log_file_path = "error_log.txt"
         
         if os.path.exists(log_file_path):
             try:
-                if sys.platform == 'win32':
+                if sys.platform == "win32":
                     # Windows
                     os.startfile(log_file_path)
-                elif sys.platform == 'darwin':
+                elif sys.platform == "darwin":
                     # macOS
-                    subprocess.run(['open', log_file_path])
+                    subprocess.run(["open", log_file_path])
                 else:
                     # Linux and other platforms
-                    subprocess.run(['xdg-open', log_file_path])
+                    subprocess.run(["xdg-open", log_file_path])
             except Exception as e:
                 self.ui.statusLabel.setText(f"Could not open log file: {e}")
         else:
