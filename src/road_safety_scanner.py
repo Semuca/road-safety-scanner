@@ -211,7 +211,6 @@ class MainWindow(QMainWindow):
         self.ui.publishYearFrom.setDate(QDate(current_year - 1, 1, 1))
         self.ui.publishYearTo.setDate(QDate(current_year, 1, 1))
 
-
     def get_set(self: Self) -> None:
         """Return full Set items when called."""
         sets_file = "src/modules/GUI/sets.json"

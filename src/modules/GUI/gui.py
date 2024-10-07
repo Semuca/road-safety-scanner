@@ -156,6 +156,8 @@ class Ui_Dialog(object):
         self.currentlyAI = QLabel(self.menuBar)
         self.currentlyAI.setObjectName(u"currentlyAI")
         self.currentlyAI.setGeometry(QRect(10, 50, 181, 16))
+
+
         self.searchButton.raise_()
         self.setAIButton.raise_()
         self.uploadButton.raise_()
@@ -164,6 +166,7 @@ class Ui_Dialog(object):
         self.selectTabIndicator.raise_()
         self.keysButton.raise_()
         self.currentlyAI.raise_()
+
         self.myQStackedWidget = QStackedWidget(Dialog)
         self.myQStackedWidget.setObjectName(u"myQStackedWidget")
         self.myQStackedWidget.setGeometry(QRect(60, 110, 711, 591))

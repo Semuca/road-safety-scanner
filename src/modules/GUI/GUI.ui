@@ -875,6 +875,47 @@ font: 12pt &quot;Arial&quot;;</string>
        <string>Article Search Limit</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="articleLimit">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>300</y>
+        <width>301</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 20px;  
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Enter a limit (Default is 100)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="articleLimitLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>270</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Article Search Limit</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="uploadJournal_2" native="true">
      <property name="geometry">
