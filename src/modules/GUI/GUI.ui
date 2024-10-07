@@ -295,7 +295,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="keysPage">
     <widget class="QWidget" name="keysList" native="true">
@@ -820,12 +820,55 @@ font: 12pt &quot;Arial&quot;;</string>
        <string>Sets:</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="articleLimit">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>300</y>
+        <width>301</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	font: 12pt;
+	padding-left: 10px;
+	border-radius: 20px;  
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Enter a limit (Default is 100)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="articleLimitLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>270</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt;</string>
+      </property>
+      <property name="text">
+       <string>Article Search Limit</string>
+      </property>
+     </widget>
+     <zorder>titleWordsLabel</zorder>
+     <zorder>titleWords</zorder>
+     <zorder>articleLimit</zorder>
+     <zorder>articleLimitLabel</zorder>
      <zorder>authorLabel</zorder>
      <zorder>publishYearLabel</zorder>
      <zorder>settingLabel</zorder>
-     <zorder>keyWordsLabel</zorder>
      <zorder>authorName</zorder>
-     <zorder>keyWords</zorder>
      <zorder>setting</zorder>
      <zorder>setFiltersCloseButton</zorder>
      <zorder>publishYearFromLabel</zorder>
@@ -834,88 +877,6 @@ font: 12pt &quot;Arial&quot;;</string>
      <zorder>publishYearTo</zorder>
      <zorder>comboBox</zorder>
      <zorder>publishYearFrom</zorder>
-     <widget class="QLineEdit" name="articleLimit">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>300</y>
-        <width>301</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit{
-	background-color: rgb(255, 255, 255);
-	font: 12pt;
-	padding-left: 10px;
-	border-radius: 20px;  
-}
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Enter a limit (Default is 100)</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="articleLimitLabel">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>270</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 700 12pt;</string>
-      </property>
-      <property name="text">
-       <string>Article Search Limit</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="articleLimit">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>300</y>
-        <width>301</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit{
-	background-color: rgb(255, 255, 255);
-	font: 12pt;
-	padding-left: 10px;
-	border-radius: 20px;  
-}
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Enter a limit (Default is 100)</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="articleLimitLabel">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>270</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 700 12pt;</string>
-      </property>
-      <property name="text">
-       <string>Article Search Limit</string>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="uploadJournal_2" native="true">
      <property name="geometry">
@@ -1143,7 +1104,7 @@ QPushButton:hover{
        <string>Results</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="setsLabel">
+     <widget class="QTableWidget" name="searchListTableWidget">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -2075,7 +2036,7 @@ QPushButton:Checked{
      <widget class="QPushButton" name="exportResultsButton">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>310</x>
         <y>40</y>
         <width>101</width>
         <height>41</height>
