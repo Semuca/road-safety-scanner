@@ -374,6 +374,9 @@ f"""Retrieved {num_articles} articles
         """Set the API key for the GPT model."""
         clicked_button = self.sender()
 
+        # Update the currentlyAI label to display the selected AI
+        self.ui.currentlyAI.setText(f"Current AI: {clicked_button.text()}")
+
         # Set the API key based on the button clicked
         if clicked_button == self.ui.pushButton_ChatGpt:
             self.selected_ai = self.gptClient
