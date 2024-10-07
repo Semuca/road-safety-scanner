@@ -1,5 +1,4 @@
 """Main application file for the Road Safety Scanner application."""
-import contextlib
 import json
 import os
 from typing import Any, Callable, Self
@@ -25,7 +24,6 @@ from .modules.exporter import (
 )
 from .modules.GUI import Ui_Dialog
 from .modules.journal_downloader.downloader import (
-    JOURNALS_PATH,
     download_journals,
 )
 from .modules.journal_downloader.signal import QueryElsevierThread
@@ -176,9 +174,9 @@ class MainWindow(QMainWindow):
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
 
         # If sets.json does not exists then it creates an empty .json file
-        file_path = 'src/modules/GUI/sets.json'
+        file_path = "src/modules/GUI/sets.json"
         if not os.path.exists(file_path):
-            with open(file_path, 'w') as json_file:
+            with open(file_path, "w") as json_file:
                 json.dump([], json_file)
         # Load pre-existing sets from sets.json
         self.load_sets_from_json()
@@ -193,24 +191,24 @@ class MainWindow(QMainWindow):
         self.ui.setFiltersCloseButton.clicked.connect(self.get_set)
 
 
-    def get_set(self) -> None:
-        """Returns full Set items when called"""
-        sets_file = 'src/modules/GUI/sets.json'
-        with open (sets_file, 'r') as file:
+    def get_set(self: Self) -> None:
+        """Return full Set items when called."""
+        sets_file = "src/modules/GUI/sets.json"
+        with open (sets_file) as file:
             sets = json.load(file)
 
         selected_set = self.ui.comboBox.currentText()
         for a_set in sets:
-            if a_set['items'][0] == selected_set:
-                print(a_set)   # Print statement for others to see what this function returns. Remove later
-                return a_set['items']  # Return the entire list
-        return []  # Shouldn't reach here but if match is not found return empty list
+            if a_set["items"][0] == selected_set:
+                return a_set["items"]  # Return the entire list
+            
+        # Shouldn't reach here but if match is not found return empty list
+        return []
 
 
-    def load_sets_from_json(self) -> None:
-        """Load sets from the JSON file and pre-populate 'allJournalSets' Page"""
-
-        with open('src/modules/GUI/sets.json', 'r') as f:
+    def load_sets_from_json(self: Self) -> None:
+        """Load sets from the JSON file and pre-populate allJournalSets page."""
+        with open("src/modules/GUI/sets.json") as f:
             data = json.load(f)
 
         # Clear existing items in allJournalSets if necessary
@@ -220,7 +218,7 @@ class MainWindow(QMainWindow):
         for set_data in data:
             combo_box = QComboBox()
             combo_box.setFixedWidth(440)
-            for item in set_data['items']: 
+            for item in set_data["items"]: 
                 combo_box.addItem(item)
             # Set context menu policy and connect the custom context menu
             combo_box.setContextMenuPolicy(Qt.CustomContextMenu)
@@ -237,14 +235,16 @@ class MainWindow(QMainWindow):
 
     def save_sets(self: Self) -> None:
         """Save the current journal sets to sets.json file."""
-        file_path = 'src/modules/GUI/sets.json'
+        file_path = "src/modules/GUI/sets.json"
         sets = []
         for index in range(self.ui.allJournalSets.count()):
             list_item = self.ui.allJournalSets.item(index)
             combo_box = self.ui.allJournalSets.itemWidget(list_item)
-            items = [combo_box.itemText(i) for i in range(combo_box.count())] # Get all the items from the combo box
-            sets.append({'items': items})
-        with open(file_path, 'w') as json_file:
+
+            # Get all the items from the combo box
+            items = [combo_box.itemText(i) for i in range(combo_box.count())]
+            sets.append({"items": items})
+        with open(file_path, "w") as json_file:
             json.dump(sets, json_file)
 
 
@@ -297,8 +297,10 @@ class MainWindow(QMainWindow):
 
     def show_context_menu(self: Self, pos: int)-> None:
         """Show context menu for the combo box.
+
         This enables right clicking on the combo boxes 
-        to allow 'edit' and 'delete' features of Sets"""
+        to allow 'edit' and 'delete' features of Sets
+        """
         combo_box = self.sender()
         
         # Create the context menu
@@ -340,8 +342,10 @@ class MainWindow(QMainWindow):
     
 
     def confirm_set_changes(self: Self) -> None:
-        """This function updates the 'allJournalSets' page when
-        user presses 'Save' on the Edit Set page"""
+        """Update the allJournalSets page.
+        
+        Usually called when user presses 'Save' on the Edit Set page
+        """
         if self.current_combo_box is None:
             return
         self.current_combo_box.clear()
@@ -354,8 +358,7 @@ class MainWindow(QMainWindow):
             
 
     def show_edit_list_context_menu(self: Self, pos: int) -> None:
-        """This function enables the user of right clicking on combo boxes
-        in the Edit Sets page"""
+        """Show the context menu for the editSubsetList."""
         list_widget = self.ui.editSubsetList
         item = list_widget.itemAt(pos)
         if item:
@@ -475,7 +478,7 @@ class MainWindow(QMainWindow):
 
 
     def add_or_edit_title(self: Self) ->None:
-        """Adds a new title or edits if one already exists"""
+        """Add a new title or edit if one already exists."""
         title = self.ui.newSetTitle.text().strip()
         if not title:
             return  # Don't add an empty title
