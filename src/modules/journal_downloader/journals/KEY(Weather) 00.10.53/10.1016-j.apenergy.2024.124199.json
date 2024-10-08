@@ -1,0 +1,1436 @@
+{"full-text-retrieval-response": {
+    "scopus-eid": "2-s2.0-85201187050",
+    "originalText": "serial JL 271429 291210 291702 291731 291787 291877 291878 291881 31 Applied Energy APPLIEDENERGY 2024-08-18 2024-08-18 2024-08-18 2024-08-18 2024-08-22T07:14:41 1-s2.0-S0306261924015824 S0306-2619(24)01582-4 S0306261924015824 10.1016/j.apenergy.2024.124199 S250 S250.2 FULL-TEXT 1-s2.0-S0306261924X00197 2024-08-22T09:09:22.034411Z 0 0 20241215 2024 2024-08-18T09:04:49.090616Z articleinfo articlenumber articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid hubeid indexeddate issn issnnorm itemstage itemtransactionid itemweight openaccess openarchive pg pgfirst pii piinorm pubdatestart pubdatetxt pubyr sectiontitle sortorder srctitle srctitlenorm srctype ssids alllist content subj subheadings suppl tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure table body mmlmath acknowledge affil articletitle auth authfirstini authfull authkeywords authlast grantnumber grantsponsor grantsponsorid highlightsabst primabst ref 0306-2619 03062619 false 376 376 PA Volume 376, Part A 29 124199 124199 124199 20241215 15 December 2024 2024-12-15 2024 Research Papers article fla © 2024 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. SHORTTERMHYDROPOWERSCHEDULINGCONSIDERINGCUMULATIVEFORECASTINGDEVIATIONWINDPHOTOVOLTAICPOWER WU X 1 Introduction 2 The framework of this research 3 Analysis of the multi-periods cumulative deviation of wind and PV power prediction 4 Hybrid hydro-wind-PV peak shaving model 4.1 Objective function 4.2 Normal hydroelectric constraints 4.3 Adjustable hydroelectric constraints 4.4 Model recast 4.4.1 Objective function recast 4.4.2 Linearization of hydropower performance 4.4.3 Linearization of unit generation performance 4.4.4 Linearization of unit output constraints 5 Case study 5.1 Study area 5.2 The result of GMM 5.3 The result of MILP model 6 Conclusions and discussions CRediT authorship contribution statement Acknowledgements References FENG 2018 2895 D WANG 2021 720 746 Y LIU 2023 217 B REN 2017 47 65 G ZHANG 2019 883 896 H CHENG 2015 570 581 C SU 2019 285 293 C EVANS 2012 4141 4147 A SUBERU 2014 499 514 M TAN 2021 102591 K ZHOU 2018 22 30 S KHODAYAR 2012 1271 1279 M WU 2008 1364 1374 L HUANG 2019 e12003 H LIU 2020 112628 B BISHOP 2006 C PATTERNRECOGNITIONMACHINELEARNING ZHAO 2021 1819 1832 Z TONG 2013 B CHENG 2016 4842 4852 C DUJARDIN 2017 513 525 J LI 2022 119019 H ZHUXWANGC 2011 1445 1451 WANG 2019 111824 X GARCIAGONZALEZ 2001 J 2001IEEEPORTOPOWERTECHPROCEEDINGSPORTOPORTUGAL SHORTTERMHYDROSCHEDULINGCASCADEDHEADDEPENDENTRESERVOIRSBASEDMIXEDINTEGERLINEARPROGRAMMING SANTOSALAMILLOS 2015 539 550 F REN 2018 482 492 G CHEN 2011 357 368 T GUROBIOPTIMIZATIONLLC WUX2024X124199 WUX2024X124199XX 2026-08-18T00:00:00.000Z 2026-08-18T00:00:00.000Z http://creativecommons.org/licenses/by-nc-nd/4.0/ © 2024 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 2024-08-14T08:18:29.503Z http://vtw.elsevier.com/data/voc/AddOnTypes/50.7/aggregated-refined National Natural Science Foundation of China National Aerospace Science Foundation of China http://data.elsevier.com/vocabulary/SciValFunders/501100010012 http://sws.geonames.org/1814991/ 52179005 NSFC National Natural Science Foundation of China http://data.elsevier.com/vocabulary/SciValFunders/501100001809 http://sws.geonames.org/1814991 The research work described in this paper is supported by the National Natural Science Foundation of China ( 52179005 ). https://doi.org/10.15223/policy-017 https://doi.org/10.15223/policy-037 https://doi.org/10.15223/policy-012 https://doi.org/10.15223/policy-029 https://doi.org/10.15223/policy-004 item S0306-2619(24)01582-4 S0306261924015824 1-s2.0-S0306261924015824 10.1016/j.apenergy.2024.124199 271429 2024-08-22T09:09:22.034411Z 2024-12-15 1-s2.0-S0306261924015824-main.pdf https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/MAIN/application/pdf/d0e2f690f467a0dcd346d6e4cf85ccc6/main.pdf main.pdf pdf true 11851373 MAIN 14 1-s2.0-S0306261924015824-main_1.png https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/PREVIEW/image/png/a7c7006f3d1a80f146c3ed3f23a41ecc/main_1.png main_1.png png 51355 849 656 IMAGE-WEB-PDF 1 1-s2.0-S0306261924015824-gr5.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr5/DOWNSAMPLED/image/jpeg/07fbe50a396576d8a39f79aa852df6a5/gr5.jpg gr5 gr5.jpg jpg 74123 689 624 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr6.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr6/DOWNSAMPLED/image/jpeg/0b6b806c2417725ffdbde338a60e6645/gr6.jpg gr6 gr6.jpg jpg 141143 826 802 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr7.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr7/DOWNSAMPLED/image/jpeg/169a9e4c4cca1f3c56f29bc2f5b77218/gr7.jpg gr7 gr7.jpg jpg 119620 565 802 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr8.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr8/DOWNSAMPLED/image/jpeg/86c2a9ef858f8b5d0240075d8afe9e95/gr8.jpg gr8 gr8.jpg jpg 131224 594 802 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr1.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr1/DOWNSAMPLED/image/jpeg/9e55b41c44d9279c85fa21175857e045/gr1.jpg gr1 gr1.jpg jpg 115887 579 624 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr2.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr2/DOWNSAMPLED/image/jpeg/71bbddc162698b3f6ebd0fae0482fc63/gr2.jpg gr2 gr2.jpg jpg 31284 358 581 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr3.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr3/DOWNSAMPLED/image/jpeg/71a13bfe4e799160e1df4a7b42daedb9/gr3.jpg gr3 gr3.jpg jpg 52709 479 535 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr4.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr4/DOWNSAMPLED/image/jpeg/403a2f540ea6018ead9fd7367d02339e/gr4.jpg gr4 gr4.jpg jpg 85466 575 802 IMAGE-DOWNSAMPLED 1-s2.0-S0306261924015824-gr5.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr5/THUMBNAIL/image/gif/73fa685a97c89e2613529df1621a602b/gr5.sml gr5 gr5.sml sml 6954 163 148 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr6.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr6/THUMBNAIL/image/gif/fc6534402cbc8079f234b7442ffa960a/gr6.sml gr6 gr6.sml sml 8703 164 159 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr7.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr7/THUMBNAIL/image/gif/91ff6c15cb4909bba9d56e49c87606fb/gr7.sml gr7 gr7.sml sml 10621 154 219 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr8.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr8/THUMBNAIL/image/gif/96a294e966b3aab490c00085d78e59ba/gr8.sml gr8 gr8.sml sml 13485 162 219 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr1.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr1/THUMBNAIL/image/gif/7223f2ef5a4eb99de56667d9cf92bbe9/gr1.sml gr1 gr1.sml sml 12651 164 177 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr2.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr2/THUMBNAIL/image/gif/ee784e5762797a20a0d3bfdc723ec1d5/gr2.sml gr2 gr2.sml sml 3934 135 219 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr3.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr3/THUMBNAIL/image/gif/8178ce6eb050112e50547f4189f866f2/gr3.sml gr3 gr3.sml sml 10348 164 183 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr4.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/gr4/THUMBNAIL/image/gif/a96c2f81e9fbc5cfc5bf3d39069edc14/gr4.sml gr4 gr4.sml sml 10172 157 219 IMAGE-THUMBNAIL 1-s2.0-S0306261924015824-gr5_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/f5fce515c500ff7eaf524053722f3523/gr5_lrg.jpg gr5 gr5_lrg.jpg jpg 537768 3050 2762 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-gr6_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/50fd8b3948899c20c3f7d3e55c0cd4c9/gr6_lrg.jpg gr6 gr6_lrg.jpg jpg 754044 3653 3549 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-gr7_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/ea06f12437f384fe96635a9dbd679925/gr7_lrg.jpg gr7 gr7_lrg.jpg jpg 825165 2500 3549 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-gr8_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/887cb39381a29333b92e9da341894a3d/gr8_lrg.jpg gr8 gr8_lrg.jpg jpg 771014 2629 3549 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-gr1_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/4e253069f7dd7f97446b93af9a303331/gr1_lrg.jpg gr1 gr1_lrg.jpg jpg 763526 2563 2762 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-gr2_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/28a10f832b1a3f54ae245b87414cde94/gr2_lrg.jpg gr2 gr2_lrg.jpg jpg 190144 1588 2574 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-gr3_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/e0fd6c60b5082b82570ad928966725d1/gr3_lrg.jpg gr3 gr3_lrg.jpg jpg 438896 2118 2368 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-gr4_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/HIGHRES/image/jpeg/99b473c7628bb89274a7969291cae602/gr4_lrg.jpg gr4 gr4_lrg.jpg jpg 593858 2543 3549 IMAGE-HIGH-RES 1-s2.0-S0306261924015824-si1.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/c2e1bda509f6a8f28251aa81b6a34586/si1.svg si1 si1.svg svg 10529 ALTIMG 1-s2.0-S0306261924015824-si10.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/44942c53c86cda6304c60be5650f7e42/si10.svg si10 si10.svg svg 2345 ALTIMG 1-s2.0-S0306261924015824-si100.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/7d89fafa26a2db07e8c202d8b6f574e3/si100.svg si100 si100.svg svg 2825 ALTIMG 1-s2.0-S0306261924015824-si101.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/d8356ea046e4c17bec49ed3fd07b4170/si101.svg si101 si101.svg svg 3357 ALTIMG 1-s2.0-S0306261924015824-si102.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/91b98cb92a7c7335a50ee0e3e3105df2/si102.svg si102 si102.svg svg 4043 ALTIMG 1-s2.0-S0306261924015824-si103.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/a49bb31fad9674deb3e883e907b693bc/si103.svg si103 si103.svg svg 14776 ALTIMG 1-s2.0-S0306261924015824-si104.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/a7f17b2ff574f35477ec93b18dbcf992/si104.svg si104 si104.svg svg 11190 ALTIMG 1-s2.0-S0306261924015824-si105.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/c7611c245a29789b6123e3dd10e86b5c/si105.svg si105 si105.svg svg 4535 ALTIMG 1-s2.0-S0306261924015824-si106.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/8c9fa3150081bb9f6e57a128cd80f308/si106.svg si106 si106.svg svg 5218 ALTIMG 1-s2.0-S0306261924015824-si107.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/56c906e14f37774507e90584e8b1efe2/si107.svg si107 si107.svg svg 8972 ALTIMG 1-s2.0-S0306261924015824-si11.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/b207167995c03986761bc6de1dfb6f4e/si11.svg si11 si11.svg svg 7543 ALTIMG 1-s2.0-S0306261924015824-si12.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/e90455ff7b7ef331f86b0e646ac8c232/si12.svg si12 si12.svg svg 10550 ALTIMG 1-s2.0-S0306261924015824-si13.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/7396be671e04609d18110f3f2c0ffe6b/si13.svg si13 si13.svg svg 5755 ALTIMG 1-s2.0-S0306261924015824-si14.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/67346496fb6b3f71c84dcb9fb54f328c/si14.svg si14 si14.svg svg 10055 ALTIMG 1-s2.0-S0306261924015824-si15.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/29533349e39c778562c9b90cf580020c/si15.svg si15 si15.svg svg 8520 ALTIMG 1-s2.0-S0306261924015824-si16.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f9b5e5bb069820d08957844a67fbfe84/si16.svg si16 si16.svg svg 1641 ALTIMG 1-s2.0-S0306261924015824-si17.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/c8da14548e6a27e7c55b8500e7bfebe1/si17.svg si17 si17.svg svg 1744 ALTIMG 1-s2.0-S0306261924015824-si18.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/7bd5ace9501e65c990f77a572d9580a4/si18.svg si18 si18.svg svg 3699 ALTIMG 1-s2.0-S0306261924015824-si19.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/547e817639ae2273b6a336184cc8469c/si19.svg si19 si19.svg svg 9981 ALTIMG 1-s2.0-S0306261924015824-si2.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/ed506b88b412551c717666cc3b43a85e/si2.svg si2 si2.svg svg 1717 ALTIMG 1-s2.0-S0306261924015824-si20.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/4bbda57cdf9ba46ef4c6e39cc992470c/si20.svg si20 si20.svg svg 7039 ALTIMG 1-s2.0-S0306261924015824-si21.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f52c21befcdf6ccfe33de143009fa157/si21.svg si21 si21.svg svg 2744 ALTIMG 1-s2.0-S0306261924015824-si22.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/d21eabba43a98bbe000c3fa04ec9b0ff/si22.svg si22 si22.svg svg 3656 ALTIMG 1-s2.0-S0306261924015824-si23.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/118d6c81f764e21e3446b4c75aa2d03c/si23.svg si23 si23.svg svg 4118 ALTIMG 1-s2.0-S0306261924015824-si24.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/5110ce582f3abc937f33fd6cfe3e017c/si24.svg si24 si24.svg svg 2866 ALTIMG 1-s2.0-S0306261924015824-si25.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/b681e7d49a863ba4c73cad370a7c6424/si25.svg si25 si25.svg svg 4419 ALTIMG 1-s2.0-S0306261924015824-si26.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/87319b8eacd4712c11d91f00f3df9ecc/si26.svg si26 si26.svg svg 1234 ALTIMG 1-s2.0-S0306261924015824-si27.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/263a2b31f3713b65d27378a4ab402f42/si27.svg si27 si27.svg svg 5651 ALTIMG 1-s2.0-S0306261924015824-si28.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/dfc8d8696c0dd13eeb5d483fa573a1ff/si28.svg si28 si28.svg svg 4165 ALTIMG 1-s2.0-S0306261924015824-si29.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/fe819fd13ffa93558dd52259550640b7/si29.svg si29 si29.svg svg 2369 ALTIMG 1-s2.0-S0306261924015824-si3.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/da0767852327bae213c20e41e4c1da23/si3.svg si3 si3.svg svg 4339 ALTIMG 1-s2.0-S0306261924015824-si30.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/b7e7ea99acb7c5eb2f5a60b2e3c5f08c/si30.svg si30 si30.svg svg 4344 ALTIMG 1-s2.0-S0306261924015824-si31.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/76077c96f55d5f603cb1cc20c7076511/si31.svg si31 si31.svg svg 2605 ALTIMG 1-s2.0-S0306261924015824-si32.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/25d8efe924f10497a944f48d1c849d9c/si32.svg si32 si32.svg svg 1902 ALTIMG 1-s2.0-S0306261924015824-si33.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/3a09889bd162d25e118edf24c453c869/si33.svg si33 si33.svg svg 1899 ALTIMG 1-s2.0-S0306261924015824-si34.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/78580858707d2b5b3eb043d6deb75bc3/si34.svg si34 si34.svg svg 8661 ALTIMG 1-s2.0-S0306261924015824-si35.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/9a5f45004f6ec9b5e4c5a95ccebaff79/si35.svg si35 si35.svg svg 6479 ALTIMG 1-s2.0-S0306261924015824-si36.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/83097950cec1df2ec0b639581a784c70/si36.svg si36 si36.svg svg 3532 ALTIMG 1-s2.0-S0306261924015824-si37.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/44712dacb4b8503307fad2e6064334b4/si37.svg si37 si37.svg svg 3115 ALTIMG 1-s2.0-S0306261924015824-si38.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/7b81946c99812e36bc5b43dc34b451e4/si38.svg si38 si38.svg svg 3116 ALTIMG 1-s2.0-S0306261924015824-si39.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/11ad8810dbe731f094d9197494fc5987/si39.svg si39 si39.svg svg 3536 ALTIMG 1-s2.0-S0306261924015824-si4.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/9a69a1f6e0cd086ec6ce2d82004b39c3/si4.svg si4 si4.svg svg 997 ALTIMG 1-s2.0-S0306261924015824-si40.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/4de9d481d5574fdc3066a955a2ddc462/si40.svg si40 si40.svg svg 5673 ALTIMG 1-s2.0-S0306261924015824-si41.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/1c013f7fd7fed7d66c47888351eb4f1d/si41.svg si41 si41.svg svg 8666 ALTIMG 1-s2.0-S0306261924015824-si42.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/63f3f372258e1c0e92820865a116c42c/si42.svg si42 si42.svg svg 2163 ALTIMG 1-s2.0-S0306261924015824-si43.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/9f264129fef8429763ea78c893e88dcf/si43.svg si43 si43.svg svg 2160 ALTIMG 1-s2.0-S0306261924015824-si44.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/542784b7873d547d95926a794d0d4b13/si44.svg si44 si44.svg svg 10901 ALTIMG 1-s2.0-S0306261924015824-si45.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f53909eba590976775f3ec84150f3a93/si45.svg si45 si45.svg svg 8397 ALTIMG 1-s2.0-S0306261924015824-si46.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/ef45cbbb9613c9af799557089bda2118/si46.svg si46 si46.svg svg 8814 ALTIMG 1-s2.0-S0306261924015824-si47.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/ae8e460933146ac2905e0a39e6d90113/si47.svg si47 si47.svg svg 11325 ALTIMG 1-s2.0-S0306261924015824-si48.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/202542a9a392958adad15b6c4d873888/si48.svg si48 si48.svg svg 12092 ALTIMG 1-s2.0-S0306261924015824-si49.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/632826489d2c54ee51dbf8d54c53aaa8/si49.svg si49 si49.svg svg 5287 ALTIMG 1-s2.0-S0306261924015824-si5.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/af4c45206cc449c1c95ce54bc34b0a3c/si5.svg si5 si5.svg svg 1577 ALTIMG 1-s2.0-S0306261924015824-si50.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/5197cd820b889ac24abd32a13b4fbd06/si50.svg si50 si50.svg svg 5013 ALTIMG 1-s2.0-S0306261924015824-si51.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/136995638ac1e6da3cc067792b460b25/si51.svg si51 si51.svg svg 3945 ALTIMG 1-s2.0-S0306261924015824-si52.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/3ed8673c9646f49fc991d88d3355188f/si52.svg si52 si52.svg svg 4120 ALTIMG 1-s2.0-S0306261924015824-si53.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/2866acb08d2c0d2f2269d4547aac959e/si53.svg si53 si53.svg svg 9483 ALTIMG 1-s2.0-S0306261924015824-si54.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/6e5fda513bc86a51ba78e7acb5b0ed94/si54.svg si54 si54.svg svg 4078 ALTIMG 1-s2.0-S0306261924015824-si55.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/1fe7f032493588cadb84d404c89f5f2a/si55.svg si55 si55.svg svg 4075 ALTIMG 1-s2.0-S0306261924015824-si56.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f400a9aa85784e0fc4bcd792758c6b01/si56.svg si56 si56.svg svg 9506 ALTIMG 1-s2.0-S0306261924015824-si57.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/d55ce73778e4d6f889b6f88cdc8516a0/si57.svg si57 si57.svg svg 3489 ALTIMG 1-s2.0-S0306261924015824-si58.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f2a95a5591bd9110c23325b1a14cfbac/si58.svg si58 si58.svg svg 5927 ALTIMG 1-s2.0-S0306261924015824-si59.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/bd7c62727156d35eaf3ff4139d22250b/si59.svg si59 si59.svg svg 1902 ALTIMG 1-s2.0-S0306261924015824-si60.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/85278e67fef6a383e2aab1ff69047838/si60.svg si60 si60.svg svg 5941 ALTIMG 1-s2.0-S0306261924015824-si61.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/aaeb0ed13aa4b852a036acd3014e44cc/si61.svg si61 si61.svg svg 4160 ALTIMG 1-s2.0-S0306261924015824-si62.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f0464ca36601109d432c39d9e8d3ad1d/si62.svg si62 si62.svg svg 9758 ALTIMG 1-s2.0-S0306261924015824-si63.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/de412dae07b3d5fc5b547770764c02dd/si63.svg si63 si63.svg svg 5361 ALTIMG 1-s2.0-S0306261924015824-si64.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/bec433babecde1bad0274cbc1d550151/si64.svg si64 si64.svg svg 4279 ALTIMG 1-s2.0-S0306261924015824-si65.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/76706f34a52e1d70cf43c5ee32b5755b/si65.svg si65 si65.svg svg 11357 ALTIMG 1-s2.0-S0306261924015824-si66.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/544e22b2fe34457ac22f16dbb37b41a1/si66.svg si66 si66.svg svg 15933 ALTIMG 1-s2.0-S0306261924015824-si67.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/de5d645b21650d4c46256df894f5dcd4/si67.svg si67 si67.svg svg 6715 ALTIMG 1-s2.0-S0306261924015824-si68.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/513c0839eb2a224ff164a0f7c62d0d2a/si68.svg si68 si68.svg svg 3486 ALTIMG 1-s2.0-S0306261924015824-si69.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/ec8880f24ee7a914285309210751c82b/si69.svg si69 si69.svg svg 4434 ALTIMG 1-s2.0-S0306261924015824-si7.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/40c0789ef2b89965f707ba7bacb2e947/si7.svg si7 si7.svg svg 5733 ALTIMG 1-s2.0-S0306261924015824-si70.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/a6ff2bf22ffd7a1eb644e6687089d264/si70.svg si70 si70.svg svg 4538 ALTIMG 1-s2.0-S0306261924015824-si71.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/56e1ceaca077bf3d6671e0fb66301942/si71.svg si71 si71.svg svg 4784 ALTIMG 1-s2.0-S0306261924015824-si72.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f48269e8201e85880833fdf0f3d9d21c/si72.svg si72 si72.svg svg 16765 ALTIMG 1-s2.0-S0306261924015824-si73.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/7e58952b8eba260d60ddffbfcd4718c4/si73.svg si73 si73.svg svg 12229 ALTIMG 1-s2.0-S0306261924015824-si74.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/9f5c15d57a1877f2a442e0b3ad6a9a56/si74.svg si74 si74.svg svg 2463 ALTIMG 1-s2.0-S0306261924015824-si75.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/cb0771e965b5d6c8cb5cb9b23db5a647/si75.svg si75 si75.svg svg 2709 ALTIMG 1-s2.0-S0306261924015824-si76.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/d8d028cdcd8739260d2d5c0f2674b5b9/si76.svg si76 si76.svg svg 2687 ALTIMG 1-s2.0-S0306261924015824-si77.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/b4b0e56e62e8f494c040cbeb86b7de20/si77.svg si77 si77.svg svg 2933 ALTIMG 1-s2.0-S0306261924015824-si78.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/41ced13f8885e96551a0e18d8cf1648b/si78.svg si78 si78.svg svg 2945 ALTIMG 1-s2.0-S0306261924015824-si79.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/347389f7b6c0bff106a054daaa2b8d77/si79.svg si79 si79.svg svg 9674 ALTIMG 1-s2.0-S0306261924015824-si8.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/0b443cd211ca73f96174cd6b48bc56e4/si8.svg si8 si8.svg svg 5826 ALTIMG 1-s2.0-S0306261924015824-si80.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/f5ac5d61f7815109ed79e86fc2391bba/si80.svg si80 si80.svg svg 9649 ALTIMG 1-s2.0-S0306261924015824-si81.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/ead81424df5938e46223979b57652a05/si81.svg si81 si81.svg svg 9509 ALTIMG 1-s2.0-S0306261924015824-si82.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/4f343c96f3323277762471bbabfe6ab1/si82.svg si82 si82.svg svg 4342 ALTIMG 1-s2.0-S0306261924015824-si83.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/e7138ce4dba4d9e00a521b7eea1c50a8/si83.svg si83 si83.svg svg 4229 ALTIMG 1-s2.0-S0306261924015824-si84.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/1b49ed928331c52c3e4ab4b8d5be0ed1/si84.svg si84 si84.svg svg 8390 ALTIMG 1-s2.0-S0306261924015824-si85.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/1ae53a2528cb11e51c22abda475df874/si85.svg si85 si85.svg svg 8529 ALTIMG 1-s2.0-S0306261924015824-si86.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/ec6c419798a7a91aaa5e4bcc7fd0a5cd/si86.svg si86 si86.svg svg 7424 ALTIMG 1-s2.0-S0306261924015824-si87.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/e2df4c744c0c4949ffc9d9e1227b1009/si87.svg si87 si87.svg svg 7584 ALTIMG 1-s2.0-S0306261924015824-si88.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/b159947c495ce4b084a5de6ecef28712/si88.svg si88 si88.svg svg 6521 ALTIMG 1-s2.0-S0306261924015824-si89.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/63de1f71064deef7b0a42be419c381a6/si89.svg si89 si89.svg svg 3407 ALTIMG 1-s2.0-S0306261924015824-si9.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/a83faad8e533515073ddf301ea857f1d/si9.svg si9 si9.svg svg 12401 ALTIMG 1-s2.0-S0306261924015824-si90.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/687b09a943226a3f37d07fc3c7d5a338/si90.svg si90 si90.svg svg 4091 ALTIMG 1-s2.0-S0306261924015824-si91.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/bd95508b183bdd0074944bb659c30b5a/si91.svg si91 si91.svg svg 3483 ALTIMG 1-s2.0-S0306261924015824-si92.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/a2b43b0b05bf2560fed09e934b30ed83/si92.svg si92 si92.svg svg 4106 ALTIMG 1-s2.0-S0306261924015824-si93.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/a4f94cb399cfbb647a2006a0e15013b8/si93.svg si93 si93.svg svg 12650 ALTIMG 1-s2.0-S0306261924015824-si94.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/dc17e03ed01fa8b251e8f55267943b8f/si94.svg si94 si94.svg svg 12370 ALTIMG 1-s2.0-S0306261924015824-si95.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/e0619fd3fdab0e743e77477742c89297/si95.svg si95 si95.svg svg 12720 ALTIMG 1-s2.0-S0306261924015824-si96.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/c1c353c4b0bf5e9924d7041e80e11f28/si96.svg si96 si96.svg svg 9200 ALTIMG 1-s2.0-S0306261924015824-si97.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/450c6ec71a2e06d90c793878d08cb127/si97.svg si97 si97.svg svg 6494 ALTIMG 1-s2.0-S0306261924015824-si98.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/49cd6cc3abce0917b41ef949a54dc016/si98.svg si98 si98.svg svg 3556 ALTIMG 1-s2.0-S0306261924015824-si99.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0306261924015824/image/svg+xml/ca9a70a4b27f43d92ee95a272e96fb25/si99.svg si99 si99.svg svg 5967 ALTIMG APEN 124199 124199 S0306-2619(24)01582-4 10.1016/j.apenergy.2024.124199 Fig. 1 Flowchart of this study. Fig. 1 Fig. 2 Schematic diagram of three-dimensional interpolation calculation. Fig. 2 Fig. 3 Position of the studied hydropower stations. Fig. 3 Fig. 4 GMM fitting effect with different K. Fig. 4 Fig. 5 Optimal GMM fitting effect. Fig. 5 Fig. 6 The results of peak shaving. Fig. 6 Fig. 7 Changes of reserve electricity (1 × 103 MWh). Fig. 7 Fig. 8 The output of each unit. Fig. 8 Table 1 Basic parameters of the cascaded hydropower stations in Lancang River. Table 1 Hydropower plant Regulation capability Regulation storage(108 m3) Installed capacity(MW) Dead level(m) Normal level(m) Gongguoqiao Daily 0.49 900 1303 1307 Xiaowan Yearly 98.95 4200 1166 1240 Manwan Seasonal 2.57 1670 988 994 Nuozhadu Multiyear 113.35 5850 765 812 Jinghong Weekly 3.09 1750 591 602 Table 2 Limitations on operating conditions of each power station unit. Table 2 Hydropower plant Number of units Unit capacity(MW) Unit restriction zones(MW) Duration of startup and shutdown(hour) Gongguoqiao 4 225 [30,140] 3 Xiaowan 6 700 [0,120], [240,480] 3 Manwan 7 250 [0,10], [40,140] 3 Nuozhadu 9 650 [0,120], [220,420] 3 Jinghong 5 350 [0,200] 3 Table 3 Calculation results of BIC (1 × 103). Table 3 Item K = 2 K = 3 K = 4 K = 5 K = 6 K = 7 K = 8 K = 9 K = 10 Best K 1-hour 134.22 134.15 134.10 134.12 134.14 134.16 134.15 134.16 134.18 K = 4 2-hours 145.90 145.85 145.77 145.80 145.81 145.84 145.87 145.84 145.88 K = 4 3-hours 152.62 152.58 152.50 152.53 152.56 152.56 152.59 152.57 152.59 K = 4 4-hours 157.31 157.26 157.19 157.21 157.24 157.22 157.22 157.25 157.27 K = 4 5-hours 163.72 163.67 163.62 163.61 163.63 163.64 163.66 163.63 163.66 K = 5 6-hours 163.72 163.68 163.62 163.62 163.62 163.61 163.66 163.63 163.65 K = 7 7-hours 166.08 166.03 165.98 165.97 165.99 165.99 166.00 165.99 166.04 K = 5 8-hours 168.09 168.03 167.99 167.98 168.00 167.99 167.96 167.98 168.00 K = 8 9-hours 169.82 169.75 169.70 169.71 169.73 169.72 169.69 169.70 169.72 K = 8 10-hours 171.34 171.27 171.24 171.23 171.21 171.19 171.18 171.23 171.27 K = 8 11-hours 172.69 172.62 172.58 172.58 172.57 172.54 172.53 172.56 172.60 K = 8 12-hours 173.91 173.83 173.79 173.79 173.76 173.75 173.72 173.79 173.79 K = 8 Table 4 Deviation electric quantity boundary value. Table 4 Item 5%(MWh) 95%(MWh) 1-h −762 1188 2-h −1545 2389 3-h −2261 3560 4-h −2890 4670 5-h −3543 5519 6-h −4068 6600 7-h −4672 7525 8-h −5344 8621 9-h −5821 9402 10-h −6330 10,533 11-h −6792 11,385 12-h −7186 12,282 Table 5 The indicators of peak shaving effect. Table 5 Item Peak-valley difference(MW) Reduction rate(%) Mean square error(MW2) Reduction rate(%) Original load 7201.2 / 2555 / Wet scene 1-hour 0 100.00 0 100.00 2-hours 0 100.00 0 100.00 4-hours 311.2 95.68 139 94.55 Dry scene 1-hour 154.9 97.85 35 98.62 2-hours 1747.4 75.73 647 74.68 4-hours 6119.3 15.02 2403 5.94 Short term hydropower scheduling considering cumulative forecasting deviation of wind and photovoltaic power Xinyu Wu Software Resources Funding acquisition Conceptualization a \u204e Shuai Yin Writing \u2013 original draft Visualization Validation Methodology b Chuntian Cheng Supervision Project administration Investigation a Xingchen Wei Writing \u2013 review & editing Formal analysis Data curation a a Institute of Hydropower & Hydroinformatics, Dalian University of Technology, Dalian 116024, China Institute of Hydropower & Hydroinformatics Dalian University of Technology Dalian 116024 China Professor of Institute of Hydropower & Hydroinformatics, Dalian University of Technology, Dalian, 116024, China b Yalong River Hydropower Development Company, Ltd., Chengdu 610000, China Yalong River Hydropower Development Company, Ltd. Chengdu 610000 China Yalong River Hydropower Development Company, Ltd. Chengdu 610000, China \u204e Corresponding author. The cumulative forecasting errors of wind and photovoltaic (PV) power pose serious challenges to the short-term scheduling of hydropower stations that connected to the same regional power grid. The variable and intermittent nature of wind and PV power necessitate a flexible power source to achieve power balance. Consequently, hydropower, with its flexible adjustment capability, plays a crucial role in supporting the consumption of wind and PV power stations in short-term scheduling. Meanwhile, to address the grid's peak shaving requirement, the scheduling of cascaded hydropower system becomes increasingly complex. Given the limitations of current wind and PV power output prediction technologies, achieving precise forecast remains challenging. In practice, the actual outputs of wind and PV power stations often diverge considerably from predicted values over multiple consecutive periods. This variability may result in the underutilization of wind and PV power if the reserve capacity of hydropower stations is insufficient. Therefore, it is essential to account for the cumulative deviation in electricity from wind and PV sources. By computing probability distribution and establishing boundary condition of the cumulative deviation, the operation of the cascaded hydropower system can be controlled more effectively, thus enhancing the stability of a multi-energy complementary system. This study employs Gaussian Mixture Model (GMM) to characterize the probability distributions of cumulative electricity deviation across multiple periods of wind and PV power and takes it as restriction to regulate the operation of hydropower stations. In order to balance the deviation electricity, the downward electricity reserve, upward electricity reserve and the storage energy of the cascaded reservoirs are introduced as restrictive conditions. The proposed Hydro-wind-PV peak shaving model is then applied to the short-term optimal scheduling of the Lancang River cascaded hydropower system to validate the feasibility and efficacy. Keywords Hydro-wind-PV Cumulative deviation in electricity Peak shaving Energy storage Data availability The data that has been used is confidential. 1 Introduction To achieve the goals of peak carbon by 2030 and carbon neutrality by 2060, China's energy structure is undergoing rapid transformation due to the massive CO2 emissions caused by coal power [1]. The specific approach involves a gradual transition from fossil energy to renewable sources. This transition aims to increase the proportion of renewable energy in the power grid and build a clean, low-carbon, safe and efficient energy system [2]. To meet the rapidly growing of electricity consumption and the transformation of energy system in China, the renewable energy sources which mainly refer to Photovoltaic (PV) and wind power separately surged from 0.3 GW and 30 GW in 2010 to 392 GW and 365 GW in 2022, account for 15.3% and 14.3% of the total installed capacity in 2022 [3]. It is anticipated that wind and PV power will play a significant role in specific regional power grids across China. As the proportion of non-dispatchable power sources in the power grid rises, ensuring the safe operation of the grid becomes a significant challenge. Wind and PV power are non-dispatchable power sources due to their inherent variability and intermittency [4]. Their output will not be consistent with planned targets because accurate forecasting remains challenging at present. The most rational solution is to coordinately operate these unpredictable power sources with schedulable electricity sources to compensate the temporal fluctuation of wind and PV output [5]. Pumped storage hydropower (PSH) is an ideal complement for renewable energy sources because it can both absorb excess energy and generate power to fill the shortage from wind and PV source [6,7]. Most notably, it is more cost-effective than other energy storage methods such as thermal and chemical storage [8\u201310]. However, many PSHs in China are still in the planning or construction phases, and the installed capacity of existing PSHs falls short of demand for adjustable energy sources. Fortunately, there are thirteen hydropower bases in China with a total capacity of 391GW in 2022. These bases provide significant potential for balancing the variable output of renewable energy sources due to the superior startup, shutdown, and load-following capabilities of hydropower units [11]. The installed hydropower capacity is also sufficient to ensure the reliability of renewable energy and assist in load peak shaving. For complementary scheduling of multi-energy system in short-term, analysis the uncertain factors of the wind and PV power quantitatively becomes the core matter of modeling. The random outputs of them are inconsistent with that of hydropower and hard to predict accurately even in the short term through the existing technologies. To cope with the uncertainties of wind and PV power in a multi-energy system, it is necessary quantify them. The principal methods can be summarized as chance constraints and scenario simulation. Scenarios based stochastic optimization takes a stochastic probability model of renewable energy to generate abundant output scenarios to represent the real output. For instance, [12] used Monte Carlo sampling to generate error scenarios in a random unit combination problem to eliminate the random characteristics of wind power; Using Latin hypercube stratified sampling to generate the typical scenarios of PV output has also been applied to practical production [13]; [5] established a joint distribution model for wind and PV power with an autoregressive sliding average model and an improved Vine-Couple function. Stochastic optimization based on chance constraints requires the probability that the model constraints are satisfied should at a specified confidence level. [14] probabilistically modeled the forecast errors of renewable energy, then formulated a security-constrained unit commitment model to handle the multiple uncertainties of that. [15] employed the kernel density estimation to analyze the forecasted error distribution of wind and PV power in a day-ahead peak shaving model and proved the effectiveness in a power system with increasing integration of wind and PV power. To quantify the forecast error of wind and PV power, this paper employs a probability distribution model. This method allows for the establishment of boundary conditions, which subsequently constrain the reserve capacity of hydropower. The Gaussian Mixture Model (GMM) is an unsupervised learning algorithm based on the probability density function, which can effectively describe and fit the probability distribution of wind and PV power prediction errors [16]. GMM can be regarded as a linear combination of multiple Gaussian distributions. Each Gaussian distribution corresponds to an independent component, and each independent component is associated with a weight that represents the proportion of the component in the overall mixed model. When the forecasted error caused by the uncertain outputs of wind and PV power is quantified by GMM, a short-term hydro-wind-PV scheduling model can be established. Mixed-Integer Linear Programming (MILP) is recognized as the most effective method for mathematical planning in the short-term scheduling of hydropower systems. It offers several advantages, including a mature theoretical framework, stable outcomes, and rapid convergence [17]. In day-ahead scheduling of a cascaded hydropower system, intricate coupling constraints of adjacent hydropower stations and complex operation constraints of hydropower units required to be modeled properly. In the study of short-term scheduling of hydropower stations which employs MILP to solve, several issues have been explored. For instance, researchers have examined how to reasonably linearize the nonlinear conditions in a model to meet the expectations of MILP [18]; they have also modeled constraints such as unit vibration zone, minimum start-stop duration of unit, the delay time of inflow that need to be considered in short-term scheduling [19]. These mature research provide an effective reference for this article. In contrast to the existing literature, this study incorporates hydropower to compensate for insufficient generation caused by wind and PV power and to reduce output during periods of over-generation. Additionally, it addresses the peak shaving demand of the power grid. Most previous research has focused on meeting the power reserve in a single period [20,21]. However, the upward and downward electricity reserve over cumulative multi-periods have not been considered. This is particularly problematic during dry seasons when reduced water levels lead to insufficient electricity reserves in reservoirs to support wind and PV power generation. Furthermore, the predicted output of wind and PV power may significantly deviate from the actual output over several consecutive periods. This will require more electricity reserves from hydropower. Therefore, hydropower must maintain adequate spare capacity for both upward and downward regulation in the current period to accommodate these deviations in subsequent periods. The peak shaving model, which takes into account the deviation energy constraints, is then formulated and solved by MILP. The contributions of this paper include: (1) A probability model is utilized to describe the deviation in electricity generation resulting from the misalignment of wind and PV power over multiple consecutive periods. Additionally, the maximum reserve electricity that hydropower can provide for renewable energy is explored. (2) The cascaded hydropower system is utilized as the foundation for the consumption of wind and PV power. This involves introducing the storage energy of hydropower stations, as well as their up-regulation and down-regulation capacities, as constraints to mitigate power shortages and accommodate excess generation from wind and PV power stations. (3) A hydro-wind-PV day-ahead coordinated scheduling model is proposed, aiming to shave the peak of the power grid while providing reserve electricity for renewable energy sources. This enhances the safe and stable operation capability of the power grid. 2 The framework of this research To develop a hydro-wind-PV peak shaving model, this study employs GMM to describe the probability distribution of the deviation electricity from wind and PV power across multiple periods. Subsequently, the storage energy of hydropower and up-regulation capacity of hydropower are used to prevent power shortages caused by insufficient generation from wind and PV power. Additionally, hydropower's down-regulation capacity is utilized to absorb excess wind and PV generation. The down-regulation capacity is quantified by the amount of output that can be cut down in a period, while the up-regulation refers to the additional output or the storage energy that can be harnessed by the cascaded hydropower system. In power system with a substantial hydropower component, peak shaving is a crucial task that hydropower must undertake. Consequently, this study proposes a coordinated day-ahead scheduling method for the hydro-wind-PV system, integrating the operational requirements of hydropower unit with peak shaving demands. The flowchart of this study is presented as Fig. 1 . 3 Analysis of the multi-periods cumulative deviation of wind and PV power prediction In the hydro-wind-PV complementary system, the essence of short-term scheduling is to re-dispatch the cascaded hydropower after determining the stochastic boundary conditions of wind and PV power. Therefore, the central challenge in the short-term optimal scheduling of a hydro-wind-PV system is how to accurately quantify the uncertain outputs of wind and PV power and subsequently determine the boundary conditions. In most cases, when wind power and PV power generate as a union, their outputs are complementary. However, it will also exacerbate the uncertainty during some special periods. For consecutive multiple periods, if all of the real outputs of wind and PV power are less than the predicted values, the power grid could face severe power shortage. Even if the storage energy of hydropower can fill the shortfall of renewable energy in one period, when it is significantly lower than the forecast output in the next period, whether the hydropower can cover the shortfall is the priority that must be considered in scheduling. This extreme condition is studied in this work, which is critical for ensuring the safe operation of the power grid over more periods, provided that hydropower can supply an adequate reserve capacity. The outputs of wind and PV power are strongly influenced by many natural factors, such as weather, terrain, and radiant intensity. Because these natural factors vary across different regions and periods, the prediction errors of renewable energies may follow distinct probability distributions such as the Beta, Cauchy, or Gaussian distributions. However, the effectiveness of these specific fitting functions can vary significantly in different scenes and timeframes. Accurately describing the prediction errors of wind and PV power is challenging, given their single-peak characteristics and the varying effectiveness of specific fitting functions in different scenarios and periods. GMM can address probability density estimation problems with the following characteristics [16]: 1) It can approximate any continuous probability distribution, serving as a universal method for such approximation. GMM excels at handling data with complex distributions, adapting to various distribution characteristics, including multimodal and irregular shapes. 2) GMM provides detailed and accurate insights into data distribution, surpassing simplistic statistical features like mean and variance. 3) It demonstrates acceptable robustness to outliers as it relies on probability density estimation rather than simple distance measurement. 4) The Expectation-Maximization (EM) algorithm is utilized for parameter estimation, thereby enabling data modeling and analysis. The probability density function of GMM can be represented as: (1) p x = ∑ i = 1 k φ i N i x μ i ∑ i where x is a random vector; k is the number of Gaussian distributions; φ i is the weight of each Gaussian distribution which satisfies the condition of ∑ i = 1 k φ i = 1 ; μ is the mean vector of Gaussian distribution and ∑ i is the covariance matrix. Each data sample is selected from one of the k Gaussian distributions, and the corresponding probability of the ith distribution is φ i . Then, the data sample is generated by the ith Gaussian distribution N i x μ i ∑ i . The parameters and weights of the GMM are obtained through training the EM algorithm [22]. The assignment of each sample to a specific Gaussian distribution is initially unknown. However, this information is crucial to calculate the parameters of the Gaussian distribution. An initial set of parameters is required to compute the probabilities that each sample belongs to each Gaussian distribution. Subsequently, the parameters of each Gaussian distribution are updated based on these probabilities. The EM algorithm is composed of two distinct steps that are iterated until convergence. In the E-step, the probabilities of each sample belonging to each of the k Gaussian distributions are calculated. In the M-step, the algorithm updates the parameters, which include the mean values, covariance matrices and weight coefficients for each Gaussian distribution. The E-step and M-step are repeated until a convergence condition is satisfied, typically assessed by monitoring changes in the logarithmic likelihood function. Given n training samples x i , i = 1 , 2 , 3 , \u2026 , n , the flow of GMM is as follows: (1) Initialize the parameter set of the model, including the mean value, covariance matrix and weight coefficients of each mixture component; (2) E-step: calculate the probability value of each sample belonging to each Gaussian distribution based on the current parameters of the model; (2) α ij = φ i N j x μ j ∑ j ∑ q = 1 k φ q N q x μ q ∑ q where α ij is the probability of sample i belonging to the jth Gaussian distribution; (3) M-step: update the model parameters of each mixture component based on the calculated probability of each data sample belonging to the respective Gaussian distribution; (3) μ j = ∑ i = 1 n α ij x i ∑ i = 1 n α ij (4) ∑ j = ∑ i = 1 n α ij x i − μ j x i − μ j T ∑ i = 1 n α ij (5) φ i = ∑ i = 1 n α ij n (4) Repeat the E-step and M-step until the convergence condition is reached. To address the cumulative deviation in electricity caused by the actual outputs of wind and PV power exceeding or falling short of the predicted output over multiple consecutive periods, it is necessary to employ a suitable distribution model to describe and determine the boundary conditions. In this paper, GMM is introduced to characterize the forecast errors of wind and PV power. 4 Hybrid hydro-wind-PV peak shaving model A hydro-wind-PV peak shaving model will be established and elaborated in this section. Section 4.1 presents the objective function of the entire model, followed by the normal hydrology constraints in section 4.2 and the adjustable hydroelectric constraints in section 4.3. Finally, section 4.4 explains the method of recasting the nonlinear functions into linear ones. Then, a hydro-wind-PV peak shaving model that can be solved by MILP is completed. 4.1 Objective function Meeting the demand for peak shaving of the power grid is a crucial responsibility for hydropower. As the number of wind and PV power plants connected to the grid for electricity generation continues to rise, many local governments have implemented policies supporting the transformation of the energy structure and the reduction of carbon dioxide emissions. This support allows for the preferential consumption of renewable energy, which in turn presents challenges to maintaining a balanced power grid. The load on the grid fluctuates frequently throughout the day, and the key to solving the day-ahead peak shaving problem is to find an optimal solution for smoothing the residual load. Consequently, the optimization objective is to minimize the gap between the peak and valley of the residual load. It can be described as: (6) min F = max C t − P t − min C t − P t (7) P t = ∑ i = 1 N ∑ j = 1 M p i , j , t where F is the objective; C t is the load demand of the grid in period t, P t is the whole output of the cascaded hydropower system in period t; p i , j , t stands for the power of unit j of hydropower plant i in period t; N is the number of hydropower plants in the cascaded hydropower system, and M is the corresponding number of unit in hydropower plant i. In an ideal case, the objective function shown as Eq. (6) should be 0. This would result in the best peak shaving effect and a completely smooth residual load curve. Subsequently, the remaining load can be easily met by other forms of power. 4.2 Normal hydroelectric constraints (1) Mass balance constraints: (8) V i , t + 1 = V i , t + Q i , t in − Q i , t out × Δ t (9) Q i , t in = Q i − 1 , t out + Q i , t where V i , t is the water storage of station i in period t; Q i , t in and Q i , t out are the total inflow and total release of station i in period t; Q i , t is the interval inflow of station i in period t, for the first reservoir of the cascaded hydropower system, the total inflow is equal to the interval inflow, namely Q i , t in = Q i , t . Δ t is the time period duration, and one hour is considered as a period in this work. (2) Reservoir level constraints: (10) Z i , 1 = Z i initial (11) Z i ¯ ≤ Z i , t ≤ Z i ¯ where Z i , 1 is the reservoir level of station i at the beginning of the first period; Z i initial is the fixed reservoir level for station i; Z i , t is the reservoir level of station i at the beginning of period t; Z i ¯ and Z i ¯ are the upper and lower limit operation level of station i respectively, adopt the normal level and dead level of each reservoir. In the short-term operation of the discussed cascaded hydropower system, certain reservoirs demonstrate inadequate regulation abilities, resulting in significant variations in reservoir levels when hydropower stations are tasked with grid peak shaving. Consequently, once the initial reservoir level of each station is established, no excessive restrictions are imposed on the reservoir levels throughout all periods. However, the energy storage of the entire cascaded hydropower system is calculated to constrain the reservoir level. (3) Turbine discharge constraints: (12) q i , j ¯ × φ i , g , t ≤ q i , j , t ≤ q i , j ¯ × φ i , g , t (13) φ i , g , t ∈ 0 1 where q i , j , t is the unit discharge of the jth unit of station i at period t; q i , j ¯ and q i , j ¯ are the maximum and minimum unit discharge value of jth unit of station i; φ i , g , t is the auxiliary vector that introduced to characterize the operating status of hydropower unit, the value is 1 when the unit is in startup and 0 when it is shutdown. (4) Total discharge constraints: (14) Q i ¯ ≤ Q i , t out ≤ Q i ¯ (15) Q i , t out = ∑ j = 1 M q i , j , t where Q i ¯ and Q i ¯ are the maximum and minimum discharge values of station i. Spill flow is not considered in this paper, so that the sum of all turbine discharge in a hydropower station equals the discharge of this hydropower station, as shown in Eq. (15). (5) Duration constraints for unit startup and shutdown: (16) Open i , j , t − Stop i , j , t = φ i , g , t − φ i , g , t − 1 (17) Open i , j , t + Stop i , j , t ≤ 1 (18) Open i , j , t , Stop i , j , t ∈ 0 , 1 (19) Open i , j , t + ∑ t = t + 1 t + T i , j On Stop i , j , t ≤ 1 (20) Stop i , j , t + ∑ t = t + 1 t + T i , j Off Open i , j , t ≤ 1 Generally, in order to avoid the damage to the hydropower unit caused by frequently startup and shutdown, there is a minimum duration for startup and shutdown of hydropower unit. Where Open i , j , t is a variable that represents the startup of unit j in station i, the value is 1when the unit from shutdown to startup, otherwise it is 0; the value of Stop i , j , t is 1 when the unit from startup to shutdown, otherwise it is 0; T i , j On and T i , j Off are the maximum startup and shutdown duration of unit, which are both set as 3 hours in this paper. (6) Power output constraints: (21) p i , j , t − N i , j k ¯ p i , j , t − N i , j k ¯ ≤ 0 There are certain output limit areas when the turbine is working, so the operational zone of hydraulic unit is divided into several sections. Where N i , j k ¯ and N i , j k ¯ are the upper and lower limits of the kth feasible output range of the jth unit in station i. (7) Simultaneous operation constraints: (22) − d t − × H + ≤ p i , j , t + 1 − p i , j , t ≤ d t + × H + (23) d t − + d t + ≤ 1 (24) d t − , d t + ∈ 0 1 where H + is a fixed extreme value. Eq. (22), (23) and (24) jointly ensure that each unit within the same hydropower station can only increase or decrease its output at the same period. It avoids the unreasonable operating condition where the units both increase and decrease their output simultaneously within a station. In a cascaded hydropower system with intricate electric transport lines and hydraulic connections, the imposition of simultaneous operation constraints proves beneficial in mitigating frequent output fluctuations during peak shaving [23]. (8) The nonlinear function of reservoir level and storage: (25) V i , t = f i ZV Z i , t where f i ZV ⋅ is the nonlinear relationship between reservoir level and water storage of station i. (9) The nonlinear function of tailwater level and discharge: (26) Z i , t down = f i ZQ Q i , t out where Z i , t down is the tail water level of station i in period t; f i ZQ · is the nonlinear relationship between tail water level and discharge of station i. (10) The nonlinear function of unit generation performance: (27) p i , j , t = f i , j NHQ q i , j , t h i , j , t (28) h i , j , t = Z i , t + Z i , t − 1 / 2 − Z i , t down − h i , t loss , ∀ j ∈ 1 M where f i , j NHQ ⋅ is the three-dimensional function of unit j in station i, the output of each unit is calculated by Eq. (27) when the net water head and unit flow is given; h i , j , t is the net water head of the jth unit of station i in period t; h i , t loss is the water head loss of station i in period t. 4.3 Adjustable hydroelectric constraints To address the issue of predicting deviation in electricity generation from wind and PV power over multiple periods, this study introduces the following constraints: based on previous single-period output reserve, the multi-period hydropower electricity reserve constraints: (29) CS t ≥ ES l (30) CX t ≥ EX l (31) CS t = min ∑ i = 1 N E i , t ∑ i = 1 N ∑ j = 1 M p i , j ¯ − p i , j , t × Δ t (32) CX t = ∑ i = 1 N ∑ j = 1 M p i , j , t − p i , j ¯ × Δ t where CS t is the upward electricity reserve that can be provided by the cascaded hydropower system in period t, which equals the electricity that can be generated by increasing the output of the hydropower stations; CX t is the downward electricity reserve that can be provided by hydropower stations in period t, which is equivalent to the extra electricity that can be consumed from wind and PV power after reducing the output of the cascaded hydropower system; ES l and EX l are the corresponding insufficient electricity and excess electricity of wind and PV power in accumulated l hours; E i , t is the energy storage of hydropower station i in period t. 4.4 Model recast Based on section 4.1 to 4.3, the hydro-wind-PV peak shaving model is fully presented and will be solved using MILP. It is important to emphasize that there is a mandatory condition that must be met when employing MILP: all components, including objective function and model constraints must be linear form. Thus these nonlinear functions will be transformed into linear format in this section. 4.4.1 Objective function recast The objective function shown as Eq. (6) has both maximum and minimum functions, which can't be solved directly by MILP, the objective function is transformed by introducing auxiliary variables, as follows: (33) min F = CY max − CY min (34) CY max ≥ C t − P t , ∀ t ∈ 1 T (35) CY min ≤ C t − P t , ∀ t ∈ 1 T where CY max and CY min are the auxiliary variables introduced to represent the maximum and minimum of the residual load in the grid respectively. 4.4.2 Linearization of hydropower performance The reservoir level and water storage function, as well as the tailwater level and discharge function shown in Eq. (27) and (28) are nonlinear function that need to be converted to linear form in the MILP model. This paper employs the segmented linear method, as described by [18]. As both hydropower performances are linearized in the same manner, only the reservoir level and water storage function will be illustrated here: (36) Z i , t = ∑ d = 1 D α i , t d × Z i d (37) V i , t = ∑ d = 1 D α i , t d × V i d (38) ∑ d = 0 D α i , t d = 1 , α i , t d ≥ 0 (39) ∑ d = 1 D γ i , t d = 1 , γ i , t d ∈ 0 , 1 (40) γ i , t d ≥ α i , t d + α i , t d − 1 where, γ i , t d is the 0\u20131 variable, the reservoir level of the station i is divided into D intervals, if the reservoir level in period t falls into the dth interval, then γ i , t d = 1 , otherwise it is 0. α i , t d and α i , t d − 1 is the weight coefficient of the two ends of the dth interval of the reservoir level for station i. Once the values of the introduced variables are determined through the aforementioned equations, segmented linear interpolation can be applied to the reservoir level and water storage function. The tailwater level and discharge function can be linearized in the same manner. 4.4.3 Linearization of unit generation performance The unit generation performance illustrates the multivariate relationship among unit output, turbine discharge and water head. To linearly transform the unit generation performance, this research adopts the linear method for three-dimensional curves as referenced in [24], which can be expressed as follows: (41) p i , j , t = ∑ g ∈ G i ∑ l ∈ L i P i , g , l × ρ i , t , g , l ∀ i , ∀ t (42) q i , j , t = ∑ g ∈ G i ∑ l ∈ L i Q i , l × ρ i , t , g , l ∀ i , ∀ t (43) h i , j , t = ∑ g ∈ G i ∑ l ∈ L i H i , g × ρ i , t , g , l ∀ i , ∀ t (44) ∑ g ∈ G i ∑ l ∈ L i ρ i , t , g , l = 1 ∀ i , ∀ t (45) ρ i , t , g , l ≥ 0 ∀ i , ∀ t , ∀ g , ∀ l where P i , g , l is the unit output corresponding to Q i , l H i , g ; Q i , l is the lth discrete value of the total L turbine discharge of station i; H i , g is the gth discrete value of the total G water head of station i; ρ i , t , g , l is the weight coefficient of triangles in period t of each unit of station i. It divides the turbine discharge and water head into L and G intervals, then constructs several triangular regions as shown in Fig. 2 . These triangular regions ensure that the output can only fall into one triangular feasible domain through Eq. (44) and (45). At last, the weights of the three vertices of the triangle can be obtained and the output will be worked out. 4.4.4 Linearization of unit output constraints Due to the presence of the unit vibration zone, the operable output of the unit is segmented into several non-contiguous regions. The unit output constraints, as expressed in Eq. (21), are in a nonlinear form that does not conform the requirements of MILP model. These constraints are linearly transformed, following the approach described in [19], by introducing additional feasible domain state variables: (46) ∑ k = 1 K β i , j , t k × N i , j k ¯ ≤ p i , j , t k ≤ ∑ k = 1 K β i , j , t k × N i , j k ¯ (47) ∑ k = 1 K β i , j , t k = φ i , g , t , β i , j , t k ∈ 0 , 1 where, β i , j , t k is the introduced feasible domain state variable, β i , j , t k = 1 indicates the output of the jth unit of station i locates in the kth operational zone during period t, otherwise, it is 0. 5 Case study 5.1 Study area The Lancang River, located in the southwest region of China, is one of the country's major rivers. Originating in the southeastern part of the Qinghai-Tibet Plateau, it traverses the provinces of Qinghai, Tibet, and Yunnan within China's borders. It passes through Myanmar and Laos before eventually flowing into the South China Sea. The basin covers an area over 250,000 km2, and the river stretches approximately 4500 km in length, with an average annual runoff of around 56 billion m3. The hydrological characteristics of the Lancang River are closely related to seasonal variations. From May to October is the flood season, characterized by high water levels and abundant inflow, while the other months constitute the dry season. The basin's terrain is steep with significant elevation differences, resulting in pronounced variations in rainfall, water levels, and tributary flows. Particularly in the high-altitude regions, such as the mountainous areas above 4000 m, annual precipitation is notably high, exceeding 3000 mm. In contrast, the lower reaches of the Lancang River basin, especially in Myanmar and Laos, experience relatively lower precipitation and a shorter rainy season. The cascaded hydropower system of the Lancang River, which is the focus of this study, is situated on the main stream of the Lancang River in Yunnan Province. It is one of the thirteen hydropower bases in China. There are five principal hydropower stations in the middle and lower reaches: Gongguoqiao, Xiaowan, Manwan, Nuozhadu, and Jinghong stations. The basin overview and hydraulic connections among the studied hydropower stations are shown in Fig. 3 . The cascaded hydropower system of the Lancang River includes two controlled reservoirs, Xiaowan and Nuozhadu, which have significant regulation abilities surpassing those of other reservoirs within the system. The total installed capacity of this system is 14,370 MW, and the basic parameters of each power station involved are shown in Table 1 . In short-term scheduling, the output of hydroelectric unit is limited by specific restriction zones and the duration is required for unit startup and shutdown. These aforementioned conditions need to be satisfied when formulating a day-ahead scheduling plan. Among the five hydropower stations, Manwan has three different types of hydroelectric units, and the restriction zones of each type are also dissimilar. They have been appropriately simplified and the operating conditions of each unit are summarized as shown in Table 2 . The renewable energy involved in this study include all wind and PV power plants in Yunnan Province. In the past decade, the proportions of installed capacity of wind and PV power in Yunnan Province have been increasing. In 2022, the installed capacity of wind power and PV power was 9124 MW and 5854 MW, account for 8.19% and 5.25% of the capacity in the Yunnan power grid respectively. In the regional grid system studied, considering the typical aggregate effects of wind and PV power plants [25,26], and their contribution to the same central power grid, it is logical to treat all wind power plants and all PV power plants as a virtual plant [15]. The real and predictive hourly output data of the virtual power station in 2022 are used as the research data set. 5.2 The result of GMM For the cascaded hydropower system just introduced, it was employed to balance the output and electricity imbalance caused by wind and PV power across the Yunnan power grid. The hourly forecast deviations were calculated by subtracting the actual hourly output data from the forecast output data of the virtual plant for the year 2022. These deviation electricity values were then accumulated from 1 to 12 h to determine the cumulative multi-hour forecast deviations. To establish the boundary conditions for these deviations across various accumulation periods, GMM was employed to fit the probability distribution of the accumulated deviations. When applying GMM to fit a dataset, selecting the appropriate number of sub-Gaussian distributions, denoted as K, is crucial for the quality of the fitting. If K is too small, the model fails to capture the multimodal and irregular nature of the data, resulting in underfitting. Conversely, choosing a value that is too large, overfitting occurs. To address this, the Bayesian Information Criterion (BIC) is a suitable method for model selection [27]. The BIC offers a quantitative index for model selection that considers both the model complexity and the degree of fit. In the case of GMM, BIC can be calculated using Eq. (48): (48) BIC = K × ln n − 2 × ln L where K represents the number of Gaussian distributions in the GMM; n is the number of data samples; L is the maximum likelihood function of the GMM. It is important to emphasize that a model with a smaller BIC value is generally regarded as superior. Therefore, the optimal fitting effect will be attained by configuring various values of K for the GMM and calculating the corresponding BIC value. The value of K corresponding to the smallest BIC should be chosen as the optimal number of Gaussian distributions. When employing GMM for probability description, the typical range for K is between 2 and 10. This range is utilized to fit the probability distribution of cumulative multi-period deviation electricity. Subsequently, the BIC is calculated for different K values to determine the model with the best fitting effect. The calculated BIC values of cumulative multi-hour deviations with different K are shown in Table 3 . The optimal K values are all between 2 and 10 when using GMM to fit the accumulated 1\u201312 hours of deviated electricity. Specifically, the BIC for the cumulative hours of 1 to 4 hours are minimized at K = 4, and for the cumulative hours of 8 to 12 hours, they are minimized at K = 8.The calculation results for others fluctuate between 4 and 8. Taking the accumulated 4-hours deviated electricity as an example, the effectiveness of GMM fitting with various K values is illustrated in Fig. 4 . The blue section of the graph represents the histogram based on the actual sample data, while the purple curve is the probability distribution curve derived through GMM fitting. For K from 1 to 3, the GMM curve resembles a Gaussian distribution, but is misaligned with the peak of the data distribution lead to an inadequate fit. This is evident in Figs. 4(a)-4(c). When K is incremented to 4, GMM achieves a more accurate description of the characteristics of deviation electricity. As K increases further, from 4 to 9, the fit improves, though overfitting becomes apparent with significant oscillations in the probability density curve. Therefore, selecting the best K value based on the lowest BIC value is justified, as it reflects the optimal balance between fit and complexity. After determining the optimal K values based on the BIC scores for various GMM configurations, the optimal probability density curves for deviation electricity were derived. The data from 1-hour to 6-hours have been fitted with their corresponding optimal K values, as shown in Fig. 5 . As the number of accumulated periods increases, the distribution characteristics of the data become more complex, and the best-fitted probability density curves exhibit more heterogeneous and multi-peaked characteristics. Compared with Figs. 5(a)-5(d), a greater number of sub-Gaussian distributions are required to achieve improved simulation results for the deviation electricity in 5-hours and 6-hours. To restrict the adjustable hydroelectric constraints of the cascaded hydropower system, the boundary values corresponding to the confidence level at 5% and 95% of the cumulative probability distribution are selected. Table 4 indicates that the positive deviation of the wind and PV power typically exceeds the negative deviation. This implies that the actual output surpasses predicted levels during more time periods. Therefore, it is essential to allocate a larger downward adjustment reserve when formulating a day-ahead schedule for the integrated hydro-wind-PV system. 5.3 The result of MILP model Based on the content above, it can be realized to establish the constraints for the cascaded hydropower system as shown in Eqs. (6)\u2013(32). Further, the MILP model described in section 4 is constructed completely. To evaluate the effectiveness of the proposed approach, the developed MILP model will be utilized for the day-ahead optimal operation of the cascaded hydropower system in the Lancang River. The simulation analysis will be conducted in both flood and dry scenarios. The Pearson-III curve is employed to determine the flood and dry conditions. The daily interval inflow data of each reservoir in 2021 were fitted with the Pearson-III curve. The probability distributions at the 30% and 70% percentiles in the fitting results were selected to represent flood and dry scenarios, respectively. The initial reservoir levels for each hydropower station are set near the normal water level and the dead water level under varying inflow conditions separately. Furthermore, in both flood and dry scenarios, the final reservoir levels for the cascaded hydropower system were unrestricted, considering the significant changes in daily reservoir levels. The initial reservoir levels of Gongguoqiao, Xiaowan, Manwan, Nuozhadu, and Jinghong were set at 1306 m, 1238 m, 993 m, 811 m, and 601 m, respectively, in the flood condition. In the dry scenario, they were 1303.2 m, 1166.5 m, 988.2 m, 765.5 m, and 591.2 m, respectively. Then the final optimization model presented in section 4 was implemented in Python and solved by Gurobi 10.0 [28]. The computations wre performed on a system with an Intel(R) Core(TM) i5-13500H CPU @2.6 Hz, 16GB of RAM, and Windows 10 operating system. The computation times for the various models ranged from a minimum of 76 seconds to a maximum of 660 seconds. The established model provides cumulative prediction deviation backup for wind and PV power in Yunnan Province, which also meets the demand of peak shaving in the power grid and the complex operational constraints of hydropower units. The simulation results will be analyzed across three key areas: the effect of peak shaving, the fluctuations in the upward and downward electricity reserve of the cascaded hydropower system, and the operational conditions of hydropower units. (1) The effect of peak shaving. The installed capacity of the studied hydropower system is massive, accounting for about two-thirds of the peak daily electrical load on the local power grid, which provides significant potential for peak shaving. Fig. 6 and Table 5 present the results of peak shaving while meeting the 1-hour, 2-hours and 4-hours forecasted deviation electricity of wind and PV power under flood and dry scenarios. In the case of flood-one, the output of the hydropower system accurately follows the fluctuating trend of the load, yielding a nearly linear residual load curve as depicted in Fig. 6, In the calculation results for 1-hour and 2-hours, the peak-valley difference and the mean square error reduction both reach 100%, signifying optimal conditions. For the 4-hours calculation, although the residual load curve exhibits minor fluctuations, there is still a substantial reduction in both the peak-valley difference and the mean square error by 95.68% and 94.55%, respectively. In dry conditions, the outcomes of peak shaving differ markedly from those observed in flood conditions. As demonstrated in Table 5, the 1-hour calculation results show a pronounced peak regulation effect attributed to the minimal electricity reserves required by wind and PV power, both in upward and downward, resulting in a substantial decrease in peak-valley difference and mean square deviation of residual load, with reductions of up to 97.85% and 98.62%, respectively. For the 2-hours calculations, the hydropower is unable to balance the load curve in the trough periods in order to reserve regulation capacity for peak load periods. As a result, it maintains a constant output from periods 1 to 8. Thus, during the remaining periods with significant load fluctuations, an acceptable peak shaving effect is still achieved. As shown in Fig. 6(b), the daily load curves are mostly smoothed. In the scenario where it is necessary to meet the cumulative 4-hours deviation electricity requirement, hydropower is unable to adjust its output according to the load curve in most periods. It only marginally increases output during two peak periods without exhibiting a noticeable peak-shaving effect. Consequently, there is a marginal reduction in both the load peak-valley difference (15.02%) and the mean square error (5.94%) as shown in Fig. 6(f) and Table 5. (2) Changes of the upward and downward electricity reserve. In the case of flood scene, as cumulative periods increase, the upward reserve capacity will decrease, due to the bigger output of hydropower units. Conversely, the downward reserve capacity will increase as a result of the rising of minimum hydropower unit output, as shown in Fig. 7 . In the calculation results for 1-hour and 2-hours, the minimum value of upward reserve exceeds the required deviation electricity. When considering a 4-hours deviation electricity requirements during peak load periods, upward reserve precisely matches the upward deviation electricity. In dry inflow scenarios, both the upward and downward reserve capabilities of cascaded hydropower system are severely constrained by the storage energy of reservoirs. According to the 1-hour calculation results, the hydropower stations can meet both upward and downward reserve demands in most periods. Nonetheless, in the final period, due to the energy storage limitations of reservoir, it can no longer support hydropower unit to fully generating. At this time, the upward electricity reserve corresponds to the energy storage of the entire hydropower system as shown in Eq. (31) is insufficient to supplement the wind-PV deviation electricity for the subsequent dispatching periods. During dry seasons, the limited storage energy of hydropower system can still make an effective contribution to peak shaving if the deviation electricity of wind-PV power is minor. However, if abundant wind-PV deviation electricity occurred, exceeding the available reserves of entire cascaded hydropower system, the hydropower stations cannot effectively regulate the load while meeting these reserve demands. Furthermore, it also underscores the potential risk of failing to fulfill future reserve requirements, necessitating careful consideration when making a day-ahead plan. (3) The operation conditions of hydropower units. Fig. 8 illustrates the unit output processes for the five hydropower stations during flood scenarios, taking into account the cumulative 1-hour deviation electricity of wind and PV power. The unit vibration zones of these five hydropower stations manifest an intricate pattern. It is evident that the established model effectively incorporates these unit vibration zones. All hydropower units adeptly steer clear of frequent crossings into restricted operation areas, all the while adhering to the minimum unit startup and shutdown duration constraints, thereby aligning with the actual operational conditions of hydropower units. In summary, the developed short-term peak shaving model for the cascaded hydropower system, which incorporates the cumulative deviation of wind and PV power, has demonstrated feasible and effective outcomes. It successfully addresses the prediction errors of wind and PV power, the intricate operational conditions of hydropower units, and the peak shaving requirements of the power grid. This model offers a valuable reference for formulating short-term dispatch plans for a complementary Hydro-wind-PV system centered around the cascaded hydropower system. 6 Conclusions and discussions This paper presents a short-term peak shaving model for cascaded hydropower system, which incorporates the cumulative deviation electricity of wind and PV power stations and the peak shaving demand of the power grid. The model addresses the uncertain output of wind and PV power and the boundary conditions of forecast errors, with the ultimate goal of enhancing the utilization of wind and PV power resources. Furthermore, it takes a hydropower unit as a modeling unit, employs Mixed Integer linear programming to solve the short-term optimal operation of the Lancang River cascaded hydropower system. Subsequent analysis of the computational outcomes yields several noteworthy conclusions: (1) The GMM was employed to fit the cumulative multi-period deviation electricity of wind-PV power, producing satisfactory results. This demonstrates that GMM is well-suited for capturing the irregular characteristics of cumulative deviation electricity; (2) To support the consumption of wind and PV power, the model introduced the upward and downward reserve constraints, which the hydropower system must meet. These constraints are translated into specific limitations on reservoir levels through calculating the storage energy of the hydropower system. The proposed model has been proved the effective in enhancing the consumption of wind-PV power and fulfilling the grid's peak shaving demand during short-term operations; (3) Considering the complex conditions faced by hydropower units during operation, including multiple vibration zones, startup-shutdown durations, and various nonlinear characteristics, this study utilized reasonable linear transformation methods. This approach guarantees that the output processes accurately reflect the actual operational conditions of the hydropower units, thereby affirming the validity of the proposed model. CRediT authorship contribution statement Xinyu Wu: Software, Resources, Funding acquisition, Conceptualization. Shuai Yin: Writing \u2013 original draft, Visualization, Validation, Methodology. Chuntian Cheng: Supervision, Project administration, Investigation. Xingchen Wei: Writing \u2013 review & editing, Formal analysis, Data curation. Declaration of competing interest The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper. Acknowledgements The research work described in this paper is supported by the National Natural Science Foundation of China (52179005). References [1] D. Feng Y.F. Hua B.L. Yu Peak carbon emissions in China: status, key factors and countermeasures\u2014a literature review Sustain 10 8 2018 2895 10.3390/su10082895 Feng D, Hua YF, Yu BL. Peak Carbon Emissions in China: Status, Key Factors and Countermeasures\u2014A Literature Review. Sustain 2018;10.8:2895-2895. doi:10.3390/su10082895 [2] Y. Wang C.H. Guo X.J. Chen L.Q. Jia X.N. Guo R.S. Chen Carbon peak and carbon neutrality in China: goals, implementation path and prospects Chin Geol 4 4 2021 720 746 10.31035/cg2021083 Wang Y, Guo CH, Chen XJ, Jia LQ, Guo XN, Chen RS, et al. Carbon peak and carbon neutrality in China: Goals, implementation path and prospects. Chin Geol 2021;4.4:720-746. doi:10.31035/cg2021083 [3] B.X. Liu T.Y. Liu S.L. Liao J. Lu C.T. Cheng Short-term coordinated hybrid hydro-wind-solar optimal scheduling model considering multistage section restrictions. Renew Energy 2023 217 10.1016/j.renene.2023.119160 Liu BX, Liu TY, Liao SL, Lu J, Cheng CT. Short-term coordinated hybrid hydro-wind-solar optimal scheduling model considering multistage section restrictions. Renew Energy 2023;217. doi:10.1016/j.renene.2023.119160 [4] G.R. Ren J.F. Liu J. Wan Y.F. Guo Y DR. Overview of wind power intermittency: impacts, measurements, and mitigation solutions Appl Energy 204 2017 47 65 10.1016/j.apenergy.2017.06.098 Ren GR, Liu JF, Wan J, Guo YF, Y DR. Overview of wind power intermittency: Impacts, measurements, and mitigation solutions. Appl Energy 2017;204:47-65. doi:10.1016/j.apenergy.2017.06.098 [5] H.X. Zhang Z.X. Lu W. Hu Y.T. Wang L. Dong J.T. Zhang Coordinated optimal operation of hydro\u2013wind\u2013solar integrated systems Appl Energy 242 2019 883 896 10.1016/j.apenergy.2019.03.064 Zhang HX, Lu ZX, Hu W, Wang YT, Dong L, Zhang JT. Coordinated optimal operation of hydro\u2013wind\u2013solar integrated systems. Appl Energy 2019;242: 883-896. doi:10.1016/j.apenergy.2019.03.064 [6] C.T. Cheng X. Cheng J.J. Shen X.Y. Wu Short-term peak shaving operation for multiple power grids with pumped storage power plants Int J Electr Power Energy Syst 67 2015 570 581 10.1016/j.ijepes.2014.12.043 Cheng CT, Cheng X, Shen JJ, Wu XY. Short-term peak shaving operation for multiple power grids with pumped storage power plants. Int J Electr Power Energy Syst 2015;67:570-581. doi:10.1016/j.ijepes.2014.12.043 [7] C.G. Su C.T. Cheng P.L. Wang J.J. Shen X.Y. Wu Optimization model for long-distance integrated transmission of wind farms and pumped-storage hydropower plants Appl Energy 242 2019 285 293 10.1016/j.apenergy.2019.03.080 Su CG, Cheng CT, Wang PL, Shen JJ, Wu XY. Optimization model for long-distance integrated transmission of wind farms and pumped-storage hydropower plants. Appl Energy 2019;242:285-293. doi:10.1016/j.apenergy.2019.03.080 [8] A. Evans V. Strezov J.T. Evans Assessment of utility energy storage options for increased renewable energy penetration Renew Sustain Energy Rev 16 6 2012 4141 4147 10.1016/j.rser.2012.03.048 Evans A, Strezov V, Evans JT. Assessment of utility energy storage options for increased renewable energy penetration. Renew Sustain Energy Rev 2012;16(6): 4141-4147. doi:10.1016/j.rser.2012.03.048 [9] M.Y. Suberu M.W. Mustafa N. Bashir Energy storage systems for renewable energy power sector integration and mitigation of intermittency Renew Sustain Energy Rev 35 2014 499 514 10.1016/j.rser.2014.04.009 Suberu MY, Mustafa MW, Bashir N. Energy storage systems for renewable energy power sector integration and mitigation of intermittency. Renew Sustain Energy Rev 2014;35:499-514. doi:10.1016/j.rser.2014.04.009 [10] K.M. Tan T.S. Babu V.K. Ramachandaramurthy P. Kasinathan S.G. Solanki Empowering smart grid: a comprehensive review of energy storage technology and application with renewable energy integration J Energy Storage 39 2021 102591 10.1016/j.est.2021.102591 Tan KM, Babu TS, Ramachandaramurthy VK, Kasinathan P, Solanki SG. Empowering smart grid: A comprehensive review of energy storage technology and application with renewable energy integration. J Energy Storage 2021;39:102591. doi:10.1016/j.est.2021.102591 [11] S. Zhou Y. Wang Y. Zhou L.E. Clarke J.A. Edmonds Roles of wind and solar energy in China\u2019s power sector: implications of intermittency constraints Appl Energy 213 2018 22 30 10.1016/j.apenergy.2018.01.025 Zhou S, Wang Y, Zhou Y, Clarke LE, Edmonds JA. Roles of wind and solar energy in China's power sector: Implications of intermittency constraints. Appl Energy 2018;213:22-30. doi:10.1016/j.apenergy.2018.01.025 [12] M.E. Khodayar L. Wu M. Shahidehpour Hourly coordination of electric vehicle operation and volatile wind power generation in SCUC IEEE Trans Smart Grid 3 3 2012 1271 1279 10.1109/TSG.2012.2186642 Khodayar ME, Wu L, Shahidehpour M. Hourly Coordination of Electric Vehicle Operation and Volatile Wind Power Generation in SCUC. IEEE Trans Smart Grid, 2012;3(3):1271-1279. DOI:10.1109/TSG.2012.2186642 [13] L. Wu M. Shahidehpour T. Li Cost of reliability analysis based on stochastic unit commitment IEEE Trans Power Syst 23 3 2008 1364 1374 10.1109/TPWRS.2008.922231 Wu L, Shahidehpour M, Li T. Cost of Reliability Analysis Based on Stochastic Unit Commitment. IEEE Trans Power Syst 2008;23(3):1364-1374. DOI: 10.1109/TPWRS.2008.922231 [14] H. Huang M. Zhou L. Zhang G. Li Y. Sun Joint generation and reserve scheduling of wind-solar-pumped storage power systems under multiple uncertainties Int Trans Electr Energ Syst 29 2019 e12003 10.1002/2050-7038.12003 Huang H, Zhou M, Zhang L, Li G, Sun Y. Joint generation and reserve scheduling of wind-solar-pumped storage power systems under multiple uncertainties. Int Trans Electr Energ Syst 2019;29:e12003. doi:10.1002/2050-7038.12003 [15] B. Liu J.R. Lund S. Liao X. Jin C. Cheng Optimal power peak shaving using hydropower to complement wind and solar power uncertainty Energ Conver Manage 209 2020 112628 10.1016/j.enconman.2020.112628 Liu B, Lund JR, Liao S, Jin X, Cheng C. Optimal power peak shaving using hydropower to complement wind and solar power uncertainty. Energy Convers Manage 2020;209:112628. doi:10.1016/j.enconman.2020.112628 [16] C.M. Bishop Pattern recognition and machine learning 2006 Springer New York Bishop CM. Pattern recognition and machine learning. New York: springer; 2006. [17] Z.P. Zhao C.T. Cheng S.L. Liao Y.P. Li Q. Lu A MILP based framework for the hydro unit commitment considering irregular forbidden zone related constraints IEEE Trans Power Syst 36 3 2021 1819 1832 10.1109/TPWRS.2020.3028480 Zhao ZP, Cheng CT, Liao SL, Li YP, Lu Q. A MILP Based Framework for the Hydro Unit Commitment Considering Irregular Forbidden Zone Related Constraints. IEEE Trans Power Syst 2021;36(3):1819-1832. DOI:10.1109/TPWRS.2020.3028480 [18] B. Tong Q.Z. Zhai X.H. Guan An MILP based formulation for short-term hydro generation scheduling with analysis of the linearization effects on solution feasibility IEEE Trans Power Syst 28 4 2013 10.1109/TPWRS.2013.2274286 Tong B, Zhai QZ, Guan XH. An MILP Based Formulation for Short-Term Hydro Generation Scheduling With Analysis of the Linearization Effects on Solution Feasibility. IEEE Trans Power Syst 2013;28(4). DOI: 10.1109/TPWRS.2013.2274286 [19] C.T. Cheng J.Y. Wang X.Y. Wu Hydro unit commitment with a head-sensitive reservoir and multiple vibration zones using MILP IEEE Trans Power Syst 31 6 2016 4842 4852 10.1109/tpwrs.2016.2522469 Cheng CT, Wang JY, Wu XY. Hydro unit commitment with a head-sensitive reservoir and multiple vibration zones using MILP. IEEE Trans Power Syst 2016;31(6):4842-4852. DOI: 10.1109/tpwrs.2016.2522469 [20] J. Dujardin A. Kahl B. Kruyt S. Bartlett M. Lehning Interplay between photovoltaic, wind energy and storage hydropower in a fully renewable Switzerland Energy 135 2017 513 525 10.1016/j.energy.2017.06.092 Dujardin J, Kahl A, Kruyt B, Bartlett S, Lehning M. Interplay between photovoltaic, wind energy and storage hydropower in a fully renewable Switzerland. Energy 2017;135:513-525. doi:10.1016/j.energy.2017.06.092 [21] H. Li R. Zhang M.A. Mahmud B. Hredzak A novel coordinated optimization strategy for high utilization of renewable energy sources and reduction of coal costs and emissions in hybrid hydro-thermal-wind power systems Appl Energy 320 2022 119019 10.1016/j.apenergy.2022.119019 Li H, Zhang R, Mahmud MA, Hredzak B. A novel coordinated optimization strategy for high utilization of renewable energy sources and reduction of coal costs and emissions in hybrid hydro-thermal-wind power systems. Appl Energy 2022;320:119019. doi:10.1016/j.apenergy.2022.119019 [22] Zhu X;Wang C. Unsupervised posture modeling and recognition based on Gaussian mixture model and EM estimation J Softw 6 8 2011 1445 1451 10.4304/jsw.6.8.1445-1451 Zhu X;Wang C. Unsupervised Posture Modeling and Recognition based on Gaussian Mixture Model and EM Estimation. J Softw 2011;6(8): 1445-1451. DOI:10.4304/jsw.6.8.1445-1451 [23] X. Wang J. Chang X. Meng Y. Wang Hydro-thermal-wind-photovoltaic coordinated operation considering the comprehensive utilization of reservoirs Energ Conver Manage 198 2019 111824 Wang X, Chang J, Meng X, Wang Y. Hydro-thermal-wind-photovoltaic coordinated operation considering the comprehensive utilization of reservoirs. Energy Convers Manage 2019;198:111824. [24] J. Garcia-Gonzalez G.A. Castro Short-term hydro scheduling with cascaded and head-dependent reservoirs based on mixed-integer linear programming 2001 IEEE Porto power tech proceedings. Porto, Portugal 2001 10.1109/PTC.2001.964906 Garcia-Gonzalez J, Castro GA. Short-term hydro scheduling with cascaded and head-dependent reservoirs based on mixed-integer linear programming. In: 2001 IEEE Porto Power Tech Proceedings. Porto, Portugal, 2001. DOI: 10.1109/PTC.2001.964906 [25] F.J. Santos-Alamillos D. Pozo-Vázquez J.A. Ruiz-Arias L. Von Bremen J. Tovar-Pescador Combining wind farms with concentrating solar plants to provide stable renewable power Renew Energy 76 2015 539 550 10.1016/j.renene.2014.11.055 Santos-Alamillos FJ, Pozo-Vázquez D, Ruiz-Arias JA, Von Bremen L, Tovar-Pescador J. Combining wind farms with concentrating solar plants to provide stable renewable power. Renew Energy 2015;76:539-550. doi:10.1016/j.renene.2014.11.055 [26] G. Ren J. Wan J. Liu D. Yu L. Söder Analysis of wind power intermittency based on historical wind power data Energy 150 2018 482 492 10.1016/j.energy.2018.02.142 Ren G, Wan J, Liu J, Yu D, Söder L. Analysis of wind power intermittency based on historical wind power data. Energy 2018;150:482-492. doi:10.1016/j.energy.2018.02.142 [27] T.W. Chen C.H. Sun H.H. Su S.Y. Chien D. Deguchi I. Ide Power-efficient hardware architecture of K-means clustering with Bayesian-information-criterion processor for multimedia processing applications IEEE J Emerg Sel Top Circuits Syst 1 3 2011 357 368 10.1109/JETCAS.2011.2165231 Chen TW, Sun CH, Su HH, Chien SY, Deguchi D, Ide I, Murase H. Power-efficient hardware architecture of K-means clustering with Bayesian-information-criterion processor for multimedia processing applications. IEEE J Emerg Sel Top Circuits Syst 2011;1(3):357-368. DOI: 10.1109/JETCAS.2011.2165231 [28] Gurobi Optimization, LLC Gurobi optimizer reference manual https://www.gurobi.com 2023 Gurobi Optimization, LLC. Gurobi optimizer reference manual. 2023, URL https://www.gurobi.com",
+    "scopus-id": "85201187050",
+    "coredata": {
+        "eid": "1-s2.0-S0306261924015824",
+        "dc:description": "The cumulative forecasting errors of wind and photovoltaic (PV) power pose serious challenges to the short-term scheduling of hydropower stations that connected to the same regional power grid. The variable and intermittent nature of wind and PV power necessitate a flexible power source to achieve power balance. Consequently, hydropower, with its flexible adjustment capability, plays a crucial role in supporting the consumption of wind and PV power stations in short-term scheduling. Meanwhile, to address the grid's peak shaving requirement, the scheduling of cascaded hydropower system becomes increasingly complex. Given the limitations of current wind and PV power output prediction technologies, achieving precise forecast remains challenging. In practice, the actual outputs of wind and PV power stations often diverge considerably from predicted values over multiple consecutive periods. This variability may result in the underutilization of wind and PV power if the reserve capacity of hydropower stations is insufficient. Therefore, it is essential to account for the cumulative deviation in electricity from wind and PV sources. By computing probability distribution and establishing boundary condition of the cumulative deviation, the operation of the cascaded hydropower system can be controlled more effectively, thus enhancing the stability of a multi-energy complementary system. This study employs Gaussian Mixture Model (GMM) to characterize the probability distributions of cumulative electricity deviation across multiple periods of wind and PV power and takes it as restriction to regulate the operation of hydropower stations. In order to balance the deviation electricity, the downward electricity reserve, upward electricity reserve and the storage energy of the cascaded reservoirs are introduced as restrictive conditions. The proposed Hydro-wind-PV peak shaving model is then applied to the short-term optimal scheduling of the Lancang River cascaded hydropower system to validate the feasibility and efficacy.",
+        "openArchiveArticle": "false",
+        "prism:coverDate": "2024-12-15",
+        "openaccessUserLicense": null,
+        "prism:aggregationType": "Journal",
+        "prism:url": "https://api.elsevier.com/content/article/pii/S0306261924015824",
+        "dc:creator": [
+            {
+                "@_fa": "true",
+                "$": "Wu, Xinyu"
+            },
+            {
+                "@_fa": "true",
+                "$": "Yin, Shuai"
+            },
+            {
+                "@_fa": "true",
+                "$": "Cheng, Chuntian"
+            },
+            {
+                "@_fa": "true",
+                "$": "Wei, Xingchen"
+            }
+        ],
+        "link": [
+            {
+                "@_fa": "true",
+                "@rel": "self",
+                "@href": "https://api.elsevier.com/content/article/pii/S0306261924015824"
+            },
+            {
+                "@_fa": "true",
+                "@rel": "scidir",
+                "@href": "https://www.sciencedirect.com/science/article/pii/S0306261924015824"
+            }
+        ],
+        "dc:format": "application/json",
+        "openaccessType": null,
+        "pii": "S0306-2619(24)01582-4",
+        "prism:volume": "376",
+        "articleNumber": "124199",
+        "prism:publisher": "Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+        "dc:title": "Short term hydropower scheduling considering cumulative forecasting deviation of wind and photovoltaic power",
+        "prism:copyright": "© 2024 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+        "openaccess": "0",
+        "prism:issn": "03062619",
+        "dcterms:subject": [
+            {
+                "@_fa": "true",
+                "$": "Hydro-wind-PV"
+            },
+            {
+                "@_fa": "true",
+                "$": "Cumulative deviation in electricity"
+            },
+            {
+                "@_fa": "true",
+                "$": "Peak shaving"
+            },
+            {
+                "@_fa": "true",
+                "$": "Energy storage"
+            }
+        ],
+        "openaccessArticle": "false",
+        "prism:publicationName": "Applied Energy",
+        "openaccessSponsorType": null,
+        "prism:pageRange": "124199",
+        "pubType": "fla",
+        "prism:coverDisplayDate": "15 December 2024",
+        "prism:doi": "10.1016/j.apenergy.2024.124199",
+        "prism:startingPage": "124199",
+        "dc:identifier": "doi:10.1016/j.apenergy.2024.124199",
+        "openaccessSponsorName": null
+    },
+    "objects": {"object": [
+        {
+            "@category": "standard",
+            "@height": "689",
+            "@width": "624",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr5.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "74123",
+            "@ref": "gr5",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "826",
+            "@width": "802",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr6.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "141143",
+            "@ref": "gr6",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "565",
+            "@width": "802",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr7.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "119620",
+            "@ref": "gr7",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "594",
+            "@width": "802",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr8.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "131224",
+            "@ref": "gr8",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "579",
+            "@width": "624",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr1.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "115887",
+            "@ref": "gr1",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "358",
+            "@width": "581",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr2.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "31284",
+            "@ref": "gr2",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "479",
+            "@width": "535",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr3.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "52709",
+            "@ref": "gr3",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "575",
+            "@width": "802",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr4.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "85466",
+            "@ref": "gr4",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "163",
+            "@width": "148",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr5.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "6954",
+            "@ref": "gr5",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "164",
+            "@width": "159",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr6.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "8703",
+            "@ref": "gr6",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "154",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr7.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "10621",
+            "@ref": "gr7",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "162",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr8.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "13485",
+            "@ref": "gr8",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "164",
+            "@width": "177",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr1.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "12651",
+            "@ref": "gr1",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "135",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr2.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "3934",
+            "@ref": "gr2",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "164",
+            "@width": "183",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr3.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "10348",
+            "@ref": "gr3",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "157",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr4.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "10172",
+            "@ref": "gr4",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "high",
+            "@height": "3050",
+            "@width": "2762",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr5_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "537768",
+            "@ref": "gr5",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "3653",
+            "@width": "3549",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr6_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "754044",
+            "@ref": "gr6",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2500",
+            "@width": "3549",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr7_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "825165",
+            "@ref": "gr7",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2629",
+            "@width": "3549",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr8_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "771014",
+            "@ref": "gr8",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2563",
+            "@width": "2762",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr1_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "763526",
+            "@ref": "gr1",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "1588",
+            "@width": "2574",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr2_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "190144",
+            "@ref": "gr2",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2118",
+            "@width": "2368",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr3_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "438896",
+            "@ref": "gr3",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2543",
+            "@width": "3549",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-gr4_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "593858",
+            "@ref": "gr4",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si1.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "10529",
+            "@ref": "si1",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si10.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2345",
+            "@ref": "si10",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si100.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2825",
+            "@ref": "si100",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si101.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3357",
+            "@ref": "si101",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si102.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4043",
+            "@ref": "si102",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si103.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "14776",
+            "@ref": "si103",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si104.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "11190",
+            "@ref": "si104",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si105.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4535",
+            "@ref": "si105",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si106.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5218",
+            "@ref": "si106",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si107.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8972",
+            "@ref": "si107",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si11.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "7543",
+            "@ref": "si11",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si12.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "10550",
+            "@ref": "si12",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si13.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5755",
+            "@ref": "si13",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si14.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "10055",
+            "@ref": "si14",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si15.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8520",
+            "@ref": "si15",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si16.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1641",
+            "@ref": "si16",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si17.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1744",
+            "@ref": "si17",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si18.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3699",
+            "@ref": "si18",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si19.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9981",
+            "@ref": "si19",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si2.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1717",
+            "@ref": "si2",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si20.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "7039",
+            "@ref": "si20",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si21.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2744",
+            "@ref": "si21",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si22.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3656",
+            "@ref": "si22",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si23.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4118",
+            "@ref": "si23",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si24.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2866",
+            "@ref": "si24",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si25.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4419",
+            "@ref": "si25",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si26.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1234",
+            "@ref": "si26",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si27.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5651",
+            "@ref": "si27",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si28.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4165",
+            "@ref": "si28",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si29.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2369",
+            "@ref": "si29",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si3.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4339",
+            "@ref": "si3",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si30.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4344",
+            "@ref": "si30",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si31.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2605",
+            "@ref": "si31",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si32.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1902",
+            "@ref": "si32",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si33.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1899",
+            "@ref": "si33",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si34.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8661",
+            "@ref": "si34",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si35.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "6479",
+            "@ref": "si35",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si36.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3532",
+            "@ref": "si36",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si37.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3115",
+            "@ref": "si37",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si38.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3116",
+            "@ref": "si38",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si39.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3536",
+            "@ref": "si39",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si4.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "997",
+            "@ref": "si4",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si40.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5673",
+            "@ref": "si40",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si41.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8666",
+            "@ref": "si41",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si42.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2163",
+            "@ref": "si42",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si43.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2160",
+            "@ref": "si43",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si44.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "10901",
+            "@ref": "si44",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si45.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8397",
+            "@ref": "si45",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si46.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8814",
+            "@ref": "si46",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si47.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "11325",
+            "@ref": "si47",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si48.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "12092",
+            "@ref": "si48",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si49.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5287",
+            "@ref": "si49",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si5.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1577",
+            "@ref": "si5",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si50.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5013",
+            "@ref": "si50",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si51.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3945",
+            "@ref": "si51",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si52.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4120",
+            "@ref": "si52",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si53.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9483",
+            "@ref": "si53",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si54.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4078",
+            "@ref": "si54",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si55.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4075",
+            "@ref": "si55",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si56.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9506",
+            "@ref": "si56",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si57.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3489",
+            "@ref": "si57",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si58.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5927",
+            "@ref": "si58",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si59.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "1902",
+            "@ref": "si59",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si60.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5941",
+            "@ref": "si60",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si61.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4160",
+            "@ref": "si61",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si62.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9758",
+            "@ref": "si62",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si63.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5361",
+            "@ref": "si63",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si64.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4279",
+            "@ref": "si64",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si65.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "11357",
+            "@ref": "si65",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si66.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "15933",
+            "@ref": "si66",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si67.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "6715",
+            "@ref": "si67",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si68.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3486",
+            "@ref": "si68",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si69.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4434",
+            "@ref": "si69",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si7.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5733",
+            "@ref": "si7",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si70.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4538",
+            "@ref": "si70",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si71.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4784",
+            "@ref": "si71",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si72.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "16765",
+            "@ref": "si72",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si73.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "12229",
+            "@ref": "si73",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si74.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2463",
+            "@ref": "si74",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si75.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2709",
+            "@ref": "si75",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si76.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2687",
+            "@ref": "si76",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si77.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2933",
+            "@ref": "si77",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si78.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "2945",
+            "@ref": "si78",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si79.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9674",
+            "@ref": "si79",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si8.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5826",
+            "@ref": "si8",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si80.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9649",
+            "@ref": "si80",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si81.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9509",
+            "@ref": "si81",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si82.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4342",
+            "@ref": "si82",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si83.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4229",
+            "@ref": "si83",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si84.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8390",
+            "@ref": "si84",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si85.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8529",
+            "@ref": "si85",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si86.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "7424",
+            "@ref": "si86",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si87.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "7584",
+            "@ref": "si87",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si88.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "6521",
+            "@ref": "si88",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si89.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3407",
+            "@ref": "si89",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si9.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "12401",
+            "@ref": "si9",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si90.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4091",
+            "@ref": "si90",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si91.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3483",
+            "@ref": "si91",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si92.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4106",
+            "@ref": "si92",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si93.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "12650",
+            "@ref": "si93",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si94.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "12370",
+            "@ref": "si94",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si95.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "12720",
+            "@ref": "si95",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si96.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9200",
+            "@ref": "si96",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si97.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "6494",
+            "@ref": "si97",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si98.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "3556",
+            "@ref": "si98",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S0306261924015824-si99.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5967",
+            "@ref": "si99",
+            "@mimetype": "image/svg+xml"
+        }
+    ]},
+    "link": {
+        "@rel": "abstract",
+        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85201187050"
+    }
+}}

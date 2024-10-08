@@ -1,0 +1,548 @@
+{"full-text-retrieval-response": {
+    "scopus-eid": "2-s2.0-85201884045",
+    "originalText": "serial JL 271987 291210 291718 291892 31 Materials Science in Semiconductor Processing MATERIALSSCIENCEINSEMICONDUCTORPROCESSING 2024-08-26 2024-08-26 2024-08-26 2024-08-26 2024-08-26T15:36:06 1-s2.0-S1369800124007431 S1369-8001(24)00743-1 S1369800124007431 10.1016/j.mssp.2024.108847 S250 S250.2 FULL-TEXT 1-s2.0-S1369800124X00104 2024-08-26T19:15:54.002673Z 0 0 20241201 20241231 2024 2024-08-26T07:29:02.396936Z articleinfo articlenumber articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid hubeid indexeddate issn issnnorm itemstage itemtransactionid itemweight openaccess openarchive pg pgfirst pii piinorm pubdateend pubdatestart pubdatetxt pubyr sectiontitle sortorder srctitle srctitlenorm srctype ssids alllist content subj subheadings suppl tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure table e-component body mmlmath acknowledge affil appendices articletitle auth authfirstini authfull authkeywords authlast grantsponsor grantsponsorid highlightsabst orcid primabst ref 1369-8001 13698001 false 184 184 C Volume 184 66 108847 108847 108847 202412 December 2024 2024-12-01 2024-12-31 2024 Original research articles article fla © 2024 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. SIMPLESYNTHESISWEATHERRESISTANTSELFCLEANINGANTIREFLECTIVECOATINGFORENHANCINGPHOTOVOLTAICCONVERSIONEFFICIENCY JIN W 1 Introduction 2 Experimental 2.1 Materials 2.2 Experimental procedure 2.2.1 Preparation of silica sol 2.2.2 Preparation of silica coating 2.3 Characterization 3 Results and discussion 3.1 Chemical structure and morphology of the coating 3.2 Morphology of coating 3.3 Optical properties of coating 3.4 Wetting properties of coating 3.5 Mechanical stability of the coating 3.6 Weatherability of coating 3.7 Applications of coatings on solar cells 4 Conclusions CRediT authorship contribution statement Acknowledgments Appendix A Supplementary data References ADAK 2022 112145 D FEI 2020 1257 1268 L WU 2023 1270 P CAI 2014 11470 11475 S CHENG 2020 105539 X CUI 2019 108131 M KO 2021 100704 K ALKALLAS 2024 23958 23969 F ALKALLAS 2024 28724 28734 F ALKALLAS 2024 14865 14877 F KALIYANNAN 2023 6375 6386 G VELUKALIYANNAN 2020 2308 2319 G KATHIRVEL 2017 181 187 K BENGOUIDERTRABELSI 2024 1475 1482 A GOBINATH 2021 V CHUNDER 2009 389 395 A LIU 2023 2200829 Y WANG 2021 2150209 J JI 2020 105923 Z ZHENG 2020 125457 K LI 2013 2522 2528 X SUN 2021 101135 X XU 2020 S KAREEM 2020 3958 3966 S CULLY 2018 111 120 P ZHENG 2022 32143 32151 J ZHANG 2021 046403 Q XIA 2017 26834 26838 B PHILIPP 1984 283 292 G UHLMANN 1997 113 122 D STOBER 1968 62 69 W ZHANG 2013 4361 4365 X MALAY 2013 351 361 O BUCKLEY 1994 599 A STARKE 2018 275 286 R LIU 2022 H WANG 2023 107679 J LI 2019 169 179 D LI 2021 126504 X DENG 2011 2962 2965 X SU 2023 381 392 Y LI 2024 149319 H BEHRANVAND 2018 163 165 A JI 2017 21 24 Z HUANG 2018 519 525 X LIU 2023 108998 K ZHANG 2020 1222 1230 S HUANG 2023 110486 J JINX2024X108847 JINX2024X108847XW 2026-08-26T00:00:00.000Z 2026-08-26T00:00:00.000Z http://creativecommons.org/licenses/by-nc-nd/4.0/ © 2024 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 2024-08-24T04:02:01.912Z http://vtw.elsevier.com/data/voc/AddOnTypes/50.7/aggregated-refined Hubei Province Natural Science Foundation http://data.elsevier.com/vocabulary/SciValFunders/501100003819 http://sws.geonames.org/1814991 https://doi.org/10.15223/policy-017 https://doi.org/10.15223/policy-037 https://doi.org/10.15223/policy-012 https://doi.org/10.15223/policy-029 https://doi.org/10.15223/policy-004 item S1369-8001(24)00743-1 S1369800124007431 1-s2.0-S1369800124007431 10.1016/j.mssp.2024.108847 271987 2024-08-26T19:15:54.002673Z 2024-12-01 2024-12-31 1-s2.0-S1369800124007431-main.pdf https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/MAIN/application/pdf/e0d3ffff94b09505f66ef6589e2d9681/main.pdf main.pdf pdf true 7653652 MAIN 10 1-s2.0-S1369800124007431-main_1.png https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/PREVIEW/image/png/d7cb3402f88ff48e552286fc5600befc/main_1.png main_1.png png 56246 849 656 IMAGE-WEB-PDF 1 1-s2.0-S1369800124007431-gr9.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr9/DOWNSAMPLED/image/jpeg/77217a65c54fd6ce254cde7abb55f02c/gr9.jpg gr9 gr9.jpg jpg 108940 227 535 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr7.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr7/DOWNSAMPLED/image/jpeg/14947e2215da56d8fcb4849996bcd14b/gr7.jpg gr7 gr7.jpg jpg 167782 438 691 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr8.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr8/DOWNSAMPLED/image/jpeg/9e68ea7b50787abda3cf6e610ee2c1aa/gr8.jpg gr8 gr8.jpg jpg 182987 578 535 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr1.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr1/DOWNSAMPLED/image/jpeg/6f942239e4396b4c98bc36b14a9eb480/gr1.jpg gr1 gr1.jpg jpg 131777 314 535 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr2.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr2/DOWNSAMPLED/image/jpeg/db187bfa0f088e92be75768ba5fe7c58/gr2.jpg gr2 gr2.jpg jpg 103532 196 535 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr5.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr5/DOWNSAMPLED/image/jpeg/1e580e1ae902e85f972caeb68bef1db7/gr5.jpg gr5 gr5.jpg jpg 145549 435 535 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr6.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr6/DOWNSAMPLED/image/jpeg/4a09d8938ddd52dc3ac155532eeff975/gr6.jpg gr6 gr6.jpg jpg 220790 480 691 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr3.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr3/DOWNSAMPLED/image/jpeg/069efd792f87c5cb5d0b78da38c1745a/gr3.jpg gr3 gr3.jpg jpg 116860 284 388 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr4.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr4/DOWNSAMPLED/image/jpeg/47cc71d0895c8c0a052a1c3d3a6c7a85/gr4.jpg gr4 gr4.jpg jpg 218037 633 535 IMAGE-DOWNSAMPLED 1-s2.0-S1369800124007431-gr9.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr9/THUMBNAIL/image/gif/b07eeef22af3e2031f29818d65117005/gr9.sml gr9 gr9.sml sml 73473 93 219 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr7.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr7/THUMBNAIL/image/gif/c5c72d9af66b2f2a30e6dd0a1b9b5828/gr7.sml gr7 gr7.sml sml 81258 139 219 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr8.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr8/THUMBNAIL/image/gif/b3782d58aea6cdb1f1a0d16c994c62b8/gr8.sml gr8 gr8.sml sml 81486 163 151 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr1.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr1/THUMBNAIL/image/gif/263496d9ea4c14cd82a252cf51f52b66/gr1.sml gr1 gr1.sml sml 79534 129 219 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr2.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr2/THUMBNAIL/image/gif/018b593ed43adaf54ef95434279a9dab/gr2.sml gr2 gr2.sml sml 76075 80 219 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr5.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr5/THUMBNAIL/image/gif/91d854401c297c30ae8d93bb4230bbd1/gr5.sml gr5 gr5.sml sml 81120 164 202 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr6.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr6/THUMBNAIL/image/gif/9f2a78d59c419f8dc101924ecac4d612/gr6.sml gr6 gr6.sml sml 94523 152 219 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr3.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/gr3/THUMBNAIL/image/gif/3f49d75f5fb13fac1658aa8865bb7ff7/gr3.sml gr3 gr3.sml sml 79726 160 219 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr4.sml https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0169131724002928/gr4/THUMBNAIL/image/gif/31ac9ab7ce4728826986158279195586/gr4.sml gr4 gr4.sml sml 86890 163 138 IMAGE-THUMBNAIL 1-s2.0-S1369800124007431-gr9_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/70ca7af7bc8571db6e755d1a0847bae0/gr9_lrg.jpg gr9 gr9_lrg.jpg jpg 337916 1007 2370 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr7_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/ac517c50dfa3d63ec79572896620d013/gr7_lrg.jpg gr7 gr7_lrg.jpg jpg 764370 1940 3060 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr8_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/1ebc0b9309c4bdc994fd982db5a9d5d2/gr8_lrg.jpg gr8 gr8_lrg.jpg jpg 711430 2562 2370 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr1_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/b00562b755ad0e763ad90468097fb54f/gr1_lrg.jpg gr1 gr1_lrg.jpg jpg 488667 1391 2370 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr2_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/c7527bf13b7366ec0d7292eed08e227e/gr2_lrg.jpg gr2 gr2_lrg.jpg jpg 316055 870 2370 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr5_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/535649779ddd3a918b686e1092f6c4ac/gr5_lrg.jpg gr5 gr5_lrg.jpg jpg 559402 1927 2370 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr6_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/fafdc5623ec0ff86eb389e0dc9f220f6/gr6_lrg.jpg gr6 gr6_lrg.jpg jpg 1337851 2127 3060 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr3_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/HIGHRES/image/jpeg/058f16b83deea76350adbda992f5acfe/gr3_lrg.jpg gr3 gr3_lrg.jpg jpg 406336 1259 1721 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-gr4_lrg.jpg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0169131724002928/HIGHRES/image/jpeg/ec4caca4cf9644492fc0178dcc93286f/gr4_lrg.jpg gr4 gr4_lrg.jpg jpg 1280995 2802 2370 IMAGE-HIGH-RES 1-s2.0-S1369800124007431-mmc1.docx https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/mmc1/MAIN/application/vnd.openxmlformats-officedocument.wordprocessingml.document/1645295acfe735138335ecb9fa491371/mmc1.docx mmc1 mmc1.docx docx 2886814 APPLICATION 1-s2.0-S1369800124007431-si11.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/cb057d9e57dc5c5756dd3aaadb46eedb/si11.svg si11 si11.svg svg 23832 ALTIMG 1-s2.0-S1369800124007431-si9.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/c99afec6c9834ec9b37715eecf5078f0/si9.svg si9 si9.svg svg 17069 ALTIMG 1-s2.0-S1369800124007431-si1.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/341ba829e4540e6089e7ac3b0fda9bea/si1.svg si1 si1.svg svg 33631 ALTIMG 1-s2.0-S1369800124007431-si8.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/c93b606b18282e9348630f52763a459e/si8.svg si8 si8.svg svg 7653 ALTIMG 1-s2.0-S1369800124007431-si3.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/1d661292e3ae3e895e06d02ceae07124/si3.svg si3 si3.svg svg 8314 ALTIMG 1-s2.0-S1369800124007431-si5.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/c939760e9111d730448f2d5f67201316/si5.svg si5 si5.svg svg 4085 ALTIMG 1-s2.0-S1369800124007431-si10.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/735e76ca6a11d516660422eaead702d6/si10.svg si10 si10.svg svg 13286 ALTIMG 1-s2.0-S1369800124007431-si4.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/0d995f229a1ed85e7655a702befc20cf/si4.svg si4 si4.svg svg 16792 ALTIMG 1-s2.0-S1369800124007431-si2.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/35ce1f4b5aff3f23ad4cfc36a70e8860/si2.svg si2 si2.svg svg 5367 ALTIMG 1-s2.0-S1369800124007431-si6.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/6a8d0cd57fe73af3a55c911ebb5fd855/si6.svg si6 si6.svg svg 13577 ALTIMG 1-s2.0-S1369800124007431-si7.svg https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369800124007431/image/svg+xml/04d6e2309df0a750945dd3ebe028de67/si7.svg si7 si7.svg svg 9558 ALTIMG MATSCI 108847 108847 S1369-8001(24)00743-1 10.1016/j.mssp.2024.108847 Elsevier Ltd Fig. 1 Schematic diagram illustrating the preparation method of SiO2 coating. Fig. 1 Fig. 2 Schematic diagram of acid-base catalyzed silica sol. Fig. 2 Fig. 3 FT-IR spectra of the coating HMDS modified and Acid-base hybrid. Fig. 3 Fig. 4 (a,b) Base catalysis and acid-base hybrid SEM image. (c) Topography images of the nano-silica coating acid-base hybrid and 3D-AFM. Fig. 4 Fig. 5 (a) The possible light path diagram of the antireflective coating. (b) UV\u2013vis transmission spectra of various coated glass, and the bare glass. (c) Optical image of the coated glass (the right side was coating and the left side was bare glass). (d) Refractive index of bare glass and various coatings. Fig. 5 Fig. 6 (a) WCA for unmodified samples. (b) Photos of different droplets on coated glass. (c) WCA for modified samples. (d\u2013f) and (g\u2013i) Testing the self-cleaning effect of the coating before and after modification. Fig. 6 Fig. 7 (a) Adhesive tape to the actual picture. (b, c) The transmittance and WCA of adhesive tape coating change. (d) Water droplet impact diagram. (e, f) The transmittance and WCA of water droplet coating change. Fig. 7 Fig. 8 (a, b) Coating acid and alkali resistance test. (c) Coating high-temperature resistance test. (d) Coating low-temperature resistance test. (e) The WCA of the coating with the UV exposure with time. (f) The transmittance of the coating changes under different humidity. Fig. 8 Fig. 9 Multi-crystalline silicon solar cells showcasing (a) J-V curves and (b) relative power efficiency curves. Fig. 9 Table 1 Comparison of various transparent hydrophobic coatings. Table 1 Materials T (%) WCA UV irradiation (h) WCA after UV irradiation Aging time (day) Ref TEOS/HMDS/F17-DMS 97.3 145° 720 144° 3 This work TEOS/FHA 93 154° 720 139° 2 [39] E−51/PDMS 71 159° 48 156° 0 [40] PDMS/PBA 90 160° 500 159° 7 [41] E−51/SiO2 94 162 648 157 3 [42] POTCS/SiO2 99 124.5 48 104° 7 [43] SIO2/PFOCTS/PDMS 90 161 400 157° 2 [44] Table 2 Comparative pricing of different materials. Table 2 Materials Source Specification Total Price Ref NH4OH/TEOS/HCL/HMDS Mclean A.R 31.258$/100 ml This work PbTe/BaF2/Y2O3 Mclean A.R 272.84$/100 ml [45] Mg(CH3COO)2/CH3OH/NH4OH/HF/TEOS Mclean A.R 824.018$/100 ml [46] NH4OH/TEOS/PMHS Mclean A.R 56.178$/100 ml [47] PAA/NH4OH/TEOS/HCL/HMDS Mclean A.R 178.098$/100 ml [48] NH4OH/MTES/TEOS/HCL/HMDS Mclean A.R 185.388$/100 ml [49] Simple synthesis of weather-resistant and self-cleaning anti-reflective coating for enhancing photovoltaic conversion efficiency Wanjiang Jin a Xinyu Tan a b \u204e Qihao Dai a Tao Li b Lihua Jiang b Ting Xiao b Weifeng Chen c \u204e\u204e a College of Electrical Engineering & New Energy, China Three Gorges University, Yichang City, 443002, 10, Hubei Province, PR China College of Electrical Engineering & New Energy China Three Gorges University 10 Yichang City Hubei Province 443002 PR China College of Electrical Engineering & New Energy, China Three Gorges University, Yichang City 443002, 10 Hubei Province, PR China b Solar Energy High Value Utilization and Green Conversion Hubei Provincial, Engineering Research Center, College of Electrical Engineering & New Energy, China Three Gorges University Yichang, Hubei, 443002, PR China Solar Energy High Value Utilization and Green Conversion Hubei Provincial Engineering Research Center College of Electrical Engineering & New Energy China Three Gorges University Yichang Hubei 443002 PR China Solar energy high value utilization and green conversion Hubei Provincial, Engineering Research Center, College of Electrical Engineering & New Energy, China Three Gorges University Yichang, Hubei 443002, P. R. China c School of Chemistry and Materials Engineering, Liupanshui Normal University, Liupanshui City, 5, 553004, Guizhou Province, PR China School of Chemistry and Materials Engineering Liupanshui Normal University 5 Liupanshui City Guizhou Province 553004 PR China School of Chemistry and Materials Engineering, Liupanshui Normal University, Liupanshui City 553004, 5 Guizhou Province, PR China \u204e Corresponding author. \u204e\u204e Corresponding author. Transparent self-cleaning coatings have garnered significant attention for their promising prospects in outdoor applications, particularly in solar panels and high-end optical devices. However, existing technologies still grapple with the challenges of achieving high transmittance and superior weather resistance. Therefore, developing cost-effective coatings that possess both high transparency and excellent durability is paramount. A novel method for synthesizing an anti-reflective (AR) coating is presented in this paper, offering simplicity, cost-efficiency, and high performance. By merging acid-base catalyzed sol-gel chemistry with the dip-coating process, the coating's transparency, durability, and hydrophobicity are notably improved. Production time is significantly reduced through process optimization. The AR coating achieves an exceptional transmittance of 97.3 % at 620 nm, a 6.7 % increase over that of untreated glass. Furthermore, its 145° water contact angle demonstrates excellent hydrophobicity and self-cleaning properties. Mechanical stability tests indicate that the coating retains over 96 % transmittance even after 30 tape adhesion cycles. Long-term UV exposure tests reveal that the coating's transmittance and contact angle remain almost unchanged, underscoring its superior environmental stability and weather resistance. Additionally, the coating enhances the transmittance of multi-crystalline silicon (mc-Si) solar cells compared to commercial glass, boosting the photovoltaic conversion efficiency from 11.04 % to 11.81 %, an increase of 7 %. With these exceptional properties, this coating holds significant potential for applications in mc-Si solar cells and high-end optical devices, providing the industry with an efficient and economical solution. Keywords Anti-reflective coating Transmittance Hydrophobic Weather-resistant Photovoltaic conversion efficiency Data availability Data will be made available on request. 1 Introduction In contemporary optical applications, discrepancies in refractive indices at the interfaces of transparent substrates often induce light reflection, leading to a gamut of undesirable optical anomalies. To mitigate these issues, the technology of anti-reflective (AR) coating has garnered considerable attention over recent decades [1\u20133]. Whether single-layered or multilayered, AR coating is meticulously designed with specific thicknesses and refractive indices, typically positioned between air and the transparent substrate, to minimize reflections and amplify light transmission. These coatings effectively mitigate unwanted Fresnel reflections at interfaces, demonstrating immense potential across various optical devices, solar cells, and laser systems [4\u201317]. In recent years, substantial endeavors have been dedicated to augmenting the multifunctionality of AR coating. Researchers have explored diverse fabrication techniques such as physical vapor deposition, layer-by-layer assembly, and block copolymer phase separation to address broader application requisites [18\u201320]. However, due to its manufacturing complexity, difficulty in accurately adjusting refractive index (N) and coating thickness, and inability to use large-scale substrates, despite the success of these methodologies at a laboratory scale, single-function transmissive coating often falls short of meeting the intricate demands of practical applications. Consequently, the industry has proposed more stringent performance requirements for AR coating. Moreover, superhydrophobic surface technologies, due to their low surface energy [21] and the presence of micro/nano-scale roughness [22], have garnered significant acclaim for their pronounced self-cleaning capabilities. Surfaces boasting high water contact angles can effectively clean dust, thereby sustaining clarity and transparency. Nevertheless, enhancing hydrophobic properties typically compromises light transmission, as heightened surface roughness engenders light scattering [23]. Thus, a substantial challenge is presented in harmonizing surface roughness and optical transparency. For instance, Sun's team developed a super hydrophobic double-layer antireflection coating with a hydrophobic Angle of 151°, an average transmittance of 95.3 % in the visible range of 400\u2013800 nm, a low transmittance of the coating, and a long reaction aging time [24]. The three-layer anti-reflection film prepared by Xu's team has excellent performance, with an average transmission of 98.41 % at 400\u2013800 nm, but the contact Angle of the anti-reflection film is only 101° [25]. At the same time, the optical and mechanical properties of the coating are also needed to be considered. Kareem's team developed a transparent silica gel for the synthesis of anti-reflective (AR) and superhydrophobic (SH) films on sodium-calcium glass. The resulting films have an average light transmittivity and hydrostatic contact Angle (CA) of 93.1 % and 169.7°, respectively, but the mechanical properties of the films are poor [26]. Despite their outstanding optical performance, superhydrophobic coatings applied to photovoltaic panel surfaces are susceptible to environmental influences and dust accumulation. Consequently, the superhydrophobic attributes may gradually diminish over time [27,28], necessitating the formulation of superhydrophobic coatings endowed with enhanced mechanical durability and resilience to harsh climates. Although alkali-catalyzed silica coatings exhibit excellent transmittance, due to the random stacking of silica particles with only point contact, they are prone to mechanical abrasions [29]. Conversely, acid-catalyzed silica transmissive coatings, composed of strongly interlinked linear chains, offer robust adhesion on substrates. Nonetheless, the linear structure results in low porosity, leading to high refractive indices and diminished transmittance [30]. Thus, neither alkali-catalyzed nor acid-catalyzed coatings can simultaneously offer outstanding transmittance and high abrasion resistance. The optimal solution entails the development of broadband transmissive coating amalgamating the advantages of alkali and acid-catalyzed coating to obtain marvelous transmittance and mechanical sturdiness. The sol-gel chemistry and dip-coating method is widely used in the fabrication of nanomaterials and thin films because of its simplicity and cost effectiveness. By adjusting the microstructure of colloidal particles and chemical composition, the refractive index is precisely adjusted, with good film-forming capacity, low processing temperature, and good coating thickness [31,32]. In this work, a cost-effective and expeditious method was introduced that integrates acid-alkali mixed catalysis sol-gel technology with dipping techniques. By combining the advantages of base and acid catalysis, we have successfully synthesized a transparent, weather-resistant self-cleaning anti-reflective coating. The low-refractive coating (∼1.25) has excellent optical properties, reaching a peak of 97.4 %, surpassing that of untreated glass (90.6 %), while maintaining a WCA of 145°. The coating also demonstrates exceptional mechanical strength, temperature resistance, durability, and UV resistance. Despite undergoing 10, 20, and 30 cycles of adhesive tape peeling and sticking, its transmittance only marginally declines from the initial 97.4 %\u201395.7 %, with the hydrophobic angle sustained at 136°. Meanwhile, after a month of continuous exposure in a UV chamber (340 nm) simulating 45 °C and 0.89W/m2 irradiance, the coating's transmittance remains above 97 %, with the contact angle above 140°. The substantial increase in the J SC, which escalated from 25.82 mA/cm2 to 28.46 mA/cm2, has achieved an approximate enhancement of 10.2 %. Correspondingly, the PCE has also seen a significant rise, increasing from 11.04 % to 11.81 %, marking an important improvement of 7 %. The application of an AR coating underscores its pivotal role in mitigating light loss and enhancing the PCE of the mc-Si solar cells. Given these robust findings, our work is poised to have extensive future applications. We are confident that this research will offer a novel perspective for advancing high-performance AR coatings and catalyze further technological advancements in the field. 2 Experimental 2.1 Materials Deionized water was prepared using a laboratory water purification system. Glass slides (25 × 75 × 3.5 mm³, model 10127101P-G) were obtained from Jiangsu Shitai Experimental Equipment Co., Ltd. Hexamethyldisilazane (HMDS, AR) and tetraethyl orthosilicate (TEOS, 99.99 %, AR) were purchased from Shanghai Macklin Biochemical Co., Ltd. Ethanol (EtOH, ≥99.5 %, AR), ammonia solution (NH4OH, 25\u201328 %, AR), and n-hexane (≥97.0 %, AR) were purchased from China National Pharmaceutical Group. Trimethyl (1H, 1H, 2H, 2H-perfluorodecyl) silane (98 %) was purchased from Shanghai Aladdin Biochemical Technology Co., Ltd., and concentrated hydrochloric acid (HCl, 28 %, AR) was sourced from Xinyang Chemical Reagent Factory. The glass slides were cleaned with deionized water, air-dried, and then cleaned using a plasma cleaner at 500\u2013600 W for 100s. The multi-crystalline silicon solar cells were purchased from Shenzhen Tuozhanteng Electronic Components Co., Ltd., with specifications of 0.5 V, 160 mA, and dimensions of 53 × 18 mm. Except for deionized water and the glass slides, all other chemicals were used without further purification. 2.2 Experimental procedure 2.2.1 Preparation of silica sol Silica sols were synthesized using the Stöber method [33]. Initially, The precursor tetraethoxysilane (TEOS) was selected as the silicon source. Ammonium hydroxide (NH4OH) was gradually added to a mixture containing ethanol (EtOH), tetraethyl orthosilicate (TEOS), and deionized water to catalyze the hydrolysis of TEOS. The molar ratio of the reactants was ethanol: TEOS: water: ammonium hydroxide = 49:1:3:8. After stirring the mixture at 60 °C in a water bath for 1.5 h, it was ventilated in a fume hood for 2 h to expel ammonia gas, resulting in the formation of a light blue silica sol, referred to as Sol A. Subsequently, hexamethyldisilazane (HMDS) was added to Sol A at a mass fraction of 0.5 %, and the reaction was continued at 60 °C in a water bath for an additional 3 h to produce Sol B. An alternative silica sol [34], Sol C, was synthesized via an acid-catalyzed method. This process involved mixing TEOS, deionized water, hydrochloric acid (HCl), and ethanol in a molar ratio of 1:1:0.01:20. The mixture was stirred at 60 °C for 1 h and then allowed to age for three days. Finally, a hybrid sol, Sol D, was created by combining the alkali-catalyzed Sol B with the acid-catalyzed Sol C in a mass ratio of 5:1. 2.2.2 Preparation of silica coating The coating was applied using an HTDC-300 dip-coater. Before application, glass substrates were meticulously cleaned through a sequential ultrasonic process using detergent, ethanol, and deionized water, each for 15 min. Clean the substrate surface to ensure good adhesion of the coating. The SiO2 sol was then deposited on these prepared substrates employing a dip-coating technique that entailed both immersion and withdrawal. The descent and ascent rates were consistently maintained at 1000 μm/s, with each immersion lasting 120 s. After each dip, the substrates were allowed to air dry at room temperature (25 °C) for 1 min and were then oven-dried at 60 °C for 30 min. N-hexane and Trimethyl (1H, 1H, 2H, 2H-perfluorodecyl) silane were prepared in a solution with a mass fraction of 50:1. The coating process was completed with three 10-min immersions in a fluorine-based solution, achieving a transparent and durable antireflective coating. This entire procedure is depicted in Fig. 1 . 2.3 Characterization A JSM-7500F scanning electron microscope (SEM) was used to examine the microstructure of the coating at an accelerating voltage ranging from 0.1 to 20 kV, capturing microstructural images of the coating. An ultraviolet\u2013visible spectrophotometer (UV-2500) measured the optical transmittance in the wavelength range of 300\u2013900 nm, with a resolution of 1 nm. The static contact angle of water on the prepared coating was measured at room temperature using a SCI3000F automatic contact angle meter, by placing a 5 μL water droplet on the coating surface. A Fourier transform infrared spectrometer (manufactured by PE, USA) was used for near-infrared spectroscopy (FT-IR) to conduct surface chemical analysis of the coating. Spectroscopic ellipsometry (SE-VE) and the Cauchy model determined the refractive index of the deposited coating and solar glass substrates. An atomic force microscope from Bruker, USA, was used to study the surface roughness. 3 Results and discussion 3.1 Chemical structure and morphology of the coating Two distinct types of silica sols with unique microstructures were developed. As illustrated in Fig. 2 , ammonium hydroxide in an alkaline environment facilitates the hydrolysis of tetraethyl orthosilicate (TEOS) and the subsequent condensation of silanol groups to form spherical nanoparticles due to the condensation rate of SiO2 is significantly faster than the hydrolysis of TEOS [35]. These spherical particles, with their highly consistent size and uniform distribution, the resultant coating boast enhanced transmittance. In contrast, hydrochloric acid, serving as an acidic catalyst, the hydrolysis of TEOS plays a more active role than its condensation guides the formation of linear chain-like silica sol, and contributes positively to the material's mechanical properties [36]. When these two silica sols are blended under specific conditions, their distinctive microstructures intertwine to form a composite nano-network that consists of spherical nanoparticles and linear siloxane chains. This structure not only endows the material with exceptional light transmittance but also allows silica-based materials to distribute and absorb energy more effectively under external stress, thereby achieving mechanical reinforcement. As shown in Fig. 3 , infrared spectroscopy analysis reveals the presence of Si-CH3 and Si-O-Si structures in the HMDS-modified, alkaline-catalyzed silica sol coating, as well as the synergistic effect of these structures with additional C-F bonds in the acid-base combined silica sol coating. The absorption peaks at 1258 cm−1 and 1064 cm−1 confirm the presence of the siloxane network and methylsilane in the coating. The characteristic absorption of the C-F bond in the acid-base combined silica sol coating, observed at 755 cm−1, indicates the integration of the fluorinated hydrophobic modifier. This not only enhances the hydrophobicity of the material's surface but also improves the structural integrity and mechanical stability of the coating through chemical cross-linking. Additionally, the hydroxyl (-OH) absorption peak at 3500 cm−1 in the acid-base combined silica sol coating is stronger than in the HMDS-modified sample, indicating that acidic conditions may have inhibited the condensation of some Si-OH groups, leaving more unreacted hydroxyl groups. 3.2 Morphology of coating In Fig. 4 a, it is depicted that the surface morphology of the alkaline-catalyzed silica sol coating appears uniform and well-aligned, demonstrating a high level of consistency. In contrast, Fig. 4b reveals that the acid-base combination silica sol coating surface consists of diverse nanoparticles of varying sizes, which aggregate and tightly pack together to form a hierarchical rough structure. This unique nanoscale surface morphology significantly enhances the interfacial adhesion strength between the coating and the substrate. This improvement may be attributed to the increased surface contact area of the nanoparticles and the enhanced interfacial friction resulting from mechanical interlocking. The tiny mechanical interlocks that form between particles and between the particles and the substrate play a crucial role in the overall adhesion of the coating. Detailed surface morphology analysis of the silica-based acid-alkaline catalyzed coating was conducted using Atomic Force Microscopy (AFM). As shown in Fig. 4c, the coating shows a significant height variation in the range of 32.1 nm\u2013694.0 nm, with a root-mean-square roughness (Rq) of 33.0 nm, reflecting a degree of surface inhomogeneity, which is further validated by the coating thickness analysis (Fig. S1). The multi-layer roughness of the surface creates many air pockets at the microscopic level, which is essential to enhance the hydrophobic properties of the coating. When water droplets come into contact with this surface, the air pocket acts as a barrier, limiting the contact between water molecules and the coating, thus significantly increasing the contact Angle of the surface and giving it a significant hydrophobicity. In addition, transmission electron microscopy images (Fig. S2) revealed inconsistencies in silica particle size, further confirming the effect of coating inhomogeneity on the increase in roughness and the resulting increase in hydrophobic properties. At the same time, the calculated result of the coating porosity using ImageJ software is 34.11 %. The existence of pores enhances the micro and macro roughness of the surface, which can improve the hydrophobic Angle of the coating. 3.3 Optical properties of coating The transmittance and refractive index are critical parameters for assessing the optical properties of the coating. The relationship between these properties is typically described by the Fresnel equation, which applies to non-absorbing media with normal light incidence [37]: (1) T = ( 1 \u2010 ( n \u2010 1 n + 1 ) 2 ) 2 Where T denotes transmittance and n is the refractive index. Lowering the refractive index can reduce reflectance, thereby increasing transmittance. To achieve the utmost control over optical interference, the optical thickness of coatings is typically set to a quarter of the wavelength of the applied light, which is represented as λ / 4 . According to the optical formula d = λ 4 n , where λ is the wavelength in the medium and n is the refractive index, the optimal transmittance for a single-layer anti-reflective coating is achieved when the thickness of the coating is λ / 4 n [38]. In pursuit of the highest transmittance, we have selected a wavelength of 620 nm, which, based on our calculations, yields a theoretical film thickness of 155 nm. This theoretical value closely matches the actual film thickness obtained in our experiments, as depicted in Fig. S1, thereby validating the efficacy and precision of our coating design. In Fig. 5 a, the refractive index of the incident medium is n 0 , and the refractive index of the substrate is n 1 . The refractive index of the coating material that fulfills the conditions for destructive interference can be calculated as n = n 0 n 1 . The light beam reflected from the upper surface of the coating is labeled R1, and the beam reflected from the lower surface is R2. With an optical thickness of 1/4 of the wavelength, the path difference between R1 and R2 is 1/2 of the wavelength, satisfying interference conditions and resulting in destructive interference. This significantly diminishes the intensity of the reflected beam, achieving the desired anti-reflective effect. This theoretical foundation provides a framework for understanding the coating's optical properties. In an alkaline-catalyzed system, ammonium hydroxide is used as a catalyst to accelerate the hydrolysis of the silane precursor and its uniform condensation reaction. The data presented in Fig. 5b indicate silica coating prepared in a base-catalyzed way achieves the highest transmittance, reaching 99.3 %, which is an 8.7 % increase over the 90.6 % of the glass substrate, and has a refractive index of 1.30. This refractive index suggests that the unmodified coating has a high density and a compact internal structure. Introducing hexamethyldisilazane (HMDS) for surface modification in this system slightly reduces the coating's transmittance to 98.5 %, but it still remains 7.9 % higher than that of the glass substrate. This suggests that the addition of HMDS might optimize the coating's microstructure, reducing its density, thereby enhancing optical transparency and reducing light scattering. Conversely, in the acid-catalyzed system, where hydrochloric acid is used as the catalyst, the precursor hydrolysis is promoted, but at a slower rate, with faster condensation, leading to a coating transmittance of only 93.3 %, just a 2.7 % improvement over the glass substrate. This is likely due to the denser and slightly uneven internal structure of the coating under acid catalysis, which increases light scattering. In the acid-alkaline combined catalytic system, the coating's transmittance is 97.4 %, which is 6.8 % higher than the glass substrate, with a refractive index of 1.25 (Fig. 5d). The comparison in Fig. 5c shows that the coating significantly improves optical transmittance compared to bare glass. We take advantage of the optical interference effect to minimize reflection. The one-quarter wavelength thickness of the coating ensures that the reflected waves of the incident light interfere with the reflected waves of the lower interface of the coating, thus significantly reducing reflection losses. This suggests that the acid-alkaline combined catalytic strategy optimizes the coating's network structure, balancing density and porosity to achieve optimal transmissivity. 3.4 Wetting properties of coating Wettability is an essential factor for applications in anti-fouling and moisture barrier technologies. Thus, the self-cleaning experiment was used to evaluate the hydrophobicity of silica sol coatings modified with hexamethyldisilazane (HMDS) and doped with a fluorinated hydrophobic agent. The unmodified silica sol coatings were prepared using alkaline catalysis, showing a contact angle of around 42° (Fig. 6 a), indicating hydrophilicity. This hydrophilicity is due to the polar silanol groups (Si-OH) on the silica sol surface forming hydrogen bonds with water molecules. After modification with HMDS, the coating's contact angle increased to approximately 142°, significantly improving its hydrophobicity. Since the methylsiloxane groups (Si-CH3) replaced the silanol groups, reducing the coating's affinity for water. However, this modification had limited improvement in the coating's mechanical properties. To enhance its mechanical stability, acid-catalyzed silica sol was introduced. However, acid catalysis led to an increase in silanol groups, reducing the contact angle to 90° and diminishing hydrophobicity. To address this, we further introduced a fluorinated hydrophobic agent into the acid-alkaline co-catalyzed silica sol. The final acid-alkaline combined silica sol coating had its contact angle restored to 145° (Fig. 6c) and exhibited excellent hydrophobicity in different liquids (Fig. 6b). The fluorinated hydrophobic agent not only increased surface roughness but also formed low-surface-energy fluorocarbon groups (C-F) on the coating surface. These highly hydrophobic groups effectively repel water molecules, significantly enhancing overall hydrophobicity. The high contact angle of the acid-alkaline combined silica sol coating not only demonstrates its superior hydrophobicity but also imparts self-cleaning properties. In Fig. 6(d\u2013i), sand was sprinkled on both bare glass and coated glass. On bare glass surfaces, the removal of sand particles by water droplets is challenging, however, on coated glass, droplets glide swiftly, carrying away the particles and showcasing the surface's exceptional self-cleaning properties. 3.5 Mechanical stability of the coating Combining acid and base catalysts leverages the advantages of both catalysts to enhance coating performance by reducing micro-defects, improving adhesion, and optimizing the micro and macro structures. We evaluated the coating's mechanical stability through tape adhesion and water drop impact tests. A tape peel test was used to assess the adhesion of the AR coating (Text S1). Fig. 7 a demonstrates the application and removal of a 3M Type 600 transparent tape on the coating surface. After 10, 20, and 30 cycles of adhesion and peeling, the coating's transmittance slightly decreased from 97.3 % to 96.2 % (Fig. 7b). Compared to the glass substrate's transmittance of 90.6 %, the AR coating showed a 5.6 % improvement. The contact angle decreased from 145° to 136° (Fig. 7c), a reduction of only 9°. As shown in Fig. 7(d\u2013f), the coating was inclined at 30° and placed 50 cm from a running water tap to observe the impact of water drops from 10,000 to 100,000 hits. The results showed that after 100,000 water drop impacts, the coating maintained a transmittance of 95.4 %, which is 4.8 % higher than bare glass. The contact angle remained at 140° and demonstrated excellent impact resistance. These results demonstrate the coating's excellent adhesion and mechanical stability while maintaining high transmittance and hydrophobicity. 3.6 Weatherability of coating In Fig. 8 a and b, the chemical stability of the coatings is assessed through immersion in solutions with pH levels of 1 and 13 over 72 h, respectively. After immersion in the pH 1 acidic solution for 72 h, the coating still had a transmittance above 96 % and a contact angle greater than 140°, indicating that the coating maintained good structural and surface integrity in a strong acid environment. This resistance could be attributed to the chemical inertness of the coating material and its corrosion resistance to acidic solutions. However, in an alkaline environment, the coating's transmittance dropped to 94.3 % and the contact angle decreased to 126°. This decline is likely due to the reaction of silica in an alkaline environment, causing hydrolysis of the siloxane bonds in the coating, which compromises the coating's integrity and affects its optical and hydrophobic properties. To assess thermal stability, we measured the coated glass's contact angle and transmittance after 30 h of treatment at high (100 °C) and low (−25 °C) temperatures. As shown in Fig. 8c and d, after 30 h of treatment, the coating maintained a transmittance of around 97 % and a contact angle above 140°. The demonstrated stability underscores the coating's exceptional thermal endurance within a wide temperature spectrum. This is presumably attributed to the maintenance of structural integrity at both elevated and reduced temperatures, consequently sustaining the material's optical clarity and hydrophobic attributes. Additionally, we placed the coating in a UV accelerated weathering test chamber device (Fig. S3) that simulated UV radiation with a temperature of 45 °C and an irradiation intensity of 0.89W/m2 for one month (Text S2). Results indicated negligible alterations in the coating's transmittance and contact angle, as depicted in Fig. 8e. The transmittance also remained stable in different humidity environments (Fig. 8f). Findings further indicate that surface coating exhibits outstanding weather resistance, which makes the coating material suitable for use in various harsh environments. Furthermore, Table 1 encapsulates a comprehensive summary of various coatings, detailing their transmittance, contact angle, UV exposure time, contact Angle changes after UV exposure, and aging time. Table 2 summarizes the price comparison of materials (/100 ml) used in different experimental methods. Our coating shows the comprehensive performance of low cost and excellent durability, which provides a broad prospect for practical application, indicating that it has great potential and application value in various industries. 3.7 Applications of coatings on solar cells Multi-crystalline silicon (mc-Si) solar cells currently lead the photovoltaic sector, owing to their extensive deployment and technological maturity. Our research focused on the profound effects of anti-reflective coatings on mc-Si solar cells' performance. Fig. 9 distinctly illustrates the influence of AR coatings, with two sets of J/V curves (Fig. 9a) and relative power efficiency graphs (Fig. 9b) delineating the performance disparities. The measurements were carried out under illumination of 100 mW/cm2 AM1.5 G. Uncoated cells displayed comparatively short-circuit currents ( J SC ), which resulted in diminished maximum power points ( P max ) and a peak power efficiency of merely 11.04 %. Conversely, mc-Si solar cells enhanced with AR coatings exhibited superior performance under identical testing conditions. Due to its exceptional anti-reflective properties, the J SC of the mc-Si solar cell has recorded a significant increase, rising from 25.82 mA/cm2 to 28.46 mA/cm2, achieving an approximate enhancement of 10.2 %. The increase in transmittance directly leads to more photons being absorbed by the battery material, increasing the production of photogenerated charge carriers, which in turn increases the photocurrent and the output power of the battery. Increased transmission leads to increased J SC [50]. The increase in J SC is a pivotal indicator of the optimization of solar cell performance, signifying an enhanced efficiency in capturing photons and converting them into electrical current. Demonstrating that AR coatings significantly boost light absorption and current generation. Consequently, the photovoltaic conversion efficiency (PCE) was elevated to 11.81 %, an increase of 7 %, underscoring the pivotal role of AR coatings in minimizing light losses and augmenting PCE, thereby affirming their substantial utility in elevating the overall efficacy of solar cells. 4 Conclusions In summary, we have demonstrated the effectiveness and practicality of antireflective coatings prepared using the acid-base mixed catalysis sol-gel method to enhance the performance of optical devices. This innovative coating leverages the combined benefits of acidic and basic catalysts, achieving high transmittance, improved mechanical strength, and excellent hydrophobic properties. Transmittance of the coating across the 380\u2013780 nm visible light range consistently exceeded 95 %, peaking at 97.4 %, which is a 6.8 % increase over that of glass substrates, with a refractive index of 1.25. The hydrophobic angle measures at 145°. Despite 30 cycles of adhesive tape peeling and sticking, the initial transmittance of 97.4 % only marginally dipped to 95.7 %, and the hydrophobic angle remained robust at 136°. After 100,000 water drop impacts, the coating maintained a transmittance of 95.4 %, which is 4.8 % higher than bare glass. The contact angle remained at 140°. Enduring a month of simulated UV exposure at 45 °C and an irradiance of 0.89W/m2, the coating's transmittance remained above 97 %, with the contact angle still above 140°. Such versatility in technology renders it highly suitable for a variety of high-performance applications, notably in enhancing the efficiency of solar cells and optical devices. The J SC has witnessed a substantial increase, escalating from 25.82 mA/cm2 to 28.46 mA/cm2, achieving an approximate enhancement of 10.2 %. Corresponding PCE increased from 11.04 % to 11.81 %, a significant rise of 7 %. The AR coating highlights the crucial role of reducing light loss and augmenting the PCE of the cells. This work opens up a new direction for the future development of optical materials and introduces practical new technology for related industrial applications. CRediT authorship contribution statement Wanjiang Jin: Writing \u2013 original draft. Xinyu Tan: Writing \u2013 review & editing, Funding acquisition. Qihao Dai: Revise. Tao Li: Revise. Lihua Jiang: Supervision. Ting Xiao: Supervision. Weifeng Chen: Writing \u2013 review & editing. Declaration of competing interest The authors declare no competing interests. Acknowledgments This work was supported by the 111 Project (D20015) of China. The Natural Science Foundation of Hubei Province, China (2022CFD036), as well as the Engineering Technology Research Center for High-Value Utilization and Green Transformation of Solar Energy in Hubei Province. Appendix A Supplementary data The following is the Supplementary data to this article: Multimedia component 1 Multimedia component 1 Appendix A Supplementary data Supplementary data to this article can be found online at https://doi.org/10.1016/j.mssp.2024.108847. References [1] D. Adak R. Bhattacharyya H.C. Barshilia A state-of-the-art review on the multifunctional self-cleaning nanostructured coatings for PV panels, CSP mirrors and related solar devices Renew. Sustain. Energy Rev. 159 2022 112145 10.1016/j.rser.2022.112145 D. Adak, R. Bhattacharyya, H.C. Barshilia, A state-of-the-art review on the multifunctional self-cleaning nanostructured coatings for PV panels, CSP mirrors and related solar devices, Renewable and Sustainable Energy Reviews 159 (2022) 112145. https://doi.org/10.1016/j.rser.2022.112145. [2] L. Fei Z. He J.D. LaCoste T.H. Nguyen Y. Sun A mini review on superhydrophobic and transparent surfaces Chem. Rec. 20 11 2020 1257 1268 10.1002/tcr.202000075 L. Fei, Z. He, J.D. LaCoste, T.H. Nguyen, Y. Sun, A Mini Review on Superhydrophobic and Transparent Surfaces, The Chemical Record 20(11) (2020) 1257-1268. https://doi.org/10.1002/tcr.202000075. [3] P. Wu Z. Xue T. Yu O.V. Penkov Transparent self-cleaning coatings: a review Coatings 13 7 2023 1270 P. Wu, Z. Xue, T. Yu, O.V. Penkov, Transparent Self-Cleaning Coatings: A Review, Coatings 13(7) (2023) 1270. [4] S. Cai Y. Zhang H. Zhang H. Yan H. Lv B. Jiang Sol\u2013gel preparation of hydrophobic silica antireflective coatings with low refractive index by base/acid two-step catalysis ACS Appl. Mater. Interfaces 6 14 2014 11470 11475 10.1021/am501972y S. Cai, Y. Zhang, H. Zhang, H. Yan, H. Lv, B. Jiang, Sol-Gel Preparation of Hydrophobic Silica Antireflective Coatings with Low Refractive Index by Base/Acid Two-Step Catalysis, ACS Applied Materials & Interfaces 6(14) (2014) 11470-11475. https://doi.org/10.1021/am501972y. [5] X.-W. Cheng R.-C. Tang J.-P. Guan S.-Q. Zhou An eco-friendly and effective flame retardant coating for cotton fabric based on phytic acid doped silica sol approach Prog. Org. Coating 141 2020 105539 10.1016/j.porgcoat.2020.105539 X.-W. Cheng, R.-C. Tang, J.-P. Guan, S.-Q. Zhou, An eco-friendly and effective flame retardant coating for cotton fabric based on phytic acid doped silica sol approach, Progress in Organic Coatings 141 (2020) 105539. https://doi.org/10.1016/j.porgcoat.2020.105539. [6] M. Cui S. Ren J. Pu Y. Wang H. Zhao L. Wang Poly(o-phenylenediamine) modified graphene toward the reinforcement in corrosion protection of epoxy coatings Corrosion Sci. 159 2019 108131 10.1016/j.corsci.2019.108131 M. Cui, S. Ren, J. Pu, Y. Wang, H. Zhao, L. Wang, Poly(o-phenylenediamine) modified graphene toward the reinforcement in corrosion protection of epoxy coatings, Corrosion Science 159 (2019) 108131. https://doi.org/10.1016/j.corsci.2019.108131. [7] K.J. Ko S.R. Shin H.B. Lee E. Jeong Y.J. Yoo H.M. Kim Y.M. Song J. Yun J.W. Kang Fabrication of an oxide/metal/oxide structured electrode integrated with antireflective film to enhance performance in flexible organic light-emitting diodes Mater. Today Energy 20 2021 100704 10.1016/j.mtener.2021.100704 K.J. Ko, S.R. Shin, H.B. Lee, E. Jeong, Y.J. Yoo, H.M. Kim, Y.M. Song, J. Yun, J.W. Kang, Fabrication of an oxide/metal/oxide structured electrode integrated with antireflective film to enhance performance in flexible organic light-emitting diodes, Materials Today Energy 20 (2021) 100704. https://doi.org/10.1016/j.mtener.2021.100704. [8] F.H. Alkallas E.A. Mwafy G. Velu Kaliyannan R. Gunasekaran R. Rathanasamy A.B. Gouider Trabelsi W.B. Elsharkawy A.M. Mostafa S.K. Palaniappan Enhancing photovoltaic cell efficiency: a comprehensive study on BN-Si3N4 blend antireflective coatings and their impact on power conversion Ceram. Int. 50 13 2024 23958 23969 10.1016/j.ceramint.2024.04.126 Part B F.H. Alkallas, E.A. Mwafy, G. Velu Kaliyannan, R. Gunasekaran, R. Rathanasamy, A.B. Gouider Trabelsi, W.B. Elsharkawy, A.M. Mostafa, S.K. Palaniappan, Enhancing photovoltaic cell efficiency: A comprehensive study on BN-Si3N4 blend antireflective coatings and their impact on power conversion, Ceramics International 50(13, Part B) (2024) 23958-23969. https://doi.org/10.1016/j.ceramint.2024.04.126. [9] F.H. Alkallas E.A. Mwafy G. Velu Kaliyannan S. Sivaraj R. Rathanasamy A.B. Gouider Trabelsi W.B. Elsharkawy A.M. Mostafa S.K. Palaniappan Achieving effective performance of silicon solar cell through electrosprayed MgF2 antireflection coating Ceram. Int. 50 16 2024 28724 28734 10.1016/j.ceramint.2024.05.182 F.H. Alkallas, E.A. Mwafy, G. Velu Kaliyannan, S. Sivaraj, R. Rathanasamy, A.B. Gouider Trabelsi, W.B. Elsharkawy, A.M. Mostafa, S.K. Palaniappan, Achieving effective performance of silicon solar cell through electrosprayed MgF2 antireflection coating, Ceramics International 50(16) (2024) 28724-28734. https://doi.org/10.1016/j.ceramint.2024.05.182. [10] F.H. Alkallas S.M. Alghamdi G. Velu Kaliyannan R. Gunasekaran R. Rathanasamy A.B. Gouider Trabelsi W.B. Elsharkawy A.M. Mostafa S.K. Palaniappan Enhanced efficiency of mono-crystalline Si solar cells utilizing RF sputtered TiO2\u2013Al2O3 blended anti-reflection coating for optimal sunlight transmission and energy conversion Ceram. Int. 50 9 2024 14865 14877 10.1016/j.ceramint.2024.01.402 Part A F.H. Alkallas, S.M. Alghamdi, G. Velu Kaliyannan, R. Gunasekaran, R. Rathanasamy, A.B. Gouider Trabelsi, W.B. Elsharkawy, A.M. Mostafa, S.K. Palaniappan, Enhanced efficiency of mono-crystalline Si solar cells utilizing RF sputtered TiO2-Al2O3 blended anti-reflection coating for optimal sunlight transmission and energy conversion, Ceramics International 50(9, Part A) (2024) 14865-14877. https://doi.org/10.1016/j.ceramint.2024.01.402. [11] G.V. Kaliyannan U. Gandhi R. Rathanasamy M. Subramanian S. Kandasamy R. Gunasekaran S.K. Palaniappan Effect of zinc oxide\u2014aluminium oxide mechanical blends for boosting the polycrystalline silicon solar cell performance through antireflection properties Silicon 15 15 2023 6375 6386 10.1007/s12633-023-02515-2 G.V. Kaliyannan, U. Gandhi, R. Rathanasamy, M. Subramanian, S. Kandasamy, R. Gunasekaran, S.K. Palaniappan, Effect Of Zinc Oxide-Aluminium Oxide Mechanical Blends for Boosting the Polycrystalline Silicon Solar Cell Performance through Antireflection Properties, Silicon 15(15) (2023) 6375-6386. https://doi.org/10.1007/s12633-023-02515-2. [12] S.K. Palaniappan, M. Chinnasamy, R. Rathanasamy, S.K. Pal, Recycling of Solar Panels, Materials for Solar Energy Conversion2021, pp. 47-86. https://doi.org/10.1002/9781119752202.ch3. [13] A. Mohan Kumar, R. Rajasekar, P. Sathish Kumar, S. Santhosh, B. Premkumar, Green Sources to Green Storage on Solar\u2013Hydrogen Coupling, Materials for Hydrogen Production, Conversion, and Storage2023, pp. 97-113. https://doi.org/10.1002/9781119829584.ch4. [14] G. Velu Kaliyannan S.V. Palanisamy R. Rathanasamy M. Palanisamy S.K. Palaniappan M. Chinnasamy Influence of ultrathin gahnite anti-reflection coating on the power conversion efficiency of polycrystalline silicon solar cell J. Mater. Sci. Mater. Electron. 31 3 2020 2308 2319 10.1007/s10854-019-02763-2 G. Velu Kaliyannan, S.V. Palanisamy, R. Rathanasamy, M. Palanisamy, S.K. Palaniappan, M. Chinnasamy, Influence of ultrathin gahnite anti-reflection coating on the power conversion efficiency of polycrystalline silicon solar cell, Journal of Materials Science: Materials in Electronics 31(3) (2020) 2308-2319. https://doi.org/10.1007/s10854-019-02763-2. [15] K. Kathirvel R. Rajasekar T. Shanmuharajan S.K. Pal P. Sathish Kumar J. Saravana Kumar Development of calcium titanium oxide coated silicon solar cells for enhanced voltage generation capacity Materials Science-Poland 35 1 2017 181 187 10.1515/msp-2017-0036 K. Kathirvel, R. Rajasekar, T. Shanmuharajan, S.K. Pal, P. Sathish Kumar, J. Saravana Kumar, Development of calcium titanium oxide coated silicon solar cells for enhanced voltage generation capacity, Materials Science-Poland 35(1) (2017) 181-187. https://doi.org/10.1515/msp-2017-0036. [16] A. Ben Gouider Trabelsi G. Velu Kaliyannan R. Gunasekaran R. Rathanasamy S.K. Palaniappan F.H. Alkallas W.B. Elsharkawy A.M. Mostafa Surface engineering of Sio2-Zro2 films for augmenting power conversion efficiency performance of silicon solar cells J. Mater. Res. Technol. 28 2024 1475 1482 10.1016/j.jmrt.2023.12.119 A. Ben Gouider Trabelsi, G. Velu Kaliyannan, R. Gunasekaran, R. Rathanasamy, S.K. Palaniappan, F.H. Alkallas, W.B. Elsharkawy, A.M. Mostafa, Surface engineering of Sio2-Zro2 films for augmenting power conversion efficiency performance of silicon solar cells, Journal of Materials Research and Technology 28 (2024) 1475-1482. https://doi.org/10.1016/j.jmrt.2023.12.119. [17] V.K. Gobinath R. Rajasekar C. Moganapriya A. Manju Sri G. Raja Kumar S.K. Jaganathan Surface engineering of zinc sulphide film for augmenting the performance of polycrystalline silicon solar cells Chalcogenide Lett 2021 10.15251/cl.2021.187.375 V.K. Gobinath, R. Rajasekar, C. Moganapriya, A. Manju Sri, G. Raja, P. athish Kumar, S.K. Jaganathan, Surface engineering of zinc sulphide film for augmenting the performance of polycrystalline silicon solar cells, Chalcogenide Letters (2021). [18] A. Chunder K. Etcheverry S. Wadsworth G.D. Boreman L. Zhai Fabrication of anti-reflection coatings on plastics using the spraying layer-by-layer self-assembly technique J. Soc. Inf. Disp. 17 4 2009 389 395 10.1889/JSID17.4.389 A. Chunder, K. Etcheverry, S. Wadsworth, G.D. Boreman, L. Zhai, Fabrication of anti-reflection coatings on plastics using the spraying layer-by-layer self-assembly technique, Journal of the Society for Information Display 17(4) (2009) 389-395. https://doi.org/10.1889/JSID17.4.389. [19] Y. Liu L. Chen Y. Yang H. Chen X. Zhang S. Liu High mechanical strength and multifunctional microphase-separated supramolecular hydrogels fabricated by liquid-crystalline block copolymer Macromol. Rapid Commun. 44 6 2023 2200829 10.1002/marc.202200829 Y. Liu, L. Chen, Y. Yang, H. Chen, X. Zhang, S. Liu, High Mechanical Strength and Multifunctional Microphase-Separated Supramolecular Hydrogels Fabricated by Liquid-Crystalline Block Copolymer, Macromolecular Rapid Communications 44(6) (2023) 2200829. https://doi.org/10.1002/marc.202200829. [20] J. Wang C. Feng W. Zhang Z. Xu X. Liu K. Yi J. Shao Hydrophobic antireflective coating with high laser damage threshold by physical vapor deposition Mod. Phys. Lett. B 35 12 2021 2150209 10.1142/S0217984921502092 J. Wang, C. Feng, W. Zhang, Z. Xu, X. Liu, K. Yi, J. Shao, Hydrophobic antireflective coating with high laser damage threshold by physical vapor deposition, Modern Physics Letters B 35(12) (2021) 2150209. https://doi.org/10.1142/S0217984921502092. [21] Z. Ji Y. Liu F. Du Facile synthesis of solvent-free and mechanically robust coating with self-cleaning property Prog. Org. Coating 149 2020 105923 10.1016/j.porgcoat.2020.105923 Z. Ji, Y. Liu, F. Du, Facile synthesis of solvent-free and mechanically robust coating with self-cleaning property, Progress in Organic Coatings 149 (2020) 105923. https://doi.org/10.1016/j.porgcoat.2020.105923. [22] K. Zheng J. Zhang H. Dodiuk S. Kenig C. Barry E.B. Iezzi J. Mead The effect of composite interface morphology on wetting states for nanocomposite superhydrophobic coating Surf. Coating. Technol. 387 2020 125457 10.1016/j.surfcoat.2020.125457 K. Zheng, J. Zhang, H. Dodiuk, S. Kenig, C. Barry, E.B. Iezzi, J. Mead, The effect of composite interface morphology on wetting states for nanocomposite superhydrophobic coating, Surface and Coatings Technology 387 (2020) 125457. https://doi.org/10.1016/j.surfcoat.2020.125457. [23] X. Li J. He W. Liu Broadband anti-reflective and water-repellent coatings on glass substrates for self-cleaning photovoltaic cells Mater. Res. Bull. 48 7 2013 2522 2528 10.1016/j.materresbull.2013.03.017 X. Li, J. He, W. Liu, Broadband anti-reflective and water-repellent coatings on glass substrates for self-cleaning photovoltaic cells, Materials Research Bulletin 48(7) (2013) 2522-2528. https://doi.org/10.1016/j.materresbull.2013.03.017. [24] X. Sun K. Hu J. Tu K. Chen Design and preparation of superhydrophobic, broadband and double-layer antireflective coatings Surface. Interfac. 24 2021 101135 10.1016/j.surfin.2021.101135 X. Sun, K. Hu, J. Tu, K. Chen, Design and preparation of superhydrophobic, broadband and double-layer antireflective coatings, Surfaces and Interfaces 24 (2021) 101135. https://doi.org/10.1016/j.surfin.2021.101135. [25] S. Xu H. Jia C. Wang W. Zhao Y. Wang C. Yang H. Wu J. Zhu B. Wang Q. Wang Low-temperature preparation of SiO2/Nb2O5/TiO2\u2013SiO2 broadband antireflective coating for the visible via acid-catalyzed sol\u2013gel method Coatings 2020 10.3390/coatings10080737 S. Xu, H. Jia, C. Wang, W. Zhao, Y. Wang, C. Yang, H. Wu, J. Zhu, B. Wang, Q. Wang, Low-Temperature Preparation of SiO2/Nb2O5/TiO2-SiO2 Broadband Antireflective Coating for the Visible via Acid-Catalyzed Sol-Gel Method, Coatings, 2020. [26] S. Kareem Y. Xie T. Li Y. Ding E.A. Tsiwah A.S.A. Ahmed J. Chen F. Qiao Z. Chen X. Zhao Base-catalyzed synthesis of superhydrophobic and antireflective films for enhanced photoelectronic applications J. Mater. Res. Technol. 9 3 2020 3958 3966 10.1016/j.jmrt.2020.02.022 S. Kareem, Y. Xie, T. Li, Y. Ding, E.A. Tsiwah, A.S.A. Ahmed, J. Chen, F. Qiao, Z. Chen, X. Zhao, Base-catalyzed synthesis of superhydrophobic and antireflective films for enhanced photoelectronic applications, Journal of Materials Research and Technology 9(3) (2020) 3958-3966. https://doi.org/10.1016/j.jmrt.2020.02.022. [27] P. Cully F. Karasu L. Müller T. Jauzein Y. Leterrier Self-cleaning and wear-resistant polymer nanocomposite surfaces Surf. Coating. Technol. 348 2018 111 120 10.1016/j.surfcoat.2018.05.040 P. Cully, F. Karasu, L. Muller, T. Jauzein, Y. Leterrier, Self-cleaning and wear-resistant polymer nanocomposite surfaces, Surface and Coatings Technology 348 (2018) 111-120. https://doi.org/10.1016/j.surfcoat.2018.05.040. [28] J. Zheng J. Yang W. Cao Y. Huang Z. Zhou Y.-X. Huang Fabrication of transparent wear-resistant superhydrophobic SiO2 film via phase separation and chemical vapor deposition methods Ceram. Int. 48 21 2022 32143 32151 10.1016/j.ceramint.2022.07.154 J. Zheng, J. Yang, W. Cao, Y. Huang, Z. Zhou, Y.-X. Huang, Fabrication of transparent wear-resistant superhydrophobic SiO2 film via phase separation and chemical vapor deposition methods, Ceramics International 48(21) (2022) 32143-32151. https://doi.org/10.1016/j.ceramint.2022.07.154. [29] Q. Zhang H. Liu S. Zhao W. Dong Hydrophobic and optical properties of silica antireflective coating prepared via sol-gel method Mater. Res. Express 8 4 2021 046403 10.1088/2053-1591/abf6fb Q. Zhang, H. Liu, S. Zhao, W. Dong, Hydrophobic and optical properties of silica antireflective coating prepared via sol-gel method, Materials Research Express 8(4) (2021) 046403. https://doi.org/10.1088/2053-1591/abf6fb. [30] B. Xia J. Luo Y. Li B. Yang S. Zhang B. jiang Preparation of sponge-like porous SiO2 antireflective coatings with excellent environment-resistance by an acid-catalysed sol\u2013gel method RSC Adv. 7 43 2017 26834 26838 10.1039/C7RA00622E B. Xia, J. Luo, Y. Li, B. Yang, S. Zhang, B. jiang, Preparation of sponge-like porous SiO2 antireflective coatings with excellent environment-resistance by an acid-catalysed sol-gel method, RSC Advances 7(43) (2017) 26834-26838. https://doi.org/10.1039/C7RA00622E. [31] G. Philipp H. Schmidt New materials for contact lenses prepared from Si- and Ti-alkoxides by the sol-gel process J. Non-Cryst. Solids 63 1 1984 283 292 10.1016/0022-3093(84)90407-1 G. Philipp, H. Schmidt, New materials for contact lenses prepared from Si- and Ti-alkoxides by the sol-gel process, Journal of Non-Crystalline Solids 63(1) (1984) 283-292. https://doi.org/10.1016/0022-3093(84)90407-1. [32] D.R. Uhlmann T. Suratwala K. Davidson J.M. Boulton G. Teowee Sol\u2014gel derived coatings on glass J. Non-Cryst. Solids 218 1997 113 122 10.1016/S0022-3093(97)00162-2 D.R. Uhlmann, T. Suratwala, K. Davidson, J.M. Boulton, G. Teowee, Sol-gel derived coatings on glass, Journal of Non-Crystalline Solids 218 (1997) 113-122. https://doi.org/10.1016/S0022-3093(97)00162-2. [33] W. Stöber A. Fink E. Bohn Controlled growth of monodisperse silica spheres in the micron size range J. Colloid Interface Sci. 26 1 1968 62 69 10.1016/0021-9797(68)90272-5 W. Stober, A. Fink, E. Bohn, Controlled growth of monodisperse silica spheres in the micron size range, Journal of Colloid and Interface Science 26(1) (1968) 62-69. https://doi.org/10.1016/0021-9797(68)90272-5. [34] X.-X. Zhang S. Cai D. You L.-H. Yan H.-B. Lv X.-D. Yuan B. Jiang Template-Free sol-gel preparation of superhydrophobic ORMOSIL films for double-wavelength broadband antireflective coatings Adv. Funct. Mater. 23 35 2013 4361 4365 10.1002/adfm.201203059 X.-X. Zhang, S. Cai, D. You, L.-H. Yan, H.-B. Lv, X.-D. Yuan, B. Jiang, Template-Free Sol-Gel Preparation of Superhydrophobic ORMOSIL Films for Double-Wavelength Broadband Antireflective Coatings, Advanced Functional Materials 23(35) (2013) 4361-4365. https://doi.org/10.1002/adfm.201203059. [35] O. Malay I. Yilgor Y.Z. Menceloglu Effects of solvent on TEOS hydrolysis kinetics and silica particle size under basic conditions J. Sol. Gel Sci. Technol. 67 2 2013 351 361 10.1007/s10971-013-3088-4 O. Malay, I. Yilgor, Y.Z. Menceloglu, Effects of solvent on TEOS hydrolysis kinetics and silica particle size under basic conditions, Journal of Sol-Gel Science and Technology 67(2) (2013) 351-361. https://doi.org/10.1007/s10971-013-3088-4. [36] A.M. Buckley M. Greenblatt The sol-gel preparation of silica gels J. Chem. Educ. 71 7 1994 599 10.1021/ed071p599 A.M. Buckley, M. Greenblatt, The Sol-Gel Preparation of Silica Gels, Journal of Chemical Education 71(7) (1994) 599. https://doi.org/10.1021/ed071p599. [37] R. Starke G.A.H. Schober Why history matters: ab initio rederivation of Fresnel equations confirms microscopic theory of refractive index Optik 157 2018 275 286 10.1016/j.ijleo.2017.11.026 R. Starke, G.A.H. Schober, Why history matters: Ab initio rederivation of Fresnel equations confirms microscopic theory of refractive index, Optik 157 (2018) 275-286. https://doi.org/10.1016/j.ijleo.2017.11.026. [38] H. Liu P. Wang Q. Fan J. Luo P. Xiao B. Jiang λ/4\u2013λ/4 double-layer broadband antireflective coatings with constant high transmittance Coatings 2022 10.3390/coatings12040435 H. Liu, P. Wang, Q. Fan, J. Luo, P. Xiao, B. Jiang, λ/4-λ/4 Double-Layer Broadband Antireflective Coatings with Constant High Transmittance, Coatings, 2022. [39] J. Wang K. Li J. Zhang J. Feng Transparent and superhydrophobic FHA/SiO2 coatings with obvious anti-soiling performance for photovoltaic modules Prog. Org. Coating 183 2023 107679 10.1016/j.porgcoat.2023.107679 J. Wang, K. Li, J. Zhang, J. Feng, Transparent and superhydrophobic FHA/SiO2 coatings with obvious anti-soiling performance for photovoltaic modules, Progress in Organic Coatings 183 (2023) 107679. https://doi.org/10.1016/j.porgcoat.2023.107679. [40] D.-W. Li H.-Y. Wang Y. Liu D.-S. Wei Z.-X. Zhao Large-scale fabrication of durable and robust super-hydrophobic spray coatings with excellent repairable and anti-corrosion performance Chem. Eng. J. 367 2019 169 179 10.1016/j.cej.2019.02.093 D.-W. Li, H.-Y. Wang, Y. Liu, D.-S. Wei, Z.-X. Zhao, Large-scale fabrication of durable and robust super-hydrophobic spray coatings with excellent repairable and anti-corrosion performance, Chemical Engineering Journal 367 (2019) 169-179. https://doi.org/10.1016/j.cej.2019.02.093. [41] X. Li B. Li Y. Li J. Sun Nonfluorinated, transparent, and spontaneous self-healing superhydrophobic coatings enabled by supramolecular polymers Chem. Eng. J. 404 2021 126504 10.1016/j.cej.2020.126504 X. Li, B. Li, Y. Li, J. Sun, Nonfluorinated, transparent, and spontaneous self-healing superhydrophobic coatings enabled by supramolecular polymers, Chemical Engineering Journal 404 (2021) 126504. https://doi.org/10.1016/j.cej.2020.126504. [42] X. Deng L. Mammen Y. Zhao P. Lellig K. Müllen C. Li H.-J. Butt D. Vollmer Transparent, thermally stable and mechanically robust superhydrophobic surfaces made from porous silica capsules Adv. Mater. 23 26 2011 2962 2965 10.1002/adma.201100410 X. Deng, L. Mammen, Y. Zhao, P. Lellig, K. Mullen, C. Li, H.-J. Butt, D. Vollmer, Transparent, Thermally Stable and Mechanically Robust Superhydrophobic Surfaces Made from Porous Silica Capsules, Advanced Materials 23(26) (2011) 2962-2965. https://doi.org/10.1002/adma.201100410. [43] Y. Su X. Wang H. Zhao C. Zhang F. Yuan J. Guo C. Feng J. Shen UV resistance of sol-gel hydrophobic silica antireflective coatings J. Sol. Gel Sci. Technol. 106 2 2023 381 392 10.1007/s10971-022-05729-9 Y. Su, X. Wang, H. Zhao, C. Zhang, F. Yuan, J. Guo, C. Feng, J. Shen, UV resistance of sol-gel hydrophobic silica antireflective coatings, Journal of Sol-Gel Science and Technology 106(2) (2023) 381-392. https://doi.org/10.1007/s10971-022-05729-9. [44] H. Li S. Tu H. Tu M. Chen S. Zhou L. Wu Construction of transparent, robust and haze-selectable superhydrophobic coatings with honeycomb structure Chem. Eng. J. 483 2024 149319 10.1016/j.cej.2024.149319 H. Li, S. Tu, H. Tu, M. Chen, S. Zhou, L. Wu, Construction of transparent, robust and haze-selectable superhydrophobic coatings with honeycomb structure, Chemical Engineering Journal 483 (2024) 149319. https://doi.org/10.1016/j.cej.2024.149319. [45] A. Behranvand M. Davoudi Darareh M. Jannesari M. Mahdavi Design and fabrication of PbTe/BaF2 hydrophobic high-efficiency broad-band antireflection coating on Ge substrate in long-wave infrared region Infrared Phys. Technol. 92 2018 163 165 10.1016/j.infrared.2018.05.015 A. Behranvand, M. Davoudi Darareh, M. Jannesari, M. Mahdavi, Design and fabrication of PbTe/BaF2 hydrophobic high-efficiency broad-band antireflection coating on Ge substrate in long-wave infrared region, Infrared Physics & Technology 92 (2018) 163-165. https://doi.org/10.1016/j.infrared.2018.05.015. [46] Z. Ji L. Bao H. Wang R. Chen Preparation of super-hydrophobic antireflective films by rod-like MgF2 and SiO2 mixed sol Mater. Lett. 207 2017 21 24 10.1016/j.matlet.2017.07.050 Z. Ji, L. Bao, H. Wang, R. Chen, Preparation of super-hydrophobic antireflective films by rod-like MgF2 and SiO2 mixed sol, Materials Letters 207 (2017) 21-24. https://doi.org/10.1016/j.matlet.2017.07.050. [47] X. Huang Y. Yuan S. Liu L. Zhang R. Hong Preparation of hydrophobic broadband antireflective SiO2 coating on flexible poly(methyl methacrylate) substrates Colloids Surf. A Physicochem. Eng. Asp. 538 2018 519 525 10.1016/j.colsurfa.2017.11.027 X. Huang, Y. Yuan, S. Liu, L. Zhang, R. Hong, Preparation of hydrophobic broadband antireflective SiO2 coating on flexible poly(methyl methacrylate) substrates, Colloids and Surfaces A: Physicochemical and Engineering Aspects 538 (2018) 519-525. https://doi.org/10.1016/j.colsurfa.2017.11.027. [48] K. Liu Y. Hu B. Yin X. Liu W. Lian S. Tang Hydrophobic anti-reflective silica hybrid film with tunable refractive index Opt Laser. Technol. 159 2023 108998 10.1016/j.optlastec.2022.108998 K. Liu, Y. Hu, B. Yin, X. Liu, W. Lian, S. Tang, Hydrophobic anti-reflective silica hybrid film with tunable refractive index, Optics & Laser Technology 159 (2023) 108998. https://doi.org/10.1016/j.optlastec.2022.108998. [49] S. Zhang P. Xiao P. Wang J. Luo B. Jiang Spherical-chain silica with super-hydrophobic surface and ultra-low refractive index for multi-functional broadband antireflective coatings Sol. Energy 207 2020 1222 1230 10.1016/j.solener.2020.05.060 S. Zhang, P. Xiao, P. Wang, J. Luo, B. Jiang, Spherical-chain silica with super-hydrophobic surface and ultra-low refractive index for multi-functional broadband antireflective coatings, Solar Energy 207 (2020) 1222-1230. https://doi.org/10.1016/j.solener.2020.05.060. [50] J.Y. Huang G.T. Fei S.H. Xu B. Wang ZnO\u2013SiO2 composite coating with anti-reflection and photoluminescence properties for improving the solar cell efficiency Compos. B Eng. 251 2023 110486 10.1016/j.compositesb.2022.110486 J.Y. Huang, G.T. Fei, S.H. Xu, B. Wang, ZnO-SiO2 composite coating with anti-reflection and photoluminescence properties for improving the solar cell efficiency, Composites Part B: Engineering 251 (2023) 110486. https://doi.org/10.1016/j.compositesb.2022.110486.",
+    "scopus-id": "85201884045",
+    "coredata": {
+        "eid": "1-s2.0-S1369800124007431",
+        "dc:description": "Transparent self-cleaning coatings have garnered significant attention for their promising prospects in outdoor applications, particularly in solar panels and high-end optical devices. However, existing technologies still grapple with the challenges of achieving high transmittance and superior weather resistance. Therefore, developing cost-effective coatings that possess both high transparency and excellent durability is paramount. A novel method for synthesizing an anti-reflective (AR) coating is presented in this paper, offering simplicity, cost-efficiency, and high performance. By merging acid-base catalyzed sol-gel chemistry with the dip-coating process, the coating's transparency, durability, and hydrophobicity are notably improved. Production time is significantly reduced through process optimization. The AR coating achieves an exceptional transmittance of 97.3 % at 620 nm, a 6.7 % increase over that of untreated glass. Furthermore, its 145° water contact angle demonstrates excellent hydrophobicity and self-cleaning properties. Mechanical stability tests indicate that the coating retains over 96 % transmittance even after 30 tape adhesion cycles. Long-term UV exposure tests reveal that the coating's transmittance and contact angle remain almost unchanged, underscoring its superior environmental stability and weather resistance. Additionally, the coating enhances the transmittance of multi-crystalline silicon (mc-Si) solar cells compared to commercial glass, boosting the photovoltaic conversion efficiency from 11.04 % to 11.81 %, an increase of 7 %. With these exceptional properties, this coating holds significant potential for applications in mc-Si solar cells and high-end optical devices, providing the industry with an efficient and economical solution.",
+        "openArchiveArticle": "false",
+        "prism:coverDate": "2024-12-31",
+        "openaccessUserLicense": null,
+        "prism:aggregationType": "Journal",
+        "prism:url": "https://api.elsevier.com/content/article/pii/S1369800124007431",
+        "dc:creator": [
+            {
+                "@_fa": "true",
+                "$": "Jin, Wanjiang"
+            },
+            {
+                "@_fa": "true",
+                "$": "Tan, Xinyu"
+            },
+            {
+                "@_fa": "true",
+                "$": "Dai, Qihao"
+            },
+            {
+                "@_fa": "true",
+                "$": "Li, Tao"
+            },
+            {
+                "@_fa": "true",
+                "$": "Jiang, Lihua"
+            },
+            {
+                "@_fa": "true",
+                "$": "Xiao, Ting"
+            },
+            {
+                "@_fa": "true",
+                "$": "Chen, Weifeng"
+            }
+        ],
+        "link": [
+            {
+                "@_fa": "true",
+                "@rel": "self",
+                "@href": "https://api.elsevier.com/content/article/pii/S1369800124007431"
+            },
+            {
+                "@_fa": "true",
+                "@rel": "scidir",
+                "@href": "https://www.sciencedirect.com/science/article/pii/S1369800124007431"
+            }
+        ],
+        "dc:format": "application/json",
+        "openaccessType": null,
+        "pii": "S1369-8001(24)00743-1",
+        "prism:volume": "184",
+        "articleNumber": "108847",
+        "prism:publisher": "Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+        "dc:title": "Simple synthesis of weather-resistant and self-cleaning anti-reflective coating for enhancing photovoltaic conversion efficiency",
+        "prism:copyright": "© 2024 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+        "openaccess": "0",
+        "prism:issn": "13698001",
+        "dcterms:subject": [
+            {
+                "@_fa": "true",
+                "$": "Anti-reflective coating"
+            },
+            {
+                "@_fa": "true",
+                "$": "Transmittance"
+            },
+            {
+                "@_fa": "true",
+                "$": "Hydrophobic"
+            },
+            {
+                "@_fa": "true",
+                "$": "Weather-resistant"
+            },
+            {
+                "@_fa": "true",
+                "$": "Photovoltaic conversion efficiency"
+            }
+        ],
+        "openaccessArticle": "false",
+        "prism:publicationName": "Materials Science in Semiconductor Processing",
+        "openaccessSponsorType": null,
+        "prism:pageRange": "108847",
+        "pubType": "fla",
+        "prism:coverDisplayDate": "December 2024",
+        "prism:doi": "10.1016/j.mssp.2024.108847",
+        "prism:startingPage": "108847",
+        "dc:identifier": "doi:10.1016/j.mssp.2024.108847",
+        "openaccessSponsorName": null
+    },
+    "objects": {"object": [
+        {
+            "@category": "standard",
+            "@height": "227",
+            "@width": "535",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr9.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "108940",
+            "@ref": "gr9",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "438",
+            "@width": "691",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr7.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "167782",
+            "@ref": "gr7",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "578",
+            "@width": "535",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr8.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "182987",
+            "@ref": "gr8",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "314",
+            "@width": "535",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr1.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "131777",
+            "@ref": "gr1",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "196",
+            "@width": "535",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr2.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "103532",
+            "@ref": "gr2",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "435",
+            "@width": "535",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr5.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "145549",
+            "@ref": "gr5",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "480",
+            "@width": "691",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr6.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "220790",
+            "@ref": "gr6",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "284",
+            "@width": "388",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr3.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "116860",
+            "@ref": "gr3",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@height": "633",
+            "@width": "535",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr4.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-DOWNSAMPLED",
+            "@size": "218037",
+            "@ref": "gr4",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "93",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr9.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "73473",
+            "@ref": "gr9",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "139",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr7.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "81258",
+            "@ref": "gr7",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "163",
+            "@width": "151",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr8.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "81486",
+            "@ref": "gr8",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "129",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr1.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "79534",
+            "@ref": "gr1",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "80",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr2.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "76075",
+            "@ref": "gr2",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "164",
+            "@width": "202",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr5.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "81120",
+            "@ref": "gr5",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "152",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr6.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "94523",
+            "@ref": "gr6",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "160",
+            "@width": "219",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr3.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "79726",
+            "@ref": "gr3",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "thumbnail",
+            "@height": "163",
+            "@width": "138",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr4.sml?httpAccept=%2A%2F%2A",
+            "@multimediatype": "GIF image file",
+            "@type": "IMAGE-THUMBNAIL",
+            "@size": "86890",
+            "@ref": "gr4",
+            "@mimetype": "image/gif"
+        },
+        {
+            "@category": "high",
+            "@height": "1007",
+            "@width": "2370",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr9_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "337916",
+            "@ref": "gr9",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "1940",
+            "@width": "3060",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr7_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "764370",
+            "@ref": "gr7",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2562",
+            "@width": "2370",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr8_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "711430",
+            "@ref": "gr8",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "1391",
+            "@width": "2370",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr1_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "488667",
+            "@ref": "gr1",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "870",
+            "@width": "2370",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr2_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "316055",
+            "@ref": "gr2",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "1927",
+            "@width": "2370",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr5_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "559402",
+            "@ref": "gr5",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2127",
+            "@width": "3060",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr6_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "1337851",
+            "@ref": "gr6",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "1259",
+            "@width": "1721",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr3_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "406336",
+            "@ref": "gr3",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "high",
+            "@height": "2802",
+            "@width": "2370",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-gr4_lrg.jpg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "JPEG image file",
+            "@type": "IMAGE-HIGH-RES",
+            "@size": "1280995",
+            "@ref": "gr4",
+            "@mimetype": "image/jpeg"
+        },
+        {
+            "@category": "standard",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-mmc1.docx?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Microsoft Word file",
+            "@type": "APPLICATION",
+            "@size": "2886814",
+            "@ref": "mmc1",
+            "@mimetype": "application/word"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si11.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "23832",
+            "@ref": "si11",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si9.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "17069",
+            "@ref": "si9",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si1.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "33631",
+            "@ref": "si1",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si8.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "7653",
+            "@ref": "si8",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si3.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "8314",
+            "@ref": "si3",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si5.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "4085",
+            "@ref": "si5",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si10.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "13286",
+            "@ref": "si10",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si4.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "16792",
+            "@ref": "si4",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si2.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "5367",
+            "@ref": "si2",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si6.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "13577",
+            "@ref": "si6",
+            "@mimetype": "image/svg+xml"
+        },
+        {
+            "@category": "thumbnail",
+            "@_fa": "true",
+            "$": "https://api.elsevier.com/content/object/eid/1-s2.0-S1369800124007431-si7.svg?httpAccept=%2A%2F%2A",
+            "@multimediatype": "Scalable Vector Graphics file",
+            "@type": "ALTIMG",
+            "@size": "9558",
+            "@ref": "si7",
+            "@mimetype": "image/svg+xml"
+        }
+    ]},
+    "link": {
+        "@rel": "abstract",
+        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85201884045"
+    }
+}}

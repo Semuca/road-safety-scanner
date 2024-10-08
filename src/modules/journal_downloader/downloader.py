@@ -1,5 +1,4 @@
 """Utility functions for downloading journals from Elsevier."""
-
 import json
 import os
 import time
@@ -72,3 +71,10 @@ def clear_journals() -> None:
     """Clear the journals in the journals directory."""
     for journal in os.listdir("journals"):
         os.remove(f"journals/{journal}")
+
+def upload_journals(api_key: str, dois: list[str], wait=0.05) -> DownloadJournalsResult:
+    """Clears old journals and uploads new ones based on the search."""
+    clear_journals()  # Clear old journals
+
+    results = download_journals(api_key, dois, wait)  # Download new journals
+    return results
