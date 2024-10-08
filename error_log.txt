@@ -1,0 +1,1 @@
+2024-10-09 02:08:04,110 - ERROR - Failed to retrieve total results: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
