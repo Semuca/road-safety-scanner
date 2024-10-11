@@ -724,7 +724,8 @@ f"""Retrieved {num_articles} articles
         dois = [queriedItem.doi for queriedItem in self.queryResults]
         download_journals(self.keys["ELSEVIER_API_KEY"], dois)
         
-        self.upload_files([f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json" for doi in dois])
+        self.upload_files([f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json"
+                           for doi in dois])
 
     def select_ai(self: Self) -> None:
         """Set the API key for the GPT model."""
