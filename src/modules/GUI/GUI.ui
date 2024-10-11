@@ -1616,7 +1616,7 @@ QPushButton:Hover{
 </string>
       </property>
       <property name="placeholderText">
-       <string>Enter prompt here...</string>
+       <string>Example Prompt: Can you say the jounal's relevance to Australia on a scale from 1-10? Say nothing except the rating.</string>
       </property>
      </widget>
      <widget class="QLabel" name="addColumnHeaderLabel">
@@ -1670,6 +1670,29 @@ QPushButton:Hover{
       </property>
       <property name="text">
        <string>Query</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="addColoumnQueryToolTip">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>130</y>
+        <width>461</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="text">
+       <string>At end of prompt, add &quot;Say nothing except [topic].&quot;</string>
       </property>
      </widget>
     </widget>

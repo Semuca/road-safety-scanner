@@ -22,7 +22,7 @@ from PySide6.QtWidgets import (
 )
 
 from .modules.exporter import (
-    export_to_excel,
+    export_to_csv,
     journal_responses_to_data_frame,
 )
 from .modules.GUI import Ui_Dialog
@@ -894,11 +894,11 @@ f"""Retrieved {num_articles} articles
         """Export the processed journals to an Excel file."""
         options = QFileDialog.Options()
         filepath, _ = QFileDialog.getSaveFileName(self, "Save File", "",
-                                                  "Excel Files (*.xlsx)",
+                                                  "CSV Files (*.csv)",
                                                   options=options)
         
         if filepath:
             df = journal_responses_to_data_frame(self.ui.resultsListTableWidget)
-            export_to_excel(filepath, df)
+            export_to_csv(filepath, df)
             pass
         pass
