@@ -721,8 +721,11 @@ f"""Retrieved {num_articles} articles
     # Downloads the journals from the search page
     def on_download_journals(self: Self) -> None:
         """Download the journals from the Elsevier module."""
-        download_journals(self.keys["ELSEVIER_API_KEY"],
-                         [queriedItem.doi for queriedItem in self.queryResults])
+        dois = [queriedItem.doi for queriedItem in self.queryResults]
+        download_journals(self.keys["ELSEVIER_API_KEY"], dois)
+        
+        self.upload_files([f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json"
+                           for doi in dois])
 
     def select_ai(self: Self) -> None:
         """Set the API key for the GPT model."""
@@ -752,7 +755,11 @@ f"""Retrieved {num_articles} articles
                                         "Open File",
                                         JOURNALS_PATH,
                                         "JSON Files (*.json);;All Files (*)")
+        
+        self.upload_files(file_names)
 
+    def upload_files(self: Self, file_names: str) -> None:
+        """Upload the selected files to the application."""
         if not file_names:
             return  # If no file is selected, do nothing
 
@@ -774,26 +781,28 @@ f"""Retrieved {num_articles} articles
 
     def populate_table(self: Self, data: dict[str, Any]) -> None:
         """Populate the QTableWidget with data from the JSON file."""
-        if "full-text-retrieval-response" in data:
-            records = data["full-text-retrieval-response"]
-            authors = records["coredata"]["dc:creator"]
-            type_ = records["coredata"]["prism:aggregationType"]
-            date = records["coredata"]["prism:coverDate"]
-            title = records["coredata"]["dc:title"]
+        if "full-text-retrieval-response" not in data:
+            return
+        
+        records = data["full-text-retrieval-response"]
+        authors = records["coredata"]["dc:creator"]
+        type_ = records["coredata"]["prism:aggregationType"]
+        date = records["coredata"]["prism:coverDate"]
+        title = records["coredata"]["dc:title"]
 
-            # Add a new row for each record
-            row_position = self.ui.journalListTableWidget.rowCount()
-            self.ui.journalListTableWidget.insertRow(row_position)
+        # Add a new row for each record
+        row_position = self.ui.journalListTableWidget.rowCount()
+        self.ui.journalListTableWidget.insertRow(row_position)
 
-            joined_authors = ", ".join([author["$"] for author in authors])
-            self.ui.journalListTableWidget.setItem(row_position, 0,
-                                                   QTableWidgetItem(joined_authors))
-            self.ui.journalListTableWidget.setItem(row_position, 1,
-                                                   QTableWidgetItem(title))
-            self.ui.journalListTableWidget.setItem(row_position, 2,
-                                                   QTableWidgetItem(type_))
-            self.ui.journalListTableWidget.setItem(row_position, 3,
-                                                   QTableWidgetItem(date))
+        joined_authors = ", ".join([author["$"] for author in authors])
+        self.ui.journalListTableWidget.setItem(row_position, 0,
+                                               QTableWidgetItem(joined_authors))
+        self.ui.journalListTableWidget.setItem(row_position, 1,
+                                               QTableWidgetItem(title))
+        self.ui.journalListTableWidget.setItem(row_position, 2,
+                                               QTableWidgetItem(type_))
+        self.ui.journalListTableWidget.setItem(row_position, 3,
+                                               QTableWidgetItem(date))
 
     def build_results_table(self: Self) -> None:
         """Build the results table based on the results columns."""

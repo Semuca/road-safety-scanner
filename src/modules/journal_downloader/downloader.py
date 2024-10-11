@@ -1,5 +1,4 @@
 """Utility functions for downloading journals from Elsevier."""
-
 import json
 import os
 import time
@@ -57,18 +56,17 @@ def download_journals(api_key: str, dois: list[str],
 def get_journals() -> list[Any]:
     """Return the journals in the journals directory."""
     journals = []
-    for journal in os.listdir("journals"):
-        with open(f"{JOURNALS_PATH}/journals/{journal}") as f:
-            journals.append(json.load(f))
+    for journal in os.listdir(JOURNALS_PATH):
+        journals.append(get_journal(journal))
 
     return journals
 
-def get_journal(path: str) -> dict[str, Any]:
+def get_journal(doi: str) -> dict[str, Any]:
     """Return a journal from the journals directory."""
-    with open(path) as f:
+    with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}") as f:
         return json.load(f)
 
 def clear_journals() -> None:
     """Clear the journals in the journals directory."""
-    for journal in os.listdir("journals"):
-        os.remove(f"journals/{journal}")
+    for journal in os.listdir(JOURNALS_PATH):
+        os.remove(f"{journal}")
