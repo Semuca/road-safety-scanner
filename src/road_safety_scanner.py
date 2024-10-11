@@ -91,8 +91,7 @@ class MainWindow(QMainWindow):
         self.ui.setFiltersPage.setVisible(False)
         self.ui.setsPage.setVisible(False)
         self.ui.setFiltersCloseButton.clicked.connect(
-            lambda: self.ui.setFiltersPage.setVisible(
-                not self.ui.addColumnPage.isVisible()))
+            lambda: self.ui.setFiltersPage.setVisible(False))
         self.ui.addNewSetWidget.setVisible(False)
         self.ui.editSetPage.setVisible(False)
 
@@ -154,7 +153,8 @@ class MainWindow(QMainWindow):
         self.ui.searchElsevierJournals.clicked.connect(self.get_elsevier_query)
         self.ui.downloadElsevierJournals.clicked.connect(self.on_download_journals)
         self.ui.setFiltersButton.clicked.connect(
-            lambda: self.ui.setFiltersPage.setVisible(True))
+            lambda: self.ui.setFiltersPage.setVisible(
+                not self.ui.setFiltersPage.isVisible()))
         self.ui.processJournalsButton.clicked.connect(self.process_journals)
 
         # Connect global next and back buttons
@@ -195,7 +195,6 @@ class MainWindow(QMainWindow):
         self.ui.allJournalSets.setSizePolicy(QSizePolicy.Fixed,
                                              QSizePolicy.Fixed)
         self.ui.comboBox.activated.connect(self.on_add_new_set)
-        self.ui.setFiltersCloseButton.clicked.connect(self.get_set)
 
         # Hide the status label for the number of articles retrieved from
         # the search at the start
