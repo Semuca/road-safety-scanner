@@ -13,7 +13,7 @@ JOURNALS_PATH = f"{os.path.dirname(os.path.abspath(__file__))}/journals"
 
 def download_journal(api_key: str, doi: str) -> dict[str, Any]:
     """Download a journal from the Elsevier API."""
-    request = urllib.request.Request(f"{elsevier_api}/article/doi/${doi}",
+    request = urllib.request.Request(f"{elsevier_api}/article/doi/{doi}",
                 headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
     journal = urllib.request.urlopen(request).read().decode("utf-8")
 

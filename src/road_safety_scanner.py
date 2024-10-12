@@ -627,6 +627,13 @@ class MainWindow(QMainWindow):
         if setting != "":
             query_parts.append(f"AFFILCOUNTRY({setting})")
 
+        # Get the journals from the journal sets
+        selected_set = self.get_set()
+        if selected_set:
+            selected_set_query = " OR ".join(
+                [f"SRCTITLE({journal})" for journal in selected_set])
+            query_parts.append(f"({selected_set_query})")
+
         # Build the final query
         query = " AND ".join(query_parts)
 
@@ -746,9 +753,10 @@ f"""Retrieved {num_articles} articles
 
         dois = []
         for result in download_results.results:
-            dois.append(result["full-text-retrieval-response"]["coredata"]["prism:doi"]
-                        .replace("/", "-"))
-        self.upload_files([f"{JOURNALS_PATH}/{doi}.json" for doi in dois])
+            dois.append(result["full-text-retrieval-response"]["coredata"]["prism:doi"])
+            
+        self.upload_files([f"{JOURNALS_PATH}/{doi.replace("/", "-")}.json"
+                           for doi in dois])
 
     def select_ai(self: Self) -> None:
         """Set the API key for the GPT model."""
@@ -809,6 +817,7 @@ f"""Retrieved {num_articles} articles
         
         records = data["full-text-retrieval-response"]
         authors = records["coredata"]["dc:creator"]
+        authors = authors if isinstance(authors, list) else [authors]
         type_ = records["coredata"]["prism:aggregationType"]
         date = records["coredata"]["prism:coverDate"]
         title = records["coredata"]["dc:title"]

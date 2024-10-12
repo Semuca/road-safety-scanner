@@ -2,9 +2,6 @@
 
 import os
 import time
-import urllib.error
-import urllib.parse
-import urllib.request
 from typing import Self
 
 from PySide6.QtCore import QThread, Signal
@@ -39,7 +36,7 @@ class DownloadElsevierThread(QThread):
             self.progress_signal.emit(int(i / total_request_count * 100))
             try:
                 results.append(download_journal(self.api_key, doi))
-            except urllib.error.HTTPError as e:
+            except Exception as e:
                 errors.append({"doi": doi, "error": e.read().decode()})
             time.sleep(self.wait_between_requests)
 
