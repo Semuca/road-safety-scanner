@@ -12,7 +12,7 @@ def load_keys() -> dict[str, str]:
     global keys
 
     if not os.path.exists(KEYS_PATH):
-        return None
+        return {}
     
     with open(KEYS_PATH) as f:
         keys = json.load(f)
