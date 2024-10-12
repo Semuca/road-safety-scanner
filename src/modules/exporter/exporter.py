@@ -3,6 +3,6 @@
 from pandas import DataFrame
 
 
-def export_to_excel(output_file_name: str, dataframe: DataFrame) -> None:
-    """Export a DataFrame to an Excel file."""
-    dataframe.to_excel(output_file_name, index=False)
+def export_to_csv(output_file_name: str, dataframe: DataFrame) -> None:
+    """Export a DataFrame to an CSV file."""
+    dataframe.to_csv(output_file_name, index=False)

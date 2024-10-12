@@ -1,11 +1,13 @@
 """Signals for updating the llm progress bar in the GUI."""
 
+import json
 from typing import Self
 
 from PySide6.QtCore import QThread, Signal
 
 from .query import OpenAIClient
 
+PUBLICATION_COLUMNS = ["Author", "Title", "Journal", "Page range", "DOI URL"]
 
 class QueryLLMThread(QThread):
     """A thread for querying the LLM with progress updates."""
@@ -31,8 +33,15 @@ class QueryLLMThread(QThread):
         for journal in self.journals:
             row = []
 
-            doi = journal.split("/")[-1].replace(".json", "")
-            row.append(doi)
+            with open(journal) as f:
+                journal_coredata = json.load(f).get(
+                    "full-text-retrieval-response", {}).get("coredata", {})
+            
+                row.append(journal_coredata["dc:creator"][0]["$"])
+                row.append(journal_coredata["dc:title"])
+                row.append(journal_coredata["prism:publicationName"])
+                row.append(journal_coredata["prism:pageRange"])
+                row.append(f"https://doi.org/{journal_coredata['prism:doi']}")
 
             self.client.upload_file(journal)
 

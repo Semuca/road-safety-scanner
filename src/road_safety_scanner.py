@@ -22,7 +22,7 @@ from PySide6.QtWidgets import (
 )
 
 from .modules.exporter import (
-    export_to_excel,
+    export_to_csv,
     journal_responses_to_data_frame,
 )
 from .modules.GUI import Ui_Dialog
@@ -33,7 +33,7 @@ from .modules.journal_downloader.downloader import (
 from .modules.journal_downloader.signal import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
 from .modules.llm.query import OpenAIClient
-from .modules.llm.signal import QueryLLMThread
+from .modules.llm.signal import PUBLICATION_COLUMNS, QueryLLMThread
 
 
 class ResultsTableHeader(QHeaderView):
@@ -111,9 +111,6 @@ class MainWindow(QMainWindow):
         self.ui.editColumnApplyButton.clicked.connect(self.edit_column)
         self.ui.deleteColumnButton.clicked.connect(
             lambda: self.delete_column(self.editingColumn))
-
-        # Setup the columns for the results table
-        self.publicationColumns = ["Publication"]
         
         with open("src/modules/exporter/columns.json") as columns_file:
             raw_columns = json.loads(columns_file.read())["columns"]
@@ -807,7 +804,7 @@ f"""Retrieved {num_articles} articles
     def build_results_table(self: Self) -> None:
         """Build the results table based on the results columns."""
         query_headers = [header for header, query in self.queryColumns]
-        headers = self.publicationColumns + query_headers
+        headers = PUBLICATION_COLUMNS + query_headers
 
         self.ui.resultsListTableWidget.setColumnCount(len(headers))
         self.ui.resultsListTableWidget.setHorizontalHeaderLabels(headers)
@@ -828,11 +825,11 @@ f"""Retrieved {num_articles} articles
 
     def open_edit_column(self: Self, column_index: int) -> None:
         """Open the Edit Column modal."""
-        if column_index < len(self.publicationColumns):
+        if column_index < len(PUBLICATION_COLUMNS):
             return
 
         self.ui.editColumnPage.setVisible(True)
-        self.editingColumn = column_index - len(self.publicationColumns)
+        self.editingColumn = column_index - len(PUBLICATION_COLUMNS)
 
         header, query = self.queryColumns[self.editingColumn]
         self.ui.editColumnHeaderEntry.setText(header)
@@ -903,11 +900,11 @@ f"""Retrieved {num_articles} articles
         """Export the processed journals to an Excel file."""
         options = QFileDialog.Options()
         filepath, _ = QFileDialog.getSaveFileName(self, "Save File", "",
-                                                  "Excel Files (*.xlsx)",
+                                                  "CSV Files (*.csv)",
                                                   options=options)
         
         if filepath:
             df = journal_responses_to_data_frame(self.ui.resultsListTableWidget)
-            export_to_excel(filepath, df)
+            export_to_csv(filepath, df)
             pass
         pass
