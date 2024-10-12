@@ -32,6 +32,7 @@ from .modules.journal_downloader.downloader import (
     JOURNALS_PATH,
     DownloadJournalsResult,
 )
+from .modules.journal_downloader.journal_sets import load_sets, write_sets
 from .modules.journal_downloader.query_signal import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
 from .modules.llm.query import OpenAIClient
@@ -155,13 +156,8 @@ class MainWindow(QMainWindow):
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
 
-        # If sets.json does not exists then it creates an empty .json file
-        file_path = "src/modules/GUI/sets.json"
-        if not os.path.exists(file_path):
-            with open(file_path, "w") as json_file:
-                json.dump([], json_file)
-        # Load pre-existing sets from sets.json
-        self.load_sets_from_json()
+        # Load pre-existing sets
+        self.load_sets()
 
         self.ui.title_set = False
         # Open the "Create New Set" page when "New Set" button is clicked
@@ -191,29 +187,26 @@ class MainWindow(QMainWindow):
 
     def get_set(self: Self) -> None:
         """Return full Set items when called."""
-        sets_file = "src/modules/GUI/sets.json"
-        with open (sets_file) as file:
-            sets = json.load(file)
+        sets = load_sets()
 
         selected_set = self.ui.comboBox.currentText()
-        for a_set in sets:
-            if a_set["items"][0] == selected_set:
-                return a_set["items"]  # Return the entire list
+        for single_set in sets:
+            if single_set["items"][0] == selected_set:
+                return single_set["items"]  # Return the entire list
             
         # Shouldn't reach here but if match is not found return empty list
         return []
 
 
-    def load_sets_from_json(self: Self) -> None:
+    def load_sets(self: Self) -> None:
         """Load sets from the JSON file and pre-populate allJournalSets page."""
-        with open("src/modules/GUI/sets.json") as f:
-            data = json.load(f)
+        sets = load_sets()
 
         # Clear existing items in allJournalSets if necessary
         self.ui.allJournalSets.clear()
 
         # Create combo boxes from loaded data
-        for set_data in data:
+        for set_data in sets:
             combo_box = QComboBox()
             combo_box.setFixedWidth(440)
             for item in set_data["items"]: 
@@ -233,7 +226,6 @@ class MainWindow(QMainWindow):
 
     def save_sets(self: Self) -> None:
         """Save the current journal sets to sets.json file."""
-        file_path = "src/modules/GUI/sets.json"
         sets = []
         for index in range(self.ui.allJournalSets.count()):
             list_item = self.ui.allJournalSets.item(index)
@@ -242,10 +234,8 @@ class MainWindow(QMainWindow):
             # Get all the items from the combo box
             items = [combo_box.itemText(i) for i in range(combo_box.count())]
             sets.append({"items": items})
-        with open(file_path, "w") as json_file:
-            json.dump(sets, json_file)
 
-
+        write_sets(sets)
 
     def on_add_new_set(self: Self, index: int) -> None:
         """Handle the comboBox item selection."""
