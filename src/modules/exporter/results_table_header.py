@@ -1,5 +1,6 @@
 """Header class for the results table."""
 
+import time
 from typing import Callable, Self
 
 from PySide6.QtCore import QRect, Qt
@@ -26,7 +27,14 @@ class ResultsTableHeader(QHeaderView):
         """Paint the section of the header."""
         super().paintSection(painter, rect, logical_index)
 
+    def mousePressEvent(self: Self, event: QMouseEvent) -> None: # noqa: N802
+        """Handle the mouse press event."""
+        super().mousePressEvent(event)
+        self.pressedAt = time.time()
+
     def mouseReleaseEvent(self: Self, event: QMouseEvent) -> None: # noqa: N802
         """Handle the mouse release event."""
         super().mouseReleaseEvent(event)
+        if time.time() - self.pressedAt > 0.2:
+            return
         self.on_clicked(self.logicalIndexAt(event.position().toPoint()))
