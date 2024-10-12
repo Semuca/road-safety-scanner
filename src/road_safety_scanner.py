@@ -4,10 +4,10 @@ import os
 import subprocess
 import sys
 from datetime import datetime
-from typing import Any, Callable, Self
+from typing import Any, Self
 
-from PySide6.QtCore import QDate, QRect, Qt
-from PySide6.QtGui import QIntValidator, QMouseEvent, QPainter
+from PySide6.QtCore import QDate, Qt
+from PySide6.QtGui import QIntValidator
 from PySide6.QtWidgets import (
     QComboBox,
     QFileDialog,
@@ -18,13 +18,14 @@ from PySide6.QtWidgets import (
     QProgressDialog,
     QSizePolicy,
     QTableWidgetItem,
-    QWidget,
 )
 
 from .modules.exporter import (
     export_to_csv,
     journal_responses_to_data_frame,
 )
+from .modules.exporter.columns import load_columns, set_columns
+from .modules.exporter.results_table_header import ResultsTableHeader
 from .modules.GUI import Ui_Dialog
 from .modules.journal_downloader.download_signal import DownloadElsevierThread
 from .modules.journal_downloader.downloader import (
@@ -36,27 +37,6 @@ from .modules.keys.keys import load_keys, set_key
 from .modules.llm.query import OpenAIClient
 from .modules.llm.signal import PUBLICATION_COLUMNS, QueryLLMThread
 
-
-class ResultsTableHeader(QHeaderView):
-    """Custom header class for the results table."""
-
-    def __init__(self: Self, orientation: Qt.Orientation, parent: QWidget,
-                 on_clicked:Callable[[int], None] = lambda: None) -> None:
-        """Initialize the custom header."""
-        super().__init__(orientation, parent)
-        self.setSectionsClickable(True)
-
-        self.on_clicked = on_clicked
-
-    def paintSection(self: Self, painter: QPainter, rect: QRect, # noqa: N802
-                     logical_index: int) -> None: 
-        """Paint the section of the header."""
-        super().paintSection(painter, rect, logical_index)
-
-    def mouseReleaseEvent(self: Self, event: QMouseEvent) -> None: # noqa: N802
-        """Handle the mouse release event."""
-        super().mouseReleaseEvent(event)
-        self.on_clicked(self.logicalIndexAt(event.position().toPoint()))
 
 class MainWindow(QMainWindow):
     """Main window class for the Road Safety Scanner application."""
@@ -113,10 +93,7 @@ class MainWindow(QMainWindow):
         self.ui.deleteColumnButton.clicked.connect(
             lambda: self.delete_column(self.editingColumn))
         
-        with open("src/modules/exporter/columns.json") as columns_file:
-            raw_columns = json.loads(columns_file.read())["columns"]
-            self.queryColumns = [(column["header"], column["query"])
-                                 for column in raw_columns]
+        self.queryColumns = load_columns()
         self.build_results_table()
 
         # Connect menu buttons to their respective functions
@@ -848,8 +825,9 @@ f"""Retrieved {num_articles} articles
         """Add a column to the results table."""
         self.queryColumns.append((self.ui.addColumnHeaderEntry.text(),
                                   self.ui.addColumnQueryText.toPlainText()))
-        self.build_results_table()
+        set_columns(self.queryColumns)
 
+        self.build_results_table()
         self.close_add_column()
 
     def close_add_column(self: Self) -> None:
@@ -875,15 +853,17 @@ f"""Retrieved {num_articles} articles
         self.queryColumns[self.editingColumn] = (
             self.ui.editColumnHeaderEntry.text(),
             self.ui.editColumnQueryText.toPlainText())
-        self.build_results_table()
+        set_columns(self.queryColumns)
 
+        self.build_results_table()
         self.close_edit_column()
 
     def delete_column(self: Self, column_index: int) -> None:
         """Delete a column from the results table."""
         self.queryColumns.pop(column_index)
-        self.build_results_table()
+        set_columns(self.queryColumns)
 
+        self.build_results_table()
         self.close_edit_column()
 
     def close_edit_column(self: Self) -> None:
