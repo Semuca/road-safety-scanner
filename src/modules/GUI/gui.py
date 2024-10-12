@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'GUI.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -753,7 +753,7 @@ class Ui_Dialog(object):
         self.addColumnQueryText = QPlainTextEdit(self.addColumnPage)
         self.addColumnQueryText.setObjectName(u"addColumnQueryText")
         self.addColumnQueryText.setGeometry(QRect(50, 160, 511, 181))
-        self.addColumnQueryText.viewport().setProperty("cursor", QCursor(Qt.CursorShape.IBeamCursor))
+        self.addColumnQueryText.viewport().setProperty(u"cursor", QCursor(Qt.CursorShape.IBeamCursor))
         self.addColumnQueryText.setMouseTracking(True)
         self.addColumnQueryText.setStyleSheet(u"QPlainTextEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -827,7 +827,7 @@ class Ui_Dialog(object):
         self.editColumnQueryText = QPlainTextEdit(self.editColumnPage)
         self.editColumnQueryText.setObjectName(u"editColumnQueryText")
         self.editColumnQueryText.setGeometry(QRect(50, 160, 511, 181))
-        self.editColumnQueryText.viewport().setProperty("cursor", QCursor(Qt.CursorShape.IBeamCursor))
+        self.editColumnQueryText.viewport().setProperty(u"cursor", QCursor(Qt.CursorShape.IBeamCursor))
         self.editColumnQueryText.setMouseTracking(True)
         self.editColumnQueryText.setStyleSheet(u"QPlainTextEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -1172,7 +1172,7 @@ class Ui_Dialog(object):
         self.saveSets.setAutoExclusive(True)
         self.viewSetsSubtitle = QLabel(self.setsPage)
         self.viewSetsSubtitle.setObjectName(u"viewSetsSubtitle")
-        self.viewSetsSubtitle.setGeometry(QRect(30, 40, 221, 20))
+        self.viewSetsSubtitle.setGeometry(QRect(30, 40, 441, 20))
         self.viewSetsSubtitle.setStyleSheet(u"QLabel{\n"
 "	color: rgb(113, 113, 113);\n"
 "	\n"
@@ -1295,7 +1295,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(4)
+        self.myQStackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Dialog)
