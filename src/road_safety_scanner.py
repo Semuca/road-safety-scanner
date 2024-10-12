@@ -235,7 +235,7 @@ class MainWindow(QMainWindow):
             items = [combo_box.itemText(i) for i in range(combo_box.count())]
             sets.append({"items": items})
 
-        write_sets({"items": sets})
+        write_sets({"sets": sets})
 
     def on_add_new_set(self: Self, index: int) -> None:
         """Handle the comboBox item selection."""

@@ -12,7 +12,7 @@ def load_sets() -> dict[str, str]:
         return []
     
     with open(JOURNAL_SETS_PATH) as f:
-        return json.load(f).get("items", [])
+        return json.load(f).get("sets", [])
 
 def write_sets(sets: dict[str, Any]) -> None:
     """Write journal sets to the sets file."""
