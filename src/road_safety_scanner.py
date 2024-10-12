@@ -32,7 +32,7 @@ from .modules.journal_downloader.downloader import (
 )
 from .modules.journal_downloader.signal import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
-from .modules.llm.gpt.query import LLMClient
+from .modules.llm.query import OpenAIClient
 from .modules.llm.signal import QueryLLMThread
 
 
@@ -550,12 +550,12 @@ class MainWindow(QMainWindow):
 
     def setup_gpt_client(self: Self, api_key: str) -> None:
         """Set up the GPT client with the provided API key."""
-        self.gptClient = LLMClient("gpt-4o-mini", api_key)
+        self.gptClient = OpenAIClient("gpt-4o-mini", api_key)
 
     def setup_llama8b_client(self: Self, api_key: str) -> None:
         """Set up the Llama8b client with the provided API key."""
-        self.llama8bClient = LLMClient(
-            "meta-llama/Meta-Llama-3.1-8B-Instruct", api_key)
+        self.llama8bClient = OpenAIClient(
+            "meta-llama/Meta-Llama-3.1-8B-Instruct", api_key, url="https://api.deepinfra.com/v1/openai")
 
     def switch_to_page(self: Self, page_index: int) -> None:
         """For the fist page, we can disable the back button."""
