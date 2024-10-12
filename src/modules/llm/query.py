@@ -4,20 +4,19 @@ import json
 import os
 from typing import Self
 
-import pdfplumber
+# import pdfplumber
 from openai import OpenAI
 
-
-def extract_text_from_pdf(file_path: str) -> str:
-    """Extract text from a PDF file using pdfplumber."""
-    try:
-        text = ""
-        with pdfplumber.open(file_path) as pdf:
-            for page in pdf.pages:
-                text += page.extract_text()
-        return text
-    except Exception:
-        return ""
+# def extract_text_from_pdf(file_path: str) -> str:
+#     """Extract text from a PDF file using pdfplumber."""
+#     try:
+#         text = ""
+#         with pdfplumber.open(file_path) as pdf:
+#             for page in pdf.pages:
+#                 text += page.extract_text()
+#         return text
+#     except Exception:
+#         return ""
 
 class OpenAIClient:
     """A class to interact with the OpenAI GPT model using OpenAI's API."""
@@ -38,8 +37,8 @@ class OpenAIClient:
                 with open(file_path) as f:
                     file_content = json.load(f).get(
                         "full-text-retrieval-response", {}).get("originalText")
-            elif file_extension == ".pdf":
-                file_content = extract_text_from_pdf(file_path)
+            # elif file_extension == ".pdf":
+            #     file_content = extract_text_from_pdf(file_path)
             else:
                 return
 
