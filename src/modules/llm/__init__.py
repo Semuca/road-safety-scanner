@@ -1,6 +1,6 @@
 """Defines the module's public interface."""
 
-from .gpt.query import LLMClient
+from .query import OpenAIClient
 from .signal import QueryLLMThread
 
-__all__ = ["LLMClient", "QueryLLMThread"]
+__all__ = ["OpenAIClient", "QueryLLMThread"]

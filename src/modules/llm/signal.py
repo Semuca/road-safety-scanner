@@ -4,7 +4,7 @@ from typing import Self
 
 from PySide6.QtCore import QThread, Signal
 
-from .gpt.query import LLMClient
+from .query import OpenAIClient
 
 
 class QueryLLMThread(QThread):
@@ -13,7 +13,7 @@ class QueryLLMThread(QThread):
     progress_signal = Signal(int)
     finished_signal = Signal(object)
 
-    def __init__(self: Self, client: LLMClient,
+    def __init__(self: Self, client: OpenAIClient,
                  journals: list[str], queries: list[str]) -> None:
         """Initialize the QueryLLMThread."""
         super().__init__(None)
