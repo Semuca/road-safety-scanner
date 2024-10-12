@@ -22,7 +22,7 @@ def extract_text_from_pdf(file_path: str) -> str:
 class OpenAIClient:
     """A class to interact with the OpenAI GPT model using OpenAI's API."""
 
-    def __init__(self: Self, model: str, api_key: str, url: str) -> None:
+    def __init__(self: Self, model: str, api_key: str, url: str = None) -> None:
         """Set up the OpenAI client with the provided API key."""
         self.model = model
         self.client = OpenAI(api_key=api_key, base_url=url)

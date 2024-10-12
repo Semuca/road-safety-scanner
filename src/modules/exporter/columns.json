@@ -1,32 +1,20 @@
 {
     "columns": [
         {
-            "header": "Author",
-            "query": "Can you say the main author of the relevant article? Say nothing except the author." },
-        {
-            "header": "Article",
-            "query": "Can you say the title of the relevant article? Say nothing except the title." },
-        {
-            "header": "Journal",
-            "query": "Can you say the journal the article was published in? Say nothing except the journal." },
-        {
-            "header": "PageNum",
-            "query": "Can you say the page number of the relevant article in the journal? Say nothing except the page number." },    
-        {
             "header": "Setting",
-            "query": "Can you say a single country to describe the setting the journal is analyzing? Say nothing else except the country."},
+            "query": "Can you say a single country to describe the setting the journal is analyzing? Say nothing else except the country."
+        },
         {
             "header": "Type",
-            "query": "Can you say a maximum of 6 words to describe the type of data the journal is analyzing? Say nothing except the data type."},
+            "query": "Can you say a maximum of 6 words to describe the type of data the journal is analyzing? Say nothing except the data type."
+        },
         {
             "header": "Population",
-            "query": "Can you say a maximum of 6 words to describe the target population the journal is analyzing? Say nothing except the target population."},
+            "query": "Can you say a maximum of 6 words to describe the target population the journal is analyzing? Say nothing except the target population."
+        },
         {
             "header": "Summary",
-            "query": "Can you summarize the journal in a paragraph? Say nothing except the paragraph."},
-        {
-            "header": "DOI_URL",
-            "query": "Can you say the DOI URL of the article? Say nothing except the DOI URL." 
+            "query": "Can you summarize the journal in a paragraph? Say nothing except the paragraph."
         }
     ]
 }
