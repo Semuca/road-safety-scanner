@@ -629,6 +629,9 @@ class MainWindow(QMainWindow):
             query=query, limit=limit_value)
         self.querySignal.progress_signal.connect(self.on_query_update_progress)
         self.querySignal.finished_signal.connect(self.on_query_finished)
+
+        self.queryProgressDialog.canceled.connect(self.querySignal.terminate)
+
         self.querySignal.start()
 
 
@@ -712,6 +715,9 @@ f"""Retrieved {num_articles} articles
             api_key=self.keys.get("ELSEVIER_API_KEY"), dois=dois)
         self.downloadSignal.progress_signal.connect(self.on_download_progress)
         self.downloadSignal.finished_signal.connect(self.on_download_finished)
+
+        self.downloadProgressDialog.canceled.connect(self.downloadSignal.terminate)
+
         self.downloadSignal.start()
 
     def on_download_progress(self: Self, progress: int) -> None:
@@ -885,6 +891,9 @@ f"""Retrieved {num_articles} articles
         
         self.processSignal.progress_signal.connect(self.on_process_update_progress)
         self.processSignal.finished_signal.connect(self.on_process_finished)
+
+        self.processProgressDialog.canceled.connect(self.processSignal.terminate)
+
         self.processSignal.start()
 
         self.ui.resultsListTableWidget.setRowCount(0)
