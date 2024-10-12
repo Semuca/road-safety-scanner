@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, Mock, patch
 import pytest
 from pytestqt.qtbot import QtBot
 
-from modules.journal_downloader.signal import QueryElsevierThread
+from modules.journal_downloader.query_signal import QueryElsevierThread
 
 fixtures_dir = Path(__file__).parent.parent / "fixtures"
 

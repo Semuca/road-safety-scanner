@@ -34,8 +34,8 @@ class QueryLLMThread(QThread):
             row = []
 
             with open(journal) as f:
-                journal_coredata = json.load(f).get(
-                    "full-text-retrieval-response", {}).get("coredata", {})
+                journal_coredata = json.load(f)[
+                    "full-text-retrieval-response"]["coredata"]
             
                 row.append(journal_coredata["dc:creator"][0]["$"])
                 row.append(journal_coredata["dc:title"])

@@ -26,11 +26,12 @@ from .modules.exporter import (
     journal_responses_to_data_frame,
 )
 from .modules.GUI import Ui_Dialog
+from .modules.journal_downloader.download_signal import DownloadElsevierThread
 from .modules.journal_downloader.downloader import (
     JOURNALS_PATH,
-    download_journals,
+    DownloadJournalsResult,
 )
-from .modules.journal_downloader.signal import QueryElsevierThread
+from .modules.journal_downloader.query_signal import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
 from .modules.llm.query import OpenAIClient
 from .modules.llm.signal import PUBLICATION_COLUMNS, QueryLLMThread
@@ -714,15 +715,40 @@ f"""Retrieved {num_articles} articles
             self.ui.statusLabel.setText("No error log found.")
 
 
-    
+
     # Downloads the journals from the search page
     def on_download_journals(self: Self) -> None:
         """Download the journals from the Elsevier module."""
         dois = [queriedItem.doi for queriedItem in self.queryResults]
-        download_journals(self.keys["ELSEVIER_API_KEY"], dois)
+
+        # Create and start the download thread
+        self.downloadProgressDialog = QProgressDialog(
+            "Downloading...", "Cancel", 0, 100, self)
+        self.downloadProgressDialog.setWindowModality(Qt.WindowModal)
+        self.downloadProgressDialog.setAutoClose(True)
+        self.downloadProgressDialog.setValue(0)
+
+        # Pass the DOIs to the download thread
+        self.downloadSignal = DownloadElsevierThread(
+            api_key=self.keys.get("ELSEVIER_API_KEY"), dois=dois)
+        self.downloadSignal.progress_signal.connect(self.on_download_progress)
+        self.downloadSignal.finished_signal.connect(self.on_download_finished)
+        self.downloadSignal.start()
+
+    def on_download_progress(self: Self, progress: int) -> None:
+        """Update the progress of the download."""
+        self.downloadProgressDialog.setValue(progress)
         
-        self.upload_files([f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json"
-                           for doi in dois])
+    def on_download_finished(self: Self,
+                             download_results: DownloadJournalsResult) -> None:
+        """Update the search list table with the download results."""
+        self.downloadProgressDialog.close()
+
+        dois = []
+        for result in download_results.results:
+            dois.append(result["full-text-retrieval-response"]["coredata"]["prism:doi"]
+                        .replace("/", "-"))
+        self.upload_files([f"{JOURNALS_PATH}/{doi}.json" for doi in dois])
 
     def select_ai(self: Self) -> None:
         """Set the API key for the GPT model."""

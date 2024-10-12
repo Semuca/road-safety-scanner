@@ -1984,7 +1984,7 @@ QPushButton:Hover{
      <widget class="QPushButton" name="processJournalsButton">
       <property name="geometry">
        <rect>
-        <x>440</x>
+        <x>310</x>
         <y>40</y>
         <width>101</width>
         <height>41</height>
@@ -2062,7 +2062,7 @@ QPushButton:Checked{
      <widget class="QPushButton" name="exportResultsButton">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>440</x>
         <y>40</y>
         <width>101</width>
         <height>41</height>

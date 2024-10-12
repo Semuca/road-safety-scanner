@@ -917,7 +917,7 @@ class Ui_Dialog(object):
 "}")
         self.processJournalsButton = QPushButton(self.setFiltersOption)
         self.processJournalsButton.setObjectName(u"processJournalsButton")
-        self.processJournalsButton.setGeometry(QRect(440, 40, 101, 41))
+        self.processJournalsButton.setGeometry(QRect(310, 40, 101, 41))
         self.processJournalsButton.setStyleSheet(u"QPushButton{\n"
 "	color:white;\n"
 "	\n"
@@ -955,7 +955,7 @@ class Ui_Dialog(object):
         self.addColumnButton.setAutoExclusive(False)
         self.exportResultsButton = QPushButton(self.setFiltersOption)
         self.exportResultsButton.setObjectName(u"exportResultsButton")
-        self.exportResultsButton.setGeometry(QRect(310, 40, 101, 41))
+        self.exportResultsButton.setGeometry(QRect(440, 40, 101, 41))
         self.exportResultsButton.setStyleSheet(u"QPushButton{\n"
 "            color:white;\n"
 "            font: 700 10pt;\n"
