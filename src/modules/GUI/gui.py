@@ -1161,6 +1161,15 @@ class Ui_Dialog(object):
         self.saveSets.setChecked(False)
         self.saveSets.setAutoRepeat(False)
         self.saveSets.setAutoExclusive(True)
+        self.viewSetsSubtitle = QLabel(self.setsPage)
+        self.viewSetsSubtitle.setObjectName(u"viewSetsSubtitle")
+        self.viewSetsSubtitle.setGeometry(QRect(30, 40, 221, 20))
+        self.viewSetsSubtitle.setStyleSheet(u"QLabel{\n"
+"	color: rgb(113, 113, 113);\n"
+"	\n"
+"	font: 700 12pt\n"
+"	\n"
+"}")
         self.addNewSetWidget = QWidget(Dialog)
         self.addNewSetWidget.setObjectName(u"addNewSetWidget")
         self.addNewSetWidget.setEnabled(True)
@@ -1174,10 +1183,10 @@ class Ui_Dialog(object):
         self.addNewSetTitle.setObjectName(u"addNewSetTitle")
         self.addNewSetTitle.setGeometry(QRect(30, 10, 191, 41))
         self.addNewSetTitle.setStyleSheet(u"font: 700 16pt;")
-        self.newSubsetText = QLineEdit(self.addNewSetWidget)
-        self.newSubsetText.setObjectName(u"newSubsetText")
-        self.newSubsetText.setGeometry(QRect(140, 80, 331, 31))
-        self.newSubsetText.setStyleSheet(u"QLineEdit{\n"
+        self.newSetItemText = QLineEdit(self.addNewSetWidget)
+        self.newSetItemText.setObjectName(u"newSetItemText")
+        self.newSetItemText.setGeometry(QRect(140, 80, 331, 31))
+        self.newSetItemText.setStyleSheet(u"QLineEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	font: 12pt;\n"
 "	padding-left: 10px;\n"
@@ -1238,13 +1247,35 @@ class Ui_Dialog(object):
         self.authorLabel_2.setObjectName(u"authorLabel_2")
         self.authorLabel_2.setGeometry(QRect(30, 50, 61, 21))
         self.authorLabel_2.setStyleSheet(u"font: 700 12pt;")
-        self.authorLabel_3 = QLabel(self.addNewSetWidget)
-        self.authorLabel_3.setObjectName(u"authorLabel_3")
-        self.authorLabel_3.setGeometry(QRect(140, 50, 121, 21))
-        self.authorLabel_3.setStyleSheet(u"font: 700 12pt;")
-        self.setsPage.raise_()
-        self.editSetPage.raise_()
-        self.addNewSetWidget.raise_()
+        self.newSetItemLabel = QLabel(self.addNewSetWidget)
+        self.newSetItemLabel.setObjectName(u"newSetItemLabel")
+        self.newSetItemLabel.setGeometry(QRect(140, 50, 121, 21))
+        self.newSetItemLabel.setStyleSheet(u"font: 700 12pt;")
+        self.addSetItemButton = QPushButton(self.addNewSetWidget)
+        self.addSetItemButton.setObjectName(u"addSetItemButton")
+        self.addSetItemButton.setGeometry(QRect(490, 80, 91, 41))
+        self.addSetItemButton.setStyleSheet(u"QWidget{\n"
+"	background-color: rgb(8, 144, 196);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color:white;\n"
+"	font: 700 10pt;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	border: 2px solid rgb(56, 178, 224);\n"
+"	color: rgb(56, 177, 224);\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.addSetItemButton.setCheckable(True)
+        self.addSetItemButton.setChecked(False)
+        self.addSetItemButton.setAutoRepeat(False)
+        self.addSetItemButton.setAutoExclusive(True)
         self.menuBar.raise_()
         self.myQStackedWidget.raise_()
         self.backButton.raise_()
@@ -1365,13 +1396,15 @@ class Ui_Dialog(object):
         self.viewSetsTitle.setText(QCoreApplication.translate("Dialog", u"Journal sets", None))
         self.addJournalButton.setText(QCoreApplication.translate("Dialog", u"Add Set", None))
         self.saveSets.setText(QCoreApplication.translate("Dialog", u"Save", None))
+        self.viewSetsSubtitle.setText(QCoreApplication.translate("Dialog", u"Right click on a set for more options", None))
         self.addNewSetTitle.setText(QCoreApplication.translate("Dialog", u"Create new journal set", None))
-        self.newSubsetText.setText("")
-        self.newSubsetText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Add a new subset", None))
-        self.addSetOKButton.setText(QCoreApplication.translate("Dialog", u"Add", None))
+        self.newSetItemText.setText("")
+        self.newSetItemText.setPlaceholderText(QCoreApplication.translate("Dialog", u"Add a new set item", None))
+        self.addSetOKButton.setText(QCoreApplication.translate("Dialog", u"Add set", None))
         self.newSetTitle.setText("")
         self.newSetTitle.setPlaceholderText(QCoreApplication.translate("Dialog", u"Set Name", None))
         self.authorLabel_2.setText(QCoreApplication.translate("Dialog", u"Title", None))
-        self.authorLabel_3.setText(QCoreApplication.translate("Dialog", u"Subset String", None))
+        self.newSetItemLabel.setText(QCoreApplication.translate("Dialog", u"Item String", None))
+        self.addSetItemButton.setText(QCoreApplication.translate("Dialog", u"Add item", None))
     # retranslateUi
 

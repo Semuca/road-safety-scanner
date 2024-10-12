@@ -2505,6 +2505,27 @@ QPushButton:hover{
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="viewSetsSubtitle">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	color: rgb(113, 113, 113);
+	
+	font: 700 12pt
+	
+}</string>
+    </property>
+    <property name="text">
+     <string>Right click on a set for more options</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="addNewSetWidget" native="true">
    <property name="enabled">
@@ -2541,7 +2562,7 @@ QPushButton:hover{
      <string>Create new journal set</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="newSubsetText">
+   <widget class="QLineEdit" name="newSetItemText">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -2563,7 +2584,7 @@ QPushButton:hover{
      <string/>
     </property>
     <property name="placeholderText">
-     <string>Add a new subset</string>
+     <string>Add a new set item</string>
     </property>
    </widget>
    <widget class="QPushButton" name="addSetOKButton">
@@ -2596,7 +2617,7 @@ QPushButton:hover{
 </string>
     </property>
     <property name="text">
-     <string>Add</string>
+     <string>Add set</string>
     </property>
     <property name="checkable">
      <bool>true</bool>
@@ -2676,7 +2697,7 @@ QPushButton:hover{
      <string>Title</string>
     </property>
    </widget>
-   <widget class="QLabel" name="authorLabel_3">
+   <widget class="QLabel" name="newSetItemLabel">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -2689,13 +2710,55 @@ QPushButton:hover{
      <string notr="true">font: 700 12pt;</string>
     </property>
     <property name="text">
-     <string>Subset String</string>
+     <string>Item String</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addSetItemButton">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>80</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget{
+	background-color: rgb(8, 144, 196);
+}
+
+QPushButton{
+	color:white;
+	font: 700 10pt;
+	border: none;
+}
+
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(56, 178, 224);
+	color: rgb(56, 177, 224);
+}
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>Add item</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
-  <zorder>setsPage</zorder>
-  <zorder>editSetPage</zorder>
-  <zorder>addNewSetWidget</zorder>
   <zorder>menuBar</zorder>
   <zorder>myQStackedWidget</zorder>
   <zorder>backButton</zorder>
