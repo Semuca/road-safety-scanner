@@ -91,8 +91,7 @@ class MainWindow(QMainWindow):
         self.ui.setFiltersPage.setVisible(False)
         self.ui.setsPage.setVisible(False)
         self.ui.setFiltersCloseButton.clicked.connect(
-            lambda: self.ui.setFiltersPage.setVisible(
-                not self.ui.addColumnPage.isVisible()))
+            lambda: self.ui.setFiltersPage.setVisible(False))
         self.ui.addNewSetWidget.setVisible(False)
         self.ui.editSetPage.setVisible(False)
 
@@ -154,7 +153,8 @@ class MainWindow(QMainWindow):
         self.ui.searchElsevierJournals.clicked.connect(self.get_elsevier_query)
         self.ui.downloadElsevierJournals.clicked.connect(self.on_download_journals)
         self.ui.setFiltersButton.clicked.connect(
-            lambda: self.ui.setFiltersPage.setVisible(True))
+            lambda: self.ui.setFiltersPage.setVisible(
+                not self.ui.setFiltersPage.isVisible()))
         self.ui.processJournalsButton.clicked.connect(self.process_journals)
 
         # Connect global next and back buttons
@@ -195,7 +195,6 @@ class MainWindow(QMainWindow):
         self.ui.allJournalSets.setSizePolicy(QSizePolicy.Fixed,
                                              QSizePolicy.Fixed)
         self.ui.comboBox.activated.connect(self.on_add_new_set)
-        self.ui.setFiltersCloseButton.clicked.connect(self.get_set)
 
         # Hide the status label for the number of articles retrieved from
         # the search at the start
@@ -312,7 +311,8 @@ class MainWindow(QMainWindow):
 
         # Get text when user presses "Enter"
         self.ui.newSetTitle.returnPressed.connect(self.add_or_edit_title)
-        self.ui.newSubsetText.returnPressed.connect(self.add_subset_text)
+        self.ui.newSetItemText.returnPressed.connect(self.add_subset_text)
+        self.ui.addSetItemButton.clicked.connect(self.add_subset_text)
 
         # Save changes and close
         self.ui.addSetOKButton.clicked.connect(self.add_a_set)
@@ -468,7 +468,7 @@ class MainWindow(QMainWindow):
 
         # To avoid multiple connections
         self.ui.newSetTitle.returnPressed.disconnect(self.add_or_edit_title)
-        self.ui.newSubsetText.returnPressed.disconnect(self.add_subset_text)
+        self.ui.newSetItemText.returnPressed.disconnect(self.add_subset_text)
         self.ui.addSetOKButton.clicked.disconnect(self.add_a_set)
 
     def prevent_selection(self: Self, index: int) -> None:
@@ -493,7 +493,7 @@ class MainWindow(QMainWindow):
         """Clear all input fields and the list in Add a New Set page."""
         # Clear the text fields
         self.ui.newSetTitle.clear()
-        self.ui.newSubsetText.clear()
+        self.ui.newSetItemText.clear()
         self.ui.subsetList.clear()
         # Reset the title flag
         self.ui.title_set = False  # Reset title flag when clearing items
@@ -519,15 +519,15 @@ class MainWindow(QMainWindow):
 
     def add_subset_text(self: Self) -> None:
         """Add new text to the subsetList."""
-        subset_text = self.ui.newSubsetText.text().strip()
+        subset_text = self.ui.newSetItemText.text().strip()
         if not subset_text:
             return  # Don't add empty items
         # Append new item to the list
         subset_item = QListWidgetItem(subset_text)
         self.ui.subsetList.addItem(subset_item)
 
-        # Clear the newSubsetText field after adding
-        self.ui.newSubsetText.clear()
+        # Clear the newSetItemText field after adding
+        self.ui.newSetItemText.clear()
 
     def edit_subset_text(self: Self) -> None:
         """Edit the text of an item in the subsetList."""
