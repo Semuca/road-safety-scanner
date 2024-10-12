@@ -15,7 +15,7 @@ def mock_query_elsevier_thread() -> QueryElsevierThread:
     """Return a mock QueryElsevierThread object."""
     return QueryElsevierThread(api_key="api_key", query="query")
 
-@patch("modules.journal_downloader.signal.urllib.request.urlopen")
+@patch("modules.journal_downloader.query_signal.urllib.request.urlopen")
 def test_query_elsevier_thread(
     mock_urlopen: Mock,
     mock_query_elsevier_thread: QueryElsevierThread, 
