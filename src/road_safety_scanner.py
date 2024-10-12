@@ -529,6 +529,11 @@ class MainWindow(QMainWindow):
             self.ui.backButton.hide()
         else:
             self.ui.backButton.show()
+
+        if page_index == 4:
+            self.ui.nextButton.hide()
+        else:
+            self.ui.nextButton.show()
         
         """Switch to a specific page and update button states."""
         self.ui.myQStackedWidget.setCurrentIndex(page_index)
