@@ -28,7 +28,7 @@ class QueryLLMThread(QThread):
         self.max_workers = max_workers
 
         self.query_counter = 0
-        self.total_queries = len(self.journals) * len(self.queries)
+        self.total_queries = len(self.journals) * (len(self.queries) + 1)
 
     def run(self: Self) -> None:
         """Query the LLM with progress updates."""
