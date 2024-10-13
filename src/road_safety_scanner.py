@@ -4,10 +4,10 @@ import os
 import subprocess
 import sys
 from datetime import datetime
-from typing import Any, Callable, Self
+from typing import Any, Self
 
-from PySide6.QtCore import QDate, QRect, Qt
-from PySide6.QtGui import QIntValidator, QMouseEvent, QPainter
+from PySide6.QtCore import QDate, Qt
+from PySide6.QtGui import QColor, QIntValidator
 from PySide6.QtWidgets import (
     QComboBox,
     QFileDialog,
@@ -18,44 +18,28 @@ from PySide6.QtWidgets import (
     QProgressDialog,
     QSizePolicy,
     QTableWidgetItem,
-    QWidget,
 )
 
 from .modules.exporter import (
     export_to_csv,
     journal_responses_to_data_frame,
 )
+from .modules.exporter.columns import load_columns, set_columns
+from .modules.exporter.results_table_header import ResultsTableHeader
 from .modules.GUI import Ui_Dialog
-from .modules.journal_downloader.downloader import (
+from .modules.journal_downloader.constants import (
     JOURNALS_PATH,
-    download_journals,
 )
-from .modules.journal_downloader.signal import QueryElsevierThread
+from .modules.journal_downloader.download_signal import (
+    DownloadElsevierThread,
+    DownloadJournalsResult,
+)
+from .modules.journal_downloader.journal_sets import load_sets, write_sets
+from .modules.journal_downloader.query_signal import QueryElsevierThread
 from .modules.keys.keys import load_keys, set_key
 from .modules.llm.query import OpenAIClient
 from .modules.llm.signal import PUBLICATION_COLUMNS, QueryLLMThread
 
-
-class ResultsTableHeader(QHeaderView):
-    """Custom header class for the results table."""
-
-    def __init__(self: Self, orientation: Qt.Orientation, parent: QWidget,
-                 on_clicked:Callable[[int], None] = lambda: None) -> None:
-        """Initialize the custom header."""
-        super().__init__(orientation, parent)
-        self.setSectionsClickable(True)
-
-        self.on_clicked = on_clicked
-
-    def paintSection(self: Self, painter: QPainter, rect: QRect, # noqa: N802
-                     logical_index: int) -> None: 
-        """Paint the section of the header."""
-        super().paintSection(painter, rect, logical_index)
-
-    def mouseReleaseEvent(self: Self, event: QMouseEvent) -> None: # noqa: N802
-        """Handle the mouse release event."""
-        super().mouseReleaseEvent(event)
-        self.on_clicked(self.logicalIndexAt(event.position().toPoint()))
 
 class MainWindow(QMainWindow):
     """Main window class for the Road Safety Scanner application."""
@@ -112,10 +96,7 @@ class MainWindow(QMainWindow):
         self.ui.deleteColumnButton.clicked.connect(
             lambda: self.delete_column(self.editingColumn))
         
-        with open("src/modules/exporter/columns.json") as columns_file:
-            raw_columns = json.loads(columns_file.read())["columns"]
-            self.queryColumns = [(column["header"], column["query"])
-                                 for column in raw_columns]
+        self.queryColumns = load_columns()
         self.build_results_table()
 
         # Connect menu buttons to their respective functions
@@ -177,13 +158,8 @@ class MainWindow(QMainWindow):
         # Connect the export button to the handleExport function
         self.ui.exportResultsButton.clicked.connect(self.handle_export)
 
-        # If sets.json does not exists then it creates an empty .json file
-        file_path = "src/modules/GUI/sets.json"
-        if not os.path.exists(file_path):
-            with open(file_path, "w") as json_file:
-                json.dump([], json_file)
-        # Load pre-existing sets from sets.json
-        self.load_sets_from_json()
+        # Load pre-existing sets
+        self.load_sets()
 
         self.ui.title_set = False
         # Open the "Create New Set" page when "New Set" button is clicked
@@ -213,29 +189,26 @@ class MainWindow(QMainWindow):
 
     def get_set(self: Self) -> None:
         """Return full Set items when called."""
-        sets_file = "src/modules/GUI/sets.json"
-        with open (sets_file) as file:
-            sets = json.load(file)
+        sets = load_sets()
 
         selected_set = self.ui.comboBox.currentText()
-        for a_set in sets:
-            if a_set["items"][0] == selected_set:
-                return a_set["items"]  # Return the entire list
+        for single_set in sets:
+            if single_set["items"][0] == selected_set:
+                return single_set["items"]  # Return the entire list
             
         # Shouldn't reach here but if match is not found return empty list
         return []
 
 
-    def load_sets_from_json(self: Self) -> None:
+    def load_sets(self: Self) -> None:
         """Load sets from the JSON file and pre-populate allJournalSets page."""
-        with open("src/modules/GUI/sets.json") as f:
-            data = json.load(f)
+        sets = load_sets()
 
         # Clear existing items in allJournalSets if necessary
         self.ui.allJournalSets.clear()
 
         # Create combo boxes from loaded data
-        for set_data in data:
+        for set_data in sets:
             combo_box = QComboBox()
             combo_box.setFixedWidth(440)
             for item in set_data["items"]: 
@@ -255,7 +228,6 @@ class MainWindow(QMainWindow):
 
     def save_sets(self: Self) -> None:
         """Save the current journal sets to sets.json file."""
-        file_path = "src/modules/GUI/sets.json"
         sets = []
         for index in range(self.ui.allJournalSets.count()):
             list_item = self.ui.allJournalSets.item(index)
@@ -264,10 +236,8 @@ class MainWindow(QMainWindow):
             # Get all the items from the combo box
             items = [combo_box.itemText(i) for i in range(combo_box.count())]
             sets.append({"items": items})
-        with open(file_path, "w") as json_file:
-            json.dump(sets, json_file)
 
-
+        write_sets({"sets": sets})
 
     def on_add_new_set(self: Self, index: int) -> None:
         """Handle the comboBox item selection."""
@@ -561,6 +531,11 @@ class MainWindow(QMainWindow):
             self.ui.backButton.hide()
         else:
             self.ui.backButton.show()
+
+        if page_index == 4:
+            self.ui.nextButton.hide()
+        else:
+            self.ui.nextButton.show()
         
         """Switch to a specific page and update button states."""
         self.ui.myQStackedWidget.setCurrentIndex(page_index)
@@ -619,12 +594,20 @@ class MainWindow(QMainWindow):
         # Get the additional keywords
         title_words = self.ui.titleWords.text()
         if title_words != "":
-            query_parts.append(f"TITLE({title_words})")
+            for title_word in title_words.split(","):
+                query_parts.append(f"TITLE({title_word})")
 
         # Get the country setting
         setting = self.ui.setting.text()
         if setting != "":
             query_parts.append(f"AFFILCOUNTRY({setting})")
+
+        # Get the journals from the journal sets
+        selected_set = self.get_set()
+        if selected_set:
+            selected_set_query = " OR ".join(
+                [f"SRCTITLE({journal})" for journal in selected_set])
+            query_parts.append(f"({selected_set_query})")
 
         # Build the final query
         query = " AND ".join(query_parts)
@@ -649,6 +632,9 @@ class MainWindow(QMainWindow):
             query=query, limit=limit_value)
         self.querySignal.progress_signal.connect(self.on_query_update_progress)
         self.querySignal.finished_signal.connect(self.on_query_finished)
+
+        self.queryProgressDialog.canceled.connect(self.querySignal.terminate)
+
         self.querySignal.start()
 
 
@@ -714,14 +700,69 @@ f"""Retrieved {num_articles} articles
             self.ui.statusLabel.setText("No error log found.")
 
 
-    
+
     # Downloads the journals from the search page
     def on_download_journals(self: Self) -> None:
         """Download the journals from the Elsevier module."""
         dois = [queriedItem.doi for queriedItem in self.queryResults]
-        download_journals(self.keys["ELSEVIER_API_KEY"], dois)
+
+        # Create and start the download thread
+        self.downloadProgressDialog = QProgressDialog(
+            "Downloading...", "Cancel", 0, 100, self)
+        self.downloadProgressDialog.setWindowModality(Qt.WindowModal)
+        self.downloadProgressDialog.setAutoClose(True)
+        self.downloadProgressDialog.setValue(0)
+
+        # Pass the DOIs to the download thread
+        self.downloadSignal = DownloadElsevierThread(
+            api_key=self.keys.get("ELSEVIER_API_KEY"), dois=dois)
+        self.downloadSignal.progress_signal.connect(self.on_download_progress)
+        self.downloadSignal.finished_signal.connect(self.on_download_finished)
+
+        self.downloadProgressDialog.canceled.connect(self.downloadSignal.terminate)
+
+        self.downloadSignal.start()
+
+    def on_download_progress(self: Self, progress: int) -> None:
+        """Update the progress of the download."""
+        self.downloadProgressDialog.setValue(progress)
         
-        self.upload_files([f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json"
+    def on_download_finished(self: Self,
+                             download_results: DownloadJournalsResult) -> None:
+        """Update the search list table with the download results."""
+        self.downloadProgressDialog.close()
+
+        self.ui.statusLabel.setVisible(True)
+        self.ui.statusLabel.setText(
+f"""Downloaded {len(download_results.results)} articles
+From {len(self.queryResults)} articles""")
+        
+        # Highlight rows with errors
+        for row in range(self.ui.searchListTableWidget.rowCount()):
+            doi = self.ui.searchListTableWidget.item(row, 2).text()
+
+            # Find if error exists
+            errors = [error for error
+                      in download_results.errors if error.get("doi") == doi]
+            first_error = errors[0] if errors else None
+            if first_error is None:
+                continue
+            
+            error_status = first_error["error"]["service-error"]["status"]
+            error_status_code = error_status["statusCode"]
+            error_status_text = error_status["statusText"]
+            tool_tip_text = f"{error_status_code}: {error_status_text}"
+            
+            for col in range(self.ui.searchListTableWidget.columnCount()):
+                item = self.ui.searchListTableWidget.item(row, col)
+                item.setBackground(QColor(255, 102, 102))
+                item.setToolTip(tool_tip_text)
+
+        dois = []
+        for result in download_results.results:
+            dois.append(result["full-text-retrieval-response"]["coredata"]["prism:doi"])
+            
+        self.upload_files([f"{JOURNALS_PATH}/{doi.replace("/", "-")}.json"
                            for doi in dois])
 
     def select_ai(self: Self) -> None:
@@ -730,21 +771,7 @@ f"""Retrieved {num_articles} articles
 
         # Update the currentlyAI label to display the selected AI
         self.ui.currentlyAI.setText(f"Current AI: {clicked_button.text()}")
-
-        # Set the API key based on the button clicked
-        if clicked_button == self.ui.pushButton_ChatGpt:
-            self.selected_ai = self.gptClient
-            return
-        
-        if clicked_button == self.ui.pushButton_Llama8b:
-            self.selected_ai = self.llama8bClient
-            return
-        
-        if clicked_button == self.ui.pushButton_Llama405b:
-            return
-        
-        if clicked_button == self.ui.pushButton_ClaudeSonnet:
-            return
+        self.selected_ai = clicked_button.text()
         
     def open_file(self: Self) -> None:
         """Open a file dialog and display the selected file path."""
@@ -783,6 +810,7 @@ f"""Retrieved {num_articles} articles
         
         records = data["full-text-retrieval-response"]
         authors = records["coredata"]["dc:creator"]
+        authors = authors if isinstance(authors, list) else [authors]
         type_ = records["coredata"]["prism:aggregationType"]
         date = records["coredata"]["prism:coverDate"]
         title = records["coredata"]["dc:title"]
@@ -813,8 +841,9 @@ f"""Retrieved {num_articles} articles
         """Add a column to the results table."""
         self.queryColumns.append((self.ui.addColumnHeaderEntry.text(),
                                   self.ui.addColumnQueryText.toPlainText()))
-        self.build_results_table()
+        set_columns(self.queryColumns)
 
+        self.build_results_table()
         self.close_add_column()
 
     def close_add_column(self: Self) -> None:
@@ -840,15 +869,17 @@ f"""Retrieved {num_articles} articles
         self.queryColumns[self.editingColumn] = (
             self.ui.editColumnHeaderEntry.text(),
             self.ui.editColumnQueryText.toPlainText())
-        self.build_results_table()
+        set_columns(self.queryColumns)
 
+        self.build_results_table()
         self.close_edit_column()
 
     def delete_column(self: Self, column_index: int) -> None:
         """Delete a column from the results table."""
         self.queryColumns.pop(column_index)
-        self.build_results_table()
+        set_columns(self.queryColumns)
 
+        self.build_results_table()
         self.close_edit_column()
 
     def close_edit_column(self: Self) -> None:
@@ -861,6 +892,12 @@ f"""Retrieved {num_articles} articles
 
     def process_journals(self: Self) -> None:
         """Process the uploaded journals using the selected AI model."""
+        # Set the API client based on the selected AI
+        if self.selected_ai == "GPT-4o mini":
+            ai_client = self.gptClient
+        elif self.selected_ai == "Llama 3.1-8B":
+            ai_client = self.llama8bClient
+
         self.processProgressDialog = QProgressDialog(
             "Processing...","Cancel", 0, 100, self)
         
@@ -869,12 +906,15 @@ f"""Retrieved {num_articles} articles
         self.processProgressDialog.setValue(0)
 
         self.processSignal = QueryLLMThread(
-            client=self.selected_ai,
+            client=ai_client,
             journals=self.uploadedJournals,
             queries=[query for header, query in self.queryColumns])
         
         self.processSignal.progress_signal.connect(self.on_process_update_progress)
         self.processSignal.finished_signal.connect(self.on_process_finished)
+
+        self.processProgressDialog.canceled.connect(self.processSignal.terminate)
+
         self.processSignal.start()
 
         self.ui.resultsListTableWidget.setRowCount(0)

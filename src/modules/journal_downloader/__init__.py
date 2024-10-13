@@ -1,13 +1,13 @@
 """Defines the module's public interface."""
-from .downloader import (
-    clear_journals,
+from .constants import ELSEVIER_API, JOURNALS_PATH
+from .download_signal import (
+    DownloadElsevierThread,
+    DownloadJournalsResult,
     download_journal,
-    download_journals,
-    get_journal,
-    get_journals,
 )
-from .signal import QueryElsevierThread
+from .journal_sets import load_sets, write_sets
+from .query_signal import QueryElsevierThread
 
-__all__ = ["download_journal", "download_journals",
-           "get_journals", "get_journal",
-           "clear_journals", "QueryElsevierThread"]
+__all__ = ["ELSEVIER_API", "JOURNALS_PATH", "DownloadElsevierThread",
+           "DownloadJournalsResult", "download_journal", "load_sets",
+           "write_sets", "QueryElsevierThread"]

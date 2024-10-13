@@ -3,16 +3,22 @@
         "AFFILCOUNTRY",
         "coredata",
         "dataframe",
+        "docstrings",
         "dois",
         "Elsevier",
         "levelname",
+        "micromamba",
         "openai",
         "opensearch",
         "pdfplumber",
+        "pyside",
         "pytestqt",
         "qtbot",
         "REFPUBYEAR",
-        "scopus"
+        "rsas",
+        "scopus",
+        "SRCTITLE",
+        "startfile"
     ],
     "python.analysis.extraPaths": ["./src"],
 }

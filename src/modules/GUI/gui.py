@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'GUI.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -753,7 +753,7 @@ class Ui_Dialog(object):
         self.addColumnQueryText = QPlainTextEdit(self.addColumnPage)
         self.addColumnQueryText.setObjectName(u"addColumnQueryText")
         self.addColumnQueryText.setGeometry(QRect(50, 160, 511, 181))
-        self.addColumnQueryText.viewport().setProperty("cursor", QCursor(Qt.CursorShape.IBeamCursor))
+        self.addColumnQueryText.viewport().setProperty(u"cursor", QCursor(Qt.CursorShape.IBeamCursor))
         self.addColumnQueryText.setMouseTracking(True)
         self.addColumnQueryText.setStyleSheet(u"QPlainTextEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -827,7 +827,7 @@ class Ui_Dialog(object):
         self.editColumnQueryText = QPlainTextEdit(self.editColumnPage)
         self.editColumnQueryText.setObjectName(u"editColumnQueryText")
         self.editColumnQueryText.setGeometry(QRect(50, 160, 511, 181))
-        self.editColumnQueryText.viewport().setProperty("cursor", QCursor(Qt.CursorShape.IBeamCursor))
+        self.editColumnQueryText.viewport().setProperty(u"cursor", QCursor(Qt.CursorShape.IBeamCursor))
         self.editColumnQueryText.setMouseTracking(True)
         self.editColumnQueryText.setStyleSheet(u"QPlainTextEdit{\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -917,7 +917,7 @@ class Ui_Dialog(object):
 "}")
         self.processJournalsButton = QPushButton(self.setFiltersOption)
         self.processJournalsButton.setObjectName(u"processJournalsButton")
-        self.processJournalsButton.setGeometry(QRect(440, 40, 101, 41))
+        self.processJournalsButton.setGeometry(QRect(310, 40, 101, 41))
         self.processJournalsButton.setStyleSheet(u"QPushButton{\n"
 "	color:white;\n"
 "	\n"
@@ -955,7 +955,7 @@ class Ui_Dialog(object):
         self.addColumnButton.setAutoExclusive(False)
         self.exportResultsButton = QPushButton(self.setFiltersOption)
         self.exportResultsButton.setObjectName(u"exportResultsButton")
-        self.exportResultsButton.setGeometry(QRect(310, 40, 101, 41))
+        self.exportResultsButton.setGeometry(QRect(440, 40, 101, 41))
         self.exportResultsButton.setStyleSheet(u"QPushButton{\n"
 "            color:white;\n"
 "            font: 700 10pt;\n"
@@ -1172,7 +1172,7 @@ class Ui_Dialog(object):
         self.saveSets.setAutoExclusive(True)
         self.viewSetsSubtitle = QLabel(self.setsPage)
         self.viewSetsSubtitle.setObjectName(u"viewSetsSubtitle")
-        self.viewSetsSubtitle.setGeometry(QRect(30, 40, 221, 20))
+        self.viewSetsSubtitle.setGeometry(QRect(30, 40, 441, 20))
         self.viewSetsSubtitle.setStyleSheet(u"QLabel{\n"
 "	color: rgb(113, 113, 113);\n"
 "	\n"
@@ -1295,7 +1295,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(4)
+        self.myQStackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -1349,7 +1349,7 @@ class Ui_Dialog(object):
         ___qtablewidgetitem1 = self.searchListTableWidget.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Dialog", u"TITLE", None));
         ___qtablewidgetitem2 = self.searchListTableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"DOI", None));
         ___qtablewidgetitem3 = self.searchListTableWidget.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.statusLabel.setText(QCoreApplication.translate("Dialog", u"Text Label", None))
@@ -1367,7 +1367,7 @@ class Ui_Dialog(object):
         ___qtablewidgetitem5 = self.journalListTableWidget.horizontalHeaderItem(1)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("Dialog", u"TITLE", None));
         ___qtablewidgetitem6 = self.journalListTableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("Dialog", u"DOI", None));
         ___qtablewidgetitem7 = self.journalListTableWidget.horizontalHeaderItem(3)
         ___qtablewidgetitem7.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.addColumnCancelButton.setText(QCoreApplication.translate("Dialog", u"Cancel", None))
