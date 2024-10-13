@@ -16,7 +16,9 @@
         "qtbot",
         "REFPUBYEAR",
         "rsas",
-        "scopus"
+        "scopus",
+        "SRCTITLE",
+        "startfile"
     ],
     "python.analysis.extraPaths": ["./src"],
 }

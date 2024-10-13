@@ -771,21 +771,7 @@ From {len(self.queryResults)} articles""")
 
         # Update the currentlyAI label to display the selected AI
         self.ui.currentlyAI.setText(f"Current AI: {clicked_button.text()}")
-
-        # Set the API key based on the button clicked
-        if clicked_button == self.ui.pushButton_ChatGpt:
-            self.selected_ai = self.gptClient
-            return
-        
-        if clicked_button == self.ui.pushButton_Llama8b:
-            self.selected_ai = self.llama8bClient
-            return
-        
-        if clicked_button == self.ui.pushButton_Llama405b:
-            return
-        
-        if clicked_button == self.ui.pushButton_ClaudeSonnet:
-            return
+        self.selected_ai = clicked_button.text()
         
     def open_file(self: Self) -> None:
         """Open a file dialog and display the selected file path."""
@@ -906,6 +892,12 @@ From {len(self.queryResults)} articles""")
 
     def process_journals(self: Self) -> None:
         """Process the uploaded journals using the selected AI model."""
+        # Set the API client based on the selected AI
+        if self.selected_ai == "GPT-4o mini":
+            ai_client = self.gptClient
+        elif self.selected_ai == "Llama 3.1-8B":
+            ai_client = self.llama8bClient
+
         self.processProgressDialog = QProgressDialog(
             "Processing...","Cancel", 0, 100, self)
         
@@ -914,7 +906,7 @@ From {len(self.queryResults)} articles""")
         self.processProgressDialog.setValue(0)
 
         self.processSignal = QueryLLMThread(
-            client=self.selected_ai,
+            client=ai_client,
             journals=self.uploadedJournals,
             queries=[query for header, query in self.queryColumns])
         

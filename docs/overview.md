@@ -48,4 +48,4 @@ run.py                              Running this will start the application
 4. (Optional) Add the functionality needed by your new GUI in road_safety_scanner.py
 
 ### How do I add an AI?
-1. If your AI is supported by the openai python library, then it should be as simple as adding it's OpenAIClient entry to the select_ai function in road_safety_scanner. See setup_gpt_client and setup_llama8b_client functions for examples on how to set up an OpenAIClient.
+1. If your AI is supported by the openai python library, then it should be as simple as adding it's OpenAIClient entry to the process_journals function in road_safety_scanner. See setup_gpt_client and setup_llama8b_client functions for examples on how to set up an OpenAIClient.
