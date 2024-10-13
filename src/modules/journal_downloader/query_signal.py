@@ -10,8 +10,8 @@ from typing import Self
 
 from PySide6.QtCore import QThread, Signal
 
-from .downloader import (
-    elsevier_api,
+from .constants import (
+    ELSEVIER_API,
 )
 
 
@@ -56,7 +56,7 @@ class QueryElsevierThread(QThread):
         """Query the Elsevier API with progress updates."""
         query = urllib.parse.quote(self.query)
         request = urllib.request.Request(
-            f"{elsevier_api}/search/scopus?query={query}",
+            f"{ELSEVIER_API}/search/scopus?query={query}",
             headers={"Accept": "application/json", "X-ELS-APIKey": self.apiKey})
 
         results = []
@@ -77,7 +77,7 @@ class QueryElsevierThread(QThread):
                 # Adjust the start position for pagination,
                 # considering the current number of results fetched
                 request = urllib.request.Request(
-                    f"{elsevier_api}/search/scopus?query={query}&start={len(results)}",
+                    f"{ELSEVIER_API}/search/scopus?query={query}&start={len(results)}",
                     headers={"Accept": "application/json",
                              "X-ELS-APIKey": self.apiKey})
 

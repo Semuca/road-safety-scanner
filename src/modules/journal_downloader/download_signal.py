@@ -1,13 +1,36 @@
 """Signals for updating the download progress bar in the GUI."""
 
+import json
 import os
 import time
-from typing import Self
+import urllib
+from typing import Any, Self
 
 from PySide6.QtCore import QThread, Signal
 
-from .downloader import JOURNALS_PATH, DownloadJournalsResult, download_journal
+from .constants import ELSEVIER_API, JOURNALS_PATH
 
+
+def download_journal(api_key: str, doi: str) -> dict[str, Any]:
+    """Download a journal from the Elsevier API."""
+    request = urllib.request.Request(f"{ELSEVIER_API}/article/doi/{doi}",
+                headers={"Accept": "application/json", "X-ELS-APIKey": api_key})
+    journal = urllib.request.urlopen(request).read().decode("utf-8")
+
+    with open(f"{JOURNALS_PATH}/{doi.replace('/', '-')}.json",
+              "w", encoding="utf-8") as f:
+        f.write(journal)
+
+    return json.loads(journal)
+
+class DownloadJournalsResult:
+    """A result from downloading journals from the Elsevier API."""
+    
+    def __init__(self: Self, results: list[dict[str, Any]],
+                 errors: list[dict[str, str]]) -> None:
+        """Initialize the DownloadJournalsResult."""
+        self.results = results
+        self.errors = errors
 
 class DownloadElsevierThread(QThread):
     """A thread for downloading journal articles from the Elsevier API."""

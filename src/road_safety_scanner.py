@@ -27,9 +27,11 @@ from .modules.exporter import (
 from .modules.exporter.columns import load_columns, set_columns
 from .modules.exporter.results_table_header import ResultsTableHeader
 from .modules.GUI import Ui_Dialog
-from .modules.journal_downloader.download_signal import DownloadElsevierThread
-from .modules.journal_downloader.downloader import (
+from .modules.journal_downloader.constants import (
     JOURNALS_PATH,
+)
+from .modules.journal_downloader.download_signal import (
+    DownloadElsevierThread,
     DownloadJournalsResult,
 )
 from .modules.journal_downloader.journal_sets import load_sets, write_sets
