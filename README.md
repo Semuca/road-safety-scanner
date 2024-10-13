@@ -126,4 +126,4 @@ Once we're happy with our columns, we can press the 'Process' button to process 
 
 Finally, we can export our results into a CSV by pressing the 'Download' button.
 
-<img src="docs/images/results/results_csv.png" alt="Downloaded CSV file" height="600">
+<img src="docs/images/results/results_csv.png" alt="Downloaded CSV file">
