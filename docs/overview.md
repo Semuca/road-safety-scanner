@@ -1,8 +1,8 @@
 # System documentation
 This file provides a succinct, high-level overview of the system design. Exact implementation details can be found by reading the system files, which are annotated with docstrings and written to be human readable.
 
-## Vocabulary
-Signal - Procedure that runs which sends updates with it's progress status
+### Minor vocabulary note
+Signal - Procedure that runs which sends updates with it's progress status.
 
 ## File overview
 ```
