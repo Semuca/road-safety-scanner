@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import Any, Self
 
 from PySide6.QtCore import QDate, Qt
-from PySide6.QtGui import QIntValidator
+from PySide6.QtGui import QColor, QIntValidator
 from PySide6.QtWidgets import (
     QComboBox,
     QFileDialog,
@@ -731,6 +731,32 @@ f"""Retrieved {num_articles} articles
                              download_results: DownloadJournalsResult) -> None:
         """Update the search list table with the download results."""
         self.downloadProgressDialog.close()
+
+        self.ui.statusLabel.setVisible(True)
+        self.ui.statusLabel.setText(
+f"""Downloaded {len(download_results.results)} articles
+From {len(self.queryResults)} articles""")
+        
+        # Highlight rows with errors
+        for row in range(self.ui.searchListTableWidget.rowCount()):
+            doi = self.ui.searchListTableWidget.item(row, 2).text()
+
+            # Find if error exists
+            errors = [error for error
+                      in download_results.errors if error.get("doi") == doi]
+            first_error = errors[0] if errors else None
+            if first_error is None:
+                continue
+            
+            error_status = first_error["error"]["service-error"]["status"]
+            error_status_code = error_status["statusCode"]
+            error_status_text = error_status["statusText"]
+            tool_tip_text = f"{error_status_code}: {error_status_text}"
+            
+            for col in range(self.ui.searchListTableWidget.columnCount()):
+                item = self.ui.searchListTableWidget.item(row, col)
+                item.setBackground(QColor(255, 102, 102))
+                item.setToolTip(tool_tip_text)
 
         dois = []
         for result in download_results.results:

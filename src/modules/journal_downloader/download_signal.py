@@ -60,7 +60,8 @@ class DownloadElsevierThread(QThread):
             try:
                 results.append(download_journal(self.api_key, doi))
             except Exception as e:
-                errors.append({"doi": doi, "error": e.read().decode()})
+                errors.append(
+                    {"doi": doi, "error": json.loads(e.read().decode())})
             time.sleep(self.wait_between_requests)
 
         self.finished_signal.emit(DownloadJournalsResult(results, errors))

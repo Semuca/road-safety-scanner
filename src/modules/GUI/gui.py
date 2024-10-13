@@ -1295,7 +1295,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.myQStackedWidget.setCurrentIndex(0)
+        self.myQStackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -1349,7 +1349,7 @@ class Ui_Dialog(object):
         ___qtablewidgetitem1 = self.searchListTableWidget.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Dialog", u"TITLE", None));
         ___qtablewidgetitem2 = self.searchListTableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"DOI", None));
         ___qtablewidgetitem3 = self.searchListTableWidget.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.statusLabel.setText(QCoreApplication.translate("Dialog", u"Text Label", None))
@@ -1367,7 +1367,7 @@ class Ui_Dialog(object):
         ___qtablewidgetitem5 = self.journalListTableWidget.horizontalHeaderItem(1)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("Dialog", u"TITLE", None));
         ___qtablewidgetitem6 = self.journalListTableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("Dialog", u"TYPE", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("Dialog", u"DOI", None));
         ___qtablewidgetitem7 = self.journalListTableWidget.horizontalHeaderItem(3)
         ___qtablewidgetitem7.setText(QCoreApplication.translate("Dialog", u"DATE", None));
         self.addColumnCancelButton.setText(QCoreApplication.translate("Dialog", u"Cancel", None))

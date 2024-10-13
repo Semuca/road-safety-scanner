@@ -295,7 +295,7 @@ QPushButton:Checked{
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="keysPage">
     <widget class="QWidget" name="keysList" native="true">
@@ -1134,7 +1134,7 @@ font: 700 12pt</string>
       </column>
       <column>
        <property name="text">
-        <string>TYPE</string>
+        <string>DOI</string>
        </property>
       </column>
       <column>
@@ -1461,7 +1461,7 @@ font: 700 12pt</string>
       </column>
       <column>
        <property name="text">
-        <string>TYPE</string>
+        <string>DOI</string>
        </property>
       </column>
       <column>
