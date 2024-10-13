@@ -594,7 +594,8 @@ class MainWindow(QMainWindow):
         # Get the additional keywords
         title_words = self.ui.titleWords.text()
         if title_words != "":
-            query_parts.append(f"TITLE({title_words})")
+            for title_word in title_words.split(","):
+                query_parts.append(f"TITLE({title_word})")
 
         # Get the country setting
         setting = self.ui.setting.text()

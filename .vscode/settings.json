@@ -15,6 +15,7 @@
         "pytestqt",
         "qtbot",
         "REFPUBYEAR",
+        "rsas",
         "scopus"
     ],
     "python.analysis.extraPaths": ["./src"],

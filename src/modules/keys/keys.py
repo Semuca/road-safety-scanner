@@ -12,7 +12,7 @@ def load_keys() -> dict[str, str]:
     global keys
 
     if not os.path.exists(KEYS_PATH):
-        return {}
+        return keys
     
     with open(KEYS_PATH) as f:
         keys = json.load(f)
@@ -21,6 +21,7 @@ def load_keys() -> dict[str, str]:
 
 def set_key(key: str, value: str) -> None:
     """Set a key in the keys file."""
+    global keys
     keys[key] = value
 
     with open(KEYS_PATH, "w", encoding="utf-8") as f:

@@ -1,25 +1,10 @@
 # Road safety scanner
+This project's goal is to provide a system that allows users to download journals from services such as Elsevier and analyze them using various AIs like ChatGPT or Llama. While the main focus is for road safety journals, the app poses no restrictions what type of journal can be searched for.
 
-### Environment setup
-Using micromamba you should be able to read the environment.yaml file as `micromamba env create -f environment.yaml`.
+## Installation guide
+1. Clone this project onto your machine
+2. Install your python environment manager. If you don't have one, we recommend installing [micromamba.](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
+3. Set up your environment by running `micromamba env create -f environment.yaml`. If using conda or mamba, swap out 'micromamba' for the respective environment manager name. Be sure to activate your environment with `micromamba activate rsas_env`.
+4. Run the project with `python run.py`. Make sure the python version being referenced is the one installed by micromamba.
 
-You should then be able to activate the environment with `micromamba activate rsas_env`.
-
-Then, packages can be added with `micromamba install -c conda-forge x`
-
-Finally, the environment can be exported with `micromamba env export --no-build > environment.yaml`
-
-Instructions for installing micromamba are here: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
-
-## Environment setup for Windows
-Conda-forge does not support ImageMagick binaries for Windows, which pdfPlumber requires. To get around this, install pdfplumber through pip by running `pip install pdfplumber`
-
-### Using QT Designer
-
-First, open GUI.ui in QT Designer. After making your changes, run `pyside6-uic -o ./modules/GUI/gui.py ./modules/GUI/GUI.ui` to turn it into a python ui file. This requires PySide6 to be installed first, which can be done either through the environment set up above or through pip.
-
-### Linting
-This project uses ruff to lint. Make sure `ruff check` returns no errors before making a pull request
-
-### Using APIs
-API keys should be read from your environment variables, and can be added to the program via the constants.py file
+## User guide
